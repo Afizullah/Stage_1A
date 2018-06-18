@@ -19,7 +19,9 @@ SET time_zone = "+00:00";
 --
 -- Base de données :  `livret`
 --
+CREATE DATABASE Livret;
 
+USE Livret;
 -- --------------------------------------------------------
 
 --
