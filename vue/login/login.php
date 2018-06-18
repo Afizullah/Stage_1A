@@ -10,13 +10,10 @@
 				<div class="sp-logo-wrap pull-left">
 					<a href="index.html">
 						<img class="brand-img mr-10" src="https://hencework.com/theme/grandin-demo/img/logo.png" alt="brand"/>
-						<span class="brand-text">Grandin</span>
+						<span class="brand-text"><?php echo APP_NAME; ?></span>
 					</a>
 				</div>
-				<div class="form-group mb-0 pull-right">
-					<span class="inline-block pr-10">Don't have an account?</span>
-					<a class="inline-block btn btn-primary  btn-rounded" href="signup.html">Sign Up</a>
-				</div>
+
 				<div class="clearfix"></div>
 			</header>
 
@@ -30,31 +27,31 @@
 								<div class="row">
 									<div class="col-sm-12 col-xs-12">
 										<div class="mb-30">
-											<h3 class="text-center txt-dark mb-10">Sign in to Grandin</h3>
-											<h6 class="text-center nonecase-font txt-grey">Enter your details below</h6>
+											<h3 class="text-center txt-dark mb-10">Se connecter</h3>
+                                            <hr>
 										</div>
 										<div class="form-wrap">
-											<form action="#">
+											<form method="post" action="#">
 												<div class="form-group">
-													<label class="control-label mb-10" for="exampleInputEmail_2">Email address</label>
-													<input type="email" class="form-control" required="" id="exampleInputEmail_2" placeholder="Enter email">
+													<label class="control-label mb-10" for="exampleInputEmail_2">Adresse email</label>
+													<input type="email" class="form-control" name="mel" required="" id="exampleInputEmail_2" placeholder="Mèl">
 												</div>
 												<div class="form-group">
-													<label class="pull-left control-label mb-10" for="exampleInputpwd_2">Password</label>
-													<a class="capitalize-font txt-primary block mb-10 pull-right font-12" href="forgot-password.html">forgot password ?</a>
+													<label class="pull-left control-label mb-10" for="exampleInputpwd_2">Mot de passe</label>
+													<a class="capitalize-font txt-primary block mb-10 pull-right font-12" href="index.php?page=forgot-password">Mot de passe oublié ?</a>
 													<div class="clearfix"></div>
-													<input type="password" class="form-control" required="" id="exampleInputpwd_2" placeholder="Enter pwd">
+													<input type="password" class="form-control" name="password" required="" id="exampleInputpwd_2" placeholder="Mot de passe">
 												</div>
-
+                                                <!--
 												<div class="form-group">
 													<div class="checkbox checkbox-primary pr-10 pull-left">
 														<input id="checkbox_2" required="" type="checkbox">
 														<label for="checkbox_2"> Keep me logged in</label>
 													</div>
 													<div class="clearfix"></div>
-												</div>
+												</div> -->
 												<div class="form-group text-center">
-													<button type="submit" class="btn btn-primary  btn-rounded">sign in</button>
+													<input type="submit" name="login" class="btn btn-primary  btn-rounded" value="Se connecter" />
 												</div>
 											</form>
 										</div>
@@ -71,4 +68,3 @@
 
 		</div>
 		<!-- /#wrapper -->
-	
