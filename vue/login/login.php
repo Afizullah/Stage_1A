@@ -34,7 +34,7 @@
 											<form method="post" action="#">
 												<div class="form-group">
 													<label class="control-label mb-10" for="exampleInputEmail_2">Adresse email</label>
-													<input type="email" class="form-control" name="mel" required="" id="exampleInputEmail_2" placeholder="Mèl">
+													<input type="email" class="form-control" name="mail" required="" id="exampleInputEmail_2" placeholder="Mèl">
 												</div>
 												<div class="form-group">
 													<label class="pull-left control-label mb-10" for="exampleInputpwd_2">Mot de passe</label>

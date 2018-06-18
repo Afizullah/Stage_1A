@@ -1,15 +1,12 @@
 <?php
-
-    session_start();
-
+ if(isset($_POST["login"],$_POST["mail"],$_POST["password"])){
     $mail = $_POST['mail'];
     $password = $_POST['password'];
 
     if (!empty($mail) && !empty($password)) {
 
-        require('../../_config/conf_db.php');
-
         $request = $db->prepare('SELECT * FROM utilisateurs WHERE user_mail = ? AND user_mdpasse = ?');
+
         $query = $request->execute(array($mail, $password));
 
         while($data = $query->fetch()) {
@@ -23,5 +20,5 @@
     } else {
         $success = false;
     }
-
+}
 ?>
