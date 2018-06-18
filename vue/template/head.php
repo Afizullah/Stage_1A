@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
     <head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-		<title>Grandin I Fast build Admin dashboard for any platform</title>
+		<title><?php echo $page; ?></title>
 
 		<link rel="shortcut icon" href="favicon.ico">
 		<link rel="icon" href="<?php echo PATH_TEMPLATE; ?>dist/img/favicon.ico" type="image/x-icon">
