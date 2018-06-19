@@ -1,10 +1,6 @@
 <?php
-
-    try {
-            $db = new PDO('mysql:host=localhost; dbname=Livret; charset=utf8', 'root', '');
-        }
-    catch (Exception $e) {
-            die('Erreur : ' . $e -> getMessage());
-    }
-
+    //Définition des informations de connexion à la base de données
+    define("DB_DSN","mysql:host=localhost; dbname=livret; charset=utf8");
+    define("DB_USERNAME","livret");
+    define("DB_PASSWORD","livret1234");
 ?>
