@@ -15,6 +15,7 @@ class DB extends DataObject{
         return false;
     }
 
+    //DB::registre("utilisateurs",[["prenom",$prenom],["nom",$nom]]);
     public static function  registre($table,$tabRegisted){
         $bdd = parent::connect();
       	$nbrChamp = count($tabRegisted);
@@ -40,7 +41,7 @@ class DB extends DataObject{
       		return 0;
       	}
       }
-
+      //DB::getLine("utilisateurs","prenom,nom",[["user_email",$email],["user_mdpasse",$motdepasse]]);
       public static function getLine($table,$champ="*",$tabData=[[1,1]],$operators=array(),$ordre="",$all=false,$op=" AND "){
         $bdd = parent::connect();
         $str_req = "";
@@ -78,6 +79,7 @@ class DB extends DataObject{
 
         }
       }
+      //DB::getData("ec","*",[["ue_id",$ue_id]]);
       public static function getData($table,$champ="*",$tabData=[[1,1]],$operators=array(),$ordre="",$all=false,$op=" AND "){
         return self::getLine($table,$champ,$tabData,$operators,$ordre,true,$op);
       }
