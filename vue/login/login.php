@@ -31,6 +31,20 @@
                                             <hr>
 										</div>
 										<div class="form-wrap">
+                                            <div>
+                                                <?php
+                                                if(isset($errors)){
+                                                    foreach ($errors as $error) {
+                                                        ?>
+                                                        <center>
+                                                            <span class="error"><?php echo $error; ?></span>
+                                                        </center>
+                                                        <?php
+                                                    }
+                                                }
+
+                                                 ?>
+                                            </div><br />
 											<form method="post" action="#">
 												<div class="form-group">
 													<label class="control-label mb-10" for="exampleInputEmail_2">Adresse email</label>

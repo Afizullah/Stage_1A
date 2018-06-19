@@ -11,5 +11,6 @@
 		<link href="<?php echo PATH_TEMPLATE; ?>/dist/css/jasny-bootstrap.min.css" rel="stylesheet" type="text/css"/>
 
 		<link href="<?php echo PATH_TEMPLATE; ?>dist/css/style.css" rel="stylesheet" type="text/css">
+		<link href="<?php echo PATH_TEMPLATE; ?>dist/css/livret.css" rel="stylesheet" type="text/css">
 	</head>
 	<body>
