@@ -36,16 +36,11 @@
                                                     if($comptes = $_SESSION["livretSession"]){
                                                         foreach ($comptes as $compte) {
                                                             ?>
-                                                            <a  class="" href="index.php?">
-                                                                <button style="background-color:#6a6bf8;border:0px;	" class="col-lg-12 btn btn-info" type="button" name="button">
-                                                                    <?php echo implode(" ",(explode("_",$compte["compte_typeCompte"]))); ?>
-                                                                </button>
-																<br />
-																<br />
-																<br />
-                                                            </a>
-
-
+                                                            <form action="" method="post">
+																<input type="hidden" name="choosedAccount" value="<?php echo $compte["compte_typeCompte"];  ?>">
+                                                                <input type="submit" style="background-color:#6a6bf8;border:0px;" value="<?php echo implode(" ",(explode("_",$compte["compte_typeCompte"]))); ?>" class="col-lg-12 btn btn-info" type="button" name="confirmChoix" />
+															</form>
+															<br /><br /><br />
                                                             <?php
                                                         }
                                                     }
