@@ -1,4 +1,44 @@
 <!-- Right Sidebar Menu -->
+<div class="modal fade" id="addUser" tabindex="-1" role="dialog" aria-labelledby="" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 class="modal-title" id=""></h4>
+      </div>
+      <div class="modal-body">
+          <form style="width:500px;margin:auto;background-color:white;padding:30px;" action="" method="POST">
+              <div class="input-group">
+                <span class="input-group-addon">Nom : </span>
+                <input type="text" class="form-control" placeholder="">
+
+              </div>
+              <label for="nom">Nom : </label>
+              <input type="text" id="nom" name="nom"> </br></br>
+              <label for="prenom">Prénom : </label>
+              <input type="text" id="prenom" name="prenom" > </br></br>
+              <label for="mail">Email : </label>
+              <input type="text" id="mail" name="mail"> </br></br>
+              <label for="password">Mot de passe : </label>
+              <input type="password" id="password" name="password"> </br></br>
+              <label for="passwordConf">Mot de passe de confirmation : </label>
+              <input type="password" id="passwordConf" name="passwordConf"> </br></br>
+              <label for="">Séléctionner le type de compte : </label>
+              <select>
+                  <option value="administrateur">Administrateur</option>
+                  <option value="responsable_pedagogique">Responsable Pédagogique</option>
+                  <option value="enseignant">Enseignant</option>
+              </select>
+          </form>
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary"></button>
+      </div>
+    </div>
+  </div>
+</div>
 <div class="fixed-sidebar-right">
     <ul class="right-sidebar">
         <li>
@@ -17,7 +57,7 @@
                                         <i class="zmdi zmdi-more"></i>
                                     </a>
                                     <span class="inline-block txt-dark">users</span>
-                                    <a href="javascript:void(0)" class="inline-block text-right txt-grey"><i class="zmdi zmdi-plus"></i></a>
+                                    <a href="#addUser" data-toggle="modal" class="inline-block text-right txt-grey"><i class="zmdi zmdi-plus"></i></a>
                                     <div class="clearfix"></div>
                                 </div>
                                 <form role="search" class="chat-search pl-15 pr-15 pb-15">

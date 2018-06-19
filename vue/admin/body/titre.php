@@ -3,7 +3,7 @@
     <div class="right-sidebar-backdrop"></div>
     <!-- /Right Sidebar Backdrop -->
     <!-- Main Content -->
-    <div  style="min-height:600px;" class="page-wrapper">
+    <div  style="min-height:680px;" class="page-wrapper">
         <div class="container-fluid pt-25">
 
             <!-- Title -->

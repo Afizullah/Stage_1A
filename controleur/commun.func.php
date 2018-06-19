@@ -23,4 +23,25 @@
                 return date("Y-m-d");
         }
     }
+
+    function getNewToken($defaultSize=50){
+        return generateNewString($defaultSize);
+    }
+
+    function generateNewString($lenght,$toString=array(),$notInTab=array()){
+      if(empty($toString)){
+        $toString = "aazertyuiopqsdfghjklmwxcvbnAZERTYUIOPQSDFGHJKLMWXCVBN1234567890";
+      }
+        $stringGenerate ="";
+        if($lenght>0 && intval(strlen("".$toString.""))>0){
+        	do{
+        		for($i=	0;$i<intval($lenght);$i++){
+        			$stringGenerate.=$toString[mt_rand(0,intval(strlen("".$toString."")-1))];
+        		}
+        	}while(in_array($stringGenerate,$notInTab));
+        	return $stringGenerate;
+        }else{
+        	return NULL;
+        }
+    }
 ?>

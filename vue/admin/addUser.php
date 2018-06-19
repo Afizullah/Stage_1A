@@ -1,4 +1,11 @@
-<form action="" method="POST">
+
+<br />
+<form style="width:500px;margin:auto;background-color:white;padding:30px;" action="" method="POST">
+    <div class="input-group">
+      <span class="input-group-addon">Nom : </span>
+      <input type="text" class="form-control" placeholder="">
+
+    </div>
     <label for="nom">Nom : </label>
     <input type="text" id="nom" name="nom"> </br></br>
     <label for="prenom">Prénom : </label>
