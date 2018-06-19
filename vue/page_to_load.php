@@ -6,7 +6,7 @@
         $section = PATH_ADMIN;
     }else if(isset($_SESSION["enseignant"])){
         $section = PATH_ENSEIGNANT;
-    }else if(isset($_SESSION["enseignant"])) {
+    }else if(isset($_SESSION["responsable_pedagogique"])) {
         $section = PATH_RP;
     }else{
         $section = PATH_LOGIN;
@@ -36,7 +36,7 @@
         if (file_exists(PATH_MODEL.$content)) {
             require_once(PATH_MODEL.$content);
         }
-        
+
         //On charge le controleur correspondant
         if (file_exists(PATH_CONTROLEUR.$content)) {
             require_once(PATH_CONTROLEUR.$content);
