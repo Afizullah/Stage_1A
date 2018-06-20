@@ -12,4 +12,7 @@ define("PATH_LOGIN","login/");
 
 
 define("DEFAULT_PAGE","accueil");
+define("NBR_HOURS_LINK_EXP","48");
+
+
 ?>

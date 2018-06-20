@@ -1,5 +1,10 @@
-.error{
+.error,.succes{
     text-align: center;
     padding: 5px;
+}
+.error{
     color: red;
+}
+.succes{
+    color: green;
 }

@@ -1,6 +1,6 @@
 <?php
 
-    //fonction contre les injections sql
+    //fonction contre les injection sql
     function secure($val){
         return htmlspecialchars(trim($val));
     }
@@ -31,6 +31,10 @@
         return generateNewString($defaultSize);
     }
 
+    function getDateExpirationAccount($nbrHeures){
+        $dateExpire = new DateTime("NOW +".$nbrHeures." hours");
+        return $dateExpire->format("Y-m-d H:i:s");
+    }
     function generateNewString($lenght,$toString=array(),$notInTab=array()){
       if(empty($toString)){
         $toString = "aazertyuiopqsdfghjklmwxcvbnAZERTYUIOPQSDFGHJKLMWXCVBN1234567890";
