@@ -42,6 +42,9 @@ class DB extends DataObject{
       	}
       }
       //DB::getLine("utilisateurs","prenom,nom",[["user_email",$email],["user_mdpasse",$motdepasse]]);
+      /*
+       * @return boolean
+      */
       public static function getLine($table,$champ="*",$tabData=[[1,1]],$operators=array(),$ordre="",$all=false,$op=" AND "){
         $bdd = parent::connect();
         $str_req = "";

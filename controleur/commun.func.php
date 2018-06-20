@@ -5,6 +5,9 @@
         return htmlspecialchars(trim($val));
     }
 
+    function br(){
+        echo "<br />";
+    }
     //
     function isEmail($val){
         if(preg_match("#^[a-z0-9._-]{2,50}[@][a-z0-9._-]{2,30}[.][a-z]{2,6}$#",$val)){

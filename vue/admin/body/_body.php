@@ -1,4 +1,5 @@
 <?php
+ require_once($section."body/forms.php");
  require_once($section."body/nav_bar.php");
  require_once($section."body/menu_left.php");
  require_once($section."body/menu_right.php");

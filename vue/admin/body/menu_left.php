@@ -51,7 +51,7 @@ require_once(PATH_CONTROLEUR."commun.user.php");
             </li>
             <!-- /User Profile -->
         <li class="navigation-header">
-            <span>Main</span>
+            <span>Utilisateurs</span>
             <i class="zmdi zmdi-more"></i>
         </li>
         <li>

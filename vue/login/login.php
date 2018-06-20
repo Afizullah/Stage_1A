@@ -27,7 +27,7 @@
 								<div class="row">
 									<div class="col-sm-12 col-xs-12">
 										<div class="mb-30">
-											<h3 class="text-center txt-dark mb-10">Se connecter</h3>
+											<h4 class="text-center txt-dark mb-10"><i class="fa fa-user"></i><br />Se connecter</h4>
                                             <hr>
 										</div>
 										<div class="form-wrap">
@@ -38,13 +38,13 @@
                                                         ?>
                                                         <center>
                                                             <span class="error"><?php echo $error; ?></span>
-                                                        </center>
+                                                        </center><br/>
                                                         <?php
                                                     }
                                                 }
 
                                                  ?>
-                                            </div><br />
+                                            </div>
 											<form method="post" action="#">
 												<div class="form-group">
 													<label class="control-label mb-10" for="exampleInputEmail_2">Adresse email</label>
@@ -52,7 +52,6 @@
 												</div>
 												<div class="form-group">
 													<label class="pull-left control-label mb-10" for="exampleInputpwd_2">Mot de passe</label>
-													<a class="capitalize-font txt-primary block mb-10 pull-right font-12" href="index.php?page=forgot-password">Mot de passe oublié ?</a>
 													<div class="clearfix"></div>
 													<input type="password" class="form-control" name="password" required="" id="exampleInputpwd_2" placeholder="Mot de passe">
 												</div>
@@ -67,6 +66,10 @@
 												<div class="form-group text-center">
 													<input type="submit" name="login" class="btn btn-primary  btn-rounded" value="Se connecter" />
 												</div>
+												<center>
+
+													<a class="capitalize-font txt-primary block mb-10 font-12" href="index.php?page=forgot-password">Mot de passe oublié ?</a>
+												</center>
 											</form>
 										</div>
 									</div>

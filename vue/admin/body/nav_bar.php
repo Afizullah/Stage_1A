@@ -28,6 +28,13 @@
             </div>
         </form>
     </div>
+    <div class="mobile-only-nav pull-left">
+        <div style="width:580px;position:fixed;top:20px;" class="nav-header">
+            <h6 style="overflow:hidden">
+                Projet livrets 2018
+            </h6>
+        </div>
+    </div>
     <div id="mobile_only_nav" class="mobile-only-nav pull-right">
         <ul class="nav navbar-right top-nav pull-right">
             <li>
@@ -92,92 +99,41 @@
                     <li class="product-nicescroll-bar row">
                         <ul class="pa-20">
                             <li class="col-md-3 col-xs-6 col-menu-list">
-                                <a href="javascript:void(0);"><div class="pull-left"><i class="zmdi zmdi-landscape mr-20"></i><span class="right-nav-text">Dashboard</span></div><div class="pull-right"><i class="zmdi zmdi-caret-down"></i></div><div class="clearfix"></div></a>
+                                <a href="javascript:void(0);"><div class="pull-left"><i class="zmdi zmdi-landscape mr-20"></i><span class="right-nav-text">Projets</span></div><div class="pull-right"><i class="zmdi zmdi-caret-down"></i></div><div class="clearfix"></div></a>
                                 <hr class="light-grey-hr ma-0"/>
                                 <ul>
                                     <li>
                                         <a href="index.html">Analytical</a>
                                     </li>
-                                    <li>
-                                        <a href="index2.html">Demographic</a>
-                                    </li>
-                                    <li>
-                                        <a href="index3.html">Project</a>
-                                    </li>
-                                    <li>
-                                        <a href="index4.html">Hospital</a>
-                                    </li>
-                                    <li>
-                                        <a href="index5.html">HRM</a>
-                                    </li>
-                                    <li>
-                                        <a href="index6.html">Real Estate</a>
-                                    </li>
-                                    <li>
-                                        <a href="profile.html">profile</a>
-                                    </li>
                                 </ul>
                             </li>
+                        </li>
+                        <li class="col-md-3 col-xs-6 col-menu-list">
+                            <a href="javascript:void(0);">
+                                <div class="pull-left">
+                                    <i class="fa fa-users"></i><span class="right-nav-text">Groupes</span>
+                                </div>
+                                <div class="pull-right"><i class="zmdi zmdi-caret-down"></i></div>
+
+                                <div class="clearfix"></div>
+                            </a>
+                            <hr class="light-grey-hr ma-0"/>
+                            <ul>
+                                <li>
+                                    <a href="e-commerce.html">Informatique</a>
+                                </li>
+                            </ul>
+                        </li>
                             <li class="col-md-3 col-xs-6 col-menu-list">
-                                <a href="javascript:void(0);">
-                                    <div class="pull-left">
-                                        <i class="zmdi zmdi-shopping-basket mr-20"></i><span class="right-nav-text">E-Commerce</span>
-                                    </div>
-                                    <div class="pull-right"><span class="label label-success">7</span>
-                                    </div>
-                                    <div class="clearfix"></div>
-                                </a>
+                                <a href="javascript:void(0);"><div class="pull-left"><i class="zmdi zmdi-landscape mr-20"></i><span class="right-nav-text">Livrets</span></div>
+                                    <div class="pull-right"><i class="zmdi zmdi-caret-down"></i></div>
+                                    <div class="clearfix"></div></a>
                                 <hr class="light-grey-hr ma-0"/>
                                 <ul>
                                     <li>
-                                        <a href="e-commerce.html">Dashboard</a>
-                                    </li>
-                                    <li>
-                                        <a href="product.html">Products</a>
-                                    </li>
-                                    <li>
-                                        <a href="product-detail.html">Product Detail</a>
-                                    </li>
-                                    <li>
-                                        <a href="add-products.html">Add Product</a>
-                                    </li>
-                                    <li>
-                                        <a href="product-orders.html">Orders</a>
-                                    </li>
-                                    <li>
-                                        <a href="product-cart.html">Cart</a>
-                                    </li>
-                                    <li>
-                                        <a href="product-checkout.html">Checkout</a>
+                                        <a href="index.html">Analytical</a>
                                     </li>
                                 </ul>
-                            </li>
-                            <li class="col-md-6 col-xs-12 preview-carousel">
-                                <a href="javascript:void(0);"><div class="pull-left"><span class="right-nav-text">latest products</span></div><div class="clearfix"></div></a>
-                                <hr class="light-grey-hr ma-0"/>
-                                <div class="product-carousel owl-carousel owl-theme text-center">
-                                    <a href="#">
-                                        <img src="https://hencework.com/theme/grandin-demo/img/chair.jpg" alt="chair">
-                                        <span>Circle chair</span>
-                                    </a>
-                                    <a href="#">
-                                        <img src="https://hencework.com/theme/grandin-demo/img/chair2.jpg" alt="chair">
-                                        <span>square chair</span>
-                                    </a>
-                                    <a href="#">
-                                        <img src="https://hencework.com/theme/grandin-demo/img/chair3.jpg" alt="chair">
-                                        <span>semi circle chair</span>
-                                    </a>
-                                    <a href="#">
-                                        <img src="https://hencework.com/theme/grandin-demo/img/chair4.jpg" alt="chair">
-                                        <span>wooden chair</span>
-                                    </a>
-                                    <a href="#">
-                                        <img src="https://hencework.com/theme/grandin-demo/img/chair2.jpg" alt="chair">
-                                        <span>square chair</span>
-                                    </a>
-                                </div>
-                            </li>
                         </ul>
                     </li>
                 </ul>
