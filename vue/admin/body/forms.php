@@ -12,6 +12,10 @@ function getFormAddUsser($action=""){
             </select>
         </div><br />
         <div class="input-group">
+            <span class="input-group-addon">Date d'expiration : </span>
+            <input type="date" class="form-control" name="date_expiration" placeholder="">
+        </div><br />
+        <div class="input-group">
             <span class="input-group-addon">Email : </span>
             <input type="text" class="form-control" name="mail" placeholder="">
         </div><br />

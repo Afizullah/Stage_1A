@@ -1,10 +1,13 @@
 <?php
-if(isset($_POST["confirmChoix"],$_POST["choosedAccount"])){
+if(session_id()==""){session_start();}
+if(isset($_REQUEST["confirmChoix"],$_REQUEST["choosedAccount"])){
     foreach ($_SESSION["livretSession"] as $sess) {
-        if($sess["compte_typeCompte"]==$_POST["choosedAccount"]){
-            $_SESSION[$_POST["choosedAccount"]]=$sess;
-            $_SESSION["type_compte"]=$_POST["choosedAccount"];
-            unset($_SESSION["livretSession"]);
+        if($sess["compte_typeCompte"]==$_REQUEST["choosedAccount"]){
+            if(isset($_REQUEST["currentSess"],$_SESSION[$_REQUEST["currentSess"]])){
+                unset($_SESSION[$_REQUEST["currentSess"]]);
+            }
+            $_SESSION[$_REQUEST["choosedAccount"]]=$sess;
+            $_SESSION["type_compte"]=$_REQUEST["choosedAccount"];
             header("Location:index.php?page=accueil");
             die();
         }

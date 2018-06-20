@@ -46,42 +46,49 @@
                     <li>
                         <div class="app-nicescroll-bar">
                             <ul class="app-icon-wrap pa-10">
-                                <li>
-                                    <a href="weather.html" class="connection-item">
-                                    <i class="zmdi zmdi-cloud-outline txt-info"></i>
-                                    <span class="block">weather</span>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="inbox.html" class="connection-item">
-                                    <i class="zmdi zmdi-email-open txt-success"></i>
-                                    <span class="block">e-mail</span>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="calendar.html" class="connection-item">
-                                    <i class="zmdi zmdi-calendar-check txt-primary"></i>
-                                    <span class="block">calendar</span>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="vector-map.html" class="connection-item">
-                                    <i class="zmdi zmdi-map txt-danger"></i>
-                                    <span class="block">map</span>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="chats.html" class="connection-item">
-                                    <i class="zmdi zmdi-comment-outline txt-warning"></i>
-                                    <span class="block">chat</span>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="contact-card.html" class="connection-item">
-                                    <i class="zmdi zmdi-assignment-account"></i>
-                                    <span class="block">contact</span>
-                                    </a>
-                                </li>
+                                <?php
+                                if(isset($_SESSION["livretSession"])){
+                                    $mesComptes = $_SESSION["livretSession"];
+                                    for ($i=0; $i < count($mesComptes); $i++) {
+                                        $type_compte = $mesComptes[$i]["compte_typeCompte"];
+                                        switch ($type_compte) {
+                                            case 'administrateur':
+                                                ?>
+                                                <li>
+                                                    <a href="<?php echo PATH_CONTROLEUR; ?>login/askAccountToConnect.php?choosedAccount=administrateur&confirmChoix=true&currentSess=administrateur" class="connection-item">
+                                                        <i class="zmdi zmdi-cloud-outline txt-info"></i>
+                                                        <span class="block">Admin</span>
+                                                    </a>
+                                                </li>
+                                                <?php
+                                                break;
+                                            case 'enseignant':
+                                                ?>
+
+                                                <li>
+                                                    <a href="<?php echo PATH_CONTROLEUR; ?>login/askAccountToConnect.php?choosedAccount=enseignant&confirmChoix=true&currentSess=administrateur" class="connection-item">
+                                                        <i class="zmdi zmdi-map txt-danger"></i>
+                                                        <span syt class="block">Enseignant</span>
+                                                    </a>
+                                                </li>
+                                                <?php
+                                                break;
+                                            case 'responsable_pedagogique':
+                                                ?>
+                                                <li>
+                                                    <a href="<?php echo PATH_CONTROLEUR; ?>login/askAccountToConnect.php?choosedAccount=responsable_pedagogique&confirmChoix=true&currentSess=administrateur" class="connection-item">
+                                                        <i class="zmdi zmdi-comment-outline txt-warning"></i>
+                                                        <span class="block">Resp. Péd.</span>
+                                                    </a>
+                                                </li>
+                                                <?php
+                                                break;
+                                        }
+                                    }
+                                }
+
+
+                                 ?>
                             </ul>
                         </div>
                     </li>
