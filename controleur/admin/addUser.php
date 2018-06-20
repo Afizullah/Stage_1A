@@ -39,7 +39,7 @@ require PATH_PHP_MAILLER."/src/SMTP.php";
                 if(!User::verifUserExist($mail)){
                     do{
                         $token = getNewToken();
-                    }while(User::verifToken($token));
+                    } while(User::verifToken($token));
                     $dateExpLink = getDateExpirationAccount(NBR_HOURS_LINK_EXP);
                     if(!User::addUserTemp($token,$prenom,$nom,$mail,$typeDeCompte,$date_expiration,$dateExpLink)){
                         $errors[]="Echec de l'enregistrement du compte";
@@ -53,7 +53,7 @@ require PATH_PHP_MAILLER."/src/SMTP.php";
                         }
                     }
                 }else{
-                    $errors[]="Adresse email indiponible";
+                    $errors[]="Adresse email indisponible";
                 }
             }
         }
