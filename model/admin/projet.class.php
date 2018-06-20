@@ -6,12 +6,11 @@ class Projet extends DB{
             return array("name"=>$_SESSION["loaderProjet"]["projet_nom"],"step"=>$_SESSION["loaderProjet"]["projet_step"],"state"=>$_SESSION["loaderProjet"]["projet_etat"]);
         }else{
             if($idProjetToLoad = DB::getLine("paramettres","param_value",[["param_name","idLastProjetLoaded"]])["param_value"]){
-                if($currentPojet = DB::getLine(""))
+               // if($currentPojet = DB::getLine(""))
             }
         }
     }
 
 }
-
 
 ?>
