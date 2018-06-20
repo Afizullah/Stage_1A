@@ -1,4 +1,13 @@
 <?php
+//session_start();
+
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\Exception;
+
+require PATH_PHP_MAILLER."src/Exception.php";
+require PATH_PHP_MAILLER."src/PHPMailer.php";
+require PATH_PHP_MAILLER."/src/SMTP.php";
+
 
     if(isset($_POST['addUser'])){
         if(isset($_POST['prenom'],$_POST['nom'],$_POST['mail'],$_POST['date_expiration'],$_POST['accountType'])){
@@ -24,6 +33,8 @@
             if(empty($date_expiration)){
                 $errors[]="La date d'expiration ne doit pas être vide";
             }
+
+
             if(!isset($errors)){
                 if(!User::verifUserExist($mail)){
                     do{
@@ -33,7 +44,13 @@
                     if(!User::addUserTemp($token,$prenom,$nom,$mail,$typeDeCompte,$date_expiration,$dateExpLink)){
                         $errors[]="Echec de l'enregistrement du compte";
                     }else{
-                        $success = "Compte créé avec succes !!!";
+
+                        $ObjectMail = new PHPMailer(true);
+                        if(sendMail($ObjectMail,$mail,$prenom,$nom,$token)){
+                            $success = "Compte créé avec succes !!!";
+                        }else{
+                            $errors[]="Echec de l'envoi du mèl de confirmation";
+                        }
                     }
                 }else{
                     $errors[]="Adresse email indiponible";

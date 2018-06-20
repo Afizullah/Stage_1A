@@ -9,6 +9,7 @@ define("PATH_ADMIN","admin/");
 define("PATH_ENSEIGNANT","enseignant/");
 define("PATH_RP","responsable_pedagogique/");
 define("PATH_LOGIN","login/");
+define("PATH_PHP_MAILLER",PATH_CONTROLEUR."libs/SendMail/PHPMailer/");
 
 
 define("DEFAULT_PAGE","accueil");

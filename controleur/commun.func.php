@@ -31,6 +31,45 @@
         return generateNewString($defaultSize);
     }
 
+    function sendMail($mail,$email,$prenom,$nom,$token){
+        try {
+    	    $mail->SMTPDebug = 0;                                 // Enable verbose debug output
+    	    $mail->isSMTP();                                      // Set mailer to use SMTP
+    	    $mail->Host = 'smtp.gmail.com';  // Specify main and backup SMTP servers
+    	    $mail->SMTPAuth = true;                               // Enable SMTP authentication
+    	    $mail->Username = MAIL;                 // SMTP username
+    	    $mail->Password = PSW;                           // SMTP password
+    	    $mail->SMTPSecure = 'tls';                            // Enable TLS encryption, `ssl` also accepted
+    	    $mail->Port = 587;                                    // TCP port to connect to
+
+    	    //Recipients
+    	    $mail->setFrom(MAIL, 'LIVRET');
+    	    // $mail->addAddress('aliouibnibrahim@yahoo.fr', 'Aliou Sall');     // Add a recipient
+    	    $mail->addAddress($email);               // Name is optional
+    	    $mail->addReplyTo(MAIL, 'Information');
+    	    // $mail->addCC('cc@example.com');
+    	    // $mail->addBCC('bcc@example.com');
+
+    	    //Attachments
+    	    // $mail->addAttachment('/var/tmp/file.tar.gz');         // Add attachments
+    	    // $mail->addAttachment('/tmp/image.jpg', 'new.jpg');    // Optional name
+
+    	    //Content
+    	    $mail->isHTML(true);
+            $link = APP_URL."index.php?page=activeAccount&token=".$token;                                // Set email format to HTML
+    	    $mail->Subject = 'Activation compte livret';
+    	    $mail->Body    = 'Bonjour '.$prenom.' '.$nom.' cliquez sur ce lien pour activer votre compte<br />'.$link;
+    	    $mail->AltBody = 'This is the body in plain text for non-HTML mail clients';
+
+    	    $mail->send();
+    	    //echo 'Message has been sent';
+            return true;
+    	} catch (Exception $e) {
+    	    //echo 'Message could not be sent. Mailer Error: ', $mail->ErrorInfo;
+            return false;
+    	}
+
+    }
     function getDateExpirationAccount($nbrHeures){
         $dateExpire = new DateTime("NOW +".$nbrHeures." hours");
         return $dateExpire->format("Y-m-d H:i:s");

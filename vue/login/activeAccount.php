@@ -1,5 +1,5 @@
-<?php require_once(PATH_VUE."login/forms.php"); ?>
-
+    <?php require_once(PATH_VUE."login/forms.php"); ?>
+    <?php require_once(PATH_VUE."login/messages.php"); ?>
 		<!--Preloader-->
 		<div class="preloader-it">
 			<div class="la-anim-1"></div>
@@ -28,7 +28,7 @@
 								<div class="row">
 									<div class="col-sm-12 col-xs-12">
 										<div class="mb-30">
-											<h4 class="text-center txt-dark mb-10"><i class="fa fa-user"></i><br />Se connecter</h4>
+											<h4 class="text-center txt-dark mb-10"><i class="fa fa-user"></i><br />Activez le compte</h4>
                                             <hr>
 										</div>
 										<div class="form-wrap">
@@ -46,7 +46,14 @@
 
                                                  ?>
                                             </div>
-											<?php getFormLogin(); ?>
+                                            <?php
+                                            if(isset($_REQUEST["token"])){
+                                                $token = secure($_REQUEST["token"]);
+                                                getFormActiveAccount($token);
+                                            }else{
+                                                getMsgActiveAccountFailled();
+                                            }
+                                             ?>
 										</div>
 									</div>
 								</div>
