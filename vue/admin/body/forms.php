@@ -4,7 +4,7 @@ function getFormAddUsser($action=""){
     <form style="width:500px;margin:auto;background-color:white;padding:30px;" action="<?php echo $action; ?>" method="POST">
         <div class="input-group">
             <span class="input-group-addon">Type de compte : </span>
-            <select class="form-control" >
+            <select class="form-control" name="accountType">
                 <option value="">----Séléctionner----</option>
                 <option value="administrateur">Administrateur</option>
                 <option value="responsable_pedagogique">Responsable Pédagogique</option>
