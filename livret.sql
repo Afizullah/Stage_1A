@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Client :  localhost
--- Généré le :  Lun 18 Juin 2018 à 15:02
+-- Généré le :  Mer 20 Juin 2018 à 09:34
 -- Version du serveur :  5.7.22-0ubuntu0.16.04.1
 -- Version de PHP :  7.0.30-0ubuntu0.16.04.1
 
@@ -19,14 +19,16 @@ SET time_zone = "+00:00";
 --
 -- Base de données :  `livret`
 --
-CREATE DATABASE Livret;
 
-USE Livret;
 -- --------------------------------------------------------
 
 --
 -- Structure de la table `classe`
 --
+
+CREATE DATABASE livret;
+
+USE livret;
 
 CREATE TABLE `classe` (
   `classe_nom` varchar(30) DEFAULT NULL,
@@ -46,6 +48,18 @@ CREATE TABLE `compte` (
   `compte_dateExpiration` date NOT NULL,
   `compte_typeCompte` enum('administrateur','enseignant','responsable_pedagogique') NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Contenu de la table `compte`
+--
+
+INSERT INTO `compte` (`compte_id`, `user_id`, `compte_dateExpiration`, `compte_typeCompte`) VALUES
+(1, 1, '2018-06-20', 'administrateur'),
+(2, 1, '2018-06-20', 'enseignant'),
+(3, 1, '2018-06-30', 'responsable_pedagogique'),
+(4, 2, '2018-07-31', 'administrateur'),
+(5, 2, '2018-07-31', 'enseignant'),
+(6, 2, '2018-07-31', 'responsable_pedagogique');
 
 -- --------------------------------------------------------
 
@@ -155,7 +169,8 @@ CREATE TABLE `livret_formation_invariant_position` (
 CREATE TABLE `projet` (
   `projet_id` int(11) NOT NULL,
   `projet_nom` varchar(100) NOT NULL,
-  `projet_etat` enum('en cours','termine','supprime') NOT NULL,
+  `projet_etat` enum('en cours','termine','supprime') NOT NULL DEFAULT 'en cours',
+  `projet_step` int(11) NOT NULL DEFAULT '1',
   `projet_date_creation` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -225,6 +240,14 @@ CREATE TABLE `utilisateurs` (
   `user_mdpasse` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Contenu de la table `utilisateurs`
+--
+
+INSERT INTO `utilisateurs` (`user_id`, `user_nom`, `user_prenom`, `user_mail`, `user_mdpasse`) VALUES
+(1, 'niakhos', 'Daouda', 'niakhdaouda@gmail.com', '9af15b336e6a9619928537df30b2e6a2376569fcf9d7e773eccede65606529a0'),
+(2, 'Aliou', 'Ibrahim', 'aliouibnibrahim@gmail.com', '9af15b336e6a9619928537df30b2e6a2376569fcf9d7e773eccede65606529a0');
+
 -- --------------------------------------------------------
 
 --
@@ -235,8 +258,31 @@ CREATE TABLE `utilisateurs_temporaires` (
   `user_id` varchar(100) NOT NULL,
   `user_nom` varchar(50) NOT NULL,
   `user_prenom` varchar(50) NOT NULL,
-  `user_mail` varchar(255) NOT NULL
+  `user_mail` varchar(255) NOT NULL,
+  `user_type_de_compte` varchar(50) NOT NULL,
+  `user_token` varchar(100) NOT NULL,
+  `user_date_exp_temp` datetime NOT NULL,
+  `user_date_expiration` date NOT NULL,
+  `user_date_enregistrement` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `_paramettres`
+--
+
+CREATE TABLE `_paramettres` (
+  `param_name` varchar(255) NOT NULL,
+  `param_value` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Contenu de la table `_paramettres`
+--
+
+INSERT INTO `_paramettres` (`param_name`, `param_value`) VALUES
+('idLastProjetLoaded', '0');
 
 --
 -- Index pour les tables exportées
@@ -350,7 +396,14 @@ ALTER TABLE `utilisateurs`
 -- Index pour la table `utilisateurs_temporaires`
 --
 ALTER TABLE `utilisateurs_temporaires`
-  ADD PRIMARY KEY (`user_id`);
+  ADD PRIMARY KEY (`user_id`),
+  ADD UNIQUE KEY `user_token` (`user_token`);
+
+--
+-- Index pour la table `_paramettres`
+--
+ALTER TABLE `_paramettres`
+  ADD UNIQUE KEY `param_name` (`param_name`);
 
 --
 -- AUTO_INCREMENT pour les tables exportées
@@ -360,7 +413,7 @@ ALTER TABLE `utilisateurs_temporaires`
 -- AUTO_INCREMENT pour la table `compte`
 --
 ALTER TABLE `compte`
-  MODIFY `compte_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `compte_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 --
 -- AUTO_INCREMENT pour la table `ec`
 --
@@ -405,7 +458,7 @@ ALTER TABLE `ue`
 -- AUTO_INCREMENT pour la table `utilisateurs`
 --
 ALTER TABLE `utilisateurs`
-  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 --
 -- Contraintes pour les tables exportées
 --

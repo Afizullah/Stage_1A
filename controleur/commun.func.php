@@ -1,6 +1,6 @@
 <?php
 
-    //fonction contre les injection sql
+    //fonction contre les injections sql
     function secure($val){
         return htmlspecialchars(trim($val));
     }
