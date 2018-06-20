@@ -27,12 +27,26 @@ function getFormAddUsser($action="",$type_compte="",$date_expiration="",$email="
         </div><br />
         <div class="input-group">
               <span class="input-group-addon">Nom : </span>
-              <input required type="text" value="<?php echo $nom; ?>"class="form-control" name="nom" placeholder="">
+              <input required type="text" value="<?php echo $nom; ?>" class="form-control" name="nom" placeholder="">
         </div><br />
         <center>
               <input type="submit" class="btn btn-success" class="form-control" name="addUser" value="Créer un compte">
         </center>
     </form>
+    <?php
+}
+function getFromCreateProjet(){
+    ?>
+    <form style="width:500px;margin:auto;background-color:white;padding:30px;" action="<?php echo $action; ?>" method="POST">
+        <div class="input-group">
+              <span class="input-group-addon">Nom du projet : </span>
+              <input required type="text" class="form-control" name="projet_nom" placeholder="Ex: Projet Livrets 2000">
+        </div><br />
+        <center>
+              <input type="submit" class="btn btn-success" class="form-control" name="addUser" value="Créer un projet">
+        </center>
+    </form>
+
     <?php
 }
  ?>
