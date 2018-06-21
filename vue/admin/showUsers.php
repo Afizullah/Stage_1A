@@ -19,7 +19,53 @@
   <div class="tab-content border mb-3">
     <div id="home" class="container tab-pane active"><br>
       <h3>HOME</h3>
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+      <div>
+        <div class="col-sm-12">
+						<div class="panel panel-default card-view">
+							<div class="panel-heading">
+								<div class="pull-left">
+									<h6 class="panel-title txt-dark">Basic Table</h6>
+								</div>
+								<div class="clearfix"></div>
+							</div>
+							<div class="panel-wrapper collapse in">
+								<div class="panel-body">
+									<p class="text-muted">Add class <code>table</code> in table tag.</p>
+									<div class="table-wrap mt-40">
+										<div class="table-responsive">
+											<table class="table mb-0">
+												<thead>
+												  <tr>
+													<th>User ID</th>
+													<th>First Name</th>
+													<th>Last Name</th>
+													<th>Email</th>
+													<th>Account Type</th>
+												  </tr>
+												</thead>
+												<tbody>
+                        <?php
+                          $dataUser = ShowUsers::getAdmin();
+                          for($i = 0; $i < count($dataUser); $i++) {
+                          
+                        ?>
+												  <tr>
+													<td><?php print_r($dataUser[$i]['user_id']); ?></td>
+													<td><?php print_r($dataUser[$i]['user_prenom']); ?></td>
+													<td><?php print_r($dataUser[$i]['user_nom']); ?></td>
+													<td><?php print_r($dataUser[$i]['user_mail']); ?></td>
+													<td><span class="label label-danger">admin</span> </td>
+                          </tr>
+                          <?php } ?>
+												</tbody>
+											</table>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+      </div>
     </div>
     <div id="menu1" class="container tab-pane fade"><br>
       <h3>Menu 1</h3>
