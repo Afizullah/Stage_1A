@@ -1,6 +1,6 @@
 <div class="container mt-3">
-  <h2>Liste des Utilisateurs de la Plateforme</h2>
-  <p>Click on the Tabs to display the active and previous tab.</p>
+  <h2>Liste des utilisateurs de la plateforme</h2>
+  <!-- <p>Click on the Tabs to display the active and previous tab.</p> -->
 
   <!-- Nav tabs -->
   <ul class="nav nav-tabs">
@@ -24,7 +24,7 @@
 						<div class="panel panel-default card-view">
 							<div class="panel-heading">
 								<div class="pull-left">
-									<h6 class="panel-title txt-dark">Liste des Administrateurs</h6>
+									<h6 class="panel-title txt-dark">Administrateur</h6>
 								</div>
 								<div class="clearfix"></div>
 							</div>
@@ -68,102 +68,104 @@
       </div>
     </div>
     <div id="enseignant" class="container tab-pane fade"><br>
-    <h3>Enseignant</h3>
-    <div>
-      <div class="col-sm-12">
-          <div class="panel panel-default card-view">
-            <div class="panel-heading">
-              <div class="pull-left">
-                <h6 class="panel-title txt-dark">Liste des Enseignants</h6>
-              </div>
-              <div class="clearfix"></div>
-            </div>
-            <div class="panel-wrapper collapse in">
-              <div class="panel-body">
-                <!-- <p class="text-muted">Add class <code>table</code> in table tag.</p> -->
-                <div class="table-wrap mt-40">
-                  <div class="table-responsive">
-                    <table class="table mb-0">
-                      <thead>
-                        <tr>
-                        <th>User ID</th>
-                        <th>First Name</th>
-                        <th>Last Name</th>
-                        <th>Email</th>
-                        <!-- <th>Account Type</th> -->
-                        </tr>
-                      </thead>
-                      <tbody>
-                      <?php
-                        $dataUser = ShowUsers::getEnseignant();
-                        for($i = 0; $i < count($dataUser); $i++) {
-                        
-                      ?>
-                        <tr>
-                        <td><?php print_r($dataUser[$i]['user_id']); ?></td>
-                        <td><?php print_r($dataUser[$i]['user_prenom']); ?></td>
-                        <td><?php print_r($dataUser[$i]['user_nom']); ?></td>
-                        <td><?php print_r($dataUser[$i]['user_mail']); ?></td>
-                        <!-- <td><span class="label label-danger">admin</span> </td> -->
-                        </tr>
-                        <?php } ?>
-                      </tbody>
-                    </table>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+      <h3>Enseignant</h3>
+      <div>
+        <div class="col-sm-12">
+						<div class="panel panel-default card-view">
+							<div class="panel-heading">
+								<div class="pull-left">
+									<h6 class="panel-title txt-dark">Enseignant</h6>
+								</div>
+								<div class="clearfix"></div>
+							</div>
+							<div class="panel-wrapper collapse in">
+								<div class="panel-body">
+									<!-- <p class="text-muted">Add class <code>table</code> in table tag.</p> -->
+									<div class="table-wrap mt-40">
+										<div class="table-responsive">
+											<table class="table mb-0">
+												<thead>
+												  <tr>
+													<th>User ID</th>
+													<th>First Name</th>
+													<th>Last Name</th>
+													<th>Email</th>
+													<!-- <th>Account Type</th> -->
+												  </tr>
+												</thead>
+												<tbody>
+                        <?php
+                          $dataUser = ShowUsers::getEnseignant();
+                          for($i = 0; $i < count($dataUser); $i++) {
+                          
+                        ?>
+												  <tr>
+													<td><?php print_r($dataUser[$i]['user_id']); ?></td>
+													<td><?php print_r($dataUser[$i]['user_prenom']); ?></td>
+													<td><?php print_r($dataUser[$i]['user_nom']); ?></td>
+													<td><?php print_r($dataUser[$i]['user_mail']); ?></td>
+													<!-- <td><span class="label label-danger">admin</span> </td> -->
+                          </tr>
+                          <?php } ?>
+												</tbody>
+											</table>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+      </div>
     </div>
     <div id="respons" class="container tab-pane fade"><br>
-    <h3>Responsable Pédagogique</h3>
-    <div>
-      <div class="col-sm-12">
-          <div class="panel panel-default card-view">
-            <div class="panel-heading">
-              <div class="pull-left">
-                <h6 class="panel-title txt-dark">Liste des Responsables Pédagogiques</h6>
-              </div>
-              <div class="clearfix"></div>
-            </div>
-            <div class="panel-wrapper collapse in">
-              <div class="panel-body">
-                <!-- <p class="text-muted">Add class <code>table</code> in table tag.</p> -->
-                <div class="table-wrap mt-40">
-                  <div class="table-responsive">
-                    <table class="table mb-0">
-                      <thead>
-                        <tr>
-                        <th>User ID</th>
-                        <th>First Name</th>
-                        <th>Last Name</th>
-                        <th>Email</th>
-                        <!-- <th>Account Type</th> -->
-                        </tr>
-                      </thead>
-                      <tbody>
-                      <?php
-                        $dataUser = ShowUsers::getRespons();
-                        for($i = 0; $i < count($dataUser); $i++) {
-                        
-                      ?>
-                        <tr>
-                        <td><?php print_r($dataUser[$i]['user_id']); ?></td>
-                        <td><?php print_r($dataUser[$i]['user_prenom']); ?></td>
-                        <td><?php print_r($dataUser[$i]['user_nom']); ?></td>
-                        <td><?php print_r($dataUser[$i]['user_mail']); ?></td>
-                        <!-- <td><span class="label label-danger">admin</span> </td> -->
-                        </tr>
-                        <?php } ?>
-                      </tbody>
-                    </table>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+      <h3>Responsable Pédagogique</h3>
+      <div>
+        <div class="col-sm-12">
+						<div class="panel panel-default card-view">
+							<div class="panel-heading">
+								<div class="pull-left">
+									<h6 class="panel-title txt-dark">Responsable Pédagogique</h6>
+								</div>
+								<div class="clearfix"></div>
+							</div>
+							<div class="panel-wrapper collapse in">
+								<div class="panel-body">
+									<!-- <p class="text-muted">Add class <code>table</code> in table tag.</p> -->
+									<div class="table-wrap mt-40">
+										<div class="table-responsive">
+											<table class="table mb-0">
+												<thead>
+												  <tr>
+													<th>User ID</th>
+													<th>First Name</th>
+													<th>Last Name</th>
+													<th>Email</th>
+													<!-- <th>Account Type</th> -->
+												  </tr>
+												</thead>
+												<tbody>
+                        <?php
+                          $dataUser = ShowUsers::getRespons();
+                          for($i = 0; $i < count($dataUser); $i++) {
+                          
+                        ?>
+												  <tr>
+													<td><?php print_r($dataUser[$i]['user_id']); ?></td>
+													<td><?php print_r($dataUser[$i]['user_prenom']); ?></td>
+													<td><?php print_r($dataUser[$i]['user_nom']); ?></td>
+													<td><?php print_r($dataUser[$i]['user_mail']); ?></td>
+													<!-- <td><span class="label label-danger">admin</span> </td> -->
+                          </tr>
+                          <?php } ?>
+												</tbody>
+											</table>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+      </div>
     </div>
   </div>
   <p class="act"><b>Active Tab</b>: <span></span></p>
