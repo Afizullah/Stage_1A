@@ -1,6 +1,14 @@
 <?php
 
 require_once(PATH_CONTROLEUR."commun.user.php");
+
+function linkCreatProjet(){
+    ?>
+    <li>
+        <a href="index.php?page=createProjet">Créer un projet</a>
+    </li>
+    <?php
+}
  ?>
 
 <!-- Left Sidebar Menu -->
@@ -58,16 +66,30 @@ require_once(PATH_CONTROLEUR."commun.user.php");
             <span>Formations</span>
             <i class="zmdi zmdi-more"></i>
         </li>
+
         <li>
             <a href="javascript:void(0);" data-toggle="collapse" data-target="#dashboard_dr2"><div class="pull-left"><i class="zmdi zmdi-landscape mr-20"></i><span class="right-nav-text">Formations</span></div><div class="pull-right"><i class="zmdi zmdi-caret-down"></i></div><div class="clearfix"></div></a>
+
             <ul id="dashboard_dr2" class="collapse collapse-level-1">
-                <li>
-                    <a href="index.php?page=addFormation"><i class="fa fa-plus-circle"></i> Ajouter</a>
-                </li>
-                <li>
-                    <a href="index.php?page=showFormations">Liste des formations</a>
-                </li>
-            </ul>
+            <?php
+            if($loaded = $PROJET->projetLoaded()){
+                ?>
+                    <li>
+                        <a href="index.php?page=addFormation"><i class="fa fa-plus-circle"></i> Ajouter</a>
+                    </li>
+                    <?php
+                    if($PROJET->getFormations()){ ?>
+                        <li>
+                            <a href="index.php?page=showFormations&projetId=<?php echo $PROJET->getId(); ?>">Liste des formations</a>
+                        </li>
+                        <?php
+                    }
+            }else{
+                linkCreatProjet();
+            }
+
+            ?>
+        </ul>
 
         </li>
 
@@ -120,23 +142,40 @@ require_once(PATH_CONTROLEUR."commun.user.php");
     -->
         <li><hr class="light-grey-hr mb-10"/></li>
         <li class="navigation-header">
-            <span>Groupes</span>
+            <span>Groupes <a href="index.php?page=addGroupe"  ><i style="color:white;font-size:15px" class="fa fa-plus-circle"></i></a></span>
             <i class="zmdi zmdi-more"></i>
         </li>
-        <li>
-            <a href="javascript:void(0);" data-toggle="collapse" data-target="#ui_dr"><div class="pull-left"><i class="zmdi zmdi-smartphone-setup mr-20"></i><span class="right-nav-text">Informatique</span></div><div class="pull-right"><i class="zmdi zmdi-caret-down"></i></div><div class="clearfix"></div></a>
-            <ul id="ui_dr" class="collapse collapse-level-1 two-col-list">
-                <li>
-                    <a href="modals.html">Matières</a>
-                </li>
-                <li>
-                    <a href="panels-wells.html">Participants</a>
-                </li>
-                <li>
-                    <a href="notifications.html">Propositions</a>
-                </li>
-            </ul>
-        </li>
+        <?php
+        if($loaded){
+
+            if($grps = $PROJET->getGroupes()){
+                $num = 1;
+                foreach ($grps as $grp => $value) {
+                    ?>
+                    <li>
+                        <a href="javascript:void(0);" data-toggle="collapse" data-target="#ui_dr<?php echo $num; ?>"><div class="pull-left"><i class="zmdi zmdi-smartphone-setup mr-20"></i><span class="right-nav-text"><?php echo $value["groupe_specialite"]; ?></span></div><div class="pull-right">
+                            <i class="zmdi zmdi-caret-down"></i></div><div class="clearfix"></div>
+                        </a>
+                        <ul id="ui_dr<?php echo $num; ?>" class="collapse collapse-level-1 two-col-list">
+                            <li>
+                                <a href="modals.html">Matières</a>
+                            </li>
+                            <li>
+                                <a href="panels-wells.html">Participants</a>
+                            </li>
+                            <li>
+                                <a href="notifications.html">Propositions</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <?php
+                }
+            }
+        }else{
+            linkCreatProjet();
+        }
+         ?>
+
         <li><hr class="light-grey-hr mb-10"/></li>
         <li class="navigation-header">
             <span>Livrets</span>
