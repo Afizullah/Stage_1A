@@ -31,7 +31,7 @@
     <div class="mobile-only-nav pull-left">
         <div style="width:580px;position:fixed;top:20px;" class="nav-header">
             <h6 style="overflow:hidden">
-                Projet livrets 2018
+                <?php echo $PROJET->getName(); ?>
             </h6>
         </div>
     </div>
@@ -109,9 +109,23 @@
                                 <a href="javascript:void(0);"><div class="pull-left"><i class="zmdi zmdi-landscape mr-20"></i><span class="right-nav-text">Projets</span></div><div class="pull-right"><i class="zmdi zmdi-caret-down"></i></div><div class="clearfix"></div></a>
                                 <hr class="light-grey-hr ma-0"/>
                                 <ul>
-                                    <li>
-                                        <a href="index.html">Analytical</a>
-                                    </li>
+                                    <?php
+                                    if($projs = Projet::getAll()){
+                                        foreach ($projs as $proj => $value) {
+                                            ?>
+                                            <li>
+                                                <a href="index.php?page=loadProjet&id=<?php echo $value["projet_id"]; ?>"><?php echo $value["projet_nom"]; ?></a>
+                                            </li>
+                                            <?php
+                                        }
+                                    }else{
+                                        ?>
+                                        <li>
+                                            <a href="index.php?page=createProjet">Créer un projet</a>
+                                        </li>
+                                        <?php
+                                    }
+                                    ?>
                                 </ul>
                             </li>
                         </li>

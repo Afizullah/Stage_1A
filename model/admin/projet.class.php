@@ -1,34 +1,56 @@
 <?php
 require_once(DB_OPT_FILE);
 class Projet extends DB{
-    public static function getCurrentProjet(){
-        if(isset($_SESSION["loaderProjet"])){
-            return array("id"=>$_SESSION["loaderProjet"]["projet_id"],"name"=>$_SESSION["loaderProjet"]["projet_nom"],"step"=>$_SESSION["loaderProjet"]["projet_step"],"state"=>$_SESSION["loaderProjet"]["projet_etat"]);
+    private $name="";
+    private $id=0;
+    private $step=0;
+    private $state="";
+    public function __construct(){
+        if(isset($_SESSION["loaderProjet"]) &&
+            $_SESSION["loaderProjet"]["projet_id"]==DB::getLine("_paramettres","param_value",[["param_name","idLastProjetLoaded"]])["param_value"]){
+            $this->id   = $_SESSION["loaderProjet"]["projet_id"];
+            $this->name  = $_SESSION["loaderProjet"]["projet_nom"];
+            $this->step  = $_SESSION["loaderProjet"]["projet_step"];
+            $this->state = $_SESSION["loaderProjet"]["projet_etat"];
+
         }else{
             if($idProjetToLoad = DB::getLine("_paramettres","param_value",[["param_name","idLastProjetLoaded"]])["param_value"]){
                if($currentPojet = DB::getLine("projet","*",[["projet_id",$idProjetToLoad]])){
-                   $id   = $_SESSION["loaderProjet"]["projet_id"]   = $currentPojet["projet_id"];
-                   $name = $_SESSION["loaderProjet"]["projet_nom"]  = $currentPojet["projet_nom"];
-                   $step = $_SESSION["loaderProjet"]["projet_step"] = $currentPojet["projet_step"];
-                   $stat = $_SESSION["loaderProjet"]["projet_etat"] = $currentPojet["projet_etat"];
-                   return array(
-                       "id"=>$id,
-                       "name"=>$name,
-                       "step"=>$step,
-                       "stat"=>$stat
-                   );
+                   $this->id   = $_SESSION["loaderProjet"]["projet_id"]   = $currentPojet["projet_id"];
+                   $this->name = $_SESSION["loaderProjet"]["projet_nom"]  = $currentPojet["projet_nom"];
+                   $this->step = $_SESSION["loaderProjet"]["projet_step"] = $currentPojet["projet_step"];
+                   $this->stat = $_SESSION["loaderProjet"]["projet_etat"] = $currentPojet["projet_etat"];
+
+
                 }
+
              }
-              return false;
-           }
-        }
-        public static function createProject($nom){
-            return DB::registre("projet",[["projet_nom",$nom]]);
-        }
-        public static function setLoadedProjet($idLoadedProjet){
-            DB::update("_paramettres",[["param_value",$idLoadedProjet]],[["param_name","idLastProjetLoaded"]]);
-            selft::getCurrentProjet();
-        }
+
+          }
+    }
+
+
+    public static function createProject($nom){
+        return DB::registre("projet",[["projet_nom",$nom]]);
+    }
+    public static function setLoadedProjet($idLoadedProjet){
+        DB::update("_paramettres",[["param_value",$idLoadedProjet]],[["param_name","idLastProjetLoaded"]]);
+    }
+    public function getName(){
+        return $this->name;
+    }
+    public function getId(){
+        return $this->id;
+    }
+    public function getStep(){
+        return $this->step;
+    }
+    public function getStat(){
+        return $this->stat;
+    }
+    public static function getAll(){
+        return DB::getData("projet","*",[[1,1]],array()," ORDER BY projet_date_creation DESC ");
+    }
 }
 
 ?>

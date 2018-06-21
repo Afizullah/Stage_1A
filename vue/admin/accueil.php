@@ -14,7 +14,7 @@
   </div>
 </div>
 <?php
-    if(!$projet = Projet::getCurrentProjet()){
+    if(!$projet = $PROJET->getId()){
         ?>
         <center>
             <a href="#createProjet" data-toggle="modal" >
@@ -23,5 +23,4 @@
         </center>
         <?php
     }
-
  ?>

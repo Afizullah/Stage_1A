@@ -14,12 +14,29 @@ require_once(PATH_CONTROLEUR."commun.user.php");
                     <div class="dropdown mt-5">
                     <a href="#" class="dropdown-toggle pr-0 bg-transparent" data-toggle="dropdown"><?php echo CurrentUser::getFullName(); ?><span class="caret"></span></a>
                     <?php
-                    getMenuUser();
+                        getMenuUser();
                     ?>
                     </div>
                 </div>
             </li>
             <!-- /User Profile -->
+            <li class="navigation-header">
+                <span>Utilisateurs</span>
+                <i class="zmdi zmdi-more"></i>
+            </li>
+            <li>
+                <a href="javascript:void(0);" data-toggle="collapse" data-target="#dashboard_dr1"><div class="pull-left"><i class="zmdi zmdi-landscape mr-20"></i><span class="right-nav-text">Gérer les comptes</span></div><div class="pull-right"><i class="zmdi zmdi-caret-down"></i></div><div class="clearfix"></div></a>
+                <ul id="dashboard_dr1" class="collapse collapse-level-1">
+                    <li>
+                        <a href="index.php?page=addUser">Créer un compte</a>
+                    </li>
+                    <li>
+                        <a href="index.php?page=showUsers">Liste des comptes</a>
+                    </li>
+                </ul>
+
+            </li>
+
         <li class="navigation-header">
             <span>Projets</span>
             <i class="zmdi zmdi-more"></i>
@@ -31,7 +48,7 @@ require_once(PATH_CONTROLEUR."commun.user.php");
                     <a href="index.php?page=createProjet"><i class="fa fa-plus-circle"></i> Nouveau</a>
                 </li>
                 <li>
-                    <a href="index.php?page=showUsers">Liste des projets</a>
+                    <a href="index.php?page=showProjets">Liste des projets</a>
                 </li>
             </ul>
 
@@ -54,22 +71,6 @@ require_once(PATH_CONTROLEUR."commun.user.php");
 
         </li>
 
-        <li class="navigation-header">
-            <span>Utilisateurs</span>
-            <i class="zmdi zmdi-more"></i>
-        </li>
-        <li>
-            <a href="javascript:void(0);" data-toggle="collapse" data-target="#dashboard_dr1"><div class="pull-left"><i class="zmdi zmdi-landscape mr-20"></i><span class="right-nav-text">Gérer les comptes</span></div><div class="pull-right"><i class="zmdi zmdi-caret-down"></i></div><div class="clearfix"></div></a>
-            <ul id="dashboard_dr1" class="collapse collapse-level-1">
-                <li>
-                    <a href="index.php?page=addUser">Créer un compte</a>
-                </li>
-                <li>
-                    <a href="index.php?page=showUsers">Liste des comptes</a>
-                </li>
-            </ul>
-
-        </li>
 
         <!--<li>
             <a href="javascript:void(0);" data-toggle="collapse" data-target="#app_dr"><div class="pull-left"><i class="zmdi zmdi-apps mr-20"></i><span class="right-nav-text">Apps </span></div><div class="pull-right"><i class="zmdi zmdi-caret-down"></i></div><div class="clearfix"></div></a>

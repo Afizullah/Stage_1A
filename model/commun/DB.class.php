@@ -99,7 +99,7 @@
              $conditionChamp[]=$tabCondition[$i][0];
              $conditionValeur[]=$tabCondition[$i][1];
          }
-         $bdd = CommunDb::getConnection();
+         $bdd = parent::connect();
          $nbChamp = count($champs);
          $str_req = "";
          $arrayVal = array();
