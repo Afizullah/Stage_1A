@@ -13,50 +13,54 @@ require_once(PATH_CONTROLEUR."commun.user.php");
                     <img src="https://hencework.com/theme/grandin-demo/img/user1.png" alt="user_auth" class="user-auth-img img-circle"/>
                     <div class="dropdown mt-5">
                     <a href="#" class="dropdown-toggle pr-0 bg-transparent" data-toggle="dropdown"><?php echo CurrentUser::getFullName(); ?><span class="caret"></span></a>
-                    <ul class="dropdown-menu user-auth-dropdown" data-dropdown-in="flipInX" data-dropdown-out="flipOutX">
-                        <li>
-                            <a href="profile.html"><i class="zmdi zmdi-account"></i><span>Profile</span></a>
-                        </li>
-                        <li>
-                            <a href="#"><i class="zmdi zmdi-card"></i><span>my balance</span></a>
-                        </li>
-                        <li>
-                            <a href="inbox.html"><i class="zmdi zmdi-email"></i><span>Inbox</span></a>
-                        </li>
-                        <li>
-                            <a href="#"><i class="zmdi zmdi-settings"></i><span>Settings</span></a>
-                        </li>
-                        <li class="divider"></li>
-                        <li class="sub-menu show-on-hover">
-                            <a href="#" class="dropdown-toggle pr-0 level-2-drp"><i class="zmdi zmdi-check text-success"></i> available</a>
-                            <ul class="dropdown-menu open-left-side">
-                                <li>
-                                    <a href="#"><i class="zmdi zmdi-check text-success"></i><span>available</span></a>
-                                </li>
-                                <li>
-                                    <a href="#"><i class="zmdi zmdi-circle-o text-warning"></i><span>busy</span></a>
-                                </li>
-                                <li>
-                                    <a href="#"><i class="zmdi zmdi-minus-circle-outline text-danger"></i><span>offline</span></a>
-                                </li>
-                            </ul>
-                        </li>
-                        <li class="divider"></li>
-                        <li>
-                            <a href="#"><i class="zmdi zmdi-power"></i><span>Log Out</span></a>
-                        </li>
-                    </ul>
+                    <?php
+                    getMenuUser();
+                    ?>
                     </div>
                 </div>
             </li>
             <!-- /User Profile -->
         <li class="navigation-header">
+            <span>Projets</span>
+            <i class="zmdi zmdi-more"></i>
+        </li>
+        <li>
+            <a href="javascript:void(0);" data-toggle="collapse" data-target="#dashboard_dr"><div class="pull-left"><i class="zmdi zmdi-landscape mr-20"></i><span class="right-nav-text">Projets</span></div><div class="pull-right"><i class="zmdi zmdi-caret-down"></i></div><div class="clearfix"></div></a>
+            <ul id="dashboard_dr" class="collapse collapse-level-1">
+                <li>
+                    <a href="index.php?page=createProjet"><i class="fa fa-plus-circle"></i> Nouveau</a>
+                </li>
+                <li>
+                    <a href="index.php?page=showUsers">Liste des projets</a>
+                </li>
+            </ul>
+
+        </li>
+
+        <li class="navigation-header">
+            <span>Formations</span>
+            <i class="zmdi zmdi-more"></i>
+        </li>
+        <li>
+            <a href="javascript:void(0);" data-toggle="collapse" data-target="#dashboard_dr2"><div class="pull-left"><i class="zmdi zmdi-landscape mr-20"></i><span class="right-nav-text">Formations</span></div><div class="pull-right"><i class="zmdi zmdi-caret-down"></i></div><div class="clearfix"></div></a>
+            <ul id="dashboard_dr2" class="collapse collapse-level-1">
+                <li>
+                    <a href="index.php?page=addFormation"><i class="fa fa-plus-circle"></i> Ajouter</a>
+                </li>
+                <li>
+                    <a href="index.php?page=showFormations">Liste des formations</a>
+                </li>
+            </ul>
+
+        </li>
+
+        <li class="navigation-header">
             <span>Utilisateurs</span>
             <i class="zmdi zmdi-more"></i>
         </li>
         <li>
-            <a href="javascript:void(0);" data-toggle="collapse" data-target="#dashboard_dr"><div class="pull-left"><i class="zmdi zmdi-landscape mr-20"></i><span class="right-nav-text">Gérer les comptes</span></div><div class="pull-right"><i class="zmdi zmdi-caret-down"></i></div><div class="clearfix"></div></a>
-            <ul id="dashboard_dr" class="collapse collapse-level-1">
+            <a href="javascript:void(0);" data-toggle="collapse" data-target="#dashboard_dr1"><div class="pull-left"><i class="zmdi zmdi-landscape mr-20"></i><span class="right-nav-text">Gérer les comptes</span></div><div class="pull-right"><i class="zmdi zmdi-caret-down"></i></div><div class="clearfix"></div></a>
+            <ul id="dashboard_dr1" class="collapse collapse-level-1">
                 <li>
                     <a href="index.php?page=addUser">Créer un compte</a>
                 </li>
@@ -66,18 +70,8 @@ require_once(PATH_CONTROLEUR."commun.user.php");
             </ul>
 
         </li>
-        <li>
-            <a href="javascript:void(0);" data-toggle="collapse" data-target="#ecom_dr"><div class="pull-left"><i class="zmdi zmdi-shopping-basket mr-20"></i><span class="right-nav-text">Gérer les groupes</span></div><div class="pull-right"><span class="label label-success">7</span></div><div class="clearfix"></div></a>
-            <ul id="ecom_dr" class="collapse collapse-level-1">
-                <li>
-                    <a href="index.php?page=addGroupe">Nouveau</a>
-                </li>
-                <li>
-                    <a href="index.php?page=showGroups">Liste des groupes</a>
-                </li>
-            </ul>
-        </li>
-        <li>
+
+        <!--<li>
             <a href="javascript:void(0);" data-toggle="collapse" data-target="#app_dr"><div class="pull-left"><i class="zmdi zmdi-apps mr-20"></i><span class="right-nav-text">Apps </span></div><div class="pull-right"><i class="zmdi zmdi-caret-down"></i></div><div class="clearfix"></div></a>
             <ul id="app_dr" class="collapse collapse-level-1">
                 <li>
@@ -122,218 +116,29 @@ require_once(PATH_CONTROLEUR."commun.user.php");
         <li>
             <a href="widgets.html"><div class="pull-left"><i class="zmdi zmdi-flag mr-20"></i><span class="right-nav-text">widgets</span></div><div class="pull-right"><span class="label label-warning">8</span></div><div class="clearfix"></div></a>
         </li>
+    -->
         <li><hr class="light-grey-hr mb-10"/></li>
         <li class="navigation-header">
-            <span>component</span>
+            <span>Groupes</span>
             <i class="zmdi zmdi-more"></i>
         </li>
         <li>
-            <a href="javascript:void(0);" data-toggle="collapse" data-target="#ui_dr"><div class="pull-left"><i class="zmdi zmdi-smartphone-setup mr-20"></i><span class="right-nav-text">UI Elements</span></div><div class="pull-right"><i class="zmdi zmdi-caret-down"></i></div><div class="clearfix"></div></a>
+            <a href="javascript:void(0);" data-toggle="collapse" data-target="#ui_dr"><div class="pull-left"><i class="zmdi zmdi-smartphone-setup mr-20"></i><span class="right-nav-text">Informatique</span></div><div class="pull-right"><i class="zmdi zmdi-caret-down"></i></div><div class="clearfix"></div></a>
             <ul id="ui_dr" class="collapse collapse-level-1 two-col-list">
                 <li>
-                    <a href="panels-wells.html">Panels & Wells</a>
+                    <a href="modals.html">Matières</a>
                 </li>
                 <li>
-                    <a href="modals.html">Modals</a>
+                    <a href="panels-wells.html">Participants</a>
                 </li>
                 <li>
-                    <a href="sweetalert.html">Sweet Alerts</a>
-                </li>
-                <li>
-                    <a href="notifications.html">notifications</a>
-                </li>
-                <li>
-                    <a href="typography.html">Typography</a>
-                </li>
-                <li>
-                    <a href="buttons.html">Buttons</a>
-                </li>
-                <li>
-                    <a href="accordion-toggle.html">Accordion / Toggles</a>
-                </li>
-                <li>
-                    <a href="tabs.html">Tabs</a>
-                </li>
-                <li>
-                    <a href="progressbars.html">Progress bars</a>
-                </li>
-                <li>
-                    <a href="skills-counter.html">Skills & Counters</a>
-                </li>
-                <li>
-                    <a href="pricing.html">Pricing Tables</a>
-                </li>
-                <li>
-                    <a href="nestable.html">Nestables</a>
-                </li>
-                <li>
-                    <a href="dorpdown.html">Dropdowns</a>
-                </li>
-                <li>
-                    <a href="bootstrap-treeview.html">Tree View</a>
-                </li>
-                <li>
-                    <a href="carousel.html">Carousel</a>
-                </li>
-                <li>
-                    <a href="range-slider.html">Range Slider</a>
-                </li>
-                <li>
-                    <a href="grid-styles.html">Grid</a>
-                </li>
-                <li>
-                    <a href="bootstrap-ui.html">Bootstrap UI</a>
-                </li>
-            </ul>
-        </li>
-        <li>
-            <a href="javascript:void(0);" data-toggle="collapse" data-target="#form_dr"><div class="pull-left"><i class="zmdi zmdi-edit mr-20"></i><span class="right-nav-text">Forms</span></div><div class="pull-right"><i class="zmdi zmdi-caret-down"></i></div><div class="clearfix"></div></a>
-            <ul id="form_dr" class="collapse collapse-level-1 two-col-list">
-                <li>
-                    <a href="form-element.html">Basic Forms</a>
-                </li>
-                <li>
-                    <a href="form-layout.html">form Layout</a>
-                </li>
-                <li>
-                    <a href="form-advanced.html">Form Advanced</a>
-                </li>
-                <li>
-                    <a href="form-mask.html">Form Mask</a>
-                </li>
-                <li>
-                    <a href="form-picker.html">Form Picker</a>
-                </li>
-                <li>
-                    <a href="form-validation.html">form Validation</a>
-                </li>
-                <li>
-                    <a href="form-wizard.html">Form Wizard</a>
-                </li>
-                <li>
-                    <a href="form-x-editable.html">X-Editable</a>
-                </li>
-                <li>
-                    <a href="cropperjs.html">Cropperjs</a>
-                </li>
-                <li>
-                    <a href="form-file-upload.html">File Upload</a>
-                </li>
-                <li>
-                    <a href="dropzone.html">Dropzone</a>
-                </li>
-                <li>
-                    <a href="bootstrap-wysihtml5.html">Bootstrap Wysihtml5</a>
-                </li>
-                <li>
-                    <a href="tinymce-wysihtml5.html">Tinymce Wysihtml5</a>
-                </li>
-                <li>
-                    <a href="summernote-wysihtml5.html">summernote</a>
-                </li>
-                <li>
-                    <a href="typeahead-js.html">typeahead</a>
-                </li>
-            </ul>
-        </li>
-        <li>
-            <a href="javascript:void(0);" data-toggle="collapse" data-target="#chart_dr"><div class="pull-left"><i class="zmdi zmdi-chart-donut mr-20"></i><span class="right-nav-text">Charts </span></div><div class="pull-right"><i class="zmdi zmdi-caret-down"></i></div><div class="clearfix"></div></a>
-            <ul id="chart_dr" class="collapse collapse-level-1 two-col-list">
-                <li>
-                    <a href="flot-chart.html">Flot Chart</a>
-                </li>
-                <li>
-                    <a href="echart.html">Echart Chart</a>
-                </li>
-                <li>
-                    <a href="morris-chart.html">Morris Chart</a>
-                </li>
-                <li>
-                    <a href="chart.js.html">chartjs</a>
-                </li>
-                <li>
-                    <a href="chartist.html">chartist</a>
-                </li>
-                <li>
-                    <a href="easy-pie-chart.html">Easy Pie Chart</a>
-                </li>
-                <li>
-                    <a href="sparkline.html">Sparkline</a>
-                </li>
-                <li>
-                    <a href="peity-chart.html">Peity Chart</a>
-                </li>
-            </ul>
-        </li>
-        <li>
-            <a href="javascript:void(0);" data-toggle="collapse" data-target="#table_dr"><div class="pull-left"><i class="zmdi zmdi-format-size mr-20"></i><span class="right-nav-text">Tables</span></div><div class="pull-right"><i class="zmdi zmdi-caret-down"></i></div><div class="clearfix"></div></a>
-            <ul id="table_dr" class="collapse collapse-level-1 two-col-list">
-                <li>
-                    <a href="basic-table.html">Basic Table</a>
-                </li>
-                <li>
-                    <a href="bootstrap-table.html">Bootstrap Table</a>
-                </li>
-                <li>
-                    <a href="data-table.html">Data Table</a>
-                </li>
-                <li>
-                    <a href="export-table.html">Export Table</a>
-                </li>
-                <li>
-                    <a href="responsive-data-table.html">RSPV DataTable</a>
-                </li>
-                <li>
-                    <a href="responsive-table.html">Responsive Table</a>
-                </li>
-                <li>
-                    <a href="editable-table.html">Editable Table</a>
-                </li>
-                <li>
-                    <a href="foo-table.html">Foo Table</a>
-                </li>
-                <li>
-                    <a href="jsgrid-table.html">Jsgrid Table</a>
-                </li>
-            </ul>
-        </li>
-        <li>
-            <a href="javascript:void(0);" data-toggle="collapse" data-target="#icon_dr"><div class="pull-left"><i class="zmdi zmdi-iridescent mr-20"></i><span class="right-nav-text">Icons</span></div><div class="pull-right"><i class="zmdi zmdi-caret-down"></i></div><div class="clearfix"></div></a>
-            <ul id="icon_dr" class="collapse collapse-level-1">
-                <li>
-                    <a href="fontawesome.html">Fontawesome</a>
-                </li>
-                <li>
-                    <a href="themify.html">Themify</a>
-                </li>
-                <li>
-                    <a href="linea-icon.html">Linea</a>
-                </li>
-                <li>
-                    <a href="simple-line-icons.html">Simple Line</a>
-                </li>
-                <li>
-                    <a href="pe-icon-7.html">Pe-icon-7</a>
-                </li>
-                <li>
-                    <a href="glyphicons.html">Glyphicons</a>
-                </li>
-            </ul>
-        </li>
-        <li>
-            <a href="javascript:void(0);" data-toggle="collapse" data-target="#maps_dr"><div class="pull-left"><i class="zmdi zmdi-map mr-20"></i><span class="right-nav-text">maps</span></div><div class="pull-right"><i class="zmdi zmdi-caret-down"></i></div><div class="clearfix"></div></a>
-            <ul id="maps_dr" class="collapse collapse-level-1">
-                <li>
-                    <a href="vector-map.html">Vector Map</a>
-                </li>
-                <li>
-                    <a href="google-map.html">Google Map</a>
+                    <a href="notifications.html">Propositions</a>
                 </li>
             </ul>
         </li>
         <li><hr class="light-grey-hr mb-10"/></li>
         <li class="navigation-header">
-            <span>featured</span>
+            <span>Livrets</span>
             <i class="zmdi zmdi-more"></i>
         </li>
         <li>

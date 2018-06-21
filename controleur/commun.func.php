@@ -26,7 +26,34 @@
                 return date("Y-m-d");
         }
     }
+    function NOW($sepDate="-",$sepTime=":"){
+       $y_m_d = date("Y".$sepDate.'m'.$sepDate."d "."H".$sepTime."i".$sepTime."s");
+       return $y_m_d;
 
+     }
+    function getMenuUser(){
+        ?>
+        <ul class="dropdown-menu user-auth-dropdown" data-dropdown-in="flipInX" data-dropdown-out="flipOutX">
+            <li>
+                <a href="profile.html"><i class="zmdi zmdi-account"></i><span>Profile</span></a>
+            </li>
+            <li>
+                <a href="#"><i class="zmdi zmdi-card"></i><span>my balance</span></a>
+            </li>
+            <li>
+                <a href="inbox.html"><i class="zmdi zmdi-email"></i><span>Inbox</span></a>
+            </li>
+            <li>
+                <a href="#"><i class="zmdi zmdi-settings"></i><span>Settings</span></a>
+            </li>
+
+            <li class="divider"></li>
+            <li>
+                <a href="logout.php"><i class="zmdi zmdi-power"></i><span>Se déconnecter</span></a>
+            </li>
+        </ul>
+        <?php
+    }
     function getNewToken($defaultSize=50){
         return generateNewString($defaultSize);
     }

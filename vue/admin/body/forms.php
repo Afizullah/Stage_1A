@@ -35,7 +35,7 @@ function getFormAddUsser($action="",$type_compte="",$date_expiration="",$email="
     </form>
     <?php
 }
-function getFromCreateProjet(){
+function getFromCreateProjet($action=""){
     ?>
     <form style="width:500px;margin:auto;background-color:white;padding:30px;" action="<?php echo $action; ?>" method="POST">
         <div class="input-group">

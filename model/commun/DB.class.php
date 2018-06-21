@@ -1,5 +1,5 @@
 <?php
-  
+
   require_once(PATH_MODEL."commun/DataObject.class.php");
   class DB extends DataObject{
 
@@ -87,6 +87,41 @@
         public static function getData($table,$champ="*",$tabData=[[1,1]],$operators=array(),$ordre="",$all=false,$op=" AND "){
           return self::getLine($table,$champ,$tabData,$operators,$ordre,true,$op);
         }
+
+        //DB::getData("utilisateurs",[["prenom",$prenom],["nom",$nom]],[["id",$idCompte]])
+        public static function update($table,$tabData,$tabCondition){
+
+         for ($i=0; $i <count($tabData) ; $i++) {
+             $champs[]=$tabData[$i][0];
+             $valeurs[]=$tabData[$i][1];
+         }
+         for ($i=0; $i <count($tabCondition) ; $i++) {
+             $conditionChamp[]=$tabCondition[$i][0];
+             $conditionValeur[]=$tabCondition[$i][1];
+         }
+         $bdd = CommunDb::getConnection();
+         $nbChamp = count($champs);
+         $str_req = "";
+         $arrayVal = array();
+         for($i =0 ; $i < $nbChamp; $i++)
+         {
+             $tempVal = ":valeur".$i;
+             $str_req .= $champs[$i]."=".$tempVal."".(($i+1 == $nbChamp)?" ":",");
+             $arrayVal[$tempVal] = $valeurs[$i];
+         }
+         $condition = "";
+         $opt ="";
+         for ($i=0; $i <count($conditionChamp) ; $i++) {
+             $tempCondition = ":conditionValeur".$i;
+             $arrayVal[$tempCondition]=$conditionValeur[$i];
+             $condition.=$opt.$conditionChamp[$i]."=$tempCondition";
+             $opt=" AND ";
+         }
+         $req = $bdd->prepare("UPDATE $table SET ".$str_req." WHERE ".$condition."") ;
+         $reqUp = $req->execute($arrayVal);
+         $req->closeCursor();
+         return $reqUp;
+     }
 
   }
 

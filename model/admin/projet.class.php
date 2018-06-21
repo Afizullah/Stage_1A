@@ -20,7 +20,13 @@ class Projet extends DB{
               return false;
            }
         }
-
+        public static function createProject($nom){
+            return DB::registre("projet",[["projet_nom",$nom]]);
+        }
+        public static function setLoadedProjet($idLoadedProjet){
+            DB::update("_paramettres",[["param_value",$idLoadedProjet]],[["param_name","idLastProjetLoaded"]]);
+            selft::getCurrentProjet();
+        }
 }
 
 ?>
