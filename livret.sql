@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Client :  localhost
--- Généré le :  Mer 20 Juin 2018 à 09:34
+-- Généré le :  Mer 20 Juin 2018 à 15:46
 -- Version du serveur :  5.7.22-0ubuntu0.16.04.1
 -- Version de PHP :  7.0.30-0ubuntu0.16.04.1
 
@@ -20,15 +20,14 @@ SET time_zone = "+00:00";
 -- Base de données :  `livret`
 --
 
+CREATE DATABASE livret;
+USE livret;
+
 -- --------------------------------------------------------
 
 --
 -- Structure de la table `classe`
 --
-
-CREATE DATABASE livret;
-
-USE livret;
 
 CREATE TABLE `classe` (
   `classe_nom` varchar(30) DEFAULT NULL,
@@ -255,7 +254,7 @@ INSERT INTO `utilisateurs` (`user_id`, `user_nom`, `user_prenom`, `user_mail`, `
 --
 
 CREATE TABLE `utilisateurs_temporaires` (
-  `user_id` varchar(100) NOT NULL,
+  `user_id` int(11) NOT NULL,
   `user_nom` varchar(50) NOT NULL,
   `user_prenom` varchar(50) NOT NULL,
   `user_mail` varchar(255) NOT NULL,
@@ -265,6 +264,18 @@ CREATE TABLE `utilisateurs_temporaires` (
   `user_date_expiration` date NOT NULL,
   `user_date_enregistrement` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Contenu de la table `utilisateurs_temporaires`
+--
+
+INSERT INTO `utilisateurs_temporaires` (`user_id`, `user_nom`, `user_prenom`, `user_mail`, `user_type_de_compte`, `user_token`, `user_date_exp_temp`, `user_date_expiration`, `user_date_enregistrement`) VALUES
+(1, 'Niakh', 'Daouda', 'niakhdaouda@gmail.com', 'administrateur', 'O81xFckJdmsQ02CFr88LpuKbD1t9x4M6gEliy50CmVnrdhvnhU', '2018-06-22 12:34:41', '2020-01-01', '2018-06-20 12:34:41'),
+(2, 'Niakh', 'dshhj', 'niakhdaouda@gmail.com', 'administrateur', 'YlRhaOTuIUtZLlor8hmcRSR2ZkKDJsgk2vmbjz2WPULKcZvYb1', '2018-06-22 12:54:14', '2018-06-21', '2018-06-20 12:54:14'),
+(3, 'Niakh', 'dshhj', 'niakhdaouda@gmail.co', 'administrateur', 'uz2ftZFPTFSHinMrHmGHx8DRHmat4NxuERoRC3w27sdd9ZKpaQ', '2018-06-22 12:58:16', '2018-06-21', '2018-06-20 12:58:16'),
+(4, 'Niakh', 'dshhj', 'niakhdaouda@gmail.co', 'administrateur', 'dMEZqk7m5nb560vlfJxSsyvwNKuKZr1LSLqXVSoZ1BZBokuFHI', '2018-06-22 13:01:07', '2018-06-21', '2018-06-20 13:01:07'),
+(5, 'Niakh', 'Daouda', 'niakhdaouda.developper@gmail.com', 'administrateur', '7snhrEE9OGbB4AWbektnUcOTgRO2oV58DUA0VaAF6sX0mY33wo', '2018-06-22 14:05:39', '2020-12-31', '2018-06-20 14:05:39'),
+(6, 'Sall', 'Aliou', 'aliouibnibrahim@yahoo.fr', 'administrateur', 'OeiDeKNxZs2J7gkcIcIARtFjzSaos0uWb5Q6W89M48bZONZBxZ', '2018-06-22 15:45:12', '2030-01-01', '2018-06-20 15:45:12');
 
 -- --------------------------------------------------------
 
@@ -459,6 +470,11 @@ ALTER TABLE `ue`
 --
 ALTER TABLE `utilisateurs`
   MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+--
+-- AUTO_INCREMENT pour la table `utilisateurs_temporaires`
+--
+ALTER TABLE `utilisateurs_temporaires`
+  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 --
 -- Contraintes pour les tables exportées
 --

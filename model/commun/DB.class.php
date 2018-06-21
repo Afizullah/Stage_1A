@@ -17,7 +17,7 @@
       }
 
       //DB::registre("utilisateurs",[["prenom",$prenom],["nom",$nom]]);
-      public static function  registre($table,$tabRegisted){
+      public static function registre($table,$tabRegisted){
           $bdd = parent::connect();
           $nbrChamp = count($tabRegisted);
           $realValues = array();
