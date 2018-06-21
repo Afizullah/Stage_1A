@@ -34,15 +34,12 @@
 										<div class="form-wrap">
                                             <div>
                                                 <?php
-                                                if(isset($errors)){
-                                                    foreach ($errors as $error) {
-                                                        ?>
-                                                        <center>
-                                                            <span class="error"><?php echo $error; ?></span>
-                                                        </center><br/>
-                                                        <?php
+
+                                                    if(isset($errors)){
+                                                        //die("ok");
+                                                        alertErrors($errors);
+
                                                     }
-                                                }
 
                                                  ?>
                                             </div>

@@ -117,4 +117,26 @@
         	return NULL;
         }
     }
+
+
+    function alertErrors($errors){
+      for($i= 0;$i <count($errors);$i++){
+            ?>
+              <center><span class="error">
+                  <?php echo $errors[$i]; ?>
+              </span>
+                </center>
+            <?php
+          }
+    }
+    function alertSucces($msgScces){
+            ?>
+              <center><span class="succes">
+                  <?php echo $msgScces; ?></center>
+              </span>
+
+            <?php
+
+    }
+
 ?>

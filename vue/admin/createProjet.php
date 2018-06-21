@@ -15,9 +15,23 @@ fieldset {
     <center>
         <h5>Créer un nouveau projet</h5>
     </center>
-    <fieldset class="tt">
-            <?php
-        getFromCreateProjet();
+    <?php
+        $hasError = false;
+        if(isset($errors)){
+            alertErrors($errors);
+            $hasError=true;
+        }
+        if(isset($success)){
+            alertSucces($success);
+        }
+    ?>
+    <fieldset >
+        <?php
+            if($hasError && isset($_POST["projet_nom"])){
+                getFromCreateProjet($_POST["projet_nom"]);
+            }else{
+                getFromCreateProjet();
+            }
         ?>
     </fieldset>
 </div>

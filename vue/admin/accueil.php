@@ -7,7 +7,7 @@
       </div>
       <div class="modal-body">
           <?php
-            getFromCreateProjet();
+            getFromCreateProjet("","index.php?page=createProjet");
            ?>
       </div>
     </div>
