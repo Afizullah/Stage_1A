@@ -168,8 +168,8 @@
       </div>
     </div>
   </div>
-  <p class="act"><b>Active Tab</b>: <span></span></p>
-  <p class="prev"><b>Previous Tab</b>: <span></span></p>
+  <p class="act"><b>Liste actuelle </b>: <span></span></p>
+  <p class="prev"><b>Liste précédente </b>: <span></span></p>
 </div>
 
 <script>
