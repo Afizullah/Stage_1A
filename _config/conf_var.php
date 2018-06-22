@@ -10,6 +10,8 @@ define("PATH_ENSEIGNANT","enseignant/");
 define("PATH_RP","responsable_pedagogique/");
 define("PATH_LOGIN","login/");
 define("PATH_PHP_MAILLER",PATH_CONTROLEUR."libs/SendMail/PHPMailer/");
+define("PATH_PHPExcel",PATH_CONTROLEUR."libs/PHPExcel/");
+define("PHPExcel_CLASS_FILE",PATH_PHPExcel."Classes/PHPExcel/IOFactory.php");
 
 define("URL_LOGO","https://www.senenews.com/wp-content/uploads/2016/04/ucadd-696x696.jpg");
 define("ADMIN_LOGO",PATH_TEMPLATE."dist/img/logo_admin.png");
