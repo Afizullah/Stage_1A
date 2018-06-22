@@ -79,5 +79,5 @@ class Projet extends DB{
         return parent::getLine("groupe_utilisateurs","*",[["user_id",$userId],["groupe_id",$groupeId]]);
     }
 }
-
+    $PROJET = new Projet;
 ?>

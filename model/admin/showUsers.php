@@ -23,8 +23,8 @@
             return DB::registre("groupe_utilisateurs",[["user_id",$userId],["groupe_id",$groupId]]);
         }
 
-        public static function deleteGroup($userId,$groupId) {
-            return DB::execute("DELETE FROM groupe_utilisateurs WHERE groupe_id = ".$groupId." AND user_id = ".$userId);
+        public static function deleteGroup($groupId) {
+            return DB::execute("DELETE FROM groupe_utilisateurs WHERE groupe_id = ".$groupId);
         }
     }
 

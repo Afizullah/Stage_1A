@@ -1,8 +1,10 @@
 <?php
     require_once(PATH_CONTROLEUR."commun.func.php");
 
+    
     //detection de la section
     if(isset($_SESSION["administrateur"])){
+        require_once(PATH_MODEL."admin/projet.class.php");
         $section = PATH_ADMIN;
     }else if(isset($_SESSION["enseignant"])){
         $section = PATH_ENSEIGNANT;

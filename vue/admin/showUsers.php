@@ -94,7 +94,7 @@
                                                 <form class="" action="" method="post">
                                                     <label for="notifEnseignant">Notifier les enseignants des changements </label>
                                                     <input type="checkbox" id="notifEnseignant" name="notifEnseignant" value="ok">
-
+																										<input type="hidden" name="project_id" value="<?php echo $PROJET->getId(); ?>">
                                                 <?php
                                             }
                                              ?>

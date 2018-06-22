@@ -1,6 +1,5 @@
 <?php
  require_once(PATH_MODEL."admin/projet.class.php");
- $PROJET = new Projet;
  require_once($section."body/forms.php");
  require_once($section."body/nav_bar.php");
  require_once($section."body/menu_left.php");
