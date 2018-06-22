@@ -68,7 +68,7 @@
       </div>
     </div>
     <div id="enseignant" class="container tab-pane fade"><br>
-      <h3>Enseignant</h3>
+
       <div>
         <div class="col-sm-12">
 						<div class="panel panel-default card-view">
@@ -85,7 +85,18 @@
 										<div class="table-responsive">
                                             <?php
                                             $hasGroupe= $PROJET->getGroupes();
+                                            if($hasGroupe){
 
+                                                ?>
+                                                <center>
+                                                    <h5>Gestion des groupes <i>(<?php echo $PROJET->getName(); ?>)</i></h5>
+                                                </center>
+                                                <form class="" action="" method="post">
+                                                    <label for="notifEnseignant">Notifier les enseignants des changements </label>
+                                                    <input type="checkbox" id="notifEnseignant" name="notifEnseignant" value="ok">
+
+                                                <?php
+                                            }
                                              ?>
 											<table class="table mb-0">
 												<thead>
@@ -97,7 +108,7 @@
                                                     <?php
                                                     if($hasGroupe){
                                                         ?>
-                                                        <th>Test</th>
+                                                        <th>Groupe</th>
                                                         <?php
                                                     }
                                                      ?>
@@ -120,7 +131,7 @@
                                                         ?>
                                                         <td>
 
-                                                            <select class="form-control">
+                                                            <select name="link<?php echo $i; ?>" class="form-control">
                                                                 <option value="">---Sélectionner---</option>
                                                             <?php
 
@@ -142,6 +153,18 @@
                           <?php } ?>
 												</tbody>
 											</table>
+                                            <?php
+                                            if($hasGroupe){
+
+                                                ?>
+                                                <center><br /><br />
+                                                    <input class="btn btn-success" type="submit" name="editGroupeListe" value="Enregistrer les modifications" />
+                                                </center>
+                                            </form>
+                                                <?php
+                                            }
+
+                                             ?>
 										</div>
 									</div>
 								</div>
