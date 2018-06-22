@@ -109,9 +109,17 @@ border-radius: 0;
 
                                         $init = new InitFormation();
                                         $dataInit = $init->getData();
-                                        $feuille = $dataInit->getFeuille(0);
+                                        /*$feuille = $dataInit->getFeuille(0);
                                         var_dump($dataInit->getFormationName($feuille));br();
-                                        var_dump($dataInit->getHeadLeaf($feuille));
+                                        $headLeaf = $dataInit->getHeadLeaf($feuille);
+                                        var_dump($dataInit->isNotCorrectLeaf($headLeaf));
+                                        */
+                                        $formations = $dataInit->getFormations();
+                                        foreach ($formations as $formation => $value) {
+
+                                            var_dump($formation);br();
+                                            var_dump($value);br();br();br();
+                                        }
                                  ?>
 							</div>
 						</div>

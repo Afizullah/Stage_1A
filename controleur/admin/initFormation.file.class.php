@@ -2,16 +2,69 @@
     require_once(PHPExcel_CLASS_FILE);
     class InitFormationWithFile extends PHPExcel_IOFactory{
         private $document_excel=null;
-        private $feuilles = array(
-                                "cols_not_found" => array(),
-                                "data"=>
-                            );
+        private $feuilles = null;
         private $leafColsAllowed = ["Code_Parcours","CodeUE","CodeEC","Semestre","TypeCompetence","Classe","Matiere","Compétences","Preréquis","Contenu",
                                     "Nb Heures CM","Nb Heures TD","Nb Heures TP","Nb Heures TPE","Coefficient","Credit UE"];
+        //private $leafColsAllowed = ["prenom","nom","date_de_naissance"];
         public function __construct(){
             $this->document_excel = PHPExcel_IOFactory::load("new.xls");
+            $allLeaf = $this->document_excel->getAllSheets();
+            foreach ($allLeaf as $leaf) {
+                $headLeaf = self::getHeadLeaf($leaf);
+                if(!self::isNotCorrectLeaf($headLeaf)){
+                    $this->feuilles[self::getFormationName($leaf)]=self::getRequiredData($leaf,$headLeaf);
+                }
+            }
+
         }
-        public function getFeuille($num){
+        private function getRequiredData($leaf,$headLeaf){
+            $compte=0;
+            $headOrder=null;
+            $cmptOrder=0;
+            $i=0;
+            $data=null;
+            foreach($leaf->getRowIterator() as $ligne){
+                $cmptIterator=0;
+                $line=null;
+                $k=0;
+                $loadThisLine=false;
+                foreach($ligne->getCellIterator() as $cellule){
+                    if($k==0 && $cellule->getValue()){
+                        $loadThisLine=true;
+                    }
+                    if($loadThisLine){
+                        if($compte != 0){
+                            if(in_array($headOrder[$cmptIterator],$this->leafColsAllowed)){
+                                $line[$headOrder[$cmptIterator]]=$cellule->getValue();
+                            }
+                            $cmptIterator++;
+                        }else{
+                            $headOrder[$cmptOrder]=$cellule->getValue();
+                            $cmptOrder++;
+                        }
+                    }
+                    $k++;
+                }
+                $compte += 1;
+                if($line){
+                    $data[]=$line;
+                }
+            }
+            return $data;
+        }
+        public function getFormations(){
+            return $this->feuilles;
+        }
+        private function isNotCorrectLeaf($headLeaf){
+            $cols_not_found = array();
+            for ($i=0; $i < count($this->leafColsAllowed); $i++) {
+                if(!in_array($this->leafColsAllowed[$i],$headLeaf)){
+                        $cols_not_found[]=$this->leafColsAllowed[$i];
+                }
+            }
+            return $cols_not_found;
+        }
+        /*public function getFeuille($num){
             if(isset($this->feuilles[$num])){
                 return $this->feuilles[$num];
             }
@@ -21,13 +74,14 @@
             }
             return null;
         }
-        public function getFormationName($leaf){
-            return $leaf->getTitle();
-        }
+
         private function getDataFile(){
             return $this->document_excel->getAllSheets();
+        }*/
+        private function getFormationName($leaf){
+            return $leaf->getTitle();
         }
-        public function getHeadLeaf($leaf){
+        private function getHeadLeaf($leaf){
     		$titles=array();
     		foreach($leaf->getRowIterator() as $firstLine){
     			foreach($firstLine->getCellIterator() as $cellule){
