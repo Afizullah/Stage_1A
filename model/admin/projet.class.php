@@ -5,6 +5,9 @@ class Projet extends DB{
     private $id=0;
     private $step=0;
     private $state="";
+    private $projets=null;
+    private $formations=null;
+    private $groupes=null;
     public function __construct(){
         if(isset($_SESSION["loaderProjet"]) &&
             $_SESSION["loaderProjet"]["projet_id"]==parent::getLine("_paramettres","param_value",[["param_name","idLastProjetLoaded"]])["param_value"]){
@@ -21,12 +24,14 @@ class Projet extends DB{
                    $this->step = $_SESSION["loaderProjet"]["projet_step"] = $currentPojet["projet_step"];
                    $this->stat = $_SESSION["loaderProjet"]["projet_etat"] = $currentPojet["projet_etat"];
 
-
                 }
 
-             }
+            }
 
-          }
+        }
+        $this->projets = parent::getData("projet","*",[[1,1]],array()," ORDER BY projet_date_creation DESC ");
+        $this->formations = parent::getData("formation","*",[["projet_id",self::getId()]]);
+        $this->groupes = parent::getData("groupe","*",[["projet_id",self::getId()]]);
     }
     public static function createProject($nom){
         if($projetId =  parent::registre("projet",[["projet_nom",$nom]])){
@@ -52,14 +57,26 @@ class Projet extends DB{
     public function getStat(){
         return $this->stat;
     }
-    public static function getAll(){
+    public function getAll(){
+        if($this->projets){
+            return $this->projets;
+        }
         return parent::getData("projet","*",[[1,1]],array()," ORDER BY projet_date_creation DESC ");
     }
     public function getFormations(){
+        if($this->formations){
+            return $this->formations;
+        }
         return parent::getData("formation","*",[["projet_id",self::getId()]]);
     }
     public function getGroupes(){
+        if($this->groupes){
+            return $this->groupes;
+        }
         return parent::getData("groupe","*",[["projet_id",self::getId()]]);
+    }
+    public function getGroupeForUser($userId,$groupeId){
+        return parent::getLine("groupe_utilisateurs","*",[["user_id",$userId],["groupe_id",$groupeId]]);
     }
 }
 

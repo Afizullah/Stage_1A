@@ -31,20 +31,11 @@
        return $y_m_d;
 
      }
-    function getMenuUser(){
+    function getMenuUser($userId){
         ?>
         <ul class="dropdown-menu user-auth-dropdown" data-dropdown-in="flipInX" data-dropdown-out="flipOutX">
             <li>
-                <a href="profile.html"><i class="zmdi zmdi-account"></i><span>Profile</span></a>
-            </li>
-            <li>
-                <a href="#"><i class="zmdi zmdi-card"></i><span>my balance</span></a>
-            </li>
-            <li>
-                <a href="inbox.html"><i class="zmdi zmdi-email"></i><span>Inbox</span></a>
-            </li>
-            <li>
-                <a href="#"><i class="zmdi zmdi-settings"></i><span>Settings</span></a>
+                <a href="index.php?page=editUser&userId=<?php echo $userId; ?>"><i class="zmdi zmdi-account"></i><span>Profile</span></a>
             </li>
 
             <li class="divider"></li>

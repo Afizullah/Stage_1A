@@ -12,7 +12,8 @@ if (isset($_POST["addPojet"],$_POST["projet_nom"])){
         if(!Projet::createProject($projet_nom)){
             $errors[]="Echec de l'enregistrement du projet";
         }else{
-            $success = "Création réussit";
+            header("Location:index.php?page=".DEFAULT_PAGE);
+            die();
         }
     }
 

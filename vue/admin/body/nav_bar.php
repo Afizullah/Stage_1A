@@ -10,8 +10,8 @@
     <div class="mobile-only-brand pull-left">
         <div class="nav-header pull-left">
             <div class="logo-wrap">
-                <a href="index.html">
-                    <img class="brand-img" src="https://hencework.com/theme/grandin-demo/img/logo.png" alt="brand"/>
+                <a href="index.php?page=<?php echo DEFAULT_PAGE; ?>">
+                    <img class="brand-img img-circle" src="<?php echo URL_LOGO; ?>" alt="logo"/>
                     <span class="brand-text"><?php echo APP_NAME;  ?></span>
                 </a>
             </div>
@@ -108,24 +108,25 @@
                             <li class="col-md-3 col-xs-6 col-menu-list">
                                 <a href="javascript:void(0);"><div class="pull-left"><i class="zmdi zmdi-landscape mr-20"></i><span class="right-nav-text">Projets</span></div><div class="pull-right"><i class="zmdi zmdi-caret-down"></i></div><div class="clearfix"></div></a>
                                 <hr class="light-grey-hr ma-0"/>
-                                <ul>
+                                <center>
+                                    <a class="label label-primary" href="index.php?page=createProjet"><i class="fa fa-plus-circle"></i> Créer un projet</a>
+                                </center>
+                                <ul  style="background-color:#d0cdcd33;" >
+                                    <li style="height:20px;"></li>
                                     <?php
-                                    if($projs = Projet::getAll()){
+                                    if($projs = $PROJET->getAll()){
                                         foreach ($projs as $proj => $value) {
+
+                                            $lnk='index.php?page=loadProjet&id='.$value["projet_id"];
                                             ?>
-                                            <li>
-                                                <a href="index.php?page=loadProjet&id=<?php echo $value["projet_id"]; ?>"><?php echo $value["projet_nom"]; ?></a>
+                                            <li style='<?php if($value["projet_id"]==$PROJET->getId()){ echo "background-color:white;";$lnk= "";} ?>border:1px solid white'>
+                                                <a href="<?php echo $lnk; ?>"><?php echo $value["projet_nom"]; ?> </a>
                                             </li>
                                             <?php
                                         }
-                                    }else{
-                                        ?>
-                                        <li>
-                                            <a href="index.php?page=createProjet">Créer un projet</a>
-                                        </li>
-                                        <?php
                                     }
                                     ?>
+                                    <li style="height:30px;"></li>
                                 </ul>
                             </li>
                         </li>
@@ -141,8 +142,21 @@
                             <hr class="light-grey-hr ma-0"/>
                             <ul>
                                 <li>
-                                    <a href="e-commerce.html">Informatique</a>
+                                    <center>
+                                        <a class="label label-primary" href="index.php?page=addGroupe"><i class="fa fa-plus-circle"></i> ajouter un groupe</a>
+                                    </center>
                                 </li>
+                                <?php
+                                if($grps=$PROJET->getGroupes()){
+                                    foreach ($grps as $grp => $value) {
+                                        ?>
+                                        <li>
+                                            <a href="index.php?page=showGroup&groupeId=<?php echo $value["groupe_id"]; ?>"><?php echo $value["groupe_specialite"]; ?></a>
+                                        </li>
+                                        <?php
+                                    }
+                                }
+                                ?>
                             </ul>
                         </li>
                             <li class="col-md-3 col-xs-6 col-menu-list">
@@ -252,12 +266,6 @@
                         </div>
                     </li>
                 </ul>
-            </li>
-            <li class="dropdown auth-drp">
-                <a href="#" class="dropdown-toggle pr-0" data-toggle="dropdown"><img src="https://hencework.com/theme/grandin-demo/img/user1.png" alt="user_auth" class="user-auth-img img-circle"/><span class="user-online-status"></span></a>
-                <?php
-                getMenuUser();
-                ?>
             </li>
         </ul>
     </div>

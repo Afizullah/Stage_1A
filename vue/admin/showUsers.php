@@ -47,7 +47,7 @@
                         <?php
                           $dataUser = ShowUsers::getAdmin();
                           for($i = 0; $i < count($dataUser); $i++) {
-                          
+
                         ?>
 												  <tr>
 													<td><?php print_r($dataUser[$i]['user_id']); ?></td>
@@ -83,6 +83,10 @@
 									<!-- <p class="text-muted">Add class <code>table</code> in table tag.</p> -->
 									<div class="table-wrap mt-40">
 										<div class="table-responsive">
+                                            <?php
+                                            $hasGroupe= $PROJET->getGroupes();
+
+                                             ?>
 											<table class="table mb-0">
 												<thead>
 												  <tr>
@@ -90,6 +94,13 @@
 													<th>First Name</th>
 													<th>Last Name</th>
 													<th>Email</th>
+                                                    <?php
+                                                    if($hasGroupe){
+                                                        ?>
+                                                        <th>Test</th>
+                                                        <?php
+                                                    }
+                                                     ?>
 													<!-- <th>Account Type</th> -->
 												  </tr>
 												</thead>
@@ -97,13 +108,35 @@
                         <?php
                           $dataUser = ShowUsers::getEnseignant();
                           for($i = 0; $i < count($dataUser); $i++) {
-                          
+
                         ?>
 												  <tr>
 													<td><?php print_r($dataUser[$i]['user_id']); ?></td>
 													<td><?php print_r($dataUser[$i]['user_prenom']); ?></td>
 													<td><?php print_r($dataUser[$i]['user_nom']); ?></td>
 													<td><?php print_r($dataUser[$i]['user_mail']); ?></td>
+                                                    <?php
+                                                    if($hasGroupe){
+                                                        ?>
+                                                        <td>
+
+                                                            <select class="form-control">
+                                                                <option value="">---Sélectionner---</option>
+                                                            <?php
+
+                                                                foreach ($hasGroupe as $onGroupe=>$value) {
+                                                                    ?>
+                                                                    <option <?php if($PROJET->getGroupeForUser($dataUser[$i]['user_id'],$value["groupe_id"])){ echo "selected"; } ?> value="<?php echo $dataUser[$i]['user_id'].";".$value["groupe_id"]; ?>"><?php echo $value["groupe_specialite"]; ?></option>
+                                                                    <?php
+                                                                }
+
+                                                                ?>
+                                                            </select>
+                                                    </td>
+
+                                                        <?php
+                                                    }
+                                                     ?>
 													<!-- <td><span class="label label-danger">admin</span> </td> -->
                           </tr>
                           <?php } ?>
@@ -147,7 +180,7 @@
                         <?php
                           $dataUser = ShowUsers::getRespons();
                           for($i = 0; $i < count($dataUser); $i++) {
-                          
+
                         ?>
 												  <tr>
 													<td><?php print_r($dataUser[$i]['user_id']); ?></td>

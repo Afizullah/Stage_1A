@@ -21,7 +21,7 @@
             <div  class="tab-struct custom-tab-1">
                 <ul role="tablist" class="nav nav-tabs" id="right_sidebar_tab">
                     <li class="active" role="presentation"><a aria-expanded="true"  data-toggle="tab" role="tab" id="chat_tab_btn" href="#chat_tab">Utilisateurs</a></li>
-                    <li role="presentation" class=""><a  data-toggle="tab" id="messages_tab_btn" role="tab" href="#messages_tab" aria-expanded="false">messages</a></li>
+                    <li role="presentation" class=""><a  data-toggle="tab" id="messages_tab_btn" role="tab" href="#messages_tab" aria-expanded="false">Groupes</a></li>
                     <li role="presentation" class=""><a  data-toggle="tab" id="todo_tab_btn" role="tab" href="#todo_tab" aria-expanded="false">todo</a></li>
                 </ul>
                 <div class="tab-content" id="right_sidebar_content">
@@ -47,8 +47,63 @@
                                 <div id="chat_list_scroll">
                                     <div class="nicescroll-bar">
                                         <ul class="chat-list-wrap">
-                                            <li class="chat-list">
+                                            <li style="height:350px;overflow-y:auto" class="chat-list">
                                                 <div class="chat-body">
+                                                    <a href="javascript:void(0)">
+                                                        <div class="chat-data">
+                                                            <img class="user-img img-circle"  src="https://hencework.com/theme/grandin-demo/img/user.png" alt="user"/>
+                                                            <div class="user-data">
+                                                                <span class="name block capitalize-font">Clay Masse</span>
+                                                                <span class="time block truncate txt-grey">No one saves us but ourselves.</span>
+                                                            </div>
+                                                            <div class="status away"></div>
+                                                            <div class="clearfix"></div>
+                                                        </div>
+                                                    </a>
+                                                    <a href="javascript:void(0)">
+                                                        <div class="chat-data">
+                                                            <img class="user-img img-circle"  src="https://hencework.com/theme/grandin-demo/img/user.png" alt="user"/>
+                                                            <div class="user-data">
+                                                                <span class="name block capitalize-font">Clay Masse</span>
+                                                                <span class="time block truncate txt-grey">No one saves us but ourselves.</span>
+                                                            </div>
+                                                            <div class="status away"></div>
+                                                            <div class="clearfix"></div>
+                                                        </div>
+                                                    </a>
+                                                    <a href="javascript:void(0)">
+                                                        <div class="chat-data">
+                                                            <img class="user-img img-circle"  src="https://hencework.com/theme/grandin-demo/img/user.png" alt="user"/>
+                                                            <div class="user-data">
+                                                                <span class="name block capitalize-font">Clay Masse</span>
+                                                                <span class="time block truncate txt-grey">No one saves us but ourselves.</span>
+                                                            </div>
+                                                            <div class="status away"></div>
+                                                            <div class="clearfix"></div>
+                                                        </div>
+                                                    </a>
+                                                    <a href="javascript:void(0)">
+                                                        <div class="chat-data">
+                                                            <img class="user-img img-circle"  src="https://hencework.com/theme/grandin-demo/img/user.png" alt="user"/>
+                                                            <div class="user-data">
+                                                                <span class="name block capitalize-font">Clay Masse</span>
+                                                                <span class="time block truncate txt-grey">No one saves us but ourselves.</span>
+                                                            </div>
+                                                            <div class="status away"></div>
+                                                            <div class="clearfix"></div>
+                                                        </div>
+                                                    </a>
+                                                    <a href="javascript:void(0)">
+                                                        <div class="chat-data">
+                                                            <img class="user-img img-circle"  src="https://hencework.com/theme/grandin-demo/img/user.png" alt="user"/>
+                                                            <div class="user-data">
+                                                                <span class="name block capitalize-font">Clay Masse</span>
+                                                                <span class="time block truncate txt-grey">No one saves us but ourselves.</span>
+                                                            </div>
+                                                            <div class="status away"></div>
+                                                            <div class="clearfix"></div>
+                                                        </div>
+                                                    </a>
                                                     <a href="javascript:void(0)">
                                                         <div class="chat-data">
                                                             <img class="user-img img-circle"  src="https://hencework.com/theme/grandin-demo/img/user.png" alt="user"/>
@@ -248,7 +303,7 @@
                                 <a href="javascript:void(0)" class="inline-block txt-grey">
                                     <i class="zmdi zmdi-more"></i>
                                 </a>
-                                <span class="inline-block txt-dark">messages</span>
+                                <span class="inline-block txt-dark">Groupes</span>
                                 <a href="javascript:void(0)" class="inline-block text-right txt-grey"><i class="zmdi zmdi-search"></i></a>
                                 <div class="clearfix"></div>
                             </div>

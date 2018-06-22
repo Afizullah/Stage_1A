@@ -18,11 +18,11 @@ function linkCreatProjet(){
             <!-- User Profile -->
             <li>
                 <div class="user-profile text-center">
-                    <img src="https://hencework.com/theme/grandin-demo/img/user1.png" alt="user_auth" class="user-auth-img img-circle"/>
+                    <img src="<?php echo ADMIN_LOGO; ?>" alt="user_auth" class="user-auth-img img-circle"/>
                     <div class="dropdown mt-5">
                     <a href="#" class="dropdown-toggle pr-0 bg-transparent" data-toggle="dropdown"><?php echo CurrentUser::getFullName(); ?><span class="caret"></span></a>
                     <?php
-                        getMenuUser();
+                        getMenuUser(CurrentUser::getId());
                     ?>
                     </div>
                 </div>
