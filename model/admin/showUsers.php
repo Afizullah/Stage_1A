@@ -19,6 +19,13 @@
                 WHERE compte.compte_typeCompte = 'responsable_pedagogique'");
             // $dataAccount = DB::getData("compte","compte_typeCompte",[["compte_id",$compte_id]]);
         }
+        public static function registerGroup($userId,$groupId) {
+            return DB::registre("groupe_utilisateurs",[["user_id",$userId],["groupe_id",$groupId]]);
+        }
+
+        public static function deleteGroup($userId,$groupId) {
+            return DB::execute("DELETE FROM groupe_utilisateurs WHERE groupe_id = ".$groupId." AND user_id = ".$userId);
+        }
     }
 
 ?>

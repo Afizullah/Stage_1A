@@ -21,9 +21,3 @@
     }
 
 ?>
-<!--
-    Enregistrer dans utilisateurs temporaires en générant un token
-    AddUser va prendre en parmètre un token et un mot de passe
-    Récupérer les informations qui concerne le token et ensuite enregistrer les informations dans la table utiliateurs
-
--->

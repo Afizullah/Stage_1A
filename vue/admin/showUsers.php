@@ -131,7 +131,7 @@
                                                         ?>
                                                         <td>
 
-                                                            <select name="link<?php echo $i; ?>" class="form-control">
+                                                            <select name="link[]" class="form-control">
                                                                 <option value="">---Sélectionner---</option>
                                                             <?php
 
