@@ -70,8 +70,24 @@ border-radius: 0;
 
 									<h6 class="mb-10 pl-15">Formations</h6>
 									<ul class="folder-list mb-30">
+                                        <?php
 
-										<!--<li class="active"><a href="#"><i class="fa fa-book"></i> Ajouter</a></li>-->
+                                                $init = new InitFormation();
+                                                $dataInit = $init->getData();
+                                                /*$feuille = $dataInit->getFeuille(0);
+                                                var_dump($dataInit->getFormationName($feuille));br();
+                                                $headLeaf = $dataInit->getHeadLeaf($feuille);
+                                                var_dump($dataInit->isNotCorrectLeaf($headLeaf));
+                                                */
+                                                $formations = $dataInit->getFormations();
+                                                foreach ($formations as $formation => $value) {
+
+                                                   // var_dump($formation);br();
+                                                    ?>
+                                                    <li ><a href="#"><i class="fa fa-book"></i> <?php echo $formation; ?></a></li>
+                                                    <?php
+                                                }
+                                         ?>
 										<li class="active">
 
                                                 <a href="#addFormationModal" data-toggle="modal" ><center><i class="fa fa-plus-circle"></i> Ajouter</center></a>
@@ -106,20 +122,16 @@ border-radius: 0;
 									</div>
 								</div>
                                 <?php
-
-                                        $init = new InitFormation();
-                                        $dataInit = $init->getData();
-                                        /*$feuille = $dataInit->getFeuille(0);
-                                        var_dump($dataInit->getFormationName($feuille));br();
-                                        $headLeaf = $dataInit->getHeadLeaf($feuille);
-                                        var_dump($dataInit->isNotCorrectLeaf($headLeaf));
-                                        */
-                                        $formations = $dataInit->getFormations();
-                                        foreach ($formations as $formation => $value) {
-
-                                            var_dump($formation);br();
-                                            var_dump($value);br();br();br();
-                                        }
+                                    foreach ($formations as $formation => $value) {
+                                        ?>
+                                        <div class="">
+                                            <?php
+                                            $semestres = $dataInit->getSemestresForm($formation);
+                                            var_dump($semestres);br();br();br();
+                                             ?>
+                                        </div>
+                                        <?php
+                                    }
                                  ?>
 							</div>
 						</div>

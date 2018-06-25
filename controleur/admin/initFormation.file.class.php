@@ -3,19 +3,52 @@
     class InitFormationWithFile extends PHPExcel_IOFactory{
         private $document_excel=null;
         private $feuilles = null;
-        private $leafColsAllowed = ["Code_Parcours","CodeUE","CodeEC","Semestre","TypeCompetence","Classe","Matiere","Compétences","Preréquis","Contenu",
+        private $semestre_str = "Semestre";
+        private $leafColsRequired = ["Code_Parcours","CodeUE","CodeEC","Semestre","TypeCompetence","Classe","Matiere","Compétences","Preréquis","Contenu",
                                     "Nb Heures CM","Nb Heures TD","Nb Heures TP","Nb Heures TPE","Coefficient","Credit UE"];
-        //private $leafColsAllowed = ["prenom","nom","date_de_naissance"];
+        private $semestres = null;
+        private $ue = null;
+        private $ec = null;
+        //private $leafColsRequired = ["prenom","nom","date_de_naissance"];
         public function __construct(){
             $this->document_excel = PHPExcel_IOFactory::load("new.xls");
             $allLeaf = $this->document_excel->getAllSheets();
             foreach ($allLeaf as $leaf) {
-                $headLeaf = self::getHeadLeaf($leaf);
-                if(!self::isNotCorrectLeaf($headLeaf)){
-                    $this->feuilles[self::getFormationName($leaf)]=self::getRequiredData($leaf,$headLeaf);
+                $formationName = self::getFormationName($leaf);
+                if(!isset($_SESSION[$formationName])){
+                    $headLeaf = self::getHeadLeaf($leaf);
+                    if(!self::isNotCorrectLeaf($headLeaf)){
+                        $this->feuilles[$formationName]=self::getRequiredData($leaf,$headLeaf);
+                        $_SESSION[$formationName]=$this->feuilles[$formationName];
+                        self::initSemestres($formationName,$this->feuilles[$formationName]);
+                    }
+                }else{
+                    $this->feuilles[$formationName]=$_SESSION[$formationName];
+                    self::initSemestres($formationName,$this->feuilles[$formationName]);
                 }
             }
 
+        }
+
+        private function initSemestres($formation,$feuille){
+            $sem = array();
+            $ue = array();
+            for ($i=0; $i < count($feuille); $i++) {
+                if(isset($feuille[$i]["Semestre"])){
+                    $currentSem = trim($feuille[$i]["Semestre"]);
+                    if(!empty($currentSem) && !in_array($currentSem,$sem)){
+                        $sem[]=$currentSem;
+                        
+                    }
+                }
+            }
+            $this->semestres[$formation]=$sem;
+        }
+        public function getSemestresForm($formation){
+            if(isset($this->semestres[$formation])){
+                return $this->semestres[$formation];
+            }
+            return null;
         }
         private function getRequiredData($leaf,$headLeaf){
             $compte=0;
@@ -34,7 +67,7 @@
                     }
                     if($loadThisLine){
                         if($compte != 0){
-                            if(in_array($headOrder[$cmptIterator],$this->leafColsAllowed)){
+                            if(in_array($headOrder[$cmptIterator],$this->leafColsRequired)){
                                 $line[$headOrder[$cmptIterator]]=$cellule->getValue();
                             }
                             $cmptIterator++;
@@ -57,27 +90,14 @@
         }
         private function isNotCorrectLeaf($headLeaf){
             $cols_not_found = array();
-            for ($i=0; $i < count($this->leafColsAllowed); $i++) {
-                if(!in_array($this->leafColsAllowed[$i],$headLeaf)){
-                        $cols_not_found[]=$this->leafColsAllowed[$i];
+            for ($i=0; $i < count($this->leafColsRequired); $i++) {
+                if(!in_array($this->leafColsRequired[$i],$headLeaf)){
+                        $cols_not_found[]=$this->leafColsRequired[$i];
                 }
             }
             return $cols_not_found;
         }
-        /*public function getFeuille($num){
-            if(isset($this->feuilles[$num])){
-                return $this->feuilles[$num];
-            }
-            if(isset(self::getDataFile()[$num])){
-                $this->feuilles = self::getDataFile()[$num];
-                return self::getDataFile()[$num];
-            }
-            return null;
-        }
 
-        private function getDataFile(){
-            return $this->document_excel->getAllSheets();
-        }*/
         private function getFormationName($leaf){
             return $leaf->getTitle();
         }
@@ -94,61 +114,7 @@
     		}
     		return $titles;
     	}
-        public function trash(){
 
-            /*
-            <!DOCTYPE html>
-            <html lang="fr-FR">
-            	<head>
-            		<title>Lire et traiter un fichier excel en PHP</title>
-            		<meta charset="utf-8" />
-            	</head>
-            	<body>
-
-
-
-
-            	$document_excel = PHPExcel_IOFactory::load("new.xls");
-        		$allFile = $document_excel->getAllSheets();
-        		foreach($allFile as $feuille){
-        			var_dump($feuille->getTitle());
-        			br();
-        			var_dump(getHeadLeaf($feuille));
-        			br();
-        			br();
-        			br();
-
-        		}
-                $feuille = $document_excel->getSheet(1);
-                var_dump($feuille->getTitle());
-            	$compte = 0;
-                //echo "<table>";
-            	foreach($feuille->getRowIterator() as $ligne){
-            		/*echo "<tr>";
-            		foreach($ligne->getCellIterator() as $cellule){
-            			if($compte == 0){
-            				echo "<th>";
-            			}else{
-            				echo "<td>";
-            			}
-            			echo $cellule->getValue();
-            			if($compte == 0){
-            				echo "</th>";
-            			}else{
-            				echo "</td>";
-            			}
-            		}
-            		echo "</tr>";
-        			$compte += 1;
-
-            	}
-        		//echo "</table>";
-
-            	?>
-            	</body>
-            </html>
-            */
-        }
     }
 
 ?>
