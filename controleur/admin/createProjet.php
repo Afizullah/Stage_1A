@@ -1,4 +1,5 @@
 <?php
+
 if (isset($_POST["addPojet"],$_POST["projet_nom"])){
     $projet_nom = secure($_POST["projet_nom"]);
     if(empty($projet_nom)){
@@ -18,4 +19,5 @@ if (isset($_POST["addPojet"],$_POST["projet_nom"])){
     }
 
 }
+
 ?>
