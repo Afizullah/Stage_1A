@@ -34,7 +34,7 @@ class Projet extends DB{
         $this->groupes = parent::getData("groupe","*",[["projet_id",self::getId()]]);
     }
     public static function createProject($nom){
-        if($projetId =  parent::registre("projet",[["projet_nom",$nom]])){
+        if($projetId = parent::registre("projet",[["projet_nom",$nom]])){
             self::setLoadedProjet($projetId);
         }
         return $projetId;

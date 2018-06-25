@@ -41,9 +41,25 @@ function getFromCreateProjet($nomProjet="",$action=""){
         <div class="input-group">
               <span class="input-group-addon">Nom du projet : </span>
               <input required type="text" class="form-control" name="projet_nom" value="<?php echo $nomProjet; ?>" placeholder="Ex: Projet Livrets 2000">
-        </div><br />
+        </div> <br />
         <center>
               <input type="submit" class="btn btn-success" class="form-control" name="addPojet" value="Créer un projet">
+        </center>
+    </form>
+
+    <?php
+}
+
+
+function getFromCreateGroup($nomGroup="",$action=""){
+    ?>
+    <form style="width:500px;margin:auto;background-color:white;padding:30px;" action="<?php echo $action; ?>" method="POST">
+        <div class="input-group">
+              <span class="input-group-addon">Nom du groupe : </span>
+              <input required type="text" class="form-control" name="groupe_nom" value="<?php echo $nomGroup; ?>" placeholder="Ex: Informatique">
+        </div><br />
+        <center>
+              <input type="submit" class="btn btn-success" class="form-control" name="addGroup" value="Créer un groupe">
         </center>
     </form>
 
