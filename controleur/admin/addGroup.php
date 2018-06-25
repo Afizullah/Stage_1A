@@ -3,7 +3,7 @@
     if (isset($_POST["addGroup"],$_POST["groupe_nom"])){
         $projet_nom = secure($_POST["groupe_nom"]);
         if(empty($groupe_nom)){
-            $errors[]="Le nom du groupe ne doit pas être vide !!!";
+            $errors[]="Veuillez préciser le nom du groupe !!!";
         }else{
             if(DB::getLine("groupe","*",[["groupe_specialite",$groupe_nom]])){
                 $errors[]="Un groupe du même nom existe déja !!!";
