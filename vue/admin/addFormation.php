@@ -74,18 +74,11 @@ border-radius: 0;
 
                                                 $init = new InitFormation();
                                                 $dataInit = $init->getData();
-                                                /*$feuille = $dataInit->getFeuille(0);
-                                                var_dump($dataInit->getFormationName($feuille));br();
-                                                $headLeaf = $dataInit->getHeadLeaf($feuille);
-                                                var_dump($dataInit->isNotCorrectLeaf($headLeaf));
-                                                */
+                                                $cmpt=0;
                                                 $formations = $dataInit->getFormations();
-                                                foreach ($formations as $formation => $value) {
-
-                                                   // var_dump($formation);br();
-                                                    ?>
-                                                    <li ><a href="#"><i class="fa fa-book"></i> <?php echo $formation; ?></a></li>
-                                                    <?php
+                                                foreach ($formations as $formation => $value) { ?>
+                                                    <li  <?php if($cmpt==0){echo 'class="active"'; } ?>><a href="#"><i class="fa fa-book"></i> <?php echo $formation; ?></a></li>
+                                                    <?php $cmpt++;
                                                 }
                                          ?>
 										<li class="active">
@@ -104,35 +97,35 @@ border-radius: 0;
 					<div class="col-lg-9 col-md-8 file-sec pt-20">
 						<div class="row">
 							<div class="col-lg-12">
-								<div class="row">
-									<div class="col-lg-3 col-md-4 col-sm-6 col-xs-12  file-box">
-										<div class="file">
-											<a href="#">
 
-												<div class="icon">
-													<i class="zmdi zmdi-file-text"></i>
-												</div>
-												<div class="file-name">
-													Document_2016.doc
-													<br>
-													<span>Added: Jan 11, 2016</span>
-												</div>
-											</a>
-										</div>
-									</div>
-								</div>
-                                <?php
-                                    foreach ($formations as $formation => $value) {
-                                        ?>
-                                        <div class="">
-                                            <?php
+								<div class="row">
+                                    <?php
+                                        $cmpt=0;
+                                        foreach ($formations as $formation => $value) {
                                             $semestres = $dataInit->getSemestresForm($formation);
-                                            var_dump($semestres);br();br();br();
-                                             ?>
-                                        </div>
-                                        <?php
-                                    }
-                                 ?>
+                                            for ($i=0; $i < count($semestres) ; $i++) { ?>
+            									<div class="col-lg-3 col-md-4 col-sm-6 col-xs-12  file-box <?php if($cmpt!=0){ echo "hidden"; } ?>">
+            										<div class="file">
+            											<a href="#">
+
+            												<div class="icon">
+            													<i class="zmdi zmdi-file-text"></i>
+            												</div>
+            												<div class="file-name">
+                                                                <?php
+                                                                    echo "SEMESTRE ".$semestres[$i];
+                                                                 ?>
+            													<br>
+            													<span></span>
+            												</div>
+            											</a>
+            										</div>
+            									</div>
+                                            <?php
+                                            }
+                                        $cmpt++;
+                                    } ?>
+								</div>
 							</div>
 						</div>
 					</div>
