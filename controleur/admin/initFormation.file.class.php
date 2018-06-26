@@ -33,20 +33,38 @@
         private function initSemestres($formation,$feuille){
             $sem = array();
             $ue = array();
+            $ue_fetch = array();
             for ($i=0; $i < count($feuille); $i++) {
                 if(isset($feuille[$i]["Semestre"])){
                     $currentSem = trim($feuille[$i]["Semestre"]);
-                    if(!empty($currentSem) && !in_array($currentSem,$sem)){
-                        $sem[]=$currentSem;
-                        
+                    if(!empty($currentSem)){
+                        if(!in_array($currentSem,$sem)){
+                            $sem[]=$currentSem;
+                        }
+                        $currentUe = trim($feuille[$i]["CodeUE"]);
+                        if(!empty($currentUe)){
+                            if(!in_array($currentUe,$ue_fetch)){
+                                $currentUeName = $feuille[$i]["Matiere"];
+                                $ue_fetch[]=$currentUe;
+                                $ue[$currentSem]["CodeUe"][]=$currentUe;
+                                $ue[$currentSem]["CodeUeIntitule"][]=$currentUeName;
+                            }
+                        }
                     }
                 }
             }
             $this->semestres[$formation]=$sem;
+            $this->ue[$formation] = $ue;
         }
         public function getSemestresForm($formation){
             if(isset($this->semestres[$formation])){
                 return $this->semestres[$formation];
+            }
+            return null;
+        }
+        public function getUe($formation,$semestre){
+            if(isset($this->ue[$formation][$semestre])){
+                return $this->ue[$formation][$semestre];
             }
             return null;
         }
