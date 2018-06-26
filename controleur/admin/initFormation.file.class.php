@@ -29,11 +29,42 @@
             }
 
         }
-
+        private function getSemestreUe($codeUe,$feuille){
+            $name = null;
+            $sem = null;
+            for ($i=0; $i < count($feuille); $i++) {
+                if(trim($feuille[$i]["CodeUE"])==trim($codeUe)){
+                    if(empty($feuille[$i]["CodeEC"])){
+                        if(!$name){
+                            $name=  $feuille[$i]["Matiere"];
+                        }
+                    }
+                    if(!empty($feuille[$i]["Semestre"])){
+                        if(!$sem){
+                            $sem = $feuille[$i]["Semestre"];
+                        }
+                    }
+                    if($sem && $name){
+                        $credi = $feuille[$i]["Credit UE"];
+                        return array(
+                            "ueSemestre"=>$sem,
+                            "ueDetailles"=>array(
+                                "credit"=>$credi,
+                                "CodeUeIntitule"=>$name,
+                            )
+                        );
+                    }
+                }
+            }
+            return null;
+        }
         private function initSemestres($formation,$feuille){
             $sem = array();
             $ue = array();
             $ue_fetch = array();
+            $ec = array();
+            $ec_fetch = array();
+            $thisUeSemestre = 0;
             for ($i=0; $i < count($feuille); $i++) {
                 if(isset($feuille[$i]["Semestre"])){
                     $currentSem = trim($feuille[$i]["Semestre"]);
@@ -41,13 +72,44 @@
                         if(!in_array($currentSem,$sem)){
                             $sem[]=$currentSem;
                         }
-                        $currentUe = trim($feuille[$i]["CodeUE"]);
-                        if(!empty($currentUe)){
-                            if(!in_array($currentUe,$ue_fetch)){
-                                $currentUeName = $feuille[$i]["Matiere"];
-                                $ue_fetch[]=$currentUe;
-                                $ue[$currentSem]["CodeUe"][]=$currentUe;
-                                $ue[$currentSem]["CodeUeIntitule"][]=$currentUeName;
+                    }
+                    $currentUe = trim($feuille[$i]["CodeUE"]);
+                    if(!empty($currentUe)){
+                        if(!in_array($currentUe,$ue_fetch)){
+                            if($thisUeSemestreInfos = self::getSemestreUe($currentUe,$feuille)){
+                                $thisUeSemestre=$thisUeSemestreInfos["ueSemestre"];
+                                $thisUeDetailles=$thisUeSemestreInfos["ueDetailles"];
+                                $ue[$thisUeSemestre]["CodeUe"][]=$currentUe;
+                                $ue[$thisUeSemestre]["thisUeDetailles"][]=$thisUeDetailles;
+                            }
+                            $ue_fetch[]=$currentUe;
+                        }
+                        $currentEcCode = trim($feuille[$i]["CodeEC"]);
+                        $currentEcTypeCompetence = trim($feuille[$i]["TypeCompetence"]);
+                        $currentEcMatiere = $feuille[$i]["Matiere"];
+
+                        $currentEcCompetences = trim($feuille[$i]["Compétences"]);
+                        $currentEcPrerequis = trim($feuille[$i]["Preréquis"]);
+                        $currentEcContenu = trim($feuille[$i]["Contenu"]);
+                        $currentEcCoef = intval($feuille[$i]["Coefficient"]);
+                        $currentEcHeuresCM = intval($feuille[$i]["Nb Heures CM"]);
+                        $currentEcHeuresTD = intval($feuille[$i]["Nb Heures TD"]);
+                        $currentEcHeuresTP = intval($feuille[$i]["Nb Heures TP"]);
+                        $currentEcHeuresTPE = intval($feuille[$i]["Nb Heures TPE"]);
+
+                        if(!empty($currentEcCode) && $thisUeSemestre){
+                            if(!in_array($currentEcCode,$ec_fetch)){
+                                $ec[$thisUeSemestre][$currentUe]["CodeEC"][]=$currentEcCode;
+                                $ec[$thisUeSemestre][$currentUe]["TypeCompetence"][]=$currentEcTypeCompetence;
+                                $ec[$thisUeSemestre][$currentUe]["competence"][]=$currentEcCompetences;
+                                $ec[$thisUeSemestre][$currentUe]["matiere"][]=$currentEcMatiere;
+                                $ec[$thisUeSemestre][$currentUe]["prerequis"][]=$currentEcPrerequis;
+                                $ec[$thisUeSemestre][$currentUe]["contenu"][]=$currentEcContenu;
+                                $ec[$thisUeSemestre][$currentUe]["coef"][]=$currentEcCoef;
+                                $ec[$thisUeSemestre][$currentUe]["nbrHeurCM"][]=$currentEcHeuresCM;
+                                $ec[$thisUeSemestre][$currentUe]["nbrHeurTD"][]=$currentEcHeuresTD;
+                                $ec[$thisUeSemestre][$currentUe]["nbrHeurTP"][]=$currentEcHeuresTP;
+                                $ec[$thisUeSemestre][$currentUe]["nbrHeurTPE"][]=$currentEcHeuresTPE;
                             }
                         }
                     }
@@ -55,6 +117,7 @@
             }
             $this->semestres[$formation]=$sem;
             $this->ue[$formation] = $ue;
+            $this->ec[$formation] = $ec;
         }
         public function getSemestresForm($formation){
             if(isset($this->semestres[$formation])){
@@ -65,6 +128,12 @@
         public function getUe($formation,$semestre){
             if(isset($this->ue[$formation][$semestre])){
                 return $this->ue[$formation][$semestre];
+            }
+            return null;
+        }
+        public function getEc($formation,$semestre,$ue){
+            if(isset($this->ec[$formation][$semestre][$ue])){
+                return $this->ec[$formation][$semestre][$ue];
             }
             return null;
         }

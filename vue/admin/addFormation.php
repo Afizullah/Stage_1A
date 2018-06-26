@@ -71,14 +71,14 @@
 									<ul class="folder-list mb-30">
                                         <?php
 
-                                                $init = new InitFormation();
-                                                $dataInit = $init->getData();
-                                                $cmpt=0;
-                                                $formations = $dataInit->getFormations();
-                                                foreach ($formations as $formation => $value) { ?>
-                                                    <li  <?php if($cmpt==0){echo 'class="active"'; } ?>><a href="#"><i class="fa fa-book"></i> <?php echo $formation; ?></a></li>
-                                                    <?php $cmpt++;
-                                                }
+                                            $init = new InitFormation();
+                                            $dataInit = $init->getData();
+                                            $cmpt=0;
+                                            $formations = $dataInit->getFormations();
+                                            foreach ($formations as $formation => $value) { ?>
+                                                <li  <?php if($cmpt==0){echo 'class="active"'; } ?>><a href="#"><i class="fa fa-book"></i> <?php echo $formation; ?></a></li>
+                                                <?php $cmpt++;
+                                            }
                                          ?>
 										<li class="active">
 
@@ -105,28 +105,30 @@
                                             for ($i=0; $i < count($semestres) ; $i++) { ?>
             									<div class="col-lg-3 col-md-4 col-sm-6 col-xs-12  file-box <?php if($cmpt!=0){ echo ""; } ?>">
             										<div class="file">
-            											<a href="#">
-
-            												<div class="icon">
-                                                                <?php
-                                                                $ues = $dataInit->getUe($formation,$semestres[$i]);
-                                                                for ($k=0; $k < count($ues["CodeUe"]); $k++) {
-                                                                    ?>
-                                                                    <ul class⁼"folder-list mb-30">
-                                                                        <li><a title="<?php echo $ues["CodeUeIntitule"][$k]; ?>" href="#"><?php echo $ues["CodeUe"][$k]; ?></a></li>
-                                                                    </ul>
-                                                                    <?php
-                                                                }
+        												<div class="icon">
+                                                            <?php
+                                                            $ues = $dataInit->getUe($formation,$semestres[$i]);
+                                                            for ($k=0; $k < count($ues["CodeUe"]); $k++) {
+                                                                $idTmpUe = $cmpt.$i.$k;
+                                                                $codeCurrentUe = $ues["CodeUe"][$k];
+                                                                $detaillesUe = $ues["thisUeDetailles"][$k];
+                                                                $ecUe = $dataInit->getEc($formation,$semestres[$i],$ues["CodeUe"][$k]);
+                                                                getFormEditUe($idTmpUe,$codeCurrentUe,$detaillesUe,$ecUe);
                                                                 ?>
-            												</div>
-            												<div class="file-name">
+                                                                <ul class⁼"folder-list mb-30">
+                                                                    <li><a data-toggle="modal" title="<?php echo $detaillesUe["CodeUeIntitule"]; ?>" href="#<?php echo "infosUe".$idTmpUe; ?>"><?php echo $ues["CodeUe"][$k]; ?></a></li>
+                                                                </ul>
                                                                 <?php
-                                                                    echo "SEMESTRE ".$semestres[$i]." <i style='color:blue'>(".count($ues["CodeUe"])." UE)</i>";
-                                                                 ?>
-            													<br>
-            													<span></span>
-            												</div>
-            											</a>
+                                                            }
+                                                            ?>
+        												</div>
+        												<div class="file-name">
+                                                            <?php
+                                                                echo "SEMESTRE ".$semestres[$i]." <i style='color:blue'>(".count($ues["CodeUe"])." UE)</i>";
+                                                             ?>
+        													<br>
+        													<span></span>
+        												</div>
             										</div>
             									</div>
                                             <?php
