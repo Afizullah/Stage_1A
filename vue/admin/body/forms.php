@@ -41,7 +41,7 @@ function getFromCreateProjet($nomProjet="",$action=""){
         <div class="input-group">
               <span class="input-group-addon">Nom du projet : </span>
               <input required type="text" class="form-control" name="projet_nom" value="<?php echo $nomProjet; ?>" placeholder="Ex: Projet Livrets 2000">
-        </div> <br />
+        </div> <br/>
         <center>
               <input type="submit" class="btn btn-success" class="form-control" name="addPojet" value="Créer un projet">
         </center>

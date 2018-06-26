@@ -1,7 +1,11 @@
 <?php
-
+    // echo "Bonjour";
+    $idProject = $PROJET->getId();
+    echo($idProject);
     if (isset($_POST["addGroup"],$_POST["groupe_nom"])){
-        $projet_nom = secure($_POST["groupe_nom"]);
+        $groupe_nom = secure($_POST["groupe_nom"]);
+        // var_dump($_POST);
+        // die();
         if(empty($groupe_nom)){
             $errors[]="Veuillez préciser le nom du groupe !!!";
         }else{
@@ -10,9 +14,10 @@
             }
         }
         if(!isset($errors)){
-            if(!Group::createGroup($groupe_nom)){
+            if(!Group::createGroup($groupe_nom,$idProject)){
                 $errors[]="Echec de l'enregistrement du groupe";
             }else{
+                
                 header("Location:index.php?page=".DEFAULT_PAGE);
                 die();
             }

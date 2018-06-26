@@ -27,19 +27,11 @@ fieldset {
     ?>
     <fieldset >
         <?php
-            if($hasError && isset($_POST["group_nom"])){
-                getFromCreateGroup($_POST["group_nom"]);
+            if($hasError && isset($_POST["groupe_nom"])){
+                getFromCreateGroup($_POST["groupe_nom"]);
             }else{
                 getFromCreateGroup();
             }
         ?>
     </fieldset>
 </div>
-
-
-<?php
-
-    // var_dump($PROJET->getGroupes());
-    
-
-?>
