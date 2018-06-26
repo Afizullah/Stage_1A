@@ -1,17 +1,16 @@
 <style media="screen">
+    .modal-dialog {
+        width: 95%;
+        height: 98%;
+        margin: auto;
+        padding: 0;
+    }
 
-.modal-dialog {
-width: 95%;
-height: 98%;
-margin: auto;
-padding: 0;
-}
-
-.modal-content {
-height: auto;
-min-height: 15%;
-border-radius: 0;
-}
+    .modal-content {
+        height: auto;
+        min-height: 15%;
+        border-radius: 0;
+    }
 </style>
 <div class="modal fade" id="checkFileInit" tabindex="-1" role="dialog" aria-labelledby="" aria-hidden="true">
   <div class="modal-dialog">
@@ -104,16 +103,25 @@ border-radius: 0;
                                         foreach ($formations as $formation => $value) {
                                             $semestres = $dataInit->getSemestresForm($formation);
                                             for ($i=0; $i < count($semestres) ; $i++) { ?>
-            									<div class="col-lg-3 col-md-4 col-sm-6 col-xs-12  file-box <?php if($cmpt!=0){ echo "hidden"; } ?>">
+            									<div class="col-lg-3 col-md-4 col-sm-6 col-xs-12  file-box <?php if($cmpt!=0){ echo ""; } ?>">
             										<div class="file">
             											<a href="#">
 
             												<div class="icon">
-            													<i class="zmdi zmdi-file-text"></i>
+                                                                <?php
+                                                                $ues = $dataInit->getUe($formation,$semestres[$i]);
+                                                                for ($k=0; $k < count($ues["CodeUe"]); $k++) {
+                                                                    ?>
+                                                                    <ul class⁼"folder-list mb-30">
+                                                                        <li><a title="<?php echo $ues["CodeUeIntitule"][$k]; ?>" href="#"><?php echo $ues["CodeUe"][$k]; ?></a></li>
+                                                                    </ul>
+                                                                    <?php
+                                                                }
+                                                                ?>
             												</div>
             												<div class="file-name">
                                                                 <?php
-                                                                    echo "SEMESTRE ".$semestres[$i];
+                                                                    echo "SEMESTRE ".$semestres[$i]." <i style='color:blue'>(".count($ues["CodeUe"])." UE)</i>";
                                                                  ?>
             													<br>
             													<span></span>
@@ -123,6 +131,7 @@ border-radius: 0;
             									</div>
                                             <?php
                                             }
+
                                         $cmpt++;
                                     } ?>
 								</div>

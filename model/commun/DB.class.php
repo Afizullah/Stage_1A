@@ -52,7 +52,7 @@
           $tempVal = array();
           $sep = '';
           for($i=0;$i< count($tabData);$i++) {
-            if(count($tabData[$i]==2)){
+            if(count($tabData[$i])==2){
               if($i+1 > count($operators)){
                 $tempOp = "=";
               }else{
