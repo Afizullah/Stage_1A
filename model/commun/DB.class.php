@@ -88,7 +88,7 @@
           return self::getLine($table,$champ,$tabData,$operators,$ordre,true,$op);
         }
 
-        //DB::getData("utilisateurs",[["prenom",$prenom],["nom",$nom]],[["id",$idCompte]])
+        //DB::update("utilisateurs",[["prenom",$prenom],["nom",$nom]],[["id",$idCompte]])
         public static function update($table,$tabData,$tabCondition){
 
          for ($i=0; $i <count($tabData) ; $i++) {
