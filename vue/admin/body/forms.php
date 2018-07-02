@@ -65,14 +65,11 @@ function getFromCreateGroup($nomGroup="",$action=""){
 
     <?php
 }
-function getHiddenInput($name,$value){
-    ?>
-    <input type="hidden" name="<?php echo $name; ?>" value="<?php echo $value; ?>">
-    <?php
+function getHiddenInput($name,$value){ ?>
+    <input type="hidden" name="<?php echo $name; ?>" value="<?php echo $value; ?>"> <?php
 }
-function getFormEditUe($idForm,$idSem,$idUe,$codeUe,$detaillesUe,$ecUe){
-    $id= $idForm.$idSem.$idUe;
-    ?>
+function getFormEditUe($idForm,$clss,$idSem,$idUe,$codeUe,$detaillesUe,$ecUe){
+    $id= $idForm.$clss.$idSem.$idUe; ?>
     <div class="modal fade" id="<?php echo "infosUe".$id; ?>" tabindex="-1" role="dialog" aria-labelledby="" aria-hidden="true">
       <div class="modal-dialog">
         <div class="modal-content">
@@ -83,12 +80,12 @@ function getFormEditUe($idForm,$idSem,$idUe,$codeUe,$detaillesUe,$ecUe){
           <div class="modal-body">
               <center>
                   <?php
-                      $_ueClasse = "ues_classe_semestre".$idForm.$idSem."[]";
+                      $_ueClasse = "ues_classe_semestre".$idForm.$clss.$idSem."[]";
                       getHiddenInput($_ueClasse,$detaillesUe["classe"]);
-                      $_ueCode = "ues_code_semestre".$idForm.$idSem."[]";
-                      $_ueNom = "ues_nom_semestre".$idForm.$idSem."[]";
-                      $_ueNbrCredit = "ues_nbrCredit_semestre".$idForm.$idSem."[]";
-                      $_ueSemestre = "ues_Semestre_semestre".$idForm.$idSem."[]";
+                      $_ueCode = "ues_code_semestre".$idForm.$clss.$idSem."[]";
+                      $_ueNom = "ues_nom_semestre".$idForm.$clss.$idSem."[]";
+                      $_ueNbrCredit = "ues_nbrCredit_semestre".$idForm.$clss.$idSem."[]";
+                      $_ueSemestre = "ues_Semestre_semestre".$idForm.$clss.$idSem."[]";
                    ?>
               <table>
                   <caption style="text-align:center;font-weight:bold;font-size:15px;color:red;text-decoration:underline">Informations relatives à l'UE</caption>
@@ -149,7 +146,7 @@ function getFormEditUe($idForm,$idSem,$idUe,$codeUe,$detaillesUe,$ecUe){
                                   <td>
                                       <div class="input-group">
                                         <span class="input-group-addon">Code EC</span>
-                                        <input type="text" name="code_ec_form<?php echo $idForm."sem".$idSem."ue".$idUe."[]"; ?>" value="<?php echo $codeEc; ?>" class="form-control" placeholder="Code EC">
+                                        <input type="text" name="code_ec_form<?php echo $id.$i."[]"; ?>" value="<?php echo $codeEc; ?>" class="form-control" placeholder="Code EC">
                                       </div>
                                   </td>
                               </tr>
@@ -157,7 +154,7 @@ function getFormEditUe($idForm,$idSem,$idUe,$codeUe,$detaillesUe,$ecUe){
                                   <td>
                                       <div class="input-group">
                                         <span class="input-group-addon">Matière</span>
-                                        <input type="text"  name="nom_ec_form<?php echo $idForm."sem".$idSem."ue".$idUe."[]"; ?>" value="<?php echo $matiere; ?>" class="form-control" placeholder="Matière">
+                                        <input type="text"  name="nom_ec_form<?php echo $id.$i."[]"; ?>" value="<?php echo $matiere; ?>" class="form-control" placeholder="Matière">
                                       </div>
                                   </td>
                               </tr>
@@ -165,7 +162,7 @@ function getFormEditUe($idForm,$idSem,$idUe,$codeUe,$detaillesUe,$ecUe){
                                   <td>
                                       <div class="input-group">
                                         <span class="input-group-addon">Type de compétence</span>
-                                        <input  name="type_compt_ec_form<?php echo $idForm."sem".$idSem."ue".$idUe."[]"; ?>" type="text" value="<?php echo $TypeCompetence; ?>" class="form-control" placeholder="Code EC">
+                                        <input  name="type_compt_ec_form<?php echo $id.$i."[]"; ?>" type="text" value="<?php echo $TypeCompetence; ?>" class="form-control" placeholder="Code EC">
                                       </div>
                                   </td>
                               </tr>
@@ -180,16 +177,16 @@ function getFormEditUe($idForm,$idSem,$idUe,$codeUe,$detaillesUe,$ecUe){
                                               <td><label for="<?php echo "nbrHTPE".$id.$i; ?>">Nombre d'heures TPE</label></td>
                                           </tr>
                                           <tr>
-                                              <td><input  name="coef_ec_form<?php echo $idForm."sem".$idSem."ue".$idUe."[]"; ?>" id="<?php echo "coef".$id.$i; ?>" type="text" class="form-control" value="<?php echo $coef; ?>" placeholder="Coefficient"></td>
-                                              <td><input  name="hcm_ec_form<?php echo $idForm."sem".$idSem."ue".$idUe."[]"; ?>" id="<?php echo "nbrHCM".$id.$i; ?>" type="text" class="form-control" value="<?php echo $nbrHeurCM; ?>" placeholder="Nombre d'heures CM"></td>
-                                              <td><input  name="htd_ec_form<?php echo $idForm."sem".$idSem."ue".$idUe."[]"; ?>" id="<?php echo "nbrHTD".$id.$i; ?>" type="text" class="form-control" value="<?php echo $nbrHeurTD; ?>" placeholder="Nombre d'heures TD"></td>
-                                              <td><input  name="htp_ec_form<?php echo $idForm."sem".$idSem."ue".$idUe."[]"; ?>" id="<?php echo "nbrHTP".$id.$i; ?>" type="text" class="form-control" value="<?php echo $nbrHeurTP; ?>" placeholder="Nombre d'heures TP"></td>
-                                              <td><input  name="htpe_ec_form<?php echo $idForm."sem".$idSem."ue".$idUe."[]"; ?>" id="<?php echo "nbrHTPE".$id.$i; ?>" type="text" class="form-control" value="<?php echo $nbrHeurTPE; ?>" placeholder="Nombre d'heures TPE"></td>
+                                              <td><input  name="coef_ec_form<?php echo $id.$i."[]"; ?>" id="<?php echo "coef".$id.$i; ?>" type="text" class="form-control" value="<?php echo $coef; ?>" placeholder="Coefficient"></td>
+                                              <td><input  name="hcm_ec_form<?php echo $id.$i."[]"; ?>" id="<?php echo "nbrHCM".$id.$i; ?>" type="text" class="form-control" value="<?php echo $nbrHeurCM; ?>" placeholder="Nombre d'heures CM"></td>
+                                              <td><input  name="htd_ec_form<?php echo $id.$i."[]"; ?>" id="<?php echo "nbrHTD".$id.$i; ?>" type="text" class="form-control" value="<?php echo $nbrHeurTD; ?>" placeholder="Nombre d'heures TD"></td>
+                                              <td><input  name="htp_ec_form<?php echo $id.$i."[]"; ?>" id="<?php echo "nbrHTP".$id.$i; ?>" type="text" class="form-control" value="<?php echo $nbrHeurTP; ?>" placeholder="Nombre d'heures TP"></td>
+                                              <td><input  name="htpe_ec_form<?php echo $id.$i."[]"; ?>" id="<?php echo "nbrHTPE".$id.$i; ?>" type="text" class="form-control" value="<?php echo $nbrHeurTPE; ?>" placeholder="Nombre d'heures TPE"></td>
                                           </tr>
                                       </table>
                                       <div class="input-group">
                                         <span class="input-group-addon">Type de compétence</span>
-                                        <input type="text" value="<?php echo $TypeCompetence; ?>" class="form-control" placeholder="Code EC">
+                                        <input name="type_compte<?php echo $id.$i."[]"; ?>" type="text" value="<?php echo $TypeCompetence; ?>" class="form-control" placeholder="Code EC">
                                       </div>
                                   </td>
                               </tr>
@@ -197,7 +194,7 @@ function getFormEditUe($idForm,$idSem,$idUe,$codeUe,$detaillesUe,$ecUe){
                                   <td>
                                       <div title="<?php echo $nomMatiere; ?>"  class="input-group">
                                         <span class="input-group-addon">Compétences</span>
-                                        <textarea style="text-align:justified;width:100%" name="name" rows="8" ><?php echo $competence; ?></textarea>
+                                        <textarea name="competences<?php echo $id.$i."[]"; ?>" style="text-align:justified;width:100%" rows="8" ><?php echo $competence; ?></textarea>
                                       </div>
                                   </td>
                               </tr>
@@ -205,7 +202,7 @@ function getFormEditUe($idForm,$idSem,$idUe,$codeUe,$detaillesUe,$ecUe){
                                   <td>
                                       <div title="<?php echo $nomMatiere; ?>"  class="input-group">
                                         <span  class="input-group-addon">Prérequis</span>
-                                        <textarea style="text-align:justified;width:100%" name="name" rows="5" ><?php echo $prerequis; ?></textarea>
+                                        <textarea name="prerequis<?php echo $id.$i."[]"; ?>" style="text-align:justified;width:100%" rows="5" ><?php echo $prerequis; ?></textarea>
                                       </div>
                                   </td>
                               </tr>
@@ -220,12 +217,9 @@ function getFormEditUe($idForm,$idSem,$idUe,$codeUe,$detaillesUe,$ecUe){
                           </table>
                         </div>
                       </div>
-                </div>
-                <?php
-                }
-                ?>
+                </div> <?php
+                } ?>
               </center>
-
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-default" data-dismiss="modal">OK</button>

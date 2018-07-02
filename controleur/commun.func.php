@@ -120,6 +120,17 @@
             <?php
           }
     }
+
+    function alertWarning($errors){
+      for($i= 0;$i <count($errors);$i++){
+            ?>
+              <center><span class="warning">
+                  <?php echo $errors[$i]; ?>
+              </span>
+                </center>
+            <?php
+          }
+    }
     function alertSucces($msgScces){
             ?>
               <center><span class="succes">

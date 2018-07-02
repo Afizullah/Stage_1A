@@ -10,23 +10,25 @@
         private $ue = null;
         private $ec = null;
         private $codeFormation = null;
+        private $currentFormId = null;
+        private $current = null;
         //private $leafColsRequired = ["prenom","nom","date_de_naissance"];
         public function __construct(){
             $this->document_excel = PHPExcel_IOFactory::load("new.xls");
             $allLeaf = $this->document_excel->getAllSheets();
             foreach ($allLeaf as $leaf) {
                 $formationName = self::getFormationName($leaf);
-                if(!isset($_SESSION[$formationName])){
+                //if(!isset($_SESSION[$formationName])){
                     $headLeaf = self::getHeadLeaf($leaf);
                     if(!self::isNotCorrectLeaf($headLeaf)){
                         $this->feuilles[$formationName]=self::getRequiredData($leaf,$headLeaf);
                         $_SESSION[$formationName]=$this->feuilles[$formationName];
                         self::initAllData($formationName,$this->feuilles[$formationName]);
                     }
-                }else{
+                /*}else{
                     $this->feuilles[$formationName]=$_SESSION[$formationName];
                     self::initAllData($formationName,$this->feuilles[$formationName]);
-                }
+                }*/
             }
 
         }
@@ -52,10 +54,10 @@
                         return array(
                             "ueSemestre"=>$sem,
                             "ueDetailles"=>array(
-                                "credit"=>$credi,
+                                "credit"=>intval($credi),
                                 "CodeUeIntitule"=>$name,
                                 "classe"=>$classe,
-                                "semestre"=>$semestre
+                                "semestre"=>intval($semestre)
                             )
                         );
                     }
