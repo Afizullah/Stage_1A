@@ -28,8 +28,8 @@ $pdf->SetKeywords('PDF');
 
 // set default monospaced font
 $pdf->SetDefaultMonospacedFont(PDF_FONT_MONOSPACED);
-$pdf->setPrintHeader(true);
-$pdf->setPrintFooter(true);
+$pdf->setPrintHeader(false);
+$pdf->setPrintFooter(false);
 
 // set margins
 $pdf->SetMargins(PDF_MARGIN_LEFT, PDF_MARGIN_TOP, PDF_MARGIN_RIGHT);
@@ -56,6 +56,8 @@ $pdf->setFontSubsetting(true);
 //page de garde
 page_de_garde($pdf, "2017-2018", 'Génie Informatique');
 
+$pdf->setPrintHeader(true);
+$pdf->setPrintFooter(true);
 // set font
 $pdf->SetFont('times', 'B', 20);
 
