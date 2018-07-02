@@ -4,7 +4,7 @@
     <list default="true" id="8e3a3732-f075-4e5d-b42b-c2b7b4a92ea3" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/controleur/libs/TCPDF-master/examples/exemple_livret.php" beforeDir="false" afterPath="$PROJECT_DIR$/controleur/libs/TCPDF-master/examples/exemple_livret.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/controleur/libs/TCPDF-master/examples/header_footer.php" beforeDir="false" afterPath="$PROJECT_DIR$/controleur/libs/TCPDF-master/examples/header_footer.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controleur/libs/TCPDF-master/examples/page_de_garde.php" beforeDir="false" afterPath="$PROJECT_DIR$/controleur/libs/TCPDF-master/examples/page_de_garde.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controleur/libs/TCPDF-master/tcpdf.php" beforeDir="false" afterPath="$PROJECT_DIR$/controleur/libs/TCPDF-master/tcpdf.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -18,29 +18,20 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="exemple_livret.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="exemple_livret.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/controleur/libs/TCPDF-master/examples/exemple_livret.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="216">
-              <caret line="40" lean-forward="true" selection-start-line="40" selection-end-line="40" />
+            <state relative-caret-position="289">
+              <caret line="36" column="41" lean-forward="true" selection-start-line="36" selection-start-column="41" selection-end-line="36" selection-end-column="41" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="page_de_garde.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/controleur/libs/TCPDF-master/examples/page_de_garde.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="306">
-              <caret line="17" column="23" lean-forward="true" selection-start-line="17" selection-start-column="23" selection-end-line="17" selection-end-column="23" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="header_footer.php" pinned="false" current-in-tab="false">
+      <file leaf-file-name="header_footer.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/controleur/libs/TCPDF-master/examples/header_footer.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="357">
-              <caret line="32" selection-start-line="32" selection-end-line="32" />
+            <state relative-caret-position="361">
+              <caret line="44" column="43" selection-start-line="44" selection-start-column="43" selection-end-line="44" selection-end-column="43" />
             </state>
           </provider>
         </entry>
@@ -48,8 +39,8 @@
       <file leaf-file-name="tcpdf.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/controleur/libs/TCPDF-master/tcpdf.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="39708">
-              <caret line="2420" column="4" selection-start-line="2420" selection-start-column="4" selection-end-line="2420" selection-end-column="4" />
+            <state relative-caret-position="161">
+              <caret line="6810" column="186" lean-forward="true" selection-start-line="6810" selection-start-column="186" selection-end-line="6810" selection-end-column="186" />
               <folding>
                 <element signature="e#11#17#1" expanded="true" />
                 <element signature="n#style#0;n#marker#0;n#!!top" expanded="true" />
@@ -65,6 +56,11 @@
       </file>
     </leaf>
   </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>PDF_MARGIN_BOTTOM</find>
+    </findStrings>
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
@@ -73,6 +69,7 @@
       <list>
         <option value="$PROJECT_DIR$/controleur/libs/TCPDF-master/examples/page_de_garde.php" />
         <option value="$PROJECT_DIR$/controleur/libs/TCPDF-master/examples/exemple_livret.php" />
+        <option value="$PROJECT_DIR$/controleur/libs/TCPDF-master/tcpdf.php" />
         <option value="$PROJECT_DIR$/controleur/libs/TCPDF-master/examples/header_footer.php" />
       </list>
     </option>
@@ -86,7 +83,7 @@
   <component name="NodePackageJsonFileManager">
     <packageJsonPaths />
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
+  <component name="ProjectFrameBounds">
     <option name="x" value="-17" />
     <option name="width" value="1890" />
     <option name="height" value="930" />
@@ -164,18 +161,18 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1530532235023</updated>
-      <workItem from="1530532236773" duration="4968000" />
+      <workItem from="1530532236773" duration="11613000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="4968000" />
+    <option name="totallyTimeSpent" value="11613000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-7" y="-7" width="1295" height="695" extended-state="6" />
+    <frame x="-11" y="0" width="1260" height="620" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.24980484" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.25682184" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Docker" show_stripe_button="false" />
       <window_info anchor="bottom" id="Event Log" side_tool="true" />
@@ -206,9 +203,6 @@
     <entry file="file://$PROJECT_DIR$/controleur/libs/TCPDF-master/examples/information.php">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/controleur/libs/TCPDF-master/examples/tcpdf_include.php">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/controleur/libs/TCPDF-master/examples/table_matiere.php">
       <provider selected="true" editor-type-id="text-editor">
         <state>
@@ -227,13 +221,6 @@
     <entry file="file://$PROJECT_DIR$/controleur/libs/TCPDF-master/examples/presentation_equipe.php">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/controleur/libs/TCPDF-master/config/tcpdf_config.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="330">
-          <caret line="131" column="9" selection-start-line="131" selection-start-column="9" selection-end-line="131" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/controleur/libs/TCPDF-master/examples/mot_du_chef.php">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -243,10 +230,38 @@
     <entry file="file://$PROJECT_DIR$/controleur/libs/TCPDF-master/examples/reglement.php">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
+    <entry file="file://$PROJECT_DIR$/controleur/libs/TCPDF-master/examples/page_de_garde.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="17" column="23" lean-forward="true" selection-start-line="17" selection-start-column="23" selection-end-line="17" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/controleur/libs/TCPDF-master/config/tcpdf_config.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="402">
+          <caret line="136" column="9" selection-start-line="136" selection-start-column="9" selection-end-line="136" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/controleur/libs/TCPDF-master/tcpdf_autoconfig.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="179">
+          <caret line="167" column="13" selection-start-line="167" selection-start-column="13" selection-end-line="167" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/controleur/libs/TCPDF-master/examples/tcpdf_include.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-3">
+          <caret line="24" lean-forward="true" selection-start-line="24" selection-end-line="24" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/controleur/libs/TCPDF-master/tcpdf.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="39708">
-          <caret line="2420" column="4" selection-start-line="2420" selection-start-column="4" selection-end-line="2420" selection-end-column="4" />
+        <state relative-caret-position="161">
+          <caret line="6810" column="186" lean-forward="true" selection-start-line="6810" selection-start-column="186" selection-end-line="6810" selection-end-column="186" />
           <folding>
             <element signature="e#11#17#1" expanded="true" />
             <element signature="n#style#0;n#marker#0;n#!!top" expanded="true" />
@@ -259,24 +274,17 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/controleur/libs/TCPDF-master/examples/header_footer.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="32" selection-start-line="32" selection-end-line="32" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/controleur/libs/TCPDF-master/examples/page_de_garde.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="17" column="23" lean-forward="true" selection-start-line="17" selection-start-column="23" selection-end-line="17" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/controleur/libs/TCPDF-master/examples/exemple_livret.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="216">
-          <caret line="40" lean-forward="true" selection-start-line="40" selection-end-line="40" />
+        <state relative-caret-position="289">
+          <caret line="36" column="41" lean-forward="true" selection-start-line="36" selection-start-column="41" selection-end-line="36" selection-end-column="41" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/controleur/libs/TCPDF-master/examples/header_footer.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="361">
+          <caret line="44" column="43" selection-start-line="44" selection-start-column="43" selection-end-line="44" selection-end-column="43" />
         </state>
       </provider>
     </entry>

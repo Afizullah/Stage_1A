@@ -12289,7 +12289,9 @@ class TCPDF {
 	 * @param $txt (string) Bookmark description.
 	 * @param $level (int) Bookmark level (minimum value is 0).
 	 * @param $y (float) Y position in user units of the bookmark on the selected page (default = -1 = current position; 0 = page start;).
-	 * @param $page (int|string) Target page number (leave empty for current page). If you prefix a page number with the * character, then this page will not be changed when adding/deleting/moving pages.
+	 * @param $page (int|string) Target page number (leave empty for current page).
+     *          If you prefix a page number with the * character,
+     *         then this page will not be changed when adding/deleting/moving pages.
 	 * @param $style (string) Font style: B = Bold, I = Italic, BI = Bold + Italic.
 	 * @param $color (array) RGB color array (values from 0 to 255).
 	 * @param $x (float) X position in user units of the bookmark on the selected page (default = -1 = current position;).

@@ -79,20 +79,24 @@ $pdf->Cell(0, 10, 'Extraits du réglement intérieur de l\'ESP', 0, 1, 'L');
 
 $pdf->AddPage();
 $pdf->Bookmark('Présentation de la formation', 0, 0, '', 'B', array(0, 64, 128));
+//passage de suite à true => modification du header
+$pdf->suite = true;
+
 $pdf->Cell(0, 10, 'Présentation de la formation', 0, 1, 'L');
 
 $pdf->AddPage();
-$pdf->Bookmark('Extraits de l\'arrêté organisant la formation', 1, 0, '', '', array(128,0,0));
+$pdf->Bookmark('Extraits de l\'arrêté organisant la formation', 1, 0, '', '', array(128, 0, 0));
 $pdf->Cell(0, 10, 'Extraits de l\'arrêté organisant la formation', 0, 1, 'L');
 
 $pdf->AddPage();
-$pdf->Bookmark('Les différents semestres', 1, 0, '', '', array(128,0,0));
+$pdf->Bookmark('Les différents semestres', 1, 0, '', '', array(128, 0, 0));
 $pdf->Cell(0, 10, 'Les différents semestres', 0, 1, 'L');
 
 $pdf->AddPage();
 $pdf->Bookmark('Autres informations utiles', 0, 0, '', 'B', array(0, 64, 128));
 $pdf->Cell(0, 10, 'Autres informations utiles', 0, 1, 'L');
-
+//parce que la table des matières est au début du document
+$pdf->suite = false;
 // add a new page for TOC
 $pdf->addTOCPage();
 
