@@ -143,7 +143,21 @@
 		<div class="panel-wrapper collapse in">
 			<div class="panel-body pa-0">
 				<div class="">
-
+                    <br />
+                    <?php
+                        $hasError = false;
+                        if(isset($errors)){
+                            alertErrors($errors);
+                            $hasError=true;
+                        }
+                        if(isset($success)){
+                            alertSucces($success);
+                        }
+                        if(isset($warning)){
+                            alertWarning($warning);
+                        }
+                    ?>
+                    <br />
 					<div class="col-lg-3 col-md-4 file-directory pa-0">
 						<div class="ibox float-e-margins">
 							<div class="ibox-content">
@@ -157,7 +171,6 @@
 									<h6 class="mb-10 pl-15">Formations</h6>
 									<ul class="folder-list mb-30">
                                         <?php
-
                                             $init = new InitFormation();
                                             $dataInit = $init->getData();
                                             $cmpt=0;
@@ -172,7 +185,6 @@
                                                 <a href="#addFormationModal" data-toggle="modal" ><center><i class="fa fa-plus-circle"></i> Ajouter</center></a>
                                         </li>
 
-
 									</ul>
 
 									<div class="clearfix"></div>
@@ -183,51 +195,61 @@
 					<div class="col-lg-9 col-md-8 file-sec pt-20">
 						<div class="row">
 							<div class="col-lg-12">
-
-
-                                    <input type="hidden" name="formAddFormation" >
-								<div class="row">
+                                <input type="hidden" name="formAddFormation" >
+								<div style="overflow:scroller" class="row">
                                     <?php
-                                        getHiddenInput("projetId",$PROJET->getId());
+                                     $resultRegFile = Formation::registreFile($PROJET->getId(),$dataInit);
+                                     if($resultRegFile["isRegisted"]){
+                                        alertSucces("Enregistrement effectué avec succès");
+                                     }else{
+                                         alertErrors($resultRegFile["errors"]);
+                                     }
+                                    /*
+
                                         $cmpt=0;
                                         $classe = array();
                                         foreach ($formations as $formation => $value) {
                                             $semestres = $dataInit->getSemestresForm($formation);
+                                            $codeFormat = $dataInit->getCodeFormation($formation);
                                             $formation_nom = "formations_noms[".$cmpt."]";
                                             $formation_code = "formations_code[".$cmpt."]";
                                             $formation_semestre = "formations_semestre[".$cmpt."]";
                                             $formation_nbr_semestre = count($semestres);
                                             getHiddenInput($formation_nom,$formation);
-                                            getHiddenInput($formation_code,$formation);
+                                            getHiddenInput($formation_code,$codeFormat);
                                             getHiddenInput($formation_semestre,$formation_nbr_semestre);
-                                            for ($i=0; $i < count($semestres) ; $i++) {
-                                                 ?>
+                                            $clss=0;$newClass=false;$newSem=0;
+                                            for ($i=0; $i < count($semestres) ; $i++) { ?>
             									<div class="col-lg-3 col-md-4 col-sm-6 col-xs-12  file-box <?php if($cmpt!=0){ echo ""; } ?>">
             										<div class="file">
         												<div class="icon">
                                                             <?php
                                                             $ues = $dataInit->getUe($formation,$semestres[$i]);
-                                                            for ($k=0; $k < count($ues["CodeUe"]); $k++) {
+                                                            for ($k=0; $k < count($ues["CodeUe"]); $k++){
                                                                 $thisClass = $ues["thisUeDetailles"][$k]["classe"];
-                                                                if(!in_array($thisClass,$classe)){
+                                                                if(!in_array($thisClass,$classe) && !empty($thisClass)){
                                                                     $_class_nom = "class_".$cmpt."[]";
                                                                     getHiddenInput($_class_nom,$thisClass);
-                                                                    $classe[]=$thisClass;
+                                                                    $classe[]=$thisClass;$newSem=0;$newClass=true;
                                                                 }
-
-                                                                $idTmpUe = $cmpt.$i.$k;
-                                                                $codeCurrentUe = $ues["CodeUe"][$k];
-                                                                $detaillesUe = $ues["thisUeDetailles"][$k];
+                                                                $idTmpUe = $cmpt.$clss.$newSem.$k;
+                                                                $codeCurrentUe = $ues["CodeUe"][$k];$detaillesUe = $ues["thisUeDetailles"][$k];
                                                                 $ecUe = $dataInit->getEc($formation,$semestres[$i],$ues["CodeUe"][$k]);
-
-                                                                getFormEditUe($cmpt,$i,$k,$codeCurrentUe,$detaillesUe,$ecUe);
-                                                                ?>
+                                                                getFormEditUe($cmpt,$clss,$newSem,$k,$codeCurrentUe,$detaillesUe,$ecUe); ?>
                                                                 <ul class⁼"folder-list mb-30">
-                                                                    <li><a data-toggle="modal" title="<?php echo $detaillesUe["CodeUeIntitule"]; ?>" href="#<?php echo "infosUe".$idTmpUe; ?>"><?php echo $ues["CodeUe"][$k]; ?></a></li>
-                                                                </ul>
-                                                                <?php
-                                                            }
-                                                            ?>
+                                                                    <li>
+                                                                        <a data-toggle="modal" title="<?php echo $detaillesUe["CodeUeIntitule"]; ?>" href="#infosUe<?php echo $idTmpUe; ?>">
+                                                                            <?php
+                                                                                echo $ues["CodeUe"][$k];
+                                                                            ?>
+                                                                        </a>
+                                                                    </li>
+                                                                </ul><?php
+                                                                if($newClass){
+                                                                    $clss++;
+                                                                    $newClass=false;
+                                                                }
+                                                            } ?>
         												</div>
         												<div class="file-name">
                                                             <?php
@@ -239,10 +261,13 @@
             										</div>
             									</div>
                                             <?php
+                                            $newSem++;
                                             }
 
                                         $cmpt++;
-                                    } ?>
+                                    } */
+
+                                     ?>
 
 								</div>
 

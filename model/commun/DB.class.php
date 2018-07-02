@@ -17,7 +17,7 @@
       }
 
       //DB::registre("utilisateurs",[["prenom",$prenom],["nom",$nom]]);
-      public static function registre($table,$tabRegisted){
+      public static function registre($table,$tabRegisted,$kill=false){
           $bdd = parent::connect();
           $nbrChamp = count($tabRegisted);
           $realValues = array();
@@ -35,7 +35,10 @@
           $str_insert_column .= " )";
 
           $req = $bdd->prepare("INSERT INTO ".$table." ".$str_insert_column.$str_values);
-
+          if($kill){
+              var_dump($realValues);
+              die();
+          }
           if($req->execute($realValues)){
             return $bdd->lastInsertId();
           }else{
@@ -88,7 +91,7 @@
           return self::getLine($table,$champ,$tabData,$operators,$ordre,true,$op);
         }
 
-        //DB::getData("utilisateurs",[["prenom",$prenom],["nom",$nom]],[["id",$idCompte]])
+        //DB::update("utilisateurs",[["prenom",$prenom],["nom",$nom]],[["id",$idCompte]])
         public static function update($table,$tabData,$tabCondition){
 
          for ($i=0; $i <count($tabData) ; $i++) {
