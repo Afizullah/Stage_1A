@@ -1,4 +1,5 @@
 <?php
+
 function getFormAddUsser($action="",$type_compte="",$date_expiration="",$email="",$prenom="",$nom=""){
     if($date_expiration){
         $_SESSION["dext"]=$date_expiration;
@@ -35,6 +36,7 @@ function getFormAddUsser($action="",$type_compte="",$date_expiration="",$email="
     </form>
     <?php
 }
+
 function getFromCreateProjet($nomProjet="",$action=""){
     ?>
     <form style="width:500px;margin:auto;background-color:white;padding:30px;" action="<?php echo $action; ?>" method="POST">
@@ -49,7 +51,6 @@ function getFromCreateProjet($nomProjet="",$action=""){
 
     <?php
 }
-
 
 function getFromCreateGroup($nomGroup="",$action=""){
     ?>
