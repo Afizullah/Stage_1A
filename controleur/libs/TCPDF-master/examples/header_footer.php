@@ -39,13 +39,13 @@ class MYPDF extends TCPDF
         // Position at 15 mm from bottom
         $this->SetY(-20);
         // Set font
-        $this->SetFont('helvetica', 'I', 8);
+        $this->SetFont('helvetica', 'I', 10);
         $this->SetFillColor(255, 255, 255);
         // Page number
-        $this->Image('images/footer.jpg', 0, $this->GetY(), 0, 12, 'JPEG', '', 'M', false, 300, 'R', false, false, 0, true, false, false, '');
-        $this->SetY($this->GetY()-7);
-        $this->SetX(-16);
-        $this->Write(5, $this->getAliasNumPage(),false,false,'R');
-        //$this->Cell(0,10,$this->getAliasNumPage(),1,0,'R','','','','','','');
+        $this->Image('images/footer.jpg', 177, $this->GetY(), 0, 12, 'JPEG', '', 'M', false, 300, '', false, false, 0, true, false, false, '');
+        $this->SetY($this->GetY()-5);
+        $this->SetX(-17);
+        //$this->Write(5, $this->getAliasNumPage(),false,false,'R');
+        $this->Cell(0,10,$this->getAliasNumPage(),0,0,'R','','','','','','');
     }
 }
