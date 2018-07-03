@@ -25,7 +25,7 @@ class MYPDF extends TCPDF
             // Set font
             $this->SetFont('helvetica', 'B', 10);
             $this->Image('images/header_2.jpg', 0, 10, 0, 7, 'JPEG', '', 'N', false, 300, 'R', false, false, 0, true, false, false, '');
-            $this->SetXY(30, 5);
+            $this->SetXY($this->GetX(), 5);
             $this->Write(0, 'Présentation de la formation', $link = '', $fill = false, $align = 'R', $ln = true, $stretch = 0, $firstline = true, $firstblock = false, $maxh = 0, $wadj = 0, $margin = '');
             // Title
             //$this->Cell(0, 15, 'Présentation de l\'ESP', 0, false, 'C', 0, '', 0, false, 'M', 'M');
@@ -42,10 +42,13 @@ class MYPDF extends TCPDF
         $this->SetFont('helvetica', 'I', 10);
         $this->SetFillColor(255, 255, 255);
         // Page number
-        $this->Image('images/footer.jpg', 177, $this->GetY(), 0, 12, 'JPEG', '', 'M', false, 300, '', false, false, 0, true, false, false, '');
+        $this->Image('images/footer.jpg', 182, $this->GetY(), 0, 12, 'JPEG', '', 'M', false, 300, '', false, false, 0, true, false, false, '');
         $this->SetY($this->GetY()-5);
         $this->SetX(-17);
+        $this->SetTextColor(255,255,255);
         //$this->Write(5, $this->getAliasNumPage(),false,false,'R');
-        $this->Cell(0,10,$this->getAliasNumPage(-1),0,0,'R','','','','','','');
+        $this->Cell(0,10,$this->getAliasNumPage(),0,0,'R','','','','','','');
+        $this->SetTextColor(0,0,0);
+
     }
 }
