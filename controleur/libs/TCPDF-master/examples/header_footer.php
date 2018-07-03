@@ -5,12 +5,19 @@ require_once 'tcpdf_include.php';
 class MYPDF extends TCPDF
 {
 
-    public $suite = false;
+    private $formation = false;
+    private $text_header;
+
+    public function Set_Header($formation, $text_header = ''){
+        $this->formation=$formation;
+        $this->text_header=$text_header;
+    }
+
 
     //Page header
     public function Header()
     {
-        if (!$this->suite) {
+        if (!$this->formation) {
             // Logo
             // Set font
             $this->SetFont('helvetica', 'B', 10);
@@ -23,12 +30,14 @@ class MYPDF extends TCPDF
         } else {
             // Logo
             // Set font
-            $this->SetFont('helvetica', 'B', 10);
+            $this->SetFont('freeserif', 'B', 12);
             $this->Image('images/header_2.jpg', 0, 10, 0, 7, 'JPEG', '', 'N', false, 300, 'R', false, false, 0, true, false, false, '');
-            $this->SetXY($this->GetX(), 5);
-            $this->Write(0, 'Présentation de la formation', $link = '', $fill = false, $align = 'R', $ln = true, $stretch = 0, $firstline = true, $firstblock = false, $maxh = 0, $wadj = 0, $margin = '');
+            $this->SetXY(80, $this->GetY()-3.5);
+            //$this->Write(6, $this->text_header, $link = '', $fill = false, $align = 'R', $ln = true, $stretch = 0, $firstline = true, $firstblock = false, $maxh = 10, $wadj = 0);
             // Title
-            //$this->Cell(0, 15, 'Présentation de l\'ESP', 0, false, 'C', 0, '', 0, false, 'M', 'M');
+            $this->SetTextColor(255,255,255);
+            $this->Cell(115, 15, $this->text_header, 0, false, 'R', 0, '', 0, false, 'M', 'M');
+            $this->SetTextColor(0,0,0);
             $this->SetFont('helvetica', 'B', 15);
         }
     }

@@ -56,9 +56,10 @@ $pdf->setFontSubsetting(true);
 //page de garde
 page_de_garde($pdf, "2017-2018", 'Génie Informatique',"(+221) 33 825 75 28)", "secretariat-dgi@esp.sn");
 
-$pdf->AddPage();
 $pdf->setPrintHeader(true);
 $pdf->setPrintFooter(true);
+$pdf->AddPage();
+
 // set font
 $pdf->SetFont('times', 'B', 20);
 
@@ -80,7 +81,7 @@ $pdf->Cell(0, 10, 'Extraits du réglement intérieur de l\'ESP', 0, 1, 'L');
 $pdf->AddPage();
 $pdf->Bookmark('Présentation de la formation', 0, 0, '', 'B', array(0, 64, 128));
 //passage de suite à true => modification du header
-$pdf->suite = true;
+$pdf->Set_Header(true,"Présentation de la formation");
 
 $pdf->Cell(0, 10, 'Présentation de la formation', 0, 1, 'L');
 
@@ -96,7 +97,7 @@ $pdf->AddPage();
 $pdf->Bookmark('Autres informations utiles', 0, 0, '', 'B', array(0, 64, 128));
 $pdf->Cell(0, 10, 'Autres informations utiles', 0, 1, 'L');
 //parce que la table des matières est au début du document
-$pdf->suite = false;
+$pdf->Set_Header(false,'');
 // add a new page for TOC
 $pdf->addTOCPage();
 
