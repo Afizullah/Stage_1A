@@ -244,7 +244,7 @@ function tab_details_ue($ue,$code,$formation,$cm,$td,$tp,$tpe,$credit){
 	$vht=$cm+$tp+$td+$tpe;
 	$resu='<br/><br/><table border="1">
 	<tr>
-		<td colspan="6" style="background-color: #7FDD4C;"><font size="+4" face="Times">';
+		<td colspan="6" style="background-color: #5EB54D;"><font size="+4" face="Times">';
 	$resu.="$formation $code: $ue</font></td>
 	</tr>
 	<tr>
@@ -263,7 +263,7 @@ function tab_details_semestre($num,$cm,$td,$tp,$tpe){
 	$vht=$cm+$tp+$td+$tpe;
 	$resu='<br/><br/><table border="1">
 	<tr>
-		<td colspan="6" style="background-color: #87CEEB;"><font size="+4" face="Times">';
+		<td colspan="6" style="background-color: #109DEC;"><font size="+4" face="Times">';
 	$resu.="SEMESTRE $num</font></td>
 	</tr>
 	<tr>

@@ -74,23 +74,29 @@ chef($pdf,'Test mot du chef');
 reglement($pdf,'Test réglement');
 
 //Partie Présentation de la formation
-$pdf->AddPage();
-$pdf->Bookmark('Présentation de la formation', 0, 0, '', 'B', array(0, 64, 128));
-//passage de suite à true => modification du header
-$pdf->Set_Header(true,"Présentation de la formation");
-$pdf->Cell(0, 10, 'Présentation de la formation', 0, 1, 'L');
 
-$pdf->AddPage();
-$pdf->Bookmark('Extraits de l\'arrêté organisant la formation', 1, 0, '', '', array(128, 0, 0));
-$pdf->Cell(0, 10, 'Extraits de l\'arrêté organisant la formation', 0, 1, 'L');
+$semestre=[1,1,1,1,2,2,2];
+$ue=["ue1","ue1","ue2","ue2","ue3","ue3","ue4"];
+$nom=["module1","module2","module3","module4","module5","module6","module7"];
+$code=[1111,1112,1113,1114,1121,1122,1123];
+$formation="DUTINFO";
+$coeff=[1,3,4,1,2,2,3];
+$cm=[1,2,4,3,1,2,4];
+$td=[1,2,4,3,1,2,4];
+$tp=[1,2,4,3,1,2,4];
+$tpe=[1,2,4,3,1,2,4];
+$obj=[["reussir cela","connaitre cela"],["reussir cela","connaitre cela"],["reussir cela","connaitre cela"],["reussir cela","connaitre cela"],["reussir cela","connaitre cela"],["reussir cela","connaitre cela"],["reussir cela","connaitre cela"]];
+$prerequis=[["module11"],["module12"],["module13"],["module14"],["module15"],["module16"],["module17"]];
+$contenu=[["introduction à la méthode11","étude des systèmes multi-variés"],["introduction à la méthode12","étude des systèmes multi-variés"],["introduction à la méthode13","étude des systèmes multi-variés"],["introduction à la méthode14","étude des systèmes multi-variés"],["introduction à la méthode15","étude des systèmes multi-variés"],["introduction à la méthode16","étude des systèmes multi-variés"],["introduction à la méthode17","étude des systèmes multi-variés"]];
+$eval=[[15,85,60,40],[15,85,60,40],[15,85,60,40],[15,85,60,40],[15,85,60,40],[15,85,60,40],[15,85,60,40]];
+$credits=[15,15,15,15,20,20,10];
+$reglement="<p><b>règle 1:</b> blabla bla</p><p><b>règle 2:</b> blabla bla</p><p><b>règle 3:</b> blabla bla</p>";
+$phrase_presentation="Voila c'est la formation";
+$Inforamtions_utiles="contacter M.jdhu";
 
-$pdf->AddPage();
-$pdf->Bookmark('Les différents semestres', 1, 0, '', '', array(128, 0, 0));
-$pdf->Cell(0, 10, 'Les différents semestres', 0, 1, 'L');
 
-$pdf->AddPage();
-$pdf->Bookmark('Autres informations utiles', 0, 0, '', 'B', array(0, 64, 128));
-$pdf->Cell(0, 10, 'Autres informations utiles', 0, 1, 'L');
+formation($pdf,$semestre,$ue,$nom,$code,$formation,$coeff,$cm,$td,$tp,$tpe,$obj,$prerequis,$contenu,$eval,$credits,$reglement,$phrase_presentation,$Inforamtions_utiles);
+
 //parce que la table des matières est au début du document
 $pdf->Set_Header(false,'');
 // add a new page for TOC
