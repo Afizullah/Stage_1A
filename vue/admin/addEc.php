@@ -36,7 +36,7 @@
 				if ($i == 4) break;
 			}
 	
-			return DB::registre("ec",[["ue_id",$ueId],["groupe_id",$groupeId],["ec_code",$ecCode],["ec_competence",$ecCompetence],["ec_prerequis",$ecPrerequis],["ec_contenu",$ecContenu],["ec_coef",$ecCoef],["ec_nbre_heure_cm",$ecNbreHCM],["ec_nbre_heure_td",$ecNbreHTD],["ec_nbre_heure_tp",$ecNbreHTP],["ec_nbre_heure_tpe",$ecNbreHTPE]]);
+			// return DB::registre("ec",[["ue_id",$ueId],["groupe_id",$groupeId],["ec_code",$ecCode],["ec_competence",$ecCompetence],["ec_prerequis",$ecPrerequis],["ec_contenu",$ecContenu],["ec_coef",$ecCoef],["ec_nbre_heure_cm",$ecNbreHCM],["ec_nbre_heure_td",$ecNbreHTD],["ec_nbre_heure_tp",$ecNbreHTP],["ec_nbre_heure_tpe",$ecNbreHTPE]]);
 		}
 		
 	}

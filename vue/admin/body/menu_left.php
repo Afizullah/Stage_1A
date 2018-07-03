@@ -158,17 +158,17 @@ function linkCreatProjet(){
                         </a>
                         <ul id="ui_dr<?php echo $num; ?>" class="collapse collapse-level-1 two-col-list">
                             <li>
-                                <a href="modals.html">Matières</a>
+                                <a href="index.php?page=showSubjects&groupId=<?php echo $value['groupe_id']; ?>">Matières</a>
                             </li>
                             <li>
-                                <a href="panels-wells.html">Participants</a>
+                                <a href="index.php?page=showSubjects">Participants</a>
                             </li>
                             <li>
                                 <a href="notifications.html">Propositions</a>
                             </li>
                         </ul>
                     </li>
-                    <?php
+                    <?php $num++;
                 }
             }
         }else{
