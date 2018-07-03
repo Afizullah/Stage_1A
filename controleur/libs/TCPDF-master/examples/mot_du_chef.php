@@ -3,13 +3,12 @@
  * @param MYPDF $pdf
  * @param $text
  */
-function chef(MYPDF $pdf, $text)
+function chef(MYPDF $pdf, $html)
 {
-//    $pdf->setFooter();
-    // Start First Page Group
     $pdf->AddPage();
-    $pdf->startPageGroup();
-// This is the first page of group 1.
-    $pdf->Cell(0, 15, $text, 0, false, 'C', 0, '', 0, false, 'M', 'M');
+    $pdf->Bookmark('Mot du Chef de département', 0, 0, '', 'B', array(0, 64, 128));
+    $pdf->Cell(0, 10, 'Mot du Chef de département ', 0, 1, 'L');
+    $pdf->Ln();
+    $pdf->Cell(0, 15, $html, 0, false, 'C', 0, '', 0, false, 'M', 'M');
 
 }

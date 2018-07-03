@@ -7,6 +7,7 @@ require_once 'table_matiere.php';
 require_once 'sigle.php';
 require_once 'presentation_equipe.php';
 require_once 'mot_du_chef.php';
+require_once 'reglement.php';
 require_once 'formation.php';
 // create new PDF document
 $pdf = new MYPDF(PDF_PAGE_ORIENTATION, PDF_UNIT, PDF_PAGE_FORMAT, true, 'UTF-8', false);
@@ -28,8 +29,6 @@ $pdf->SetKeywords('PDF');
 
 // set default monospaced font
 $pdf->SetDefaultMonospacedFont(PDF_FONT_MONOSPACED);
-$pdf->setPrintHeader(false);
-$pdf->setPrintFooter(false);
 
 // set margins
 $pdf->SetMargins(PDF_MARGIN_LEFT, PDF_MARGIN_TOP, PDF_MARGIN_RIGHT);
@@ -56,33 +55,29 @@ $pdf->setFontSubsetting(true);
 //page de garde
 page_de_garde($pdf, "2017-2018", 'Génie Informatique',"(+221) 33 825 75 28)", "secretariat-dgi@esp.sn");
 
-$pdf->setPrintHeader(true);
-$pdf->setPrintFooter(true);
-$pdf->AddPage();
-
 // set font
 $pdf->SetFont('times', 'B', 20);
+//$pdf->SetFont('times', 'BI', 14);
 
-$pdf->Bookmark('Sigles et abréviations', 0, 0, '', 'B', array(0, 64, 128));
-$pdf->Cell(0, 10, 'Sigles et abréviations', 0, 1, 'L');
+//Partie sigle et abréviations
+sigle($pdf,'Test sigle');
 
+//Partie équipe pédagogique
 $pdf->AddPage();
 $pdf->Bookmark('Équipe pédagogique', 0, 0, '', 'B', array(0, 64, 128));
 $pdf->Cell(0, 10, 'Équipe pédagogique', 0, 1, 'L');
 
-$pdf->AddPage();
-$pdf->Bookmark('Mot du Chef de département', 0, 0, '', 'B', array(0, 64, 128));
-$pdf->Cell(0, 10, 'Mot du Chef de département ', 0, 1, 'L');
+//Partie mot du chef de département
+chef($pdf,'Test mot du chef');
 
-$pdf->AddPage();
-$pdf->Bookmark('Extraits du réglement intérieur de l\'ESP', 0, 0, '', 'B', array(0, 64, 128));
-$pdf->Cell(0, 10, 'Extraits du réglement intérieur de l\'ESP', 0, 1, 'L');
+//Partie Extraits du réglement intérieur de l'ESP
+reglement($pdf,'Test réglement');
 
+//Partie Présentation de la formation
 $pdf->AddPage();
 $pdf->Bookmark('Présentation de la formation', 0, 0, '', 'B', array(0, 64, 128));
 //passage de suite à true => modification du header
 $pdf->Set_Header(true,"Présentation de la formation");
-
 $pdf->Cell(0, 10, 'Présentation de la formation', 0, 1, 'L');
 
 $pdf->AddPage();

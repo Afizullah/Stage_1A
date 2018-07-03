@@ -3,6 +3,8 @@ function page_de_garde(TCPDF $pdf, $year, $departement,$tel,$mail)
 {
 // set font
     $pdf->SetFont('helvetica', '', 35);
+    $pdf->setPrintHeader(false);
+    $pdf->setPrintFooter(false);
 // add a page
     $pdf->AddPage();
 // fond
@@ -52,5 +54,6 @@ function page_de_garde(TCPDF $pdf, $year, $departement,$tel,$mail)
     $pdf->Cell(0, 0,"Mail : ".$mail, 0, 1, 'R', 0, '', 0);
     // set font
     $pdf->SetFont('times', 'BI', 14);
-
+    $pdf->setPrintHeader(true);
+    $pdf->setPrintFooter(true);
 }
