@@ -54,14 +54,14 @@ if (@file_exists(dirname(__FILE__) . '/lang/eng.php')) {
 $pdf->setFontSubsetting(true);
 
 //page de garde
-page_de_garde($pdf, "2017-2018", 'Génie Informatique');
+page_de_garde($pdf, "2017-2018", 'Génie Informatique',"(+221) 33 825 75 28)", "secretariat-dgi@esp.sn");
 
+$pdf->AddPage();
 $pdf->setPrintHeader(true);
 $pdf->setPrintFooter(true);
 // set font
 $pdf->SetFont('times', 'B', 20);
 
-$pdf->AddPage();
 $pdf->Bookmark('Sigles et abréviations', 0, 0, '', 'B', array(0, 64, 128));
 $pdf->Cell(0, 10, 'Sigles et abréviations', 0, 1, 'L');
 

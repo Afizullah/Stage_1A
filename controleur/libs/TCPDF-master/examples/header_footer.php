@@ -46,6 +46,6 @@ class MYPDF extends TCPDF
         $this->SetY($this->GetY()-5);
         $this->SetX(-17);
         //$this->Write(5, $this->getAliasNumPage(),false,false,'R');
-        $this->Cell(0,10,$this->getAliasNumPage(),0,0,'R','','','','','','');
+        $this->Cell(0,10,$this->getAliasNumPage(-1),0,0,'R','','','','','','');
     }
 }
