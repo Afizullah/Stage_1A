@@ -63,9 +63,15 @@ $pdf->SetFont('times', 'B', 20);
 sigle($pdf,'Test sigle');
 
 //Partie équipe pédagogique
-$pdf->AddPage();
-$pdf->Bookmark('Équipe pédagogique', 0, 0, '', 'B', array(0, 64, 128));
-$pdf->Cell(0, 10, 'Équipe pédagogique', 0, 1, 'L');
+$prenoms=["prenom1","prenom2","prenom3","prenom4","prenom5"];
+$noms=["nom1","nom2","nom3","nom4","nom5"];
+$specialites=["specialite1","specialite2","specialite3","specialite4","specialite5"];
+$fonctions=["fonction1","fonction2","fonction3","fonction4","fonction5"];
+$phrase_presentation="<p>L’équipe pégagogique du Département comprend le personnel permanant dont les membres
+sont listés à l’aide du tableau ci-après. Elle comprend, en plus, un important personnel non
+permanant formé d’enseignants vacataires et d’un personnel administratif d’appui.</p>";
+
+equipe($pdf,$prenoms,$noms,$specialites,$fonctions,$phrase_presentation);
 
 //Partie mot du chef de département
 chef($pdf,'Test mot du chef');
