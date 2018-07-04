@@ -115,7 +115,7 @@ $pdf->Ln();
 $pdf->SetFont('dejavusansextralight', '', 12);
 
 // add a simple Table Of Content at first page
-$pdf->addTOC(2, 'courier', '', 'Table des matières', 'B', array(0, 128, 0));
+$pdf->addTOC(2, 'courier', '', 'Table des matières', 'B', array(94, 181, 77));
 
 // end of TOC page
 $pdf->endTOCPage();
