@@ -13,7 +13,7 @@ function equipe($pdf,$prenoms,$noms,$specialites,$fonctions,$phrase_presentation
 
 	$pdf->SetTextColor(94,181,77);
     $pdf->SetFont('dejavusans', '', 25);
-    $pdf->SetXY(7,25);
+    $pdf->SetXY(10,30);
     $pdf->Cell(0, 0,"EQUIPE PEDAGOGIQUE", 0, false, 'L', 0, '', 0, false, 'M', 'M');
 
     $pdf->SetXY(7,40);

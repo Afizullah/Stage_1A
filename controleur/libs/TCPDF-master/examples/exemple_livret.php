@@ -5,6 +5,7 @@ require_once 'header_footer.php';
 require_once 'page_de_garde.php';
 require_once 'sigle.php';
 require_once 'presentation_equipe.php';
+require_once 'presentation_formation.php';
 require_once 'mot_du_chef.php';
 require_once 'reglement.php';
 require_once 'formation.php';
@@ -76,6 +77,13 @@ equipe($pdf,$prenoms,$noms,$specialites,$fonctions,$phrase_presentation);
 
 //Partie mot du chef de département
 chef($pdf,'Test mot du chef');
+
+//Partie présentation des formations
+$formations=["la formation 1","la formation 2","la formation 3","la formation 4","la formation 5"];
+$phrase_presentation="Dans la suite de ce livret sont présentées les formations suivantes :";
+$annonce_elements="<p> voilà ce <b>que</b> nous allons présenter</p>";
+
+presentation_formation($pdf,$formations,$annonce_elements);
 
 //Partie Extraits du réglement intérieur de l'ESP
 reglement($pdf,'Test réglement');

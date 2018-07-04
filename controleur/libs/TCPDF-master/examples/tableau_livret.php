@@ -337,4 +337,24 @@ function tab_details_matière($semestre,$ue,$nom,$code,$formation,$coeff,$cm,$td
 	}
 	return $resu;
 }
+
+/*===============================
+	Presentation des formations
+=================================
+
+Génération du paragraphe listant les formations
+
+@param $formations:tableau contenant le nom des différentes formations proposées
+
+@return le code html permettant d'afficher cette liste
+*/
+
+function tab_formation($formations){
+	$resu='<ul style="font-weight:bold;">';
+	for($i=0;$i<count($formations);$i++){
+		$resu.="<li>$formations[$i]<li/>";
+	}	
+	$resu.='</ul>';
+	return $resu;
+}
 ?>
