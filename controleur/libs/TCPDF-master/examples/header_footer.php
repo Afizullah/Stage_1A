@@ -21,7 +21,7 @@ class MYPDF extends TCPDF
             // Logo
             // Set font
             $this->SetFont('helvetica', 'B', 10);
-            $this->Image('images/header_1.jpg', 0, 10, 0, 8, 'JPEG', '', 'N', false, 300, 'L', false, false, 0, true, false, false, '');
+            $this->Image('images/header_1.jpg', 0, 10, 0, 8, 'JPEG', '', 'N', true, 300, 'L', false, false, 0, true, false, false, '');
 //          $this->SetXY(35, 5);
 //      $this->Write(0, 'Test', $link='', $fill=false, $align='R', $ln=true, $stretch=0, $firstline=true, $firstblock=false, $maxh=0, $wadj=0, $margin='');
             // Title
@@ -51,7 +51,7 @@ class MYPDF extends TCPDF
         $this->SetFont('helvetica', 'I', 10);
         $this->SetFillColor(255, 255, 255);
         // Page number
-        $this->Image('images/footer.jpg', 182, $this->GetY(), 0, 12, 'JPEG', '', 'M', false, 300, '', false, false, 0, true, false, false, '');
+        $this->Image('images/footer_bis.jpg', 182, $this->GetY(), 0, 12, 'JPEG', '', 'M', false, 300, '', false, false, 0, true, false, false, '');
         $this->SetY($this->GetY()-5);
         $this->SetX(-17);
         $this->SetTextColor(255,255,255);
