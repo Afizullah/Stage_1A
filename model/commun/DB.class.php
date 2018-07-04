@@ -120,10 +120,20 @@
              $condition.=$opt.$conditionChamp[$i]."=$tempCondition";
              $opt=" AND ";
          }
-         $req = $bdd->prepare("UPDATE $table SET ".$str_req." WHERE ".$condition."") ;
-         $reqUp = $req->execute($arrayVal);
-         $req->closeCursor();
-         return $reqUp;
+
+         try{
+             $req = $bdd->prepare("UPDATE $table SET ".$str_req." WHERE ".$condition."") ;
+
+             $reqUp = $req->execute($arrayVal);
+             $req->closeCursor();
+             return $reqUp;
+         }catch ( PDOException $e ) {
+             if($e->getCode()=="23000"){
+                 echo "Existe déja : ";
+             }
+         }
+         return false;
+
      }
 
   }

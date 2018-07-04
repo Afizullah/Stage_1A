@@ -204,6 +204,11 @@
                                      }else{
                                          alertErrors($resultRegFile["errors"]);
                                      }
+                                     ?>
+                                     <center>
+                                         <a class="btn btn-success" href="index.php?page=editFormation">Consulter les données</a>
+                                     </center>
+                                     <?php
                                     /*
 
                                         $cmpt=0;

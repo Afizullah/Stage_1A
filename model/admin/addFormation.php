@@ -25,8 +25,7 @@
                             if($_classId = $thisInfosClasse["classeId"]){
                                 $codeCurrentUe = $ues["CodeUe"][$k];
                                 $detaillesUe = $ues["thisUeDetailles"][$k];
-                                $thisUeInfos = self::addUe($_classId,$codeCurrentUe,$detaillesUe["CodeUeIntitule"],
-                                                    $detaillesUe["credit"],$detaillesUe["semestre"]);
+                                $thisUeInfos = self::addUe($_classId,$codeCurrentUe,$detaillesUe["CodeUeIntitule"],$detaillesUe["semestre"]);
                                 if($_ueId = $thisUeInfos["ueId"]){
                                     $ecUe = $data->getEc($formation,$semestres[$i],$ues["CodeUe"][$k]);
                                     for ($i_ec=0; $i_ec < count($ecUe["CodeEC"]); $i_ec++) {
@@ -54,9 +53,7 @@
                             }else{
                                 $errors[]=$thisInfosClasse["msg"];
                             }
-
                         }
-
                     }
                 }else{
                     $errors[]=$thisInfosFormation["msg"];
@@ -91,6 +88,9 @@
                 "msg"=>$msg
             );
         }
+        public static function getFormations($idProjet){
+            return parent::getData("formation","*",[["projet_id",$idProjet]]);
+        }
 
         //Ajoute une classe s'il n'existe pas et de retourne son id
         public static function addClasse($formationId,$className){
@@ -112,13 +112,16 @@
                 "msg"=>$msg
             );
         }
+        public static function getClasses($formationId){
+            return parent::getData("classe","*",[["formation_id",$formationId]]);
+        }
 
         //Ajoute une UE s'il n'existe pas et de retourne son id
-        public static function addUe($classeId,$ueCode,$ueNom,$ueNbrCred,$ueSemestre){
+        public static function addUe($classeId,$ueCode,$ueNom,$ueSemestre){
             $msg=null;
             $registed=false;
             if(!$ueId = DB::getLine("ue","ue_id",[["classe_id",$classeId],["ue_code",secure($ueCode)]])["ue_id"]){
-                if($ueId = DB::registre("ue",[["classe_id",$classeId],["ue_code",secure($ueCode)],["ue_nom",secure($ueNom)],["ue_nbre_cred",secure($ueNbrCred)],["ue_semestr",secure($ueSemestre)]])){
+                if($ueId = DB::registre("ue",[["classe_id",$classeId],["ue_code",secure($ueCode)],["ue_nom",secure($ueNom)],["ue_semestr",secure($ueSemestre)]])){
                     $registed=true;
                 }else{
                     $msg = "Echec de l'enregistrement de la de l'UE ".secure($ueCode);
@@ -132,6 +135,10 @@
                 "registed"=>$registed,
                 "msg"=>$msg
             );
+        }
+
+        public static function getUes($classeId){
+            return parent::getData("ue","*",[["classe_id",$classeId]]);
         }
 
         //Ajoute une UE s'il n'existe pas et de retourne son id
@@ -155,5 +162,11 @@
                 "msg"=>$msg
             );
         }
+        public static function getEcs($ueId){
+            return parent::getData("ec","*",[["ue_id",$ueId]]);
+        }
+
+
+
     }
 ?>

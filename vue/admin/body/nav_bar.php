@@ -33,6 +33,7 @@
             <h6 style="overflow:hidden">
                 <?php echo $PROJET->getName(); ?>
             </h6>
+            <span id="notifChanged"></span>
         </div>
     </div>
     <div id="mobile_only_nav" class="mobile-only-nav pull-right">

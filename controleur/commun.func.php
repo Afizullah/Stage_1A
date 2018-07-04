@@ -20,6 +20,13 @@
     function _hash($string){
         return hash("sha256",$string);
     }
+    function _hashName($name,$id=""){
+        echo _getHashName($name).$id;
+    }
+    function _getHashName($name){
+        return _hash("liv".$name."ret");
+    }
+
     function today($format="fr"){
         switch ($format) {
             case 'fr':

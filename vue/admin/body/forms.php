@@ -69,6 +69,121 @@ function getFromCreateGroup($nomGroup="",$action=""){
 function getHiddenInput($name,$value){ ?>
     <input type="hidden" name="<?php echo $name; ?>" value="<?php echo $value; ?>"> <?php
 }
+function getFormEditEc($class,$ue,$ue_id){
+    ?>
+    <div class="modal fade" id="modalEcUe<?php echo $ue_id; ?>" tabindex="-1" role="dialog" aria-labelledby="" aria-hidden="true">
+      <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+          <div class="modal-header">
+              <h5 style="float:left" class="modal-title" id=""><span style="color:red"><?php echo $class."</span> <i class='fa fa-angle-double-right'></i><span style='color:blue'> ".$ue; ?></span></h5>
+                  <div id="notifChangedEc<?php echo $ue_id; ?>"></div>
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+          </div>
+          <div style="max-height:500px;overflow-y:auto" class="modal-body">
+
+              <?php
+              if($ecs = Formation::getEcs($ue_id)){
+                  foreach ($ecs as $ec => $ec_field) {
+                      $ecId=$ec_field["ec_id"];
+                      $codeEc = $ec_field["ec_code"];
+                      $competence = $ec_field["ec_competence"];
+                      $matiere = $ec_field["ec_nom"];
+                      $prerequis = $ec_field["ec_prerequis"];
+                      $contenu = $ec_field["ec_contenu"];
+                      $coef = $ec_field["ec_coef"];
+                      $nbrHeurCM = $ec_field["ec_nbre_heure_cm"];
+                      $nbrHeurTD = $ec_field["ec_nbre_heure_td"];
+                      $nbrHeurTP = $ec_field["ec_nbre_heure_tp"];
+                      $nbrHeurTPE = $ec_field["ec_nbre_heure_tpe"];
+                      ?>
+                      <div class="panel-group">
+                          <div class="panel panel-default">
+                            <div class="panel-heading">
+                              <h4 class="panel-title">
+                                <a style="display:block" data-toggle="collapse" href="#collapseMatiere<?php echo $ecId; ?>"><?php $nomMatiere = ($matiere)?$matiere:"Matière non définie"; echo $nomMatiere; ?></a>
+                              </h4>
+                            </div>
+                            <div id="collapseMatiere<?php echo $ecId; ?>" class="panel-collapse collapse">
+                              <table class="table">
+                                  <tr>
+                                      <td>
+                                          <div class="input-group">
+                                            <span class="input-group-addon">Code EC</span>
+                                            <input type="text" onchange="regChangeEc(this.id,this.value,'notifChangedEc<?php echo $ue_id; ?>');"  id="<?php _hashName("ec_code","_".$ecId);  ?>" value="<?php echo $codeEc; ?>" class="form-control" placeholder="Code EC">
+                                          </div>
+                                      </td>
+                                  </tr>
+                                  <tr>
+                                      <td>
+                                          <div class="input-group">
+                                            <span class="input-group-addon">Matière</span>
+                                            <input type="text"   id="<?php _hashName("ec_nom","_".$ecId);  ?>"  value="<?php echo $matiere; ?>" class="form-control" placeholder="Matière">
+                                          </div>
+                                      </td>
+                                  </tr>
+
+                                  <tr>
+                                      <td>
+                                          <table class="table">
+                                              <tr>
+                                                  <td><label for="<?php _hashName("ec_coef","_".$ecId); ?>">Coefficient</label></td>
+                                                  <td><label for="<?php _hashName("ec_nbre_heure_cm","_".$ecId); ?>">Nombre d'heures CM</label></td>
+                                                  <td><label for="<?php _hashName("ec_nbre_heure_td","_".$ecId); ?>">Nombre d'heures TD</label></td>
+                                                  <td><label for="<?php _hashName("ec_nbre_heure_tp","_".$ecId); ?>">Nombre d'heures TP</label></td>
+                                                  <td><label for="<?php _hashName("ec_nbre_heure_tpe","_".$ecId); ?>">Nombre d'heures TPE</label></td>
+                                              </tr>
+                                              <tr>
+                                                  <td><input  id="<?php _hashName("ec_coef","_".$ecId);  ?>"  type="text" class="form-control" value="<?php echo $coef; ?>" placeholder="Coefficient"></td>
+                                                  <td><input  id="<?php _hashName("ec_nbre_heure_cm","_".$ecId);  ?>"  type="text" class="form-control" value="<?php echo $nbrHeurCM; ?>" placeholder="Nombre d'heures CM"></td>
+                                                  <td><input  id="<?php _hashName("ec_nbre_heure_td","_".$ecId); ?>" type="text" class="form-control" value="<?php echo $nbrHeurTD; ?>" placeholder="Nombre d'heures TD"></td>
+                                                  <td><input  id="<?php _hashName("ec_nbre_heure_tp","_".$ecId); ?>" type="text" class="form-control" value="<?php echo $nbrHeurTP; ?>" placeholder="Nombre d'heures TP"></td>
+                                                  <td><input  id="<?php _hashName("ec_nbre_heure_tpe","_".$ecId); ?>" type="text" class="form-control" value="<?php echo $nbrHeurTPE; ?>" placeholder="Nombre d'heures TPE"></td>
+                                              </tr>
+                                          </table>
+
+                                      </td>
+                                  </tr>
+                                  <tr>
+                                      <td>
+                                          <div title="<?php echo $nomMatiere; ?>"  class="input-group">
+                                            <span class="input-group-addon">Compétences</span>
+                                            <textarea id="<?php _hashName("ec_competence","_".$ecId); ?>" style="text-align:justified;width:100%" rows="8" ><?php echo $competence; ?></textarea>
+                                          </div>
+                                      </td>
+                                  </tr>
+                                  <tr>
+                                      <td>
+                                          <div title="<?php echo $nomMatiere; ?>"  class="input-group">
+                                            <span  class="input-group-addon">Prérequis</span>
+                                            <textarea id="<?php _hashName("ec_prerequis","_".$ecId); ?>" style="text-align:justified;width:100%" rows="5" ><?php echo $prerequis; ?></textarea>
+                                          </div>
+                                      </td>
+                                  </tr>
+                                  <tr>
+                                      <td>
+                                          <div title="<?php echo $nomMatiere; ?>"  class="input-group">
+                                            <span class="input-group-addon">Contenu</span>
+                                            <textarea id="<?php _hashName("ec_contenu","_".$ecId); ?>" style="text-align:justified;width:100%" rows="8" ><?php echo $contenu; ?></textarea>
+                                          </div>
+                                      </td>
+                                  </tr>
+                              </table>
+                            </div>
+                          </div>
+                    </div>
+                      <?php
+                  }
+              }
+              ?>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">FERMER</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <?php
+}
 function getFormEditUe($idForm,$clss,$idSem,$idUe,$codeUe,$detaillesUe,$ecUe){
     $id= $idForm.$clss.$idSem.$idUe; ?>
     <div class="modal fade" id="<?php echo "infosUe".$id; ?>" tabindex="-1" role="dialog" aria-labelledby="" aria-hidden="true">
@@ -132,7 +247,6 @@ function getFormEditUe($idForm,$clss,$idSem,$idUe,$codeUe,$detaillesUe,$ecUe){
                   $nbrHeurTD = $ecUe["nbrHeurTD"][$i];
                   $nbrHeurTP = $ecUe["nbrHeurTP"][$i];
                   $nbrHeurTPE = $ecUe["nbrHeurTPE"][$i];
-
                   ?>
                   <div class="panel-group">
                       <div class="panel panel-default">
