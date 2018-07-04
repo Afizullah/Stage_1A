@@ -15,7 +15,7 @@ function page_de_garde(TCPDF $pdf, $year, $departement,$tel,$mail)
     $pdf->Image($image_file, 161, 17, 14,'', '', false, 'B', false, 300, 'M', false, false, 0, false, false, false);
 // nom de l'université
     $pdf->SetTextColor(170,170,170);
-    $pdf->SetFont('helvetica', '', 10);
+    $pdf->SetFont('dejavusansextralight', '', 10);
     $pdf->SetXY(135,33);
     $pdf->Cell(0, 0, "UNIVERSITE CHEIKH ANTA DIOP DE DAKAR", 0, false, 'C', 0, '', 0, false, 'M', 'M');
     $pdf->SetXY(135,37);
