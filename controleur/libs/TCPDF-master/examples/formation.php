@@ -10,7 +10,7 @@ function formation($pdf,$semestre,$ue,$nom,$code,$formation,$coeff,$cm,$td,$tp,$
 	$pdf->SetFillColor(94,181,77);
 	$pdf->Set_Header(false);
 	$pdf->AddPage();
-	$pdf->Bookmark(' Présentation de la formation    '.$formation, 1, 0, '', 'B', array(0, 64, 128));
+	$pdf->Bookmark('Présentation de la formation    '.$formation, 1, 0, '', 'B', array(0, 64, 128));
 	$pdf->Set_Header(true,$formation);
 	
 	//Affichage réglement de la fromation
