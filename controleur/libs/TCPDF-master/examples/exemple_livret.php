@@ -3,7 +3,6 @@
 require_once 'tcpdf_include.php';
 require_once 'header_footer.php';
 require_once 'page_de_garde.php';
-require_once 'table_matiere.php';
 require_once 'sigle.php';
 require_once 'presentation_equipe.php';
 require_once 'mot_du_chef.php';
@@ -53,7 +52,7 @@ if (@file_exists(dirname(__FILE__) . '/lang/eng.php')) {
 $pdf->setFontSubsetting(true);
 
 //page de garde
-page_de_garde($pdf, "2017-2018", 'Génie Informatique',"(+221) 33 825 75 28)", "secretariat-dgi@esp.sn");
+page_de_garde($pdf, "2017-2018", 'GENIE INFORMATIQUE',"(+221) 33 825 75 28)", "secretariat-dgi@esp.sn");
 
 // set font
 $pdf->SetFont('times', 'B', 20);
@@ -98,10 +97,10 @@ $eval=[[15,85,60,40],[15,85,60,40],[15,85,60,40],[15,85,60,40],[15,85,60,40],[15
 $credits=[15,15,15,15,20,20,10];
 $reglement="<p><b>règle 1:</b> blabla bla</p><p><b>règle 2:</b> blabla bla</p><p><b>règle 3:</b> blabla bla</p>";
 $phrase_presentation="Voila c'est la formation";
-$Inforamtions_utiles="contacter M.jdhu";
+$Informations_utiles="contacter M.jdhu";
 
 
-formation($pdf,$semestre,$ue,$nom,$code,$formation,$coeff,$cm,$td,$tp,$tpe,$obj,$prerequis,$contenu,$eval,$credits,$reglement,$phrase_presentation,$Inforamtions_utiles);
+formation($pdf,$semestre,$ue,$nom,$code,$formation,$coeff,$cm,$td,$tp,$tpe,$obj,$prerequis,$contenu,$eval,$credits,$reglement,$phrase_presentation,$Informations_utiles);
 
 //parce que la table des matières est au début du document
 $pdf->Set_Header(false,'');
@@ -113,10 +112,10 @@ $pdf->SetFont('times', 'B', 16);
 $pdf->MultiCell(0, 0, 'Table des matières', 0, 'C', 0, 1, '', '', true, 0);
 $pdf->Ln();
 
-$pdf->SetFont('dejavusans', '', 12);
+$pdf->SetFont('dejavusansextralight', '', 12);
 
 // add a simple Table Of Content at first page
-$pdf->addTOC(2, 'courier', '.', 'Table des matières', 'B', array(128, 0, 0));
+$pdf->addTOC(2, 'courier', '', 'Table des matières', 'B', array(94, 181, 77));
 
 // end of TOC page
 $pdf->endTOCPage();
