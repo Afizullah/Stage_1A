@@ -2,7 +2,7 @@
 require_once 'tcpdf_include.php';
 require_once 'header_footer.php';
 require_once 'tableau_livret.php';
-require_once 'formation.php';
+require_once 'fonctions_utiles.php';
 
 function equipe($pdf,$prenoms,$noms,$specialites,$fonctions,$phrase_presentation)
 {
@@ -12,7 +12,7 @@ function equipe($pdf,$prenoms,$noms,$specialites,$fonctions,$phrase_presentation
 	$pdf->Set_Header(true,"Equipe pédagogique");
 
 	$pdf->SetTextColor(94,181,77);
-    $pdf->SetFont('helvetica', '', 25);
+    $pdf->SetFont('dejavusans', '', 25);
     $pdf->SetXY(7,25);
     $pdf->Cell(0, 0,"EQUIPE PEDAGOGIQUE", 0, false, 'L', 0, '', 0, false, 'M', 'M');
 

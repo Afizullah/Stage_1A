@@ -2,11 +2,8 @@
 require_once 'tcpdf_include.php';
 require_once 'header_footer.php';
 require_once 'tableau_livret.php';
+require_once 'fonctions_utiles.php';
 
-function preHTML($pdf){
-	$pdf->SetFont('helvetica','',13);
-	$pdf->SetTextColor(0,0,0);
-}
 
 function formation($pdf,$semestre,$ue,$nom,$code,$formation,$coeff,$cm,$td,$tp,$tpe,$obj,$prerequis,$contenu,$eval,$credits,$reglement,$phrase_presentation,$informations_utiles)
 {
@@ -46,10 +43,10 @@ function formation($pdf,$semestre,$ue,$nom,$code,$formation,$coeff,$cm,$td,$tp,$
     $pdf->SetXY(7,$pdf->getY()+7);
     $tab_matiere=tab_matieres($semestre,$ue,$nom,$coeff,$cm,$td,$tp,$tpe,$credits);
     $tab_detail_matiere=tab_details_matière($semestre,$ue,$nom,$code,$formation,$coeff,$cm,$td,$tp,$tpe,$obj,$prerequis,$contenu,$eval,$credits);
-    preHTML($pdf);
+    preHTML($pdf,false);
     $pdf->writeHTML($tab_matiere, true, 0, true, 0);
     $pdf->AddPage();
-    preHTML($pdf);
+    preHTML($pdf,false);
     $pdf->writeHTML($tab_detail_matiere,true,0,true,0);
 
     //Affichages des informations utiles
