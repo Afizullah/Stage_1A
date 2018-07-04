@@ -8,6 +8,8 @@ require_once 'presentation_equipe.php';
 require_once 'mot_du_chef.php';
 require_once 'reglement.php';
 require_once 'formation.php';
+require_once 'page_couverture.php';
+
 // create new PDF document
 $pdf = new MYPDF(PDF_PAGE_ORIENTATION, PDF_UNIT, PDF_PAGE_FORMAT, true, 'UTF-8', false);
 
@@ -101,6 +103,10 @@ $Informations_utiles="contacter M.jdhu";
 
 
 formation($pdf,$semestre,$ue,$nom,$code,$formation,$coeff,$cm,$td,$tp,$tpe,$obj,$prerequis,$contenu,$eval,$credits,$reglement,$phrase_presentation,$Informations_utiles);
+
+//page de couverture 
+
+page_couverture($pdf,"(+221) 33 825 75 28)",'GENIE INFORMATIQUE');
 
 //parce que la table des matières est au début du document
 $pdf->Set_Header(false,'');
