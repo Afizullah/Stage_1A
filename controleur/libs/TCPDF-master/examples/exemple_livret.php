@@ -117,19 +117,32 @@ formation($pdf,$semestre,$ue,$nom,$code,$formation,$coeff,$cm,$td,$tp,$tpe,$obj,
 page_couverture($pdf,"(+221) 33 825 75 28)",'GENIE INFORMATIQUE');
 
 //parce que la table des matières est au début du document
+$pdf->setPrintHeader(true);
+$pdf->setPrintFooter(true);
 $pdf->Set_Header(false,'');
 // add a new page for TOC
 $pdf->addTOCPage();
 
 // write the TOC title
-$pdf->SetFont('times', 'B', 16);
-$pdf->MultiCell(0, 0, 'Table des matières', 0, 'C', 0, 1, '', '', true, 0);
+$pdf->SetTextColor(94,181,77);
+$pdf->SetFont('dejavusansextralight', 'B', 16);
+$pdf->MultiCell(0, 0, 'TABLE DES MATIERES', 0, 'L', 0, 1, '', '', true, 0);
 $pdf->Ln();
 
 $pdf->SetFont('dejavusansextralight', '', 12);
+$bookmark_templates = array();
+$bookmark_templates[0] = '<table border="0" cellpadding="0" cellspacing="0" style="background-color:#ffffff"><tr>
+<td width="155mm" height="8mm"><span style="font-family:dejavusansextralight;font-weight:bold;font-size:12pt;color:black;">#TOC_DESCRIPTION#</span></td><td width="25mm"><span style="font-family:dejavusansextralight;font-weight:bold;font-size:12pt;color:black;" align="right">#TOC_PAGE_NUMBER#</span></td></tr></table>';
+$bookmark_templates[1] = '<table border="0" cellpadding="0" cellspacing="0" style="background-color:#5eb54d"><tr>
+<td width="155mm" height="8mm"><span style="font-family:dejavusansextralight;font-weight:bold;font-size:12pt;color:#ffffff;">#TOC_DESCRIPTION#</span></td><td width="25mm"><span style="font-family:dejavusansextralight;font-weight:bold;font-size:12pt;color:#ffffff;" align="right">#TOC_PAGE_NUMBER#</span></td></tr></table>';
+$bookmark_templates[2] = '<table border="0" cellpadding="0" cellspacing="0"><tr>
+<td width="10mm" height="6mm">&nbsp;</td><td width="145mm"><span style="font-family:dejavusansextralight;font-size:10pt;color:#666666;"><i>#TOC_DESCRIPTION#</i></span></td><td width="25mm"><span style="font-family:dejavusansextralight;font-weight:bold;font-size:10pt;color:#666666;" align="right">#TOC_PAGE_NUMBER#</span></td></tr></table>';
+
 
 // add a simple Table Of Content at first page
-$pdf->addTOC(2, 'courier', '', 'Table des matières', 'B', array(94, 181, 77));
+//$pdf->addTOC(2, 'courier', '', 'Table des matières', 'B', array(94, 181, 77));
+$pdf->addHTMLTOC(2, 'Tables des matières', $bookmark_templates, true, 'B', array(128,0,0));
+
 
 // end of TOC page
 $pdf->endTOCPage();

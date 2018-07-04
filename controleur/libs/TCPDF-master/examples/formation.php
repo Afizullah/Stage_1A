@@ -10,7 +10,7 @@ function formation($pdf,$semestre,$ue,$nom,$code,$formation,$coeff,$cm,$td,$tp,$
 	$pdf->SetFillColor(94,181,77);
 	$pdf->Set_Header(false);
 	$pdf->AddPage();
-	$pdf->Bookmark($formation, 0, 0, '', 'B', array(0, 64, 128));
+	$pdf->Bookmark(' Présentation de la formation    '.$formation, 1, 0, '', 'B', array(0, 64, 128));
 	$pdf->Set_Header(true,$formation);
 	
 	//Affichage réglement de la fromation
@@ -24,7 +24,7 @@ function formation($pdf,$semestre,$ue,$nom,$code,$formation,$coeff,$cm,$td,$tp,$
     $pdf->SetFont('helvetica', '', 17);
     $pdf->SetXY(7,35);	
     $pdf->Cell(120, 0,"Extraits de l'arrêté organisant la formation ",0, false, 'L', 1, '', 0, false, 'M', 'M');
-    $pdf->Bookmark('Extraits de l\'arrêté organisant la formation', 1, 0, '', '', array(128, 0, 0));
+    $pdf->Bookmark('Extraits de l\'arrêté organisant la formation', 2, 0, '', '', array(128, 0, 0));
     //extraits de l'arreté organisant la formation
     $pdf->SetXY(0,50);
     preHTML($pdf);
@@ -32,7 +32,7 @@ function formation($pdf,$semestre,$ue,$nom,$code,$formation,$coeff,$cm,$td,$tp,$
 
     //Affichage des détails de la formations
     $pdf->AddPage();
-    $pdf->Bookmark('Les différents semestres', 1, 0, '', '', array(128, 0, 0));
+    $pdf->Bookmark('Les différents semestres', 2, 0, '', '', array(128, 0, 0));
     $pdf->SetTextColor(255,255,255);
     $pdf->SetFont('helvetica', '', 17);
     $pdf->SetXY(7,25);
@@ -50,8 +50,10 @@ function formation($pdf,$semestre,$ue,$nom,$code,$formation,$coeff,$cm,$td,$tp,$
     $pdf->writeHTML($tab_detail_matiere,true,0,true,0);
 
     //Affichages des informations utiles
+    $pdf->setPrintHeader(true);
+    $pdf->setPrintFooter(true);
     $pdf->AddPage();
-    $pdf->Bookmark('Les Inforamtions utiles', 1, 0, '', '', array(128, 0, 0));
+    $pdf->Bookmark('Les Informations utiles', 2, 0, '', '', array(128, 0, 0));
     $pdf->SetTextColor(255,255,255);
     $pdf->SetFont('helvetica', '', 17);
     $pdf->SetXY(7,25);
@@ -59,4 +61,6 @@ function formation($pdf,$semestre,$ue,$nom,$code,$formation,$coeff,$cm,$td,$tp,$
     $pdf->SetXY(7,35);
     preHTML($pdf);
     $pdf->writeHTML($informations_utiles,true,0,true,0);
+    $pdf->setPrintHeader(false);
+    $pdf->setPrintFooter(false);
 }
