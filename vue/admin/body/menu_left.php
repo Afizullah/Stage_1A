@@ -161,10 +161,10 @@ function linkCreatProjet(){
                                 <a href="index.php?page=showSubjects&groupId=<?php echo $value['groupe_id']; ?>">Matières</a>
                             </li>
                             <li>
-                                <a href="index.php?page=showSubjects">Participants</a>
+                                <a href="">Participants</a>
                             </li>
                             <li>
-                                <a href="notifications.html">Propositions</a>
+                                <a href="">Propositions</a>
                             </li>
                         </ul>
                     </li>

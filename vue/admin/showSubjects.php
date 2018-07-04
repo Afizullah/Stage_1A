@@ -7,12 +7,14 @@
         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
       </div>
       <div class="modal-body">
-        <form action="">
-            <?php for($i=0; $i<count($ecInfos); $i++) { ?>
-                <input type="checkbox" id="subject" name="subject"><label for="subject"> <?php print_r($ecInfos[$i]['ec_nom']); echo ($PROJET->getId()); ?></label> </br></br>
+        <form action="" method="POST">
+            <?php for($i=0; $i<count($ecWithoutGroup); $i++) { ?>
+                <input type="checkbox" id="subject" name="subject"><label for="subject"> <?php print_r($ecWithoutGroup[$i]['ec_nom']); ?></label> </br></br>
+                <input type="hidden" name="ecId[]" value="<?php echo ($ecWithoutGroup[$i]["ec_id"]); ?>">
             <?php } ?>
+            <input type="hidden" name="groupId" value="<?php echo($groupId); ?>">
             <center>
-                <input class="btn btn-success" type="submit" value="Affecter">
+                <input class="btn btn-success" type="submit" value="Affecter" name="affecter">
             </center>
         </form>
       </div>
@@ -68,13 +70,13 @@
                                 </thead>
                                 
                                 <tbody>
-                                <?php for ($i=0; $i<count($ecInfos); $i++) {
+                                <?php for ($i=0; $i<count($ecInGroup); $i++) {
                                     ?>
                                     <tr>
-                                        <td><?php print_r($ecInfos[$i]['ec_code']); ?></td>
-                                        <td><?php print_r($ecInfos[$i]['ec_nom']); ?></td>
-                                        <td><?php print_r($ecInfos[$i]['ec_competence']); ?></td>
-                                        <td><?php print_r($ecInfos[$i]['ec_prerequis']); ?></td>
+                                        <td><?php print_r($ecInGroup[$i]['ec_code']); ?></td>
+                                        <td><?php print_r($ecInGroup[$i]['ec_nom']); ?></td>
+                                        <td><?php print_r($ecInGroup[$i]['ec_competence']); ?></td>
+                                        <td><?php print_r($ecInGroup[$i]['ec_prerequis']); ?></td>
                                     </tr>
                                     <?php } ?>
                                 </tbody>
