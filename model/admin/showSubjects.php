@@ -9,9 +9,8 @@
             return DB::query("SELECT ec_nom,ec_id FROM ec
                             INNER JOIN ue ON ec.ue_id=ue.ue_id
                             INNER JOIN classe ON classe.classe_id=ue.classe_id
-                            inner join formation ON formation.formation_id=classe.formation_id
-
-             WHERE formation.projet_id = ".$idProjet." AND groupe_id IS NULL ");
+                            INNER JOIN formation ON formation.formation_id=classe.formation_id
+                            WHERE formation.projet_id = ".$idProjet." AND groupe_id IS NULL ");
         }
         function recordGroup($groupId,$ecId){
             return DB::update("ec",[["groupe_id",$groupId]],[["ec_id",$ecId]]);
