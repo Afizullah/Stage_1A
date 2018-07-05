@@ -16,7 +16,10 @@ class MYPDF extends TCPDF
 
     //Page header
     public function Header()
-    {
+    {   $police = array();
+        $police[1] = $this->getFontFamily();
+        $police[2] = $this->getFontStyle();
+        $police[3] = $this->getFontSizePt();
         if (!$this->formation) {
             // Logo
             // Set font
@@ -26,7 +29,7 @@ class MYPDF extends TCPDF
 //      $this->Write(0, 'Test', $link='', $fill=false, $align='R', $ln=true, $stretch=0, $firstline=true, $firstblock=false, $maxh=0, $wadj=0, $margin='');
             // Title
             //$this->Cell(0, 15, 'Présentation de l\'ESP', 0, false, 'C', 0, '', 0, false, 'M', 'M');
-            $this->SetFont('helvetica', 'B', 15);
+            $this->SetFont($police[1], $police[2], $police[3]);
         } else {
             // Logo
             // Set font
@@ -38,13 +41,17 @@ class MYPDF extends TCPDF
             $this->SetTextColor(255,255,255);
             $this->Cell(115, 15, $this->text_header, 0, false, 'R', 0, '', 0, false, 'M', 'M');
             $this->SetTextColor(0,0,0);
-            $this->SetFont('helvetica', 'B', 15);
+            $this->SetFont($police[1], $police[2], $police[3]);
         }
     }
 
     // Page footer
     public function Footer()
     {
+        $police = array();
+        $police[1] = $this->getFontFamily();
+        $police[2] = $this->getFontStyle();
+        $police[3] = $this->getFontSizePt();
         // Position at 15 mm from bottom
         $this->SetY(-20);
         // Set font
@@ -58,6 +65,6 @@ class MYPDF extends TCPDF
         //$this->Write(5, $this->getAliasNumPage(),false,false,'R');
         $this->Cell(0,10,$this->getAliasNumPage(),0,0,'R','','','','','','');
         $this->SetTextColor(0,0,0);
-
+        $this->SetFont($police[1], $police[2], $police[3]);
     }
 }
