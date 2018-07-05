@@ -20,11 +20,9 @@ function page_couverture(TCPDF $pdf, string $tel, string $departement)
     $pdf->SetXY(0,238);
     $pdf->Cell(0, 0, 'DEPARTEMENT ', 0, 1, 'R', 0, '', 0);
     $pdf->SetXY(0,243);
-    $pdf->Cell(0, 0,strtoupper($departement)." ", 0, 1, 'R', 0, '', 0);
+    $pdf->Cell(0, 0,$departement." ", 0, 1, 'R', 0, '', 0);
     // coordonnées
     $pdf->SetFont('helvetica', '', 10);
     $pdf->SetXY(0,251);
     $pdf->Cell(0, 0,"BP: 15915—Tel: ".$tel." ", 0, 1, 'R', 0, '', 0);
-    // set font
-    $pdf->SetFont('times', 'BI', 14);
 }

@@ -7,7 +7,7 @@ function presentation_formation($pdf,$formations,$annonce_elements){
 	$pdf->Set_Header(false);
 	$pdf->AddPage();
     $pdf->Bookmark('Présentation des formations ', 0, 0, '', 'B', array(0, 0, 0));
-    titre1($pdf,"LA PRESENTATION DES FORMATIONS");
+    titre1($pdf,"Présentation des formations");
 	$pdf->setXY(10,$pdf->getY()+7);
 	preHTML($pdf,true);
 	$pdf->writeHTML("<p>Dans la suite de ce livret sont présentées les formations suivantes :</p>", true, 0, true, 0);

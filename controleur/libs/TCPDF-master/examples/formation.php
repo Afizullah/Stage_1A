@@ -24,6 +24,7 @@ function formation($pdf,$semestre,$ue,$nom,$code,$formation,$coeff,$cm,$td,$tp,$
     $pdf->SetFont('helvetica', '', 17);
     $pdf->SetXY(7,35);	
     $pdf->Cell(120, 0,"Extraits de l'arrêté organisant la formation ",0, false, 'L', 1, '', 0, false, 'M', 'M');
+//    titre1($pdf,"Extraits de l'arrêté organisant la formation ");
     $pdf->Bookmark('Extraits de l\'arrêté organisant la formation', 2, 0, '', '', array(128, 0, 0));
     //extraits de l'arreté organisant la formation
     $pdf->SetXY(0,50);
@@ -36,7 +37,7 @@ function formation($pdf,$semestre,$ue,$nom,$code,$formation,$coeff,$cm,$td,$tp,$
     $pdf->SetTextColor(255,255,255);
     $pdf->SetFont('helvetica', '', 17);
     $pdf->SetXY(7,25);
-    $pdf->Cell(75, 0,"Les différentes semestres ", 0, false, 'L', 1, '', 0, false, 'M', 'M');
+    $pdf->Cell(75, 0,"Les différents semestres ", 0, false, 'L', 1, '', 0, false, 'M', 'M');
     $pdf->SetXY(7,35);
     preHTML($pdf);
     $pdf->writeHTML($phrase_presentation, true, 0, true, 0);
@@ -53,7 +54,7 @@ function formation($pdf,$semestre,$ue,$nom,$code,$formation,$coeff,$cm,$td,$tp,$
     $pdf->setPrintHeader(true);
     $pdf->setPrintFooter(true);
     $pdf->AddPage();
-    $pdf->Bookmark('Les Informations utiles', 2, 0, '', '', array(128, 0, 0));
+    $pdf->Bookmark('Informations utiles', 2, 0, '', '', array(128, 0, 0));
     $pdf->SetTextColor(255,255,255);
     $pdf->SetFont('helvetica', '', 17);
     $pdf->SetXY(7,25);
