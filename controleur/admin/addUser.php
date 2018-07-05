@@ -34,7 +34,6 @@ require PATH_PHP_MAILLER."/src/SMTP.php";
                 $errors[]="La date d'expiration ne doit pas être vide";
             }
 
-
             if(!isset($errors)){
                 if(!User::verifUserExist($mail)){
                     do{

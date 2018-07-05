@@ -5,25 +5,24 @@
  * Date: 02/07/2018
  * Time: 09:34
  */
-function page_couverture(TCPDF $pdf, string $year, string $departement)
+function page_couverture(TCPDF $pdf, string $tel, string $departement)
 {
-// set font
-    $pdf->SetFont('times', 'BI', 14);
-// set le footer
-    //   $pdf->setFooterData();
-// Start First Page Group
-    $pdf->startPageGroup();
-// add a page
+    $pdf->setPrintHeader(false);
+    $pdf->setPrintFooter(false);
     $pdf->AddPage();
-// inscris l'année scolaire
-    $pdf->SetXY(100, 50);
-    $pdf->writeHTML($year);
-// mention
-    $pdf->SetXY(100, 80);
-    $pdf->Cell(10, 15, "Au revoir", 0, false, 'C', 0, '', 0, false, 'M', 'M');
-// logo
-    $image_file = K_PATH_IMAGES . 'logo_esp.jpg';
-    $pdf->Image($image_file, 10, 10, 15, '', 'JPG', '', 'T', false, 300, '', true, true, 0, false, false, true);
 
+    $image_file = K_PATH_IMAGES . 'fondc.jpg';
+    $pdf->Image($image_file, 0, 15, '','', '', false, 'B', false, 300, 'C', false, false, 0, false, false, false);
 
+    $pdf->SetTextColor(255,255,255);
+    // departement
+    $pdf->SetFont('helvetica', 'B', 15);
+    $pdf->SetXY(0,238);
+    $pdf->Cell(0, 0, 'DEPARTEMENT ', 0, 1, 'R', 0, '', 0);
+    $pdf->SetXY(0,243);
+    $pdf->Cell(0, 0,$departement." ", 0, 1, 'R', 0, '', 0);
+    // coordonnées
+    $pdf->SetFont('helvetica', '', 10);
+    $pdf->SetXY(0,251);
+    $pdf->Cell(0, 0,"BP: 15915—Tel: ".$tel." ", 0, 1, 'R', 0, '', 0);
 }

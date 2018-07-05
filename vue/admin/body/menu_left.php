@@ -190,8 +190,12 @@ function linkCreatProjet(){
                 </ul>
 
             </li>
-        <li>
-            
+        <li>&nbsp</li>
+        <li>&nbsp</li>
+        <li>&nbsp</li>
+        <li>&nbsp</li>
+
     </ul>
+    <br /><br /><br />
 </div>
 <!-- /Left Sidebar Menu -->

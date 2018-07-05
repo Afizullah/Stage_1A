@@ -20,7 +20,7 @@ class MYPDF extends TCPDF
         if (!$this->formation) {
             // Logo
             // Set font
-            $this->SetFont('helvetica', 'B', 10);
+            $this->SetFont('dejavusansextralight', '', 10);
             $this->Image('images/header_1.jpg', 0, 10, 0, 8, 'JPEG', '', 'N', true, 300, 'L', false, false, 0, true, false, false, '');
 //          $this->SetXY(35, 5);
 //      $this->Write(0, 'Test', $link='', $fill=false, $align='R', $ln=true, $stretch=0, $firstline=true, $firstblock=false, $maxh=0, $wadj=0, $margin='');
@@ -30,7 +30,7 @@ class MYPDF extends TCPDF
         } else {
             // Logo
             // Set font
-            $this->SetFont('freeserif', 'B', 12);
+            $this->SetFont('dejavusansextralight', 'B', 12);
             $this->Image('images/header_2.jpg', 0, 10, 0, 7, 'JPEG', '', 'N', false, 300, 'R', false, false, 0, true, false, false, '');
             $this->SetXY(80, $this->GetY()-3.5);
             //$this->Write(6, $this->text_header, $link = '', $fill = false, $align = 'R', $ln = true, $stretch = 0, $firstline = true, $firstblock = false, $maxh = 10, $wadj = 0);
@@ -48,10 +48,10 @@ class MYPDF extends TCPDF
         // Position at 15 mm from bottom
         $this->SetY(-20);
         // Set font
-        $this->SetFont('helvetica', 'I', 10);
+        $this->SetFont('helvetica', 'B', 12);
         $this->SetFillColor(255, 255, 255);
         // Page number
-        $this->Image('images/footer_bis.jpg', 182, $this->GetY(), 0, 12, 'JPEG', '', 'M', false, 300, '', false, false, 0, true, false, false, '');
+        $this->Image('images/footer_bis.jpg', 174, $this->GetY(), 0, 12, 'JPEG', '', 'M', false, 300, '', false, false, 0, true, false, false, '');
         $this->SetY($this->GetY()-5);
         $this->SetX(-17);
         $this->SetTextColor(255,255,255);

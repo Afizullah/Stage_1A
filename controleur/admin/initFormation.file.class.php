@@ -5,30 +5,24 @@
         private $feuilles = null;
         private $semestre_str = "Semestre";
         private $leafColsRequired = ["Code_Parcours","CodeUE","CodeEC","Semestre","TypeCompetence","Classe","Matiere","Compétences","Preréquis","Contenu",
-                                    "Nb Heures CM","Nb Heures TD","Nb Heures TP","Nb Heures TPE","Coefficient","Credit UE"];
+                                    "Nb Heures CM","Nb Heures TD","Nb Heures TP","Nb Heures TPE","Coefficient"];
         private $semestres = null;
         private $ue = null;
         private $ec = null;
         private $codeFormation = null;
         private $currentFormId = null;
         private $current = null;
-        //private $leafColsRequired = ["prenom","nom","date_de_naissance"];
         public function __construct(){
             $this->document_excel = PHPExcel_IOFactory::load("new.xls");
             $allLeaf = $this->document_excel->getAllSheets();
             foreach ($allLeaf as $leaf) {
                 $formationName = self::getFormationName($leaf);
-                //if(!isset($_SESSION[$formationName])){
-                    $headLeaf = self::getHeadLeaf($leaf);
-                    if(!self::isNotCorrectLeaf($headLeaf)){
-                        $this->feuilles[$formationName]=self::getRequiredData($leaf,$headLeaf);
-                        $_SESSION[$formationName]=$this->feuilles[$formationName];
-                        self::initAllData($formationName,$this->feuilles[$formationName]);
-                    }
-                /*}else{
-                    $this->feuilles[$formationName]=$_SESSION[$formationName];
+                $headLeaf = self::getHeadLeaf($leaf);
+                if(!self::isNotCorrectLeaf($headLeaf)){
+                    $this->feuilles[$formationName]=self::getRequiredData($leaf,$headLeaf);
+                    $_SESSION[$formationName]=$this->feuilles[$formationName];
                     self::initAllData($formationName,$this->feuilles[$formationName]);
-                }*/
+                }
             }
 
         }
@@ -48,13 +42,11 @@
                         }
                     }
                     if($sem && $name){
-                        $credi = $feuille[$i]["Credit UE"];
                         $classe = $feuille[$i]["Classe"];
                         $semestre = $feuille[$i]["Semestre"];
                         return array(
                             "ueSemestre"=>$sem,
                             "ueDetailles"=>array(
-                                "credit"=>intval($credi),
                                 "CodeUeIntitule"=>$name,
                                 "classe"=>$classe,
                                 "semestre"=>intval($semestre)
