@@ -24,9 +24,41 @@
     </div>
   </div>
 </div>
+<div class="modal fade" id="deleteSubject" tabindex="-1" role="dialog" aria-labelledby="" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+          <h4 style="float:left" class="modal-title" id="">Sélectionner un ec</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+      </div>
+      <div class="modal-body">
+      <?php $PROJET=new Projet; ?>
+        <form action="" method="POST">
+                <?php for ($i=0; $i<count($ecWithoutGroup); $i++) {?>
+                    <input type="checkbox" id="subject" name="subject"><label for="subject"><?php print_r($participantsWithoutGroup[$i]['user_prenom']." ".$participantsWithoutGroup[$i]['user_nom']); ?></label> </br></br>
+                    <input type="hidden" name="userId[]" value="">
+                <?php } ?>
+                <input type="hidden" name="groupId" value="<?php echo($groupId); ?>">
+                <div>
+                    
+                </div>
+            <center>
+                <input class="btn btn-danger" type="submit" value="Supprimer" name="affecter">
+            </center>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">FERMER</button>
+      </div>
+    </div>
+  </div>
+</div>
 <!-- Title -->
     <a class="btn btn-success" data-toggle="modal" href="#addEcGroupe">
         Affecter un ec
+    </a>
+    <a class="btn btn-danger" data-toggle="modal" href="#deleteSubject">
+        Supprimer un ec
     </a>
 <div class="row heading-bg">
     

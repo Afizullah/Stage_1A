@@ -32,6 +32,43 @@
     <a class="btn btn-success" data-toggle="modal" href="#addEcGroupe">
         Affecter un enseignant
     </a>
+    <a class="btn btn-danger" data-toggle="modal" href="#deleteEnseignant">
+        Supprimer un enseignant
+    </a>
+
+    <div class="container-fluid">
+<div class="modal fade" id="deleteEnseignant" tabindex="-1" role="dialog" aria-labelledby="" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+          <h4 style="float:left" class="modal-title" id="">Sélectionner un enseignant</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+      </div>
+      <div class="modal-body">
+      <?php $PROJET=new Projet; ?>
+        <form action="" method="POST">
+                <?php for ($i=0; $i<count($participantsWithoutGroup); $i++) {?>
+                    <input type="checkbox" id="subject" name="subject"><label for="subject"><?php print_r($participantsWithoutGroup[$i]['user_prenom']." ".$participantsWithoutGroup[$i]['user_nom']); ?></label> </br></br>
+                    <input type="hidden" name="userId[]" value="<?php echo($participantsWithoutGroup[$i]['user_id']); ?>">
+                <?php } ?>
+                <input type="hidden" name="groupId" value="<?php echo($groupId); ?>">
+                <div>
+                    
+                </div>
+            <center>
+                <input class="btn btn-danger" type="submit" value="Supprimer" name="affecter">
+            </center>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">FERMER</button>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Title -->
+    
+
 <div class="row heading-bg">
     
     <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
