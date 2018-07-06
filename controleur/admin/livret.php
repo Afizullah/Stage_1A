@@ -8,7 +8,7 @@ if (isset($_POST["selectFormations"],$_POST["formationsSelected"])) {
 
     // set font
     $pdf->SetFont('times', 'B', 20);
-    //$pdf->SetFont('times', 'BI', 14);
+    $pdf->SetFont('times', 'BI', 14);
     if($formationsSelected){
         $projetId = $PROJET->getId();
         $invariants = Invariant::getInvariant($projetId);

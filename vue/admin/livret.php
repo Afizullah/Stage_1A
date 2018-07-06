@@ -70,5 +70,5 @@ $pdf->endTOCPage();
 //réglement intérieur
 //présentation de la formation
 //information utile
-
+ob_end_clean();
 $pdf->Output('example.pdf', 'I');
