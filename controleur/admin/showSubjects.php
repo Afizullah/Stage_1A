@@ -1,6 +1,6 @@
 <?php
 
-    $ecInfos = null;
+    $ecInGroup = null;
     $groupId = 0;
     if (isset($_GET['groupId'])){
         $groupId = intval($_GET['groupId']);

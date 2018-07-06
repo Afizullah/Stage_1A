@@ -5,6 +5,7 @@ require_once 'header_footer.php';
 require_once 'page_de_garde.php';
 require_once 'sigle.php';
 require_once 'presentation_equipe.php';
+require_once 'presentation_formation.php';
 require_once 'mot_du_chef.php';
 require_once 'reglement.php';
 require_once 'formation.php';
@@ -20,19 +21,11 @@ $pdf->SetTitle('Livret généré');
 $pdf->SetSubject('Livret formation');
 $pdf->SetKeywords('PDF');
 
-// set default header data
-//$pdf->SetHeaderData('../images/logo_esp.jpg', 10, PDF_HEADER_TITLE.' 001', PDF_HEADER_STRING, array(0,64,255), array(0,64,128));
-//$pdf->setFooterData(array(0,64,0), array(0,64,128));
-
-// set header and footer fonts
-//$pdf->setHeaderFont(Array(PDF_FONT_NAME_MAIN, '', PDF_FONT_SIZE_MAIN));
-//$pdf->setFooterFont(Array(PDF_FONT_NAME_DATA, '', PDF_FONT_SIZE_DATA));
-
 // set default monospaced font
 $pdf->SetDefaultMonospacedFont(PDF_FONT_MONOSPACED);
 
 // set margins
-$pdf->SetMargins(PDF_MARGIN_LEFT, PDF_MARGIN_TOP, PDF_MARGIN_RIGHT);
+$pdf->SetMargins(PDF_MARGIN_LEFT+5, PDF_MARGIN_TOP, PDF_MARGIN_RIGHT+5);
 $pdf->SetHeaderMargin(PDF_MARGIN_HEADER);
 $pdf->SetFooterMargin(PDF_MARGIN_FOOTER);
 
@@ -54,10 +47,10 @@ if (@file_exists(dirname(__FILE__) . '/lang/eng.php')) {
 $pdf->setFontSubsetting(true);
 
 //page de garde
-page_de_garde($pdf, "2017-2018", 'GENIE INFORMATIQUE',"(+221) 33 825 75 28)", "secretariat-dgi@esp.sn");
+page_de_garde($pdf, "2017-2018",'DUT - DST - LICENCE', 'GENIE INFORMATIQUE',"(+221) 33 825 75 28)", "secretariat-dgi@esp.sn");
 
 // set font
-$pdf->SetFont('times', 'B', 20);
+//$pdf->SetFont('helvetica', '', 20);
 //$pdf->SetFont('times', 'BI', 14);
 
 //Partie sigle et abréviations
@@ -76,6 +69,13 @@ equipe($pdf,$prenoms,$noms,$specialites,$fonctions,$phrase_presentation);
 
 //Partie mot du chef de département
 chef($pdf,'Test mot du chef');
+
+//Partie présentation des formations
+$formations=["la formation 1","la formation 2","la formation 3","la formation 4","la formation 5"];
+$phrase_presentation="Dans la suite de ce livret sont présentées les formations suivantes :";
+$annonce_elements="<p> voilà ce <b>que</b> nous allons présenter</p>";
+
+presentation_formation($pdf,$formations,$annonce_elements);
 
 //Partie Extraits du réglement intérieur de l'ESP
 reglement($pdf,'Test réglement');
@@ -109,19 +109,32 @@ formation($pdf,$semestre,$ue,$nom,$code,$formation,$coeff,$cm,$td,$tp,$tpe,$obj,
 page_couverture($pdf,"(+221) 33 825 75 28)",'GENIE INFORMATIQUE');
 
 //parce que la table des matières est au début du document
+$pdf->setPrintHeader(true);
+$pdf->setPrintFooter(true);
 $pdf->Set_Header(false,'');
 // add a new page for TOC
 $pdf->addTOCPage();
 
 // write the TOC title
-$pdf->SetFont('times', 'B', 16);
-$pdf->MultiCell(0, 0, 'Table des matières', 0, 'C', 0, 1, '', '', true, 0);
+$pdf->SetTextColor(94,181,77);
+$pdf->SetFont('dejavusansextralight', 'B', 16);
+$pdf->MultiCell(0, 0, 'TABLE DES MATIERES', 0, 'L', 0, 1, '', '', true, 0);
 $pdf->Ln();
 
 $pdf->SetFont('dejavusansextralight', '', 12);
+$bookmark_templates = array();
+$bookmark_templates[0] = '<table border="0" cellpadding="0" cellspacing="0" style="background-color:#ffffff"><tr>
+<td width="155mm" height="8mm"><span style="font-family:dejavusansextralight;font-weight:bold;font-size:12pt;color:black;">#TOC_DESCRIPTION#</span></td><td width="25mm"><span style="font-family:dejavusansextralight;font-weight:bold;font-size:12pt;color:black;" align="right">#TOC_PAGE_NUMBER#</span></td></tr></table>';
+$bookmark_templates[1] = '<table border="0" cellpadding="0" cellspacing="0" style="background-color: #5eb54d;"><tr>
+<td width="155mm" height="6mm"><span style="font-family:dejavusansextralight;font-weight:bold;font-size:13pt;color:#ffffff;">#TOC_DESCRIPTION#</span></td><td width="25mm"><span style="font-family:dejavusansextralight;font-weight:bold;font-size:12pt;color:#ffffff;" align="right">#TOC_PAGE_NUMBER#</span></td></tr></table>';
+$bookmark_templates[2] = '<table border="0" cellpadding="0" cellspacing="0"><tr>
+<td width="10mm" height="6mm">&nbsp;</td><td width="145mm"><span style="font-family:dejavusansextralight;font-size:10pt;color:#666666;"><i>#TOC_DESCRIPTION#</i></span></td><td width="25mm"><span style="font-family:dejavusansextralight;font-weight:bold;font-size:12pt;color:#666666;" align="right">#TOC_PAGE_NUMBER#</span></td></tr></table>';
+
 
 // add a simple Table Of Content at first page
-$pdf->addTOC(2, 'courier', '', 'Table des matières', 'B', array(94, 181, 77));
+//$pdf->addTOC(2, 'courier', '', 'Table des matières', 'B', array(94, 181, 77));
+$pdf->addHTMLTOC(2, 'Tables des matières', $bookmark_templates, true, 'B', array(128,0,0));
+
 
 // end of TOC page
 $pdf->endTOCPage();

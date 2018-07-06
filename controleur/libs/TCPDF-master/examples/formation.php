@@ -5,12 +5,12 @@ require_once 'tableau_livret.php';
 require_once 'fonctions_utiles.php';
 
 
-function formation(MYPDF $pdf,$semestre,$ue,$nom,$code,$formation,$coeff,$cm,$td,$tp,$tpe,$obj,$prerequis,$contenu,$eval,$credits,$reglement,$phrase_presentation,$informations_utiles)
+function formation($pdf,$semestre,$ue,$nom,$code,$formation,$coeff,$cm,$td,$tp,$tpe,$obj,$prerequis,$contenu,$eval,$credits,$reglement,$phrase_presentation,$informations_utiles)
 {
 	$pdf->SetFillColor(94,181,77);
 	$pdf->Set_Header(false);
 	$pdf->AddPage();
-	$pdf->Bookmark($formation, 0, 0, '', 'B', array(0, 0, 0));
+	$pdf->Bookmark(' Présentation de la formation    '.$formation, 1, 0, '', 'B', array(0, 64, 128));
 	$pdf->Set_Header(true,$formation);
 	
 	//Affichage réglement de la fromation
@@ -24,19 +24,16 @@ function formation(MYPDF $pdf,$semestre,$ue,$nom,$code,$formation,$coeff,$cm,$td
     $pdf->SetFont('helvetica', '', 17);
     $pdf->SetXY(7,35);	
     $pdf->Cell(120, 0,"Extraits de l'arrêté organisant la formation ",0, false, 'L', 1, '', 0, false, 'M', 'M');
-    $pdf->Bookmark('Extraits de l\'arrêté organisant la formation', 1, 0, '', '', array(0, 0, 0));
+//    titre1($pdf,"Extraits de l'arrêté organisant la formation ");
+    $pdf->Bookmark('Extraits de l\'arrêté organisant la formation', 2, 0, '', '', array(128, 0, 0));
     //extraits de l'arreté organisant la formation
     $pdf->SetXY(0,50);
     preHTML($pdf);
     $pdf->writeHTML($reglement, true, 0, true, 0);
 
     //Affichage des détails de la formations
-    //couleur du bookmark
-    $pdf->SetTextColor(255,255,255);
-    $pdf->SetFillColor(94, 181, 77);
     $pdf->AddPage();
-    $pdf->Bookmark('Les différents semestres', 1, 0, '', '', array(0, 0, 0));
-    $pdf->SetFillColor(94, 181, 77);
+    $pdf->Bookmark('Les différents semestres', 2, 0, '', '', array(128, 0, 0));
     $pdf->SetTextColor(255,255,255);
     $pdf->SetFont('helvetica', '', 17);
     $pdf->SetXY(7,25);
@@ -54,8 +51,10 @@ function formation(MYPDF $pdf,$semestre,$ue,$nom,$code,$formation,$coeff,$cm,$td
     $pdf->writeHTML($tab_detail_matiere,true,0,true,0);
 
     //Affichages des informations utiles
+    $pdf->setPrintHeader(true);
+    $pdf->setPrintFooter(true);
     $pdf->AddPage();
-    $pdf->Bookmark('Informations utiles', 1, 0, '', '', array(128, 0, 0));
+    $pdf->Bookmark('Informations utiles', 2, 0, '', '', array(128, 0, 0));
     $pdf->SetTextColor(255,255,255);
     $pdf->SetFont('helvetica', '', 17);
     $pdf->SetXY(7,25);
@@ -63,4 +62,6 @@ function formation(MYPDF $pdf,$semestre,$ue,$nom,$code,$formation,$coeff,$cm,$td
     $pdf->SetXY(7,35);
     preHTML($pdf);
     $pdf->writeHTML($informations_utiles,true,0,true,0);
+    $pdf->setPrintHeader(false);
+    $pdf->setPrintFooter(false);
 }
