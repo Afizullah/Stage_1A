@@ -36,7 +36,7 @@ class Projet extends DB{
     public static function createProject($nom){
         if($projetId = parent::registre("projet",[["projet_nom",$nom]])){
             self::setLoadedProjet($projetId);
-            $invariants = ["Mot du chef de département","Réglement intérieur","Sigles et abréviations","Équipe Pédagogique","Conditions de passage","Extraits de l'arrêté organisant la formation"];
+            $invariants = ["SIGLES ET ABRÉVIATIONS","EQUIPE PEDAGOGIQUE","MOT DU CHEF DE DEPARTEMENT","EXTRAIT DU REGLEMENT INTERIEUR DE L’ESP","LA PRESENTATION DES FORMATIONS"];
             for ($i=0; $i < count($invariants); $i++) {
                 if($invariantId = parent::registre("invariant",[["invariant_nom",$invariants[$i]]])){
                     parent::registre("projet_invariant",[["projet_id",$projetId],["invariant_id",$invariantId]]);

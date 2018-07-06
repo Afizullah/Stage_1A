@@ -27,6 +27,9 @@
         return _hash("liv".$name."ret");
     }
 
+    function center($content){
+        return "<center>$content</center>";
+    }
     function today($format="fr"){
         switch ($format) {
             case 'fr':

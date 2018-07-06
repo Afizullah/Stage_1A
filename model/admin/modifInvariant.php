@@ -11,6 +11,9 @@
         public static function recordModif($invariantId,$invariantContent) {
             return DB::update("invariant",[["invariant_contenu",$invariantContent]],[["invariant_id",$invariantId]]);
         }
+        public static function recordModifFormation($formationId,$formationOrganisation,$formationEvaluation,$formationAutresInfo,$formationNomComplet){
+            return DB::update("formation",[["formation_organisation",$formationOrganisation],["formation_evaluation",$formationEvaluation],["formation_autres_infos",$formationAutresInfo],["formation_nom_complet",$formationNomComplet]],[["formation_id",$formationId]]);
+        }
     }
 
 ?>

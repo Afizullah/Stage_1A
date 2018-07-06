@@ -101,6 +101,19 @@
         margin-top: 20px;
 
     }
+    .classNotifError,.classNotifSucces{
+        float:left;
+        width:100%;
+        height:2px;
+        margin-left:0px;
+        margin-bottom:-100px
+    }
+    .classNotifError{
+        background-color:red;
+    }
+    .classNotifSucces{
+        background-color:green;
+    }
 </style>
 <script type="text/javascript">
     function regChange(elementId,value,notifIn) {
@@ -136,172 +149,200 @@
         xmlhttp.send();
 
     }
-</script>
-</script>
-<!--<div class="alert alert-success" role="alert">
-  <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-  <strong>Success!</strong> You have been signed in successfully!
-</div>-->
-<script>
+    function changeCrediUe(ueId){
+        tabHoursUe = document.getElementsByClassName("inUe"+ueId);
+        var creditsUe = 0;
+        for (var i = 0; i < tabHoursUe.length; i++) {
+            creditsUe +=parseInt(tabHoursUe[i].value);
+        }
+        return creditsUe/20;
+    }
+    function changeShowUeInfos(classId,ueId,className,reload){
+        tabUeInfos = document.getElementsByClassName(className);
+        for (var i = 0; i < tabUeInfos.length; i++) {
+            tabUeInfos[i].innerHTML = changeCrediUe(ueId)+" Credits";
+        }
+        if(reload==true){
+            reloadClasseStatus(classId);
+        }
+    }
+    function reloadClasseStatus(classId){
+        tabCreditsClass = document.getElementsByClassName("ueClasse"+classId);
+        var totalClasseCredit = 0;
+        for (var i = 0; i < tabCreditsClass.length; i++) {
+            totalClasseCredit += parseInt(tabCreditsClass[i].innerHTML.replace(" Credits",""));
+        }
+        if(parseInt(totalClasseCredit)==60){
+            document.getElementById("showClassStatus"+classId).className="classNotifSucces";
+        }else{
+            document.getElementById("showClassStatus"+classId).className="classNotifError";
+        }
+    }
+    function changeInfosCoefEc(ecId,newValue){
+        if(newValue=="" || parseInt(newValue)<=0){
+            document.getElementById("infosCoef"+ecId).className = document.getElementById("infosCoef"+ecId).className.replace(" label-success"," label-danger");
+            newValue = 0;
+        }else{
+            document.getElementById("infosCoef"+ecId).className = document.getElementById("infosCoef"+ecId).className.replace(" label-danger"," label-success");
+        }
+        document.getElementById("valInfoCoef"+ecId).innerHTML=parseInt(newValue);
+    }
 </script>
 <div class="col-md-12">
 	<div class="panel panel-default card-view pa-0">
 		<div class="panel-wrapper collapse in">
 			<div class="panel-body pa-0">
-				<div class="">
-                    <br />
-                    <?php
-                        $hasError = false;
-                        if(isset($errors)){
-                            alertErrors($errors);
-                            $hasError=true;
-                        }
-                        if(isset($success)){
-                            alertSucces($success);
-                        }
-                        if(isset($warning)){
-                            alertWarning($warning);
-                        }
-                    ?>
-                    <br />
-					<div class="col-lg-3 col-md-4 file-directory pa-0">
+				<div class=""><br /><?php
+                    $hasError = false;
+                    if(isset($errors)){
+                        alertErrors($errors);
+                        $hasError=true;
+                    }
+                    if(isset($success)){
+                        alertSucces($success);
+                    }
+                    if(isset($warning)){
+                        alertWarning($warning);
+                    } ?> <br />
+					<div class="col-lg-2 col-md-4 file-directory pa-0">
 						<div class="ibox float-e-margins">
 							<div class="ibox-content">
 								<div class="file-manager">
-
 									<h6 class="mb-10 pl-15">Formations</h6>
-									<ul class="folder-list mb-30">
-                                        <?php
-                                            $cmpt = 0;
-                                            if($formations = Formation::getFormations($PROJET->getId())){
-                                                foreach ($formations as $formation => $value) { ?>
-                                                    <li  <?php if($cmpt==0){echo 'class="active"'; } ?>><a href="#"><i class="fa fa-book"></i> <?php echo $value["formation_nom"]; ?></a></li>
-                                                    <?php $cmpt++;
-                                                }
+									<ul class="folder-list mb-30"><?php
+                                        $cmpt = 0;
+                                        if($formations = Formation::getFormations($PROJET->getId())){
+                                            foreach ($formations as $formation => $value) { ?>
+                                                <li class="tablinksFormations <?php if($cmpt==0){echo 'active'; } ?>" onclick="openFormation(event,'tabFormation<?php echo $value["formation_id"]; ?>')"  ><a href="#"><i class="fa fa-book"></i> <?php echo $value["formation_nom"]; ?></a></li><?php
+                                                $cmpt++;
                                             }
-                                         ?>
+                                        } ?>
 										<li class="active">
-                                                <a href="index.php?page=addFormation" data-toggle="modal" ><center><i class="fa fa-plus-circle"></i> Ajouter</center></a>
+                                            <a href="index.php?page=addFormation" data-toggle="modal" ><center><i class="fa fa-plus-circle"></i> Ajouter</center></a>
                                         </li>
-
 									</ul>
-
 									<div class="clearfix"></div>
 								</div>
 							</div>
 						</div>
 					</div>
-					<div class="col-lg-9 col-md-8 file-sec pt-20">
+					<div class="col-lg-10 col-md-8 file-sec pt-20">
 						<div class="row">
 							<div class="col-lg-12">
                                 <input type="hidden" name="formAddFormation" >
-								<div style="overflow:scroller;padding:30px;" class="row">
-
-
-                                    <?php
-                                        $f_cmpt = 0;
-                                        if($formations){
+								<div style="overflow:scroller;padding:30px;" class="row"> <?php
+                                    $f_cmpt = 0;
+                                    if($formations){
                                         foreach ($formations as $formation => $value) {
                                             if($classes = Formation::getClasses($value["formation_id"])){
                                                 $c_cmpt=0; ?>
-                                                <ul class="nav nav-tabs"><?php
-                                                    foreach ($classes as $classe => $value) { ?>
-                                                        <li class="<?php if($c_cmpt==0){ echo 'active'; } ?>">
-                                                            <a data-toggle="tab" href="#classe<?php echo $value["classe_id"]; ?>"><?php echo $value["classe_nom"] ?></a>
-                                                        </li> <?php $c_cmpt++;
-                                                    } ?>
-                                                </ul>
-                                                <div class="tab-content">
-                                                    <?php
-                                                    $c_cmpt=0;
-                                                    foreach ($classes as $classe => $value) {
-                                                        ?>
-                                                        <div id="classe<?php echo $value["classe_id"]; ?>" class="tab-pane fade in <?php if($c_cmpt==0){ echo 'active'; } ?>">
-                                                          <div>
-                                                              <center>
-                                                                  <h4 class="titre">Informations relatives à la <?php echo $value["classe_nom"]; ?></h4>
-                                                              </center>
-                                                              <table class="table">
-                                                                  <tr>
-                                                                      <td>
-                                                                          <div class="input-group">
-                                                                            <span class="input-group-addon">Nom classe</span>
-                                                                            <input type="text"  onchange="regChange(this.id,this.value,'notifChanged');" id="<?php _hashName("classe_nom","_".$value["classe_id"])  ?>" value="<?php echo $value["classe_nom"]; ?>" class="form-control" placeholder="Nom classe">
+                                                <div class="tabcontentFormation" <?php if($f_cmpt!=0){echo "style='display:none'"; } ?> id="tabFormation<?php echo $value["formation_id"]; ?>">
+                                                    <ul class="nav nav-tabs"><?php
+                                                        foreach ($classes as $classe => $value) { ?>
+                                                            <li class="<?php if($c_cmpt==0){ echo 'active'; } ?>">
+                                                                <a data-toggle="tab" href="#classe<?php echo $value["classe_id"]; ?>">
+                                                                    <?php echo $value["classe_nom"] ?>
+                                                                    <span id="showClassStatus<?php echo $value["classe_id"]; ?>" class="" ></span>
+                                                                </a>
+                                                            </li> <?php $c_cmpt++;
+                                                        } ?>
+                                                    </ul>
+                                                    <div class="tab-content"><?php
+                                                        $c_cmpt=0;
+                                                        foreach ($classes as $classe => $value) { ?>
+                                                            <div id="classe<?php echo $value["classe_id"]; ?>" class="tab-pane fade in <?php if($c_cmpt==0){ echo 'active'; } ?>">
+                                                              <div>
+                                                                  <center>
+                                                                      <h4 class="titre">Informations relatives à la <?php echo $value["classe_nom"]; ?></h4>
+                                                                  </center>
+                                                                  <table class="table">
+                                                                      <tr>
+                                                                          <td>
+                                                                              <div class="input-group">
+                                                                                <span class="input-group-addon">Nom classe</span>
+                                                                                <input type="text"  onchange="regChange(this.id,this.value,'notifChanged');" id="<?php _hashName("classe_nom","_".$value["classe_id"])  ?>" value="<?php echo $value["classe_nom"]; ?>" class="form-control" placeholder="Nom classe">
+                                                                              </div>
+                                                                          </td>
+                                                                      </tr>
+                                                                  </table> <?php
+                                                                  if ($ues = Formation::getUes($value["classe_id"])) { ?>
+                                                                      <div class="panel-group" id="accordion<?php echo $value["classe_id"]; ?>">
+                                                                          <div class="panel panel-default"> <?php
+                                                                              foreach ($ues as $ue => $ue_field) { ?>
+                                                                                    <div class="panel-heading">
+                                                                                      <h4 title="<?php echo $value["classe_nom"]; ?>" class="panel-title">
+                                                                                          <table style="width:100%">
+                                                                                              <tr>
+                                                                                                  <td style="width:80%">
+                                                                                                      <a data-toggle="collapse" style="display:block" data-parent="#accordion<?php echo $value["classe_id"]; ?>" href="#collapse<?php echo $ue_field["ue_id"]; ?>">
+                                                                                                          <?php echo "Semestre ".$ue_field["ue_semestr"]." <i class='fa fa-angle-double-right'></i> ".$ue_field["ue_nom"]; ?>
+                                                                                                      </a>
+                                                                                                  </td>
+                                                                                                  <td  style="width:17%">
+                                                                                                      <span class="ueClasse<?php echo $value["classe_id"]; ?> showInfosCreditUe<?php echo $ue_field["ue_id"]; ?> label label-success"></span>
+                                                                                                  </td>
+                                                                                                  <td>
+                                                                                                      <a href="#">
+                                                                                                          <i style="padding:2px 3px;border-radius:20px 20px 20px 20px;" class="btn-danger fa fa-trash-o"></i>
+                                                                                                      </a>
+                                                                                                  </td>
+                                                                                              </tr>
+                                                                                          </table>
+                                                                                      </h4>
+                                                                                    </div>
+                                                                                    <div id="collapse<?php echo $ue_field["ue_id"]; ?>" class="panel-collapse collapse fade">
+                                                                                      <div class="panel-body">
+                                                                                          <table class="table">
+                                                                                              <tr>
+                                                                                                  <td>
+                                                                                                      <div class="input-group">
+                                                                                                            <span class="input-group-addon">Code UE</span>
+                                                                                                            <input type="text" onchange="regChange(this.id,this.value,'notifChanged');" id="<?php _hashName("ue_code","_".$ue_field["ue_id"]);  ?>" class="form-control" value="<?php echo $ue_field["ue_code"]; ?>" placeholder="Code UE">
+                                                                                                      </div>
+                                                                                                  </td>
+                                                                                                  <td>
+                                                                                                      <div class="input-group">
+                                                                                                            <span class="input-group-addon">Nom UE</span>
+                                                                                                            <input type="text"  onchange="regChange(this.id,this.value,'notifChanged');" id="<?php _hashName("ue_nom","_".$ue_field["ue_id"]);  ?>" class="form-control" value="<?php echo $ue_field["ue_nom"]; ?>" placeholder="Nom UE">
+                                                                                                      </div>
+                                                                                                  </td>
+                                                                                              </tr>
+                                                                                          </table>
+                                                                                          <table class="table">
+                                                                                              <tr>
+                                                                                                  <td>
+                                                                                                      <div class="input-group">
+                                                                                                            <span class="input-group-addon">Semestre</span>
+                                                                                                            <input type="number" min=1 max=6  onchange="regChange(this.id,this.value,'notifChanged');" id="<?php _hashName("ue_semestr","_".$ue_field["ue_id"]);  ?>" class="form-control" value="<?php echo $ue_field["ue_semestr"]; ?>" placeholder="Nbr Semestre">
+                                                                                                      </div>
+                                                                                                  </td>
+                                                                                              </tr>
+                                                                                          </table>
+                                                                                      </div>
+                                                                                      <center>
+                                                                                          <button class="btn btn-primary" data-toggle="modal" data-target="#modalEcUe<?php echo $ue_field["ue_id"]; ?>">Détails EC</button>
+                                                                                      </center>
+                                                                                  </div><br /><?php
+                                                                                  getFormEditEc($value["classe_id"],$value["classe_nom"],$ue_field["ue_nom"],$ue_field["ue_id"]);
+                                                                              } ?>
                                                                           </div>
-                                                                      </td>
-                                                                  </tr>
-                                                              </table>
-                                                              <?php
-                                                              if ($ues = Formation::getUes($value["classe_id"])) { ?>
-                                                                  <div class="panel-group" id="accordion<?php echo $value["classe_id"]; ?>">
-                                                                      <div class="panel panel-default">
-                                                                          <?php
-                                                                          foreach ($ues as $ue => $ue_field) { ?>
-                                                                                <div class="panel-heading">
-                                                                                  <h4 title="<?php echo $value["classe_nom"]; ?>" class="panel-title">
-                                                                                    <a data-toggle="collapse" style="display:block" data-parent="#accordion<?php echo $value["classe_id"]; ?>" href="#collapse<?php echo $ue_field["ue_id"]; ?>">
-                                                                                    <?php echo "Semestre ".$ue_field["ue_semestr"]." <i class='fa fa-angle-double-right'></i> ".$ue_field["ue_nom"]; ?></a><a class="" style="float:right;margin-top:-25px" href="#"><i style="padding:2px 3px;border-radius:20px 20px 20px 20px;" class="btn-danger fa fa-trash-o"></i></a>
-                                                                                  </h4>
-                                                                                </div>
-                                                                                <div id="collapse<?php echo $ue_field["ue_id"]; ?>" class="panel-collapse collapse fade">
-                                                                                  <div class="panel-body">
-                                                                                      <table class="table">
-                                                                                          <tr>
-                                                                                              <td>
-                                                                                                  <div class="input-group">
-                                                                                                        <span class="input-group-addon">Code UE</span>
-                                                                                                        <input type="text" onchange="regChange(this.id,this.value,'notifChanged');" id="<?php _hashName("ue_code","_".$ue_field["ue_id"]);  ?>" class="form-control" value="<?php echo $ue_field["ue_code"]; ?>" placeholder="Code UE">
-                                                                                                  </div>
-                                                                                              </td>
-                                                                                              <td>
-                                                                                                  <div class="input-group">
-                                                                                                        <span class="input-group-addon">Nom UE</span>
-                                                                                                        <input type="text"  onchange="regChange(this.id,this.value,'notifChanged');" id="<?php _hashName("ue_nom","_".$ue_field["ue_id"]);  ?>" class="form-control" value="<?php echo $ue_field["ue_nom"]; ?>" placeholder="Nom UE">
-                                                                                                  </div>
-                                                                                              </td>
-                                                                                          </tr>
+                                                                    </div><?php
+                                                                } ?>
+                                                              </div>
+                                                              <script>
+                                                                reloadClasseStatus(<?php echo $value["classe_id"]; ?>);
+                                                              </script>
+                                                            </div>
 
-                                                                                          <tr>
-                                                                                              <td>
-                                                                                                  <div class="input-group">
-                                                                                                        <span class="input-group-addon">Semestre</span>
-                                                                                                        <input type="text"  onchange="regChange(this.id,this.value,'notifChanged');" id="<?php _hashName("ue_semestr","_".$ue_field["ue_id"]);  ?>" class="form-control" value="<?php echo $ue_field["ue_semestr"]; ?>" placeholder="Nbr Semestre">
-                                                                                                  </div>
-                                                                                              </td>
-                                                                                              <td>
-                                                                                                  <div class="input-group">
-                                                                                                        <span class="input-group-addon">Nbr Credit</span>
-                                                                                                        <input type="text" id="" class="form-control" value="" placeholder="Nbr credit">
-                                                                                                  </div>
-                                                                                              </td>
-                                                                                          </tr>
-                                                                                      </table>
-                                                                                  </div>
-                                                                                  <center>
-                                                                                      <button class="btn btn-primary" data-toggle="modal" data-target="#modalEcUe<?php echo $ue_field["ue_id"]; ?>">Détails EC</button>
-                                                                                  </center>
-                                                                              </div><br /><?php
-                                                                              getFormEditEc($value["classe_nom"],$ue_field["ue_nom"],$ue_field["ue_id"]);
-                                                                          } ?>
-                                                                      </div>
-                                                                </div><?php
-                                                            } ?>
-                                                          </div>
-                                                        </div>
-                                                        <?php
-                                                        $c_cmpt++;
-                                                    } ?>
-                                                </div>
-                                                <br />
-                                                <br />
-                                                <br />
-
-                                                <?php
+                                                            <?php
+                                                            $c_cmpt++;
+                                                            $f_cmpt++;
+                                                        } ?>
+                                                    </div>
+                                                </div><?php
                                             }
                                         }
-                                    }
-                                     ?>
-
+                                    } ?>
 								</div>
 
 							</div>
@@ -312,3 +353,22 @@
 		</div>
 	</div>
 </div>
+<script type="text/javascript">
+    function openFormation(evt, formationId) {
+        var i, tabcontent, tablinksFormations;
+
+        tabcontent = document.getElementsByClassName("tabcontentFormation");
+        for (i = 0; i < tabcontent.length; i++) {
+            tabcontent[i].style.display = "none";
+        }
+
+        tablinksFormations = document.getElementsByClassName("tablinksFormations");
+        for (i = 0; i < tablinksFormations.length; i++) {
+            tablinksFormations[i].className = tablinksFormations[i].className.replace(" active", "");
+        }
+
+        document.getElementById(formationId).style.display = "block";
+        evt.currentTarget.className += " active";
+    }
+
+</script>

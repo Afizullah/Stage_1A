@@ -8,6 +8,7 @@ define("PATH_CONTROLEUR","../controleur/");
 define("PATH_ADMIN","admin/");
 define("PATH_ENSEIGNANT","enseignant/");
 define("PATH_RP","responsable_pedagogique/");
+define("PATH_IMG",PATH_TEMPLATE."dist/img/");
 define("PATH_LOGIN","login/");
 define("PATH_PHP_MAILLER",PATH_CONTROLEUR."libs/SendMail/PHPMailer/");
 define("PATH_PHPExcel",PATH_CONTROLEUR."libs/PHPExcel/");
@@ -18,7 +19,7 @@ define("ADMIN_LOGO",PATH_TEMPLATE."dist/img/logo_admin.png");
 
 define("DEFAULT_PAGE","accueil");
 define("NBR_HOURS_LINK_EXP","48");
-define("ASSYNC_FILES",["regChange"]);
+define("ASSYNC_FILES",["regChange","livret"]);
 
 
 ?>
