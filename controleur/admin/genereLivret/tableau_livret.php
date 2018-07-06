@@ -212,30 +212,14 @@ function tab_details_module($nom,$code,$formation,$coeff,$cm,$td,$tp,$tpe,$obj,$
 		<td><b> TPE:</b> $tpe H</td>
 	</tr>
 Tab;
-	$resu.='<tr><td colspan="5"><b> Objectifs/Compétences:</b><ul>';
-	for($i=0;$i<count($obj);$i++){
-		$resu.="<li> $obj[$i] </li>";
-	}
-	$resu.="</ul></td></tr>";
-	$resu.='<tr><td colspan="5"><b> Prérequis:</b>';
-	if (count($prerequis)==0){
-		$resu="aucun";
-	}
-	else{
-		$resu.="<ul>";
-		for($i=0;$i<count($prerequis);$i++){
-			$resu.="<li> $prerequis[$i] </li>";
-		}
-		$resu.="</ul>";
-	}
-	$resu.="</td></tr>";
-	$resu.='<tr><td colspan="5"><b> Contenu:</b> <ul>';
-	for($i=0;$i<count($contenu);$i++){
-		$resu.="<li> $contenu[$i] </li>";
-	}
-	$resu.="</ul></td></tr>";
+	$resu.='<tr><td colspan="5">';
+	$resu.=$obj."</td></tr>";
+	$resu.='<tr><td colspan="5"><b>'
+	$resu.=$prerequis."</td></tr>";
+	$resu.='<tr><td colspan="5"><b>'
+	$resu.=$contenu."</td></tr>";
 	$resu.='<tr><td COLSPAN="5">';
-	$resu.="<b> Evaluation:</b> CC ($eval[0]%) + DS ($eval[1]%). Si les enseignements pratiques sont évalués, la note de CC est calculée de la manière suivante: CC=TP ($eval[2]%) + Contrôle ($eval[3]%).</td></tr>";
+	$resu.=$evaluation;
 	$resu.="</table>";
 	return $resu;
 	}
