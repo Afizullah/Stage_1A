@@ -2,16 +2,16 @@
     require_once(PATH_CONTROLEUR.'libs/TCPDF-master/tcpdf.php');
 
     require_once(PATH_CONTROLEUR.'admin/genereLivret/fonctions_utiles.php');
-    require_once(PATH_CONTROLEUR.'admin/genereLivret/tableau_livret.php');
     require_once(PATH_CONTROLEUR.'admin/genereLivret/header_footer.php');
+
     require_once(PATH_CONTROLEUR.'admin/genereLivret/page_de_garde.php');
     require_once(PATH_CONTROLEUR.'admin/genereLivret/invariants.php');
-    require_once(PATH_CONTROLEUR.'admin/genereLivret/presentation_equipe.php');
-    require_once(PATH_CONTROLEUR.'admin/genereLivret/mot_du_chef.php');
-    require_once(PATH_CONTROLEUR.'admin/genereLivret/reglement.php');
+    require_once(PATH_CONTROLEUR.'admin/genereLivret/reglementFormation.php');
+    require_once(PATH_CONTROLEUR.'admin/genereLivret/autresInformationsUtiles.php');
+    require_once(PATH_CONTROLEUR.'admin/genereLivret/tableau_livret.php');
+
     require_once(PATH_CONTROLEUR.'admin/genereLivret/formation.php');
     require_once(PATH_CONTROLEUR.'admin/genereLivret/page_couverture.php');
-
     // create new PDF document
     $pdf = new MYPDF(PDF_PAGE_ORIENTATION, PDF_UNIT, PDF_PAGE_FORMAT, true, 'UTF-8', false);
 
@@ -54,8 +54,5 @@
 
     // set default font subsetting mode
     $pdf->setFontSubsetting(true);
-
-
-
 
  ?>

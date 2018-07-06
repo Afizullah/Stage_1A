@@ -91,6 +91,9 @@
         public static function getFormations($idProjet){
             return parent::getData("formation","*",[["projet_id",$idProjet]]);
         }
+        public static function getInfosFormation($formationId){
+            return parent::getLIne("formation","*",[["formation_id",$formationId]]);
+        }
 
         //Ajoute une classe s'il n'existe pas et de retourne son id
         public static function addClasse($formationId,$className){
@@ -165,8 +168,6 @@
         public static function getEcs($ueId){
             return parent::getData("ec","*",[["ue_id",$ueId]]);
         }
-
-
 
     }
 ?>

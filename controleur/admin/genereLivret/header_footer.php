@@ -11,7 +11,6 @@ class MYPDF extends TCPDF
         $this->text_header=$text_header;
     }
 
-
     //Page header
     public function Header()
     {

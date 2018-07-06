@@ -75,6 +75,14 @@ class Projet extends DB{
         }
         return parent::getData("formation","*",[["projet_id",self::getId()]]);
     }
+    public function getTabFormationsId(){
+        $formations = self::getFormations();
+        $tabIdFormation = array();
+        for ($i=0; $i < count($formations); $i++) {
+            $tabIdFormation[]=$formations[$i]["formation_id"];
+        }
+        return $tabIdFormation;
+    }
     public function getGroupes(){
         if($this->groupes){
             return $this->groupes;
