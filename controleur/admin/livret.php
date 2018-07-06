@@ -7,7 +7,7 @@ if (isset($_POST["selectFormations"],$_POST["formationsSelected"])) {
     page_de_garde($pdf, "2017-2018", 'GENIE INFORMATIQUE',"(+221) 33 825 75 28)", "secretariat-dgi@esp.sn");
     // set font
     $pdf->SetFont('times', 'B', 20);
-    //$pdf->SetFont('times', 'BI', 14);
+    $pdf->SetFont('times', 'BI', 14);
     if($formationsSelected){
         $projetId = $PROJET->getId();
         $invariants = Invariant::getInvariant($projetId);
