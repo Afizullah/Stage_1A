@@ -213,7 +213,7 @@ function displayElements($val){
 
 function tab_details_module($nom,$code,$formation,$coeff,$cm,$td,$tp,$tpe,$obj,$prerequis,$contenu,$eval){
 	$resu='<p><font size="+3" color="green" face="Times">';
-	$resu.="$formation $code: $nom</font></p>";
+	$resu.="$code: $nom</font></p>";
 	$resu.='<br/><br/><table border="1">';
 	$resu.=<<<Tab
 	<tr>
@@ -321,7 +321,13 @@ function tab_details_matiere($semestre,$ue,$nom,$code,$formation,$coeff,$cm,$td,
 				$i++;
 			}
 			$cred = ($Ucm+$Utd+$Utp+$Utpe)/20;
-			$entete_ue=tab_details_ue($ue[$i-1],floor($code[$i-1]/10),$formation,$Ucm,$Utd,$Utp,$Utpe,$cred);
+			$codeUe = explode(" ",trim($code[$i-1]));
+			if(count($codeUe)==2){
+				$codeUe = floor(floatval($codeUe[1])/10);
+			}else{
+				$codeUe = "";
+			}
+			$entete_ue=tab_details_ue($ue[$i-1],$codeUe,$formation,$Ucm,$Utd,$Utp,$Utpe,$cred);
 			$corps_ue=$tab_modules;
 			$contenu_ue=$entete_ue.$corps_ue;
 			$corps_sem.=$contenu_ue;

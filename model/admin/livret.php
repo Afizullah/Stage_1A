@@ -2,7 +2,7 @@
 require_once(PATH_MODEL."admin/modifInvariant.php");
 require_once(PATH_MODEL."admin/addFormation.php");
 
-function recuperation($formation{
+function recuperation($formation){
 	$tab=DB::getData("ec NATURAL JOIN ue NATURAL JOIN classe NATURAL JOIN formation","*");
 	for($i=0;$i<count($tab) && strcmp($tab[$i]["formation_nom"],$formation)==0;$i++){
 		$semestre[$i]=$tab[$i]["ue_semestr"];
@@ -11,7 +11,7 @@ function recuperation($formation{
 		$code[$i]=$tab[$i]["ue_code"];
 		$coeff[$i]=$tab[$i]["ec_coef"];
 		$cm[$i]=$tab[$i]["ec_nbre_heure_cm"];
-		$td[$i]=$tab[$i]["ec_nbre_heure_td"];	
+		$td[$i]=$tab[$i]["ec_nbre_heure_td"];
 		$tp[$i]=$tab[$i]["ec_nbre_heure_tp"];
 		$tpe[$i]=$tab[$i]["ec_nbre_heure_tpe"];
 		$credits[$i]=$tab[$i]["ue_nbre_cred"];
