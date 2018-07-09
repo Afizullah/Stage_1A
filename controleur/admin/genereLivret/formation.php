@@ -1,8 +1,7 @@
 <?php
 
-function formation(MYPDF $pdf,$semestre,$ue,$nom,$code,$formation,$coeff,$cm,$td,$tp,$tpe,$obj,$prerequis,$contenu,$eval,$credits,$reglement,$phrase_presentation,$informations_utiles)
+function formation(MYPDF $pdf,$semestre,$ue,$nom,$code,$formation,$coeff,$cm,$td,$tp,$tpe,$obj,$prerequis,$contenu,$eval,$credits,$phrase_presentation)
 {
-
     //Affichage des détails de la formations
     //couleur du bookmark
     $pdf->SetTextColor(255,255,255);
@@ -19,11 +18,10 @@ function formation(MYPDF $pdf,$semestre,$ue,$nom,$code,$formation,$coeff,$cm,$td
     $pdf->writeHTML($phrase_presentation, true, 0, true, 0);
     $pdf->SetXY(7,$pdf->getY()+7);
     $tab_matiere=tab_matieres($semestre,$ue,$nom,$coeff,$cm,$td,$tp,$tpe,$credits);
-    $tab_detail_matiere=tab_details_matière($semestre,$ue,$nom,$code,$formation,$coeff,$cm,$td,$tp,$tpe,$obj,$prerequis,$contenu,$eval,$credits);
+    $tab_detail_matiere=tab_details_matiere($semestre,$ue,$nom,$code,$formation,$coeff,$cm,$td,$tp,$tpe,$obj,$prerequis,$contenu,$eval,$credits);
     preHTML($pdf,false);
     $pdf->writeHTML($tab_matiere, true, 0, true, 0);
     $pdf->AddPage();
     preHTML($pdf,false);
     $pdf->writeHTML($tab_detail_matiere,true,0,true,0);
-
 }
