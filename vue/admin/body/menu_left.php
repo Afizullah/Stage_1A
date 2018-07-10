@@ -80,7 +80,7 @@ function linkCreatProjet(){
                     <?php
                     if($PROJET->getFormations()){ ?>
                         <li>
-                            <a href="index.php?page=showFormations&projetId=<?php echo $PROJET->getId(); ?>">Liste des formations</a>
+                            <a href="index.php?page=editFormation">Liste des formations</a>
                         </li>
                         <?php
                     }

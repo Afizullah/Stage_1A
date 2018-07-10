@@ -6,57 +6,60 @@
             $classe = array();
             $errors = array();
             foreach ($formations as $formation => $value) {
-                $semestres = $data->getSemestresForm($formation);
-                $codeFormat = $data->getCodeFormation($formation);
-                $formation_nbr_semestre = count($semestres);
-                $thisInfosFormation = self::addFormation($projetId,$codeFormat,$formation,$formation_nbr_semestre);
-                $currentClass = NULL;
-                if($_formationId = $thisInfosFormation["formationId"]){
-                    for ($i=0; $i < count($semestres) ; $i++) {
-                        $ues = $data->getUe($formation,$semestres[$i]);
-                        for ($k=0; $k < count($ues["CodeUe"]); $k++){
-                            $thisClass = $ues["thisUeDetailles"][$k]["classe"];
-                            if(!$thisClass){
-                                $thisClass=$currentClass;
-                            }else{
-                                $currentClass=$thisClass;
-                            }
-                            $thisInfosClasse = self::addClasse($_formationId,$thisClass);
-                            if($_classId = $thisInfosClasse["classeId"]){
-                                $codeCurrentUe = $ues["CodeUe"][$k];
-                                $detaillesUe = $ues["thisUeDetailles"][$k];
-                                $thisUeInfos = self::addUe($_classId,$codeCurrentUe,$detaillesUe["CodeUeIntitule"],$detaillesUe["semestre"]);
-                                if($_ueId = $thisUeInfos["ueId"]){
-                                    $ecUe = $data->getEc($formation,$semestres[$i],$ues["CodeUe"][$k]);
-                                    for ($i_ec=0; $i_ec < count($ecUe["CodeEC"]); $i_ec++) {
-                                        $codeEc = $ecUe["CodeEC"][$i_ec];
-                                        $TypeCompetence = $ecUe["TypeCompetence"][$i_ec];
-                                        $competence = $ecUe["competence"][$i_ec];
-                                        $matiere = $ecUe["matiere"][$i_ec];
-                                        $prerequis = $ecUe["prerequis"][$i_ec];
-                                        $contenu = $ecUe["contenu"][$i_ec];
-                                        $coef = $ecUe["coef"][$i_ec];
-                                        $nbrHeurCM = $ecUe["nbrHeurCM"][$i_ec];
-                                        $nbrHeurTD = $ecUe["nbrHeurTD"][$i_ec];
-                                        $nbrHeurTP = $ecUe["nbrHeurTP"][$i_ec];
-                                        $nbrHeurTPE = $ecUe["nbrHeurTPE"][$i_ec];
-                                        $thisInfosEc = self::addEc($_ueId,$codeEc,$matiere,secure($competence),$prerequis,$contenu,$coef,
-                                                                    $nbrHeurCM,$nbrHeurTD,$nbrHeurTP,$nbrHeurTPE);
-                                       if(!$thisInfosEc["ecId"]){
-                                           $errors[]=$thisInfosEc["msg"];
-                                       }
+                if($semestres = $data->getSemestresForm($formation)){
+                    $codeFormat = $data->getCodeFormation($formation);
+                    $formation_nbr_semestre = count($semestres);
+                    $thisInfosFormation = self::addFormation($projetId,$codeFormat,$formation,$formation_nbr_semestre);
+                    $currentClass = NULL;
+                    if($_formationId = $thisInfosFormation["formationId"]){
+                        for ($i=0; $i < count($semestres) ; $i++) {
+                            if($ues = $data->getUe($formation,$semestres[$i])){
+                                for ($k=0; $k < count($ues["CodeUe"]); $k++){
+                                    $thisClass = $ues["thisUeDetailles"][$k]["classe"];
+                                    if(!$thisClass){
+                                        $thisClass=$currentClass;
+                                    }else{
+                                        $currentClass=$thisClass;
                                     }
-                                }else{
-                                    $errors[]=$thisUeInfos["msg"];
-                                }
+                                    $thisInfosClasse = self::addClasse($_formationId,$thisClass);
+                                    if($_classId = $thisInfosClasse["classeId"]){
+                                        $codeCurrentUe = $ues["CodeUe"][$k];
+                                        $detaillesUe = $ues["thisUeDetailles"][$k];
+                                        $thisUeInfos = self::addUe($_classId,$codeCurrentUe,$detaillesUe["CodeUeIntitule"],$detaillesUe["semestre"]);
+                                        if($_ueId = $thisUeInfos["ueId"]){
+                                            if($ecUe = $data->getEc($formation,$semestres[$i],$ues["CodeUe"][$k])){
+                                                for ($i_ec=0; $i_ec < count($ecUe["CodeEC"]); $i_ec++) {
+                                                    $codeEc = $ecUe["CodeEC"][$i_ec];
+                                                    $TypeCompetence = $ecUe["TypeCompetence"][$i_ec];
+                                                    $competence = $ecUe["competence"][$i_ec];
+                                                    $matiere = $ecUe["matiere"][$i_ec];
+                                                    $prerequis = $ecUe["prerequis"][$i_ec];
+                                                    $contenu = $ecUe["contenu"][$i_ec];
+                                                    $coef = $ecUe["coef"][$i_ec];
+                                                    $nbrHeurCM = $ecUe["nbrHeurCM"][$i_ec];
+                                                    $nbrHeurTD = $ecUe["nbrHeurTD"][$i_ec];
+                                                    $nbrHeurTP = $ecUe["nbrHeurTP"][$i_ec];
+                                                    $nbrHeurTPE = $ecUe["nbrHeurTPE"][$i_ec];
+                                                    $thisInfosEc = self::addEc($_ueId,$codeEc,$matiere,secure($competence),$prerequis,$contenu,$coef,
+                                                                                $nbrHeurCM,$nbrHeurTD,$nbrHeurTP,$nbrHeurTPE);
+                                                   if(!$thisInfosEc["ecId"]){
+                                                       $errors[]=$thisInfosEc["msg"];
+                                                   }
+                                                }
+                                            }
+                                        }else{
+                                            $errors[]=$thisUeInfos["msg"];
+                                        }
 
-                            }else{
-                                $errors[]=$thisInfosClasse["msg"];
+                                    }else{
+                                        $errors[]=$thisInfosClasse["msg"];
+                                    }
+                                }
                             }
                         }
+                    }else{
+                        $errors[]=$thisInfosFormation["msg"];
                     }
-                }else{
-                    $errors[]=$thisInfosFormation["msg"];
                 }
             }
             if(empty($errors)){

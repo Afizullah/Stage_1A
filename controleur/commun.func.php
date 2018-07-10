@@ -5,8 +5,10 @@
         return htmlspecialchars(trim($val));
     }
 
-    function br(){
-        echo "<br />";
+    function br($nbr=1){
+        for ($i=0; $i <$nbr ; $i++) {
+            echo "<br />";
+        }
     }
     //
     function isEmail($val){
@@ -29,6 +31,14 @@
 
     function center($content){
         return "<center>$content</center>";
+    }
+    function isOperator($op){
+      $tabOperator = ["<","<=","=",">",">=","!="];
+      if(in_array($op,$tabOperator)){
+        return true;
+      }else{
+        return false;
+      }
     }
     function today($format="fr"){
         switch ($format) {
