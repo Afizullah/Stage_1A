@@ -7,7 +7,7 @@ function formation(MYPDF $pdf,$semestre,$ue,$nom,$code,$formation,$coeff,$cm,$td
     $pdf->SetTextColor(255,255,255);
     $pdf->SetFillColor(94, 181, 77);
     $pdf->AddPage();
-    $pdf->Bookmark('Les différents semestres', 1, 0, '', '', array(0, 0, 0));
+    $pdf->Bookmark('Les différents semestres', 2, 0, '', '', array(0, 0, 0));
     $pdf->SetFillColor(94, 181, 77);
     $pdf->SetTextColor(255,255,255);
     $pdf->SetFont('helvetica', '', 17);

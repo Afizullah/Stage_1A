@@ -27,13 +27,13 @@ class MYPDF extends TCPDF
         } else {
             // Logo
             // Set font
-            $this->SetFont('freeserif', 'B', 12);
-            $this->Image(PATH_IMG.'/header_2.jpg', 0, 10, 0, 7, 'JPEG', '', 'N', false, 300, 'R', false, false, 0, true, false, false, '');
-            $this->SetXY(80, $this->GetY()-3.5);
+            $this->SetFont('helvetica', 'B', 10);
+            $this->Image(PATH_IMG.'/header_2.jpg', 0, 10 ,150 ,0, 'JPEG', '', 'N', true, 300, 'R', false, false, 0, true, false, false, '');
+            $this->SetXY(0, $this->GetY()-4.5);
             //$this->Write(6, $this->text_header, $link = '', $fill = false, $align = 'R', $ln = true, $stretch = 0, $firstline = true, $firstblock = false, $maxh = 10, $wadj = 0);
             // Title
             $this->SetTextColor(255,255,255);
-            $this->Cell(115, 15, $this->text_header, 0, false, 'R', 0, '', 0, false, 'M', 'M');
+            $this->Cell(0, 0, $this->text_header." ", 0, false, 'R', 0, '', 0, false, 'M', 'M');
             $this->SetTextColor(0,0,0);
             $this->SetFont('helvetica', 'B', 15);
         }
@@ -42,7 +42,6 @@ class MYPDF extends TCPDF
     // Page footer
     public function Footer()
     {
-        // Position at 15 mm from bottom
         $this->SetY(-20);
         // Set font
         $this->SetFont('helvetica', 'I', 10);

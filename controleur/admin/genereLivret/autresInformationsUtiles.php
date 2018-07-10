@@ -1,8 +1,10 @@
 <?php
     function printOtherInfos($pdf,$infosUtiles){
     //Affichages des informations utiles
+    $pdf->setPrintFooter(true);
+    $pdf->setPrintHeader(true);
     $pdf->AddPage();
-    $pdf->Bookmark('Informations utiles', 1, 0, '', '', array(128, 0, 0));
+    $pdf->Bookmark('Informations utiles', 2, 0, '', '', array(128, 0, 0));
     $pdf->SetTextColor(255,255,255);
     $pdf->SetFont('helvetica', '', 17);
     $pdf->SetXY(7,25);
