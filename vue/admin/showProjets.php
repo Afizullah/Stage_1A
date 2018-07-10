@@ -39,7 +39,7 @@
                                                         <tr>
                                                             <td style="width:30px">
                                                                 <a class="btn btn-success  btn-sm" href="index.php?page=loadProjet&id=<?php echo $value["projet_id"]; ?>">Activer</a>
-                                                            </td>
+                                                            </td> 
                                                             <td style="width:30px">
                                                                 <a class="btn btn-danger  btn-sm" href="#">Supprimer</a>
                                                             </td>
