@@ -5,5 +5,5 @@
             return DB::registre("groupe",[["groupe_specialite",$groupe_nom],["projet_id",$idProject]]);
         }
     }
-
+    
 ?>

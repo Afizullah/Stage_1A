@@ -77,6 +77,9 @@ function linkCreatProjet(){
                     <li>
                         <a href="index.php?page=addFormation"><i class="fa fa-plus-circle"></i> Ajouter</a>
                     </li>
+                    <li>
+                        <a href="index.php?page=importFormation"><i class="fa fa-download"></i> Importer</a>
+                    </li>
                     <?php
                     if($PROJET->getFormations()){ ?>
                         <li>

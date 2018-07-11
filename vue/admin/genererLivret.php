@@ -29,13 +29,13 @@
                     $formationErreur = $notEligiblesFormations[$i]["errors"];
                     $err="";
                     for ($jj=0; $jj < count($formationErreur) ; $jj++){
-                        $err.="<div class='error'> $formationErreur[$jj] </div>";
+                        $err.="<div class='error'> $formationErreur[$jj] <a class='label label-success' href='index.php?page=editFormation&formation=".$formationId."'>Corriger</a> </div>";
                     }
                     ?>
                     <tr  class="btn-warning">
-                        <td><input id="formSelected<?php echo $formationId; ?>" type="checkbox" name="formationsSelected[]" value="<?php echo $formationId; ?>"></td>
+                        <td><input style="cursor:pointer" id="formSelected<?php echo $formationId; ?>" type="checkbox" name="formationsSelected[]" value="<?php echo $formationId; ?>"></td>
                         <td>
-                            <label style="cursor:pointer" for="formSelected<?php echo $formationId; ?>">
+                            <label style="cursor:pointer;display:block" for="formSelected<?php echo $formationId; ?>">
                                 <?php echo $foramtionName; ?>
                             </label><br />
                             <?php echo $err; ?>

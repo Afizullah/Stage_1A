@@ -68,7 +68,7 @@ class LMD extends DB{
 
                             }else{
                                 $eligible=false;
-                                $errors[]="Le volume horaire total (VHT) du semeste ".$semestrKey." doit être égal à ".$this->nbrHeuresCorrectSemestre;
+                                $errors[]="Le volume horaire total ($nbrHeures) du semeste ".$semestre." doit être égal à ".$this->nbrHeuresCorrectSemestre;
                             }
                         }else{
                             $eligible=false;

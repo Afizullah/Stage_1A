@@ -10,7 +10,58 @@
             echo "<br />";
         }
     }
+    function moveExcelInFolder($inputFileName,$directoryToUpload){
+          if (isset($_FILES[$inputFileName]) AND $_FILES[$inputFileName]['error'] == 0)
+          {
+                $fileName=$_FILES[$inputFileName]['name'];
+      			if(move_uploaded_file($_FILES[$inputFileName]['tmp_name'], $directoryToUpload.$fileName)){
+                    return $directoryToUpload.$fileName;
+      			}
+          }
+          return false;
+    }
     //
+    function moveImgInFolder($inputFileName,$directoryToUpload){
+        $status=false;
+        $outputData = array();
+        $imgName="";
+          if (isset($_FILES[$inputFileName]) AND $_FILES[$inputFileName]['error'] == 0)
+          {
+          	$prefix=$inputFileName;
+          	if ($_FILES[$inputFileName]['size'] <= 1000000)
+          	{
+          		$types_autorise = ["image/png","image/jpeg","image/pjpeg","image/gif"];
+              if(in_array($_FILES[$inputFileName]['type'],$types_autorise)){
+                do{
+          			$newFileName = $prefix.namewithdate("_");
+          		}while(file_exists($directoryToUpload.$newFileName));
+          		$infosfichier =pathinfo($_FILES[$inputFileName]['name']);
+                $extension_upload = $infosfichier['extension'];
+                $imgName=$newFileName.".".$extension_upload;
+          			if(!move_uploaded_file($_FILES[$inputFileName]['tmp_name'], $directoryToUpload.$imgName)){
+                        $errors[]="Echec de l'upload de l'image ".$inputFileName;
+          			}else{
+                        $status = true;
+                        $outputData = $imgName;
+                    }
+          		}else{
+                $errors[]="Type de fichier non prise en compte";
+              }
+            	}else{
+                $errors[]="Image trop grande";
+              }
+            }else{
+              $errors[]="Photo de profil non défini ou incorrect";
+            }
+            if(isset($errors)){
+                $outputData = $errors;
+            }
+            return array(
+                    "status"=>$status,
+                    "imgName"=>$imgName,
+                    "outputData"=>$outputData
+            );
+    }
     function isEmail($val){
         if(preg_match("#^[a-z0-9._-]{2,50}[@][a-z0-9._-]{2,30}[.][a-z]{2,6}$#",$val)){
             return $val;

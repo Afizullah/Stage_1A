@@ -1,4 +1,8 @@
 <!-- Right Sidebar Menu -->
+<?php
+
+require_once(PATH_MODEL."admin/showUsers.php");
+ ?>
 <div class="modal fade" id="addUser" tabindex="-1" role="dialog" aria-labelledby="" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
@@ -49,160 +53,89 @@
                                         <ul class="chat-list-wrap">
                                             <li style="height:350px;overflow-y:auto" class="chat-list">
                                                 <div class="chat-body">
-                                                    <a href="javascript:void(0)">
-                                                        <div class="chat-data">
-                                                            <img class="user-img img-circle"  src="https://hencework.com/theme/grandin-demo/img/user.png" alt="user"/>
-                                                            <div class="user-data">
-                                                                <span class="name block capitalize-font">Clay Masse</span>
-                                                                <span class="time block truncate txt-grey">No one saves us but ourselves.</span>
-                                                            </div>
-                                                            <div class="status away"></div>
-                                                            <div class="clearfix"></div>
+                                                    <center>
+                                                        <div style="width:200px;margin:auto" class="label label-danger">
+                                                            Administrateur(s)
                                                         </div>
-                                                    </a>
-                                                    <a href="javascript:void(0)">
-                                                        <div class="chat-data">
-                                                            <img class="user-img img-circle"  src="https://hencework.com/theme/grandin-demo/img/user.png" alt="user"/>
-                                                            <div class="user-data">
-                                                                <span class="name block capitalize-font">Clay Masse</span>
-                                                                <span class="time block truncate txt-grey">No one saves us but ourselves.</span>
-                                                            </div>
-                                                            <div class="status away"></div>
-                                                            <div class="clearfix"></div>
-                                                        </div>
-                                                    </a>
-                                                    <a href="javascript:void(0)">
-                                                        <div class="chat-data">
-                                                            <img class="user-img img-circle"  src="https://hencework.com/theme/grandin-demo/img/user.png" alt="user"/>
-                                                            <div class="user-data">
-                                                                <span class="name block capitalize-font">Clay Masse</span>
-                                                                <span class="time block truncate txt-grey">No one saves us but ourselves.</span>
-                                                            </div>
-                                                            <div class="status away"></div>
-                                                            <div class="clearfix"></div>
-                                                        </div>
-                                                    </a>
-                                                    <a href="javascript:void(0)">
-                                                        <div class="chat-data">
-                                                            <img class="user-img img-circle"  src="https://hencework.com/theme/grandin-demo/img/user.png" alt="user"/>
-                                                            <div class="user-data">
-                                                                <span class="name block capitalize-font">Clay Masse</span>
-                                                                <span class="time block truncate txt-grey">No one saves us but ourselves.</span>
-                                                            </div>
-                                                            <div class="status away"></div>
-                                                            <div class="clearfix"></div>
-                                                        </div>
-                                                    </a>
-                                                    <a href="javascript:void(0)">
-                                                        <div class="chat-data">
-                                                            <img class="user-img img-circle"  src="https://hencework.com/theme/grandin-demo/img/user.png" alt="user"/>
-                                                            <div class="user-data">
-                                                                <span class="name block capitalize-font">Clay Masse</span>
-                                                                <span class="time block truncate txt-grey">No one saves us but ourselves.</span>
-                                                            </div>
-                                                            <div class="status away"></div>
-                                                            <div class="clearfix"></div>
-                                                        </div>
-                                                    </a>
-                                                    <a href="javascript:void(0)">
-                                                        <div class="chat-data">
-                                                            <img class="user-img img-circle"  src="https://hencework.com/theme/grandin-demo/img/user.png" alt="user"/>
-                                                            <div class="user-data">
-                                                                <span class="name block capitalize-font">Clay Masse</span>
-                                                                <span class="time block truncate txt-grey">No one saves us but ourselves.</span>
-                                                            </div>
-                                                            <div class="status away"></div>
-                                                            <div class="clearfix"></div>
-                                                        </div>
-                                                    </a>
-                                                    <a href="javascript:void(0)">
-                                                        <div class="chat-data">
-                                                            <img class="user-img img-circle"  src="https://hencework.com/theme/grandin-demo/img/user1.png" alt="user"/>
-                                                            <div class="user-data">
-                                                                <span class="name block capitalize-font">Evie Ono</span>
-                                                                <span class="time block truncate txt-grey">Unity is strength</span>
-                                                            </div>
-                                                            <div class="status offline"></div>
-                                                            <div class="clearfix"></div>
-                                                        </div>
-                                                    </a>
-                                                    <a href="javascript:void(0)">
-                                                        <div class="chat-data">
-                                                            <img class="user-img img-circle"  src="https://hencework.com/theme/grandin-demo/img/user2.png" alt="user"/>
-                                                            <div class="user-data">
-                                                                <span class="name block capitalize-font">Madalyn Rascon</span>
-                                                                <span class="time block truncate txt-grey">Respect yourself if you would have others respect you.</span>
-                                                            </div>
-                                                            <div class="status online"></div>
-                                                            <div class="clearfix"></div>
-                                                        </div>
-                                                    </a>
-                                                    <a href="javascript:void(0)">
-                                                        <div class="chat-data">
-                                                            <img class="user-img img-circle"  src="https://hencework.com/theme/grandin-demo/img/user3.png" alt="user"/>
-                                                            <div class="user-data">
-                                                                <span class="name block capitalize-font">Mitsuko Heid</span>
-                                                                <span class="time block truncate txt-grey">I’m thankful.</span>
-                                                            </div>
-                                                            <div class="status online"></div>
-                                                            <div class="clearfix"></div>
-                                                        </div>
-                                                    </a>
-                                                    <a href="javascript:void(0)">
-                                                        <div class="chat-data">
-                                                            <img class="user-img img-circle"  src="https://hencework.com/theme/grandin-demo/img/user.png" alt="user"/>
-                                                            <div class="user-data">
-                                                                <span class="name block capitalize-font">Ezequiel Merideth</span>
-                                                                <span class="time block truncate txt-grey">Patience is bitter.</span>
-                                                            </div>
-                                                            <div class="status offline"></div>
-                                                            <div class="clearfix"></div>
-                                                        </div>
-                                                    </a>
-                                                    <a href="javascript:void(0)">
-                                                        <div class="chat-data">
-                                                            <img class="user-img img-circle"  src="https://hencework.com/theme/grandin-demo/img/user1.png" alt="user"/>
-                                                            <div class="user-data">
-                                                                <span class="name block capitalize-font">Jonnie Metoyer</span>
-                                                                <span class="time block truncate txt-grey">Genius is eternal patience.</span>
-                                                            </div>
-                                                            <div class="status online"></div>
-                                                            <div class="clearfix"></div>
-                                                        </div>
-                                                    </a>
-                                                    <a href="javascript:void(0)">
-                                                        <div class="chat-data">
-                                                            <img class="user-img img-circle"  src="https://hencework.com/theme/grandin-demo/img/user2.png" alt="user"/>
-                                                            <div class="user-data">
-                                                                <span class="name block capitalize-font">Angelic Lauver</span>
-                                                                <span class="time block truncate txt-grey">Every burden is a blessing.</span>
-                                                            </div>
-                                                            <div class="status away"></div>
-                                                            <div class="clearfix"></div>
-                                                        </div>
-                                                    </a>
-                                                    <a href="javascript:void(0)">
-                                                        <div class="chat-data">
-                                                            <img class="user-img img-circle"  src="https://hencework.com/theme/grandin-demo/img/user3.png" alt="user"/>
-                                                            <div class="user-data">
-                                                                <span class="name block capitalize-font">Priscila Shy</span>
-                                                                <span class="time block truncate txt-grey">Wise to resolve, and patient to perform.</span>
-                                                            </div>
-                                                            <div class="status online"></div>
-                                                            <div class="clearfix"></div>
-                                                        </div>
-                                                    </a>
-                                                    <a href="javascript:void(0)">
-                                                        <div class="chat-data">
-                                                            <img class="user-img img-circle"  src="https://hencework.com/theme/grandin-demo/img/user4.png" alt="user"/>
-                                                            <div class="user-data">
-                                                                <span class="name block capitalize-font">Linda Stack</span>
-                                                                <span class="time block truncate txt-grey">Our patience will achieve more than our force.</span>
-                                                            </div>
-                                                            <div class="status away"></div>
-                                                            <div class="clearfix"></div>
-                                                        </div>
-                                                    </a>
+                                                    </center>
+                                                    <?php
+                                                    if($administrateurs = ShowUsers::getAdmin()){
+                                                        for ($i=0; $i <count($administrateurs) ; $i++) {
+                                                            $nom = $administrateurs[$i]["user_nom"];
+                                                            $prenom = $administrateurs[$i]["user_prenom"];
+                                                            $mail= $administrateurs[$i]["user_mail"];
+                                                            ?>
+                                                            <a href="javascript:void(0)">
+                                                                <div class="chat-data">
+                                                                    <div class="user-data">
+                                                                        <span class="name block capitalize-font"><?php echo $prenom." ".$nom; ?></span>
+                                                                        <span class="help-block  txt-grey"><?php echo $mail; ?></span>
+                                                                    </div>
+
+                                                                    <div class="clearfix"></div>
+                                                                </div>
+                                                            </a>
+                                                            <?php
+                                                        }
+                                                    }else{
+                                                        echo center("Aucun administrateur");
+                                                    }
+                                                     ?>
+                                                     <center>
+                                                         <div style="width:200px;margin:auto" class="label label-success">
+                                                             Enseignant(s)
+                                                         </div>
+                                                     </center>
+                                                     <?php
+                                                     if($administrateurs = ShowUsers::getEnseignant()){
+                                                         for ($i=0; $i <count($administrateurs) ; $i++) {
+                                                             $nom = $administrateurs[$i]["user_nom"];
+                                                             $prenom = $administrateurs[$i]["user_prenom"];
+                                                             $mail= $administrateurs[$i]["user_mail"];
+                                                             ?>
+                                                             <a href="javascript:void(0)">
+                                                                 <div class="chat-data">
+                                                                     <div class="user-data">
+                                                                         <span class="name block capitalize-font"><?php echo $prenom." ".$nom; ?></span>
+                                                                         <span class="help-block  txt-grey"><?php echo $mail; ?></span>
+                                                                     </div>
+
+                                                                     <div class="clearfix"></div>
+                                                                 </div>
+                                                             </a>
+                                                             <?php
+                                                         }
+                                                     }else{
+                                                         echo center("Aucun enseignant");
+                                                     }
+                                                      ?>
+                                                     <center>
+                                                         <div style="width:200px;margin:auto" class="label label-warning">
+                                                             Responsable(s) pédagogique(s)
+                                                         </div>
+                                                     </center>
+                                                     <?php
+                                                     if($respPed = ShowUsers::getRespons()){
+                                                         for ($i=0; $i <count($respPed) ; $i++) {
+                                                             $nom = $respPed[$i]["user_nom"];
+                                                             $prenom = $respPed[$i]["user_prenom"];
+                                                             $mail= $respPed[$i]["user_mail"];
+                                                             ?>
+                                                             <a href="javascript:void(0)">
+                                                                 <div class="chat-data">
+                                                                     <div class="user-data">
+                                                                         <span class="name block capitalize-font"><?php echo $prenom." ".$nom; ?></span>
+                                                                         <span class="help-block  txt-grey"><?php echo $mail; ?></span>
+                                                                     </div>
+                                                                     <div class="clearfix"></div>
+                                                                 </div>
+                                                             </a>
+                                                             <?php
+                                                         }
+                                                     }else{
+                                                         echo center("Aucun responsable pédagogique");
+                                                     }
+                                                      ?>
                                                 </div>
                                             </li>
                                         </ul>
@@ -311,99 +244,11 @@
                                 <div class="streamline message-box nicescroll-bar">
                                     <a href="javascript:void(0)">
                                         <div class="sl-item unread-message">
-                                            <div class="sl-avatar avatar avatar-sm avatar-circle">
-                                                <img class="img-responsive img-circle" src="https://hencework.com/theme/grandin-demo/img/user.png" alt="avatar"/>
-                                            </div>
+
                                             <div class="sl-content">
                                                 <span class="inline-block capitalize-font   pull-left message-per">Clay Masse</span>
                                                 <span class="inline-block font-11  pull-right message-time">12:28 AM</span>
                                                 <div class="clearfix"></div>
-                                                <span class=" truncate message-subject"> message sent via your monster market profile</span>
-                                                <p class="txt-grey truncate">Neque porro quisquam est qui dolorem ipsu messm quia dolor sit amet, consectetur, adipisci velit</p>
-                                            </div>
-                                        </div>
-                                    </a>
-                                    <a href="javascript:void(0)">
-                                        <div class="sl-item">
-                                            <div class="sl-avatar avatar avatar-sm avatar-circle">
-                                                <img class="img-responsive img-circle" src="https://hencework.com/theme/grandin-demo/img/user1.png" alt="avatar"/>
-                                            </div>
-                                            <div class="sl-content">
-                                                <span class="inline-block capitalize-font   pull-left message-per">Evie Ono</span>
-                                                <span class="inline-block font-11  pull-right message-time">1 Feb</span>
-                                                <div class="clearfix"></div>
-                                                <span class=" truncate message-subject">Pogody theme support</span>
-                                                <p class="txt-grey truncate">Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit</p>
-                                            </div>
-                                        </div>
-                                    </a>
-                                    <a href="javascript:void(0)">
-                                        <div class="sl-item">
-                                            <div class="sl-avatar avatar avatar-sm avatar-circle">
-                                                <img class="img-responsive img-circle" src="https://hencework.com/theme/grandin-demo/img/user2.png" alt="avatar"/>
-                                            </div>
-                                            <div class="sl-content">
-                                                <span class="inline-block capitalize-font   pull-left message-per">Madalyn Rascon</span>
-                                                <span class="inline-block font-11  pull-right message-time">31 Jan</span>
-                                                <div class="clearfix"></div>
-                                                <span class=" truncate message-subject">Congratulations from design nominees</span>
-                                                <p class="txt-grey truncate">Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit</p>
-                                            </div>
-                                        </div>
-                                    </a>
-                                    <a href="javascript:void(0)">
-                                        <div class="sl-item unread-message">
-                                            <div class="sl-avatar avatar avatar-sm avatar-circle">
-                                                <img class="img-responsive img-circle" src="https://hencework.com/theme/grandin-demo/img/user3.png" alt="avatar"/>
-                                            </div>
-                                            <div class="sl-content">
-                                                <span class="inline-block capitalize-font   pull-left message-per">Ezequiel Merideth</span>
-                                                <span class="inline-block font-11  pull-right message-time">29 Jan</span>
-                                                <div class="clearfix"></div>
-                                                <span class=" truncate message-subject"> item support message</span>
-                                                <p class="txt-grey truncate">Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit</p>
-                                            </div>
-                                        </div>
-                                    </a>
-                                    <a href="javascript:void(0)">
-                                        <div class="sl-item unread-message">
-                                            <div class="sl-avatar avatar avatar-sm avatar-circle">
-                                                <img class="img-responsive img-circle" src="https://hencework.com/theme/grandin-demo/img/user4.png" alt="avatar"/>
-                                            </div>
-                                            <div class="sl-content">
-                                                <span class="inline-block capitalize-font   pull-left message-per">Jonnie Metoyer</span>
-                                                <span class="inline-block font-11  pull-right message-time">27 Jan</span>
-                                                <div class="clearfix"></div>
-                                                <span class=" truncate message-subject">Help with beavis contact form</span>
-                                                <p class="txt-grey truncate">Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit</p>
-                                            </div>
-                                        </div>
-                                    </a>
-                                    <a href="javascript:void(0)">
-                                        <div class="sl-item">
-                                            <div class="sl-avatar avatar avatar-sm avatar-circle">
-                                                <img class="img-responsive img-circle" src="https://hencework.com/theme/grandin-demo/img/user.png" alt="avatar"/>
-                                            </div>
-                                            <div class="sl-content">
-                                                <span class="inline-block capitalize-font   pull-left message-per">Priscila Shy</span>
-                                                <span class="inline-block font-11  pull-right message-time">19 Jan</span>
-                                                <div class="clearfix"></div>
-                                                <span class=" truncate message-subject">Your uploaded theme is been selected</span>
-                                                <p class="txt-grey truncate">Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit</p>
-                                            </div>
-                                        </div>
-                                    </a>
-                                    <a href="javascript:void(0)">
-                                        <div class="sl-item">
-                                            <div class="sl-avatar avatar avatar-sm avatar-circle">
-                                                <img class="img-responsive img-circle" src="https://hencework.com/theme/grandin-demo/img/user1.png" alt="avatar"/>
-                                            </div>
-                                            <div class="sl-content">
-                                                <span class="inline-block capitalize-font   pull-left message-per">Linda Stack</span>
-                                                <span class="inline-block font-11  pull-right message-time">13 Jan</span>
-                                                <div class="clearfix"></div>
-                                                <span class=" truncate message-subject"> A new rating has been received</span>
-                                                <p class="txt-grey truncate">Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit</p>
                                             </div>
                                         </div>
                                     </a>

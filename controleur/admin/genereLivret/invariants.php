@@ -17,5 +17,6 @@ function printInvariant(MYPDF $pdf, $titre,$html)
     $pdf->SetY($pdf->GetY()+5);
     $pdf->SetTextColor(0,0,0);
     $pdf->SetFont('times', '', 12);
+	preHTML($pdf,false);
     $pdf->writeHTML($html);
 }

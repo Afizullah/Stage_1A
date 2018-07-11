@@ -212,8 +212,23 @@
 									<ul class="folder-list mb-30"><?php
                                         $cmpt = 0;
                                         if($formations = Formation::getFormations($PROJET->getId())){
-                                            foreach ($formations as $formation => $value) { ?>
-                                                <li class="tablinksFormations <?php if($cmpt==0){echo 'active'; } ?>" onclick="openFormation(event,'tabFormation<?php echo $value["formation_id"]; ?>')"  ><a href="#"><i class="fa fa-book"></i> <?php echo $value["formation_nom"]; ?></a></li><?php
+                                            foreach ($formations as $formation => $value) {
+                                                if(isset($_GET["formation"])){
+                                                    if(intval($_GET["formation"])==$value["formation_id"]){
+                                                        $active = 'active';
+                                                    }else{
+                                                        $active = "";
+                                                    }
+                                                }else{
+                                                    if($cmpt==0){
+                                                        $active = 'active';
+                                                    }else{
+                                                        $active = "";
+                                                    }
+                                                } ?>
+                                                <li class="tablinksFormations <?php echo $active; ?>" onclick="openFormation(event,'tabFormation<?php echo $value["formation_id"]; ?>')"  >
+                                                    <a href="#"><i class="fa fa-book"></i> <?php echo $value["formation_nom"]; ?></a>
+                                                </li><?php
                                                 $cmpt++;
                                             }
                                         } ?>
@@ -235,8 +250,23 @@
                                     if($formations){
                                         foreach ($formations as $formation => $value) {
                                             if($classes = Formation::getClasses($value["formation_id"])){
-                                                $c_cmpt=0; ?>
-                                                <div class="tabcontentFormation" <?php if($f_cmpt!=0){echo "style='display:none'"; } ?> id="tabFormation<?php echo $value["formation_id"]; ?>">
+                                                $c_cmpt=0;
+                                                if(isset($_GET["formation"])){
+                                                    if(intval($_GET["formation"])==$value["formation_id"]){
+                                                        $active = 'active';
+                                                    }else{
+                                                        $active = "";
+                                                    }
+                                                }else{
+                                                    if($f_cmpt==0){
+                                                        $active = 'active';
+                                                    }else{
+                                                        $active = "";
+                                                    }
+                                                }
+
+                                                ?>
+                                                <div class="tabcontentFormation" <?php if(!$active){echo "style='display:none'"; } ?> id="tabFormation<?php echo $value["formation_id"]; ?>">
                                                     <ul class="nav nav-tabs"><?php
                                                         foreach ($classes as $classe => $value) { ?>
                                                             <li class="<?php if($c_cmpt==0){ echo 'active'; } ?>">

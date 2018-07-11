@@ -15,7 +15,7 @@ class Projet extends DB{
             $this->name  = $_SESSION["loaderProjet"]["projet_nom"];
             $this->step  = $_SESSION["loaderProjet"]["projet_step"];
             $this->state = $_SESSION["loaderProjet"]["projet_etat"];
-
+            
         }else{
             if($idProjetToLoad = parent::getLine("_paramettres","param_value",[["param_name","idLastProjetLoaded"]])["param_value"]){
                if($currentPojet = parent::getLine("projet","*",[["projet_id",$idProjetToLoad]])){
@@ -91,6 +91,9 @@ class Projet extends DB{
     }
     public function getGroupeForUser($userId,$groupeId){
         return parent::getLine("groupe_utilisateurs","*",[["user_id",$userId],["groupe_id",$groupeId]]);
+    }
+    public function getAllOtherProjets($thisIdProject){
+        return parent::getData("projet","*",[["projet_id",intval($thisIdProject)]],["!="]);
     }
 }
     $PROJET = new Projet;
