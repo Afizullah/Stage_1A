@@ -33,7 +33,7 @@ function est_valide($sugg_etat,$sugg_cible_id,$sugg_cible,$sugg_valeur,$user_id,
 	if(suggestion::registre_sugg($sugg_id,$sugg_cible,$sugg_cible_id,$sugg_valeur,$sugg_etat)==0){
 		return '<font color="red">Erreur pendant l enregistrement dans la base de donnés(suggestion)</font>';
 	}
-	/*if(suggestion::registre_sugg_user($sugg_id,$user_id,$projet_id)==0){
+	suggestion::registre_sugg_user($sugg_id,$user_id,$projet_id);/*
 		return '<font color="red">Erreur pendant l enregistrement dans la base de donnés(suggestion_projet_utilisateur)</font>';
 	}*/
 	return '<font color="green">Votre suggestion a bien été prise en compte</font>';
