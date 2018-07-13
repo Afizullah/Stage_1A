@@ -7,8 +7,8 @@
         // die();
         if(empty($groupe_nom)){
             $errors[]="Veuillez préciser le nom du groupe !!!";
-        }else{
-            if(DB::getLine("groupe","*",[["groupe_specialite",$groupe_nom]])){
+        } else {
+            if(DB::getLine("groupe","*",[["groupe_specialite",$groupe_nom],["projet_id",$idProject]])){
                 $errors[]="Un groupe du même nom existe déja !!!";
             }
         }
