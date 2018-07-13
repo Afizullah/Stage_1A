@@ -119,14 +119,14 @@ function linkCreatProjet(){
     -->
         <li><hr class="light-grey-hr mb-10"/></li>
         <li class="navigation-header">
-            <span>Livrets</span>
+            <span>Groupes</span>
             <i class="zmdi zmdi-more"></i>
         </li>
         <li>
-            <a href="javascript:void(0);" data-toggle="collapse" data-target="#dashboard_dr3"><div class="pull-left"><i class="zmdi zmdi-landscape mr-20"></i><span class="right-nav-text">Gérer les livrets</span></div><div class="pull-right"><i class="zmdi zmdi-caret-down"></i></div><div class="clearfix"></div></a>
+            <a href="javascript:void(0);" data-toggle="collapse" data-target="#dashboard_dr3"><div class="pull-left"><i class="zmdi zmdi-landscape mr-20"></i><span class="right-nav-text">Groupes</span></div><div class="pull-right"><i class="zmdi zmdi-caret-down"></i></div><div class="clearfix"></div></a>
             <ul id="dashboard_dr3" class="collapse collapse-level-1">
                 <li>
-                    <a href="index.php?page=proposition">Faire une proposition</a>
+                    <a href="index.php?page=groupes">Afficher les groupes</a>
                 </li>
             </ul>
         </li>

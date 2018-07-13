@@ -19,7 +19,5 @@ define("ADMIN_LOGO",PATH_TEMPLATE."dist/img/logo_admin.png");
 
 define("DEFAULT_PAGE","accueil");
 define("NBR_HOURS_LINK_EXP","48");
-define("ASSYNC_FILES",["regChange","livret","assync.SelectableFormations","assync.loadFile","assync.loadDb"]);
-
-
+define("ASSYNC_FILES",["regChange","livret","assync.SelectableFormations","assync.loadFile","assync.loadDb","assync_suggestion"]);
 ?>
