@@ -33,9 +33,9 @@
                     }
                     ?>
                     <tr  class="btn-warning">
-                        <td><input style="cursor:pointer" id="formSelected<?php echo $formationId; ?>" type="checkbox" name="formationsSelected[]" value="<?php echo $formationId; ?>"></td>
-                        <td>
-                            <label style="cursor:pointer;display:block" for="formSelected<?php echo $formationId; ?>">
+
+                        <td colspan="2">
+                            <label style="display:block" for="formSelected<?php echo $formationId; ?>">
                                 <?php echo $foramtionName; ?>
                             </label><br />
                             <?php echo $err; ?>
