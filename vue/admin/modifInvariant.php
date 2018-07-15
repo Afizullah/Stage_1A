@@ -40,7 +40,84 @@
     min-height: 780px;
 }
 </style>
+<?php
 
+ if($_listeInvariant){
+?>
+<div class="modal fade" id="choixSuggestionProj" tabindex="-1" role="dialog" aria-labelledby="" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h6 class="modal-title" id="">Importation invariants</h6>
+      </div>
+      <div class="modal-body">
+          <form method="post"><?php
+            $thisParentPanelId ="cordelisteInvProj";
+            openPanel($thisParentPanelId);
+              foreach ($_listeInvariant as $key => $_invariantField) {
+                  $thisTitle = $_invariantField["invariant_nom"];
+                  $thisContent="";
+                  $thisPanelId = $thisParentPanelId.$key;
+                  $canImport = false;
+                  if($thisInvariantsProjet = Invariant::getProjectWithInvariant($thisTitle,$PROJET->getId())){
+                      foreach ($thisInvariantsProjet as $thisInvKey => $thisInvariantsProjetFields) {
+                          $label = $thisInvariantsProjetFields["projet_nom"];
+                          $thisId = $thisPanelId.$thisInvKey;
+                          $thisInvId = $thisInvariantsProjetFields["invariant_id"];
+                          $contenu = $thisInvariantsProjetFields["invariant_contenu"];
+                          if(!empty($contenu)){
+                              $thisContent .= <<<CONTENT
+                              <input value="$thisInvId" type="radio" name="invariant_$key" id="inv_$thisId" />
+                              <label style="cursor:pointer" for="inv_$thisId" >$label</label><br />
+CONTENT;
+                                $canImport=true;
+                          }
+                      }
+                      $thisContent.=<<<CONTENT
+                            <input checked type="radio" name="invariant_$key" id="inv_0_$key" />
+                            <label style="cursor:pointer" for="inv_0_$key" >Aucun</label><br />
+CONTENT;
+                        if($canImport){
+
+                            insertPanel($thisParentPanelId,$thisPanelId,$thisTitle,$thisContent);
+                        }
+                  }
+              }
+              closePanel();
+              ?>
+      </div>
+          <div class="modal-footer">
+              <input type="submit" name="importInvariantForm" class="btn btn-success" value="Importer">
+          </div>
+        </form>
+    </div>
+  </div>
+</div>
+<?php
+}
+ if($_formations){
+ ?>
+<div class="modal fade" id="choixSuggestionForm" tabindex="-1" role="dialog" aria-labelledby="" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h6 class="modal-title" id="">Importation invariants</h6>
+      </div>
+      <div class="modal-body">
+          <?php var_dump($_formations); ?>
+          <button type="button" name="button"></button>
+      </div>
+      <div class="modal-footer">
+        <button type="button" name="button"><i class="fa fa-download"></i> Importer </button>
+      </div>
+    </div>
+  </div>
+</div>
+<?php
+}
+ ?>
 <div style="background-color:white;padding:30px;min-height:980px" class="">
     <?php
     $hasError = false;
@@ -67,12 +144,25 @@
             }
         }
          ?>
-         <button class="tablinksInvariant " onclick="openInvariant(event, 'invariant<?php echo $currentInvariantId+1; ?>')">Invariants liés aux formations</button>
+         <button style="text-align:center" class="tablinksInvariant <?php if($currentInvariantId==0) echo ("active"); ?> " onclick="openInvariant(event, 'invariant<?php echo $currentInvariantId+1; ?>')">Invariants liés aux formations</button>
+         <br />
+         <?php
+         if($_listeInvariant){
+             ?>
+             <button style="text-align:center;background-color:#d6d6f5;" data-toggle="modal" data-target="#choixSuggestionProj" type="button" name="import"><i class="fa fa-download"></i>Importer Inv. projet</button><br />
+             <?php
+         }
+         if($_formations){
+             ?>
+             <button style="text-align:center;background-color:#d6d6f5;" data-toggle="modal" data-target="#choixSuggestionForm" type="button" name="import"><i class="fa fa-download"></i>Importer Inv. formation</button>
+             <?php
+         }
+          ?>
     </div>
     <?php
-    if($contenu){
+
         getFormInvariants();
-    }
+
     ?>
 </div>
 

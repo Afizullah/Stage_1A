@@ -30,9 +30,15 @@
     </div>
     <div class="mobile-only-nav pull-left">
         <div style="width:580px;position:fixed;top:20px;" class="nav-header">
+            <form id="formProjetName" method="post">
+
+                <input type="hidden" name="projectId" value="<?php echo $PROJET->getId(); ?>">
             <h6 style="overflow:hidden">
-                <?php echo $PROJET->getName(); ?>
+                <input style="border:0px" onchange="changeProjectName(this)" type="text" name="newProjectName" value="<?php echo $PROJET->getName(); ?>">
+                <span style="" id="notifChangedProjectName"></span>
+
             </h6>
+            </form>
             <span id="notifChanged"></span>
         </div>
     </div>
@@ -270,5 +276,26 @@
             </li>
         </ul>
     </div>
+    <script type="text/javascript">
+        function changeProjectName(element){
+            var fd = new FormData(document.getElementById("formProjetName"));
+               fd.append("label", "WEBUPLOAD");
+               $.ajax({
+                 url: "index.php?page=assync.editProject",
+                 type: "POST",
+                 data: fd,
+                 processData: false,
+                 contentType: false
+               }).done(function( data ) {
+                   document.getElementById("notifChangedProjectName").innerHTML=data;
+                   document.getElementById("notifChangedProjectName").style="font-size:11px;color:rgba(200,200,200);opacity:1;";
+                   $("#notifChangedProjectName").fadeTo(1000,2).slideUp(200, function(){
+
+                   });
+               });
+               return false;
+
+        }
+    </script>
 </nav>
 <!-- /Top Menu Items -->

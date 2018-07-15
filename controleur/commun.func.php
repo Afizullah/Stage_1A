@@ -1,6 +1,18 @@
 <?php
 
     //fonction contre les injection sql
+    function getPageName($page){
+        if(isset(MAP_PAGES[$page]["pageName"])){
+            return MAP_PAGES[$page]["pageName"];
+        }
+        return $page;
+    }
+    function getPageIcon(){
+        if(isset(MAP_PAGES[$page]["pageIcone"])){
+            return MAP_PAGES[$page]["pageIcone"];
+        }
+        return null;
+    }
     function secure($val){
         return htmlspecialchars(trim($val));
     }

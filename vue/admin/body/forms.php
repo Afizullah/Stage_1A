@@ -1,5 +1,30 @@
 <?php
-
+function openPanel($parentId){
+    ?>
+    <div class="panel-group" id="<?php echo $parentId; ?>">
+    <?php
+}
+function closePanel(){
+    ?></div><?php
+}
+function insertPanel($parentId,$panelId,$title,$htmlContent){
+    ?>
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h4 class="panel-title">
+          <a data-toggle="collapse" style="display:block;text-align:center;" data-parent="#<?php echo $parentId; ?>" href="#<?php echo $panelId; ?>">
+              <?php echo $title; ?>
+          </a>
+        </h4>
+      </div>
+      <div id="<?php echo $panelId; ?>" class="panel-collapse collapse">
+        <div class="panel-body">
+            <?php echo $htmlContent; ?>
+        </div>
+      </div>
+    </div>
+    <?php
+}
 function getFormAddUsser($action="",$type_compte="",$date_expiration="",$email="",$prenom="",$nom=""){
     if($date_expiration){
         $_SESSION["dext"]=$date_expiration;
@@ -228,7 +253,7 @@ function getFormInvariants(){
                 <?php
             }
         ?>
-        <div id="invariant<?php echo $currentInvariantId+1; ?>"  style="display:none;min-height:880px" class="tabcontent">
+        <div id="invariant<?php echo $currentInvariantId+1; ?>"  style="display:<?php if($currentInvariantId==0){ echo 'block';}else{ echo 'none';} ?>;min-height:880px" class="tabcontent">
             <h5 style="text-align:center">Liste des formations</h5>
             <?php
             if($formations = $PROJET->getFormations()){
@@ -253,7 +278,7 @@ function getFormInvariants(){
                                   <input type="hidden" name="formationId[]" value="<?php echo $formationId; ?>">
                                   <div class="input-group">
                                     <span class="input-group-addon">Nom complet formation</span>
-                                    <input type="text" name="formationNomComplet[]" class="form-control" value="<?php echo $formationNomComplet; ?>" placeholder="Ex : Le Diplôme universitaire de technologie en informatique">
+                                    <input type="text" autocomplete="off" name="formationNomComplet[]" class="form-control" value="<?php echo $formationNomComplet; ?>" placeholder="Ex : Le Diplôme universitaire de technologie en informatique">
                                 </div><br />
                                    <div class="panel-group" id="accordionInvFor<?php echo $formationId; ?>">
                                       <div class="panel panel-default">
@@ -336,7 +361,8 @@ function getFormInvariants(){
                 }
                 ?></ul><?php
             }else{
-                echo "Aucune formation pour ce projet";
+                br(3);
+                echo center("Aucune formation pour ce projet<br /><a style='color:blue' href='index.php?page=importFormation'>Importer </a> une formation maintenant ?");
             }
             ?>
         </div>
