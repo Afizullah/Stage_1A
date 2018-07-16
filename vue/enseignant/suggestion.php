@@ -57,6 +57,7 @@ function cache_moins(val){
 
 <?php 
 function genere_case_text($i,$cible,$tab,$t,$n,$col=4,$rows=15){
+	global $projet_id;
 ?>
 	<td>
 		<div id=<?php echo $i*10+$t;?> style="display:block;" onclick="myfunction(<?php echo $i?>,<?php echo $t ?>,<?php echo $n?>)" ><?php echo $tab[$i][$cible]; ?></div>
@@ -66,7 +67,7 @@ function genere_case_text($i,$cible,$tab,$t,$n,$col=4,$rows=15){
 				<input type="reset" onclick="testfile(<?php echo $i*10+$t+0.5;?>,<?php echo $n?>)" value="suggérer" name=<?php echo $i*10+$t;?>/>
 				<div onclick="reset(<?php echo $n?>)"><input type="reset" value="annuler"></div>
 				<input  name="cible_id" type="text" value=<?php echo $tab[$i]['ec_id'];?> style="display:none">
-				<input name="projet_id" type="text" value=<?php echo $projet_id; ?> style="display:none">
+				<input name="projet_id" type="text" value=<?php echo $projet_id; ?> style="display:none"/>
 			</p>
 		</form>		
 	</td>
@@ -74,6 +75,7 @@ function genere_case_text($i,$cible,$tab,$t,$n,$col=4,$rows=15){
 }
 
 function genere_case_nbre($i,$cible,$tab,$t,$n){
+	global $projet_id;
 ?>
 	<td>
 		<div id=<?php echo $i*10+$t;?> style="display:block;" onclick="myfunction(<?php echo $i?>,<?php echo $t ?>,<?php echo $n?>)" ><?php echo ($tab[$i][$cible]); ?></div>
@@ -92,6 +94,7 @@ function genere_case_nbre($i,$cible,$tab,$t,$n){
 
 
 function genere_entete($ue,$tab,$i){
+	global $projet_id
 	?>
 	<button class="w3-button w3-block w3-left-align">
 		<table style="width:50%">
@@ -256,8 +259,6 @@ function genere_fin_form(){
 <?php
 }
 
-
-
 $n=count($tab);
 if($n==0){
     echo "aucune suggestion possible";
@@ -280,7 +281,7 @@ else{?>
 				<input type="reset" onclick="testfile(-0.5,<?php echo $n?>)" value="suggérer" name=-1/>
 				<div onclick="reset(<?php echo $n?>)"><input type="reset" value="annuler"></div>
 				<input  name="cible_id" type="text" value=0 style="display:none">
-				<input name="projet_id" type="text" value=<?php echo $id_projet; ?> style="display:none">
+				<input name="projet_id" type="text" value=<?php echo $projet_id; ?> style="display:none;"/>
 			</p>
 		</form>
 		<br/>
