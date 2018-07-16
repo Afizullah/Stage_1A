@@ -15,8 +15,5 @@ class suggestion extends DB{
 	function non_suggestion_ue($suggestion_valeur,$suggestion_cible_id){
 		return DB::query("SELECT * FROM ec NATURAL JOIN ue WHERE ue_id=".'"'.$suggestion_cible_id.'"'." AND ue_nom=".'"'.$suggestion_valeur.'"');
 	}
-	function get_projet_id($ec_id){
-		return DB::query("SELECT projet_id FROM ec NATURAL JOIN groupe NATURAL JOIN projet WHERE ec_id=$ec_id");
-	}
 }
 ?>

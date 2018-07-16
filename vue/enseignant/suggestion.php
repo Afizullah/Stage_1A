@@ -1,5 +1,7 @@
 <script>
 function reset(n){
+	document.getElementById(-0.5).style.display = "none";
+	document.getElementById(-1).style.display = "block";
 	for(var i=0;i<n;i++){
 		for(var t=0;t<10;t++){
 			if (document.getElementById(i*10+t) != null){
@@ -29,7 +31,7 @@ function testfile(val,n){
              processData: false,  // tell jQuery not to process the data
              contentType: false   // tell jQuery not to set contentType
            }).done(function( data ) {
-               document.getElementById(-1).innerHTML=data;
+               document.getElementById(-2).innerHTML=data;
            });
            window.scrollTo(0,0);
            return false;
@@ -64,6 +66,7 @@ function genere_case_text($i,$cible,$tab,$t,$n,$col=4,$rows=15){
 				<input type="reset" onclick="testfile(<?php echo $i*10+$t+0.5;?>,<?php echo $n?>)" value="suggérer" name=<?php echo $i*10+$t;?>/>
 				<div onclick="reset(<?php echo $n?>)"><input type="reset" value="annuler"></div>
 				<input  name="cible_id" type="text" value=<?php echo $tab[$i]['ec_id'];?> style="display:none">
+				<input name="projet_id" type="text" value=<?php echo $projet_id; ?> style="display:none">
 			</p>
 		</form>		
 	</td>
@@ -80,6 +83,7 @@ function genere_case_nbre($i,$cible,$tab,$t,$n){
 				<input type="reset" onclick="testfile(<?php echo $i*10+$t+0.5;?>,<?php echo $n?>)" value="suggérer" name=<?php echo $i*10+$t;?> />
 				<div onclick="reset(<?php echo $n?>)"><input type="reset" value="annuler"></div>
 				<input  name="cible_id" type="text" value=<?php echo $tab[$i]['ec_id'];?> style="display:none">
+				<input name="projet_id" type="text" value=<?php echo $projet_id; ?> style="display:none">
 			</p>
 		</form>		
 	</td>
@@ -105,6 +109,7 @@ function genere_entete($ue,$tab,$i){
 							</tr>
 						</table>
 						<input  name="cible_id" type="text" value=<?php echo $tab[$i]['ue_id'];?> style="display:none">
+						<input name="projet_id" type="text" value=<?php echo $projet_id; ?> style="display:none">
 					</form>		
 				</td>
 			</tr>
@@ -263,11 +268,22 @@ else{?>
     <div class="panel panel-default card-view">
         <div class="panel-heading">
             <div class="pull-left">
-                <h6 class="panel-title txt-dark">Vos UEs</h6>
+                <h6 class="panel-title txt-dark">Formations sur lesquelles vous pouvez faire des suggestions</h6>
             </div>
             <div class="clearfix"></div>
         </div>
-        <p><div id=-1></div></p>
+        <p><div id=-2></div></p>
+        <div id=-1 style="display:block;" class="btn btn-success  btn-sm" onclick="myfunction(0,-1,<?php echo $n?>)" >Faire une suggestion générale</div>
+		<form id=-0.5 style="display:none;">
+			<textarea rows=4 cols=40 name=general></textarea>
+			<p>
+				<input type="reset" onclick="testfile(-0.5,<?php echo $n?>)" value="suggérer" name=-1/>
+				<div onclick="reset(<?php echo $n?>)"><input type="reset" value="annuler"></div>
+				<input  name="cible_id" type="text" value=0 style="display:none">
+				<input name="projet_id" type="text" value=<?php echo $id_projet; ?> style="display:none">
+			</p>
+		</form>
+		<br/>
         <?php
         $i=0;
         while($i!=-1){
