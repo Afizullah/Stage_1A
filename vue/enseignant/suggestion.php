@@ -268,7 +268,7 @@ else{?>
     <div class="panel panel-default card-view">
         <div class="panel-heading">
             <div class="pull-left">
-                <h6 class="panel-title txt-dark">Formations sur lesquelles vous pouvez faire des suggestions</h6>
+                <h6 class="panel-title txt-dark">F<div style="text-transform:lowercase;display:inline">ormations sur lesquelles vous pouvez faire des suggestions</div></h6>
             </div>
             <div class="clearfix"></div>
         </div>
