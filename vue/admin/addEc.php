@@ -18,7 +18,7 @@
 
 			foreach ($Reader as $Row) {
 				// print_r($Row);
-				if ($i == 1) {
+				if ($i == 3) {
 					// echo("Salut");
 					$ueId = 1;
 					$groupeId = 1;
@@ -30,12 +30,12 @@
 					$ecCoef = $Row[11];
 					$ecNbreHCM = $Row[12];
 					$ecNbreHTD = $Row[13];
-					$ecNbreHTP = 15;
+					$ecNbreHTP = 12;
 					$ecNbreHTPE = 10;
 					print_r($Row);
 				}
 				$i++;
-				if ($i == 2) break;
+				if ($i == 4) break;
 			}
 	
 			return DB::registre("ec",[["ue_id",$ueId],["ec_code",$ecCode],["ec_nom",$ecNom],["ec_competence",$ecCompetence],["ec_prerequis",$ecPrerequis],["ec_contenu",$ecContenu],["ec_coef",$ecCoef],["ec_nbre_heure_cm",$ecNbreHCM],["ec_nbre_heure_td",$ecNbreHTD],["ec_nbre_heure_tp",$ecNbreHTP],["ec_nbre_heure_tpe",$ecNbreHTPE]]);
