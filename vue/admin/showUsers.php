@@ -1,11 +1,13 @@
-<div class="container mt-3">
-  <h2>Liste des utilisateurs de la plateforme</h2>
+<div style="background-color:white;padding:20px" class="container mt-3">
+  <center>
+      <h3>Liste des utilisateurs de la plateforme</h3>
+  </center>
   <!-- <p>Click on the Tabs to display the active and previous tab.</p> -->
 
   <!-- Nav tabs -->
   <ul class="nav nav-tabs">
-    <li class="nav-item">
-      <a class="nav-link active" href="#administrateur">Administrateur</a>
+    <li class="nav-item active">
+      <a class="nav-link" href="#administrateur">Administrateur</a>
     </li>
     <li class="nav-item">
       <a class="nav-link" href="#enseignant">Enseignant</a>
@@ -18,7 +20,6 @@
   <!-- Tab panes -->
   <div class="tab-content border mb-3">
     <div id="administrateur" class="container tab-pane active"><br>
-      <h3>Administrateur</h3>
       <div>
         <div class="col-sm-12">
 						<div class="panel panel-default card-view">
@@ -174,7 +175,6 @@
       </div>
     </div>
     <div id="respons" class="container tab-pane fade"><br>
-      <h3>Responsable Pédagogique</h3>
       <div>
         <div class="col-sm-12">
 						<div class="panel panel-default card-view">
@@ -224,8 +224,7 @@
       </div>
     </div>
   </div>
-  <p class="act"><b>Liste actuelle </b>: <span></span></p>
-  <p class="prev"><b>Liste précédente </b>: <span></span></p>
+ 
 </div>
 
 <script>

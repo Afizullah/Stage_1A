@@ -15,7 +15,7 @@ class Projet extends DB{
             $this->name  = $_SESSION["loaderProjet"]["projet_nom"];
             $this->step  = $_SESSION["loaderProjet"]["projet_step"];
             $this->state = $_SESSION["loaderProjet"]["projet_etat"];
-            
+
         }else{
             if($idProjetToLoad = parent::getLine("_paramettres","param_value",[["param_name","idLastProjetLoaded"]])["param_value"]){
                if($currentPojet = parent::getLine("projet","*",[["projet_id",$idProjetToLoad]])){
@@ -74,6 +74,18 @@ class Projet extends DB{
             return $this->formations;
         }
         return parent::getData("formation","*",[["projet_id",self::getId()]]);
+    }
+    public function getFormationsNames(){
+        $formsNames = array();
+        if($formations=self::getFormations()){
+            foreach ($formations as $keyFormation => $valsForm) {
+                    $formsNames[]=$valsForm["formation_nom"];
+            }
+            return $formsNames;
+        }else{
+            return false;
+        }
+
     }
     public function getTabFormationsId(){
         $formations = self::getFormations();

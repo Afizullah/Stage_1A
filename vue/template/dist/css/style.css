@@ -13,7 +13,7 @@ Project:	Grandin
 	++Form++
 	++Form-Wizard++
 	++Product Deatails*++
-	++Product Cart++	
+	++Product Cart++
 	++Popover++
 	++Typerhead++
 	++Editors++
@@ -53,7 +53,7 @@ Project:	Grandin
 	++Vecotor Map++
 	++Progressbar++
 	++Search Bar++
-	++Chat UI++	
+	++Chat UI++
 	++Widgets++
 	++Profile++
 	++Followers++
@@ -61,7 +61,7 @@ Project:	Grandin
 	++Timeline++
 	++Caledar++
 	++Todo List++
-	++Activity++  
+	++Activity++
 	++Message Box++
 	++Inbox++
 	++Contact Cards++
@@ -2636,7 +2636,7 @@ a#toggle_mobile_nav {
 
 .page-wrapper {
   margin-left: 225px;
-  background: #eee;
+  background:url("../img/pattern3.png") fixed;
   padding: 70px 20px;
   position: relative;
   -webkit-transition: all 0.4s ease;
@@ -3194,7 +3194,13 @@ a#toggle_mobile_nav {
   margin: 0 -20px 10px;
   padding: 13px 0; }
   .heading-bg h5 {
-    padding-top: 6px; }
+    text-align: center;
+    padding-left: 15px;
+    padding-right: 15px;
+    background-color: aliceblue;
+    min-width: 100px;
+    border-radius: 0px 30px;
+}
 
 .breadcrumb {
   background-color: transparent;

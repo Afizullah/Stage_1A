@@ -9,6 +9,7 @@
                 if($semestres = $data->getSemestresForm($formation)){
                     $codeFormat = $data->getCodeFormation($formation);
                     $formation_nbr_semestre = count($semestres);
+                    self::deleteFormation($projetId,$formation);
                     $thisInfosFormation = self::addFormation($projetId,$codeFormat,$formation,$formation_nbr_semestre);
                     $currentClass = NULL;
                     if($_formationId = $thisInfosFormation["formationId"]){
@@ -71,6 +72,11 @@
                 "isRegisted"=>$status,
                 "errors"=>$errors
             );
+        }
+        public static function deleteFormation($projetId,$formationName){
+            if($formationId = DB::getLine("formation","formation_id",[["projet_id",intval($projetId)],["formation_nom",$formationName]])){
+                DB::execute("DELETE FROM formation WHERE formation_id=".intval($formationId["formation_id"]));
+            }
         }
         public static function addFormation($projectId,$formationCode,$formationNom,$formationSemestre){
             $msg=null;

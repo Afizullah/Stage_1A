@@ -18,10 +18,10 @@
 
 			foreach ($Reader as $Row) {
 				// print_r($Row);
-				if ($i == 4) {
+				if ($i == 1) {
 					// echo("Salut");
 					$ueId = 1;
-					// $groupeId = 7;
+					$groupeId = 1;
 					$ecCode = $Row[2];
 					$ecNom = $Row[6];
 					$ecCompetence = $Row[7];
@@ -30,15 +30,15 @@
 					$ecCoef = $Row[11];
 					$ecNbreHCM = $Row[12];
 					$ecNbreHTD = $Row[13];
-					$ecNbreHTP = 0;
+					$ecNbreHTP = 15;
 					$ecNbreHTPE = 10;
 					print_r($Row);
 				}
 				$i++;
-				if ($i == 5) break;
+				if ($i == 2) break;
 			}
 	
-			// return DB::registre("ec",[["ue_id",$ueId],["ec_code",$ecCode],["ec_nom",$ecNom],["ec_competence",$ecCompetence],["ec_prerequis",$ecPrerequis],["ec_contenu",$ecContenu],["ec_coef",$ecCoef],["ec_nbre_heure_cm",$ecNbreHCM],["ec_nbre_heure_td",$ecNbreHTD],["ec_nbre_heure_tp",$ecNbreHTP],["ec_nbre_heure_tpe",$ecNbreHTPE]]);
+			return DB::registre("ec",[["ue_id",$ueId],["ec_code",$ecCode],["ec_nom",$ecNom],["ec_competence",$ecCompetence],["ec_prerequis",$ecPrerequis],["ec_contenu",$ecContenu],["ec_coef",$ecCoef],["ec_nbre_heure_cm",$ecNbreHCM],["ec_nbre_heure_td",$ecNbreHTD],["ec_nbre_heure_tp",$ecNbreHTP],["ec_nbre_heure_tpe",$ecNbreHTPE]]);
 		}
 		
 	}

@@ -12,17 +12,28 @@ class LoadFile extends PHPExcel_IOFactory{
     private $codeFormation = null;
     private $currentFormId = null;
     private $current = null;
-    public function __construct($file){
+    public function __construct($file,$selectedFormations=array()){
         $this->document_excel = PHPExcel_IOFactory::load($file);
         $allLeaf = $this->document_excel->getAllSheets();
         foreach ($allLeaf as $leaf) {
             $formationName = self::getFormationName($leaf);
             $headLeaf = self::getHeadLeaf($leaf);
-            if(!self::isNotCorrectLeaf($headLeaf)){
-                $this->feuilles[$formationName]=self::getRequiredData($leaf,$headLeaf);
-                $_SESSION[$formationName]=$this->feuilles[$formationName];
-                self::initAllData($formationName,$this->feuilles[$formationName]);
+            if($selectedFormations){
+                if(in_array($formationName,$selectedFormations)){
+                    if(!self::isNotCorrectLeaf($headLeaf)){
+                        $this->feuilles[$formationName]=self::getRequiredData($leaf,$headLeaf);
+                        $_SESSION[$formationName]=$this->feuilles[$formationName];
+                        self::initAllData($formationName,$this->feuilles[$formationName]);
+                    }
+                }
+            }else{
+                if(!self::isNotCorrectLeaf($headLeaf)){
+                    $this->feuilles[$formationName]=self::getRequiredData($leaf,$headLeaf);
+                    $_SESSION[$formationName]=$this->feuilles[$formationName];
+                    self::initAllData($formationName,$this->feuilles[$formationName]);
+                }
             }
+
         }
 
     }
@@ -130,6 +141,9 @@ class LoadFile extends PHPExcel_IOFactory{
             return $this->semestres[$formation];
         }
         return null;
+    }
+    public function getRequiredHeadLeaft(){
+        return $this->leafColsRequired;
     }
     public function getUe($formation,$semestre){
         if(isset($this->ue[$formation][$semestre])){

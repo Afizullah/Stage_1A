@@ -33,9 +33,9 @@
                     }
                     ?>
                     <tr  class="btn-warning">
-                        <td><input style="cursor:pointer" id="formSelected<?php echo $formationId; ?>" type="checkbox" name="formationsSelected[]" value="<?php echo $formationId; ?>"></td>
-                        <td>
-                            <label style="cursor:pointer;display:block" for="formSelected<?php echo $formationId; ?>">
+
+                        <td colspan="2">
+                            <label style="display:block" for="formSelected<?php echo $formationId; ?>">
                                 <?php echo $foramtionName; ?>
                             </label><br />
                             <?php echo $err; ?>
@@ -51,11 +51,8 @@
             </center>
         </form><?php
     }else{
-        ?>
-        <center>
-            Aucune formation enregistré
-        </center>
-        <?php
+        br(3);
+        echo center("Aucune formation pour ce projet<br /><a style='color:blue' href='index.php?page=importFormation'>Importer </a> une formation maintenant ?");
     }
     ?>
 

@@ -13,7 +13,7 @@
         private $currentFormId = null;
         private $current = null;
         public function __construct(){
-            $this->document_excel = PHPExcel_IOFactory::load("new.xls");
+            $this->document_excel = PHPExcel_IOFactory::load("newez.xls");
             $allLeaf = $this->document_excel->getAllSheets();
             foreach ($allLeaf as $leaf) {
                 $formationName = self::getFormationName($leaf);

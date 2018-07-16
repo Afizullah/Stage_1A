@@ -7,13 +7,12 @@
         $ecInGroup = Subjects::getSubjectsInGroup($groupId);
         $ecWithoutGroup = Subjects::getSubjectsWithoutGroup($PROJET->getId());
     }
+    
 
-    if (isset($_POST['affecter'],$_POST['groupId'],$_POST['ecId'])) {
-        
+    if (!empty($_POST['affecter']) && !empty($_POST['groupId']) && !empty($_POST['ecId'])) {
         $groupId = $_POST['groupId'];
         $ecId = $_POST['ecId'];
         for ($i=0; $i<count($ecId); $i++) {
-           
             Subjects::recordGroup(intval($groupId),intval($ecId[$i]));
         }
     }
