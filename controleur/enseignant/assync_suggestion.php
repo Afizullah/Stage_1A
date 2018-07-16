@@ -11,6 +11,10 @@ function genere_id($suggestions){
 }
 
 function est_suggestion($sugg_cible_id,$sugg_cible,$sugg_valeur){
+	if (strcmp($sugg_cible,'ue_nom')==0){
+		$resu=suggestion::non_suggestion_ue($sugg_valeur,$sugg_cible_id);
+		return (count($resu)==0);
+	}
 	$resu=suggestion::non_suggestion($sugg_valeur,$sugg_cible_id,$sugg_cible);	
 	return (count($resu)==0);
 }
@@ -46,6 +50,10 @@ $t=($id-0.5) % 10;
 $sugg_etat="en cours";
 $sugg_cible_id=$_POST['cible_id'];
 $projet_id=suggestion::get_projet_id($sugg_cible_id)[0]['projet_id'];
+if ($t==0){
+	$sugg_valeur=$_POST['ue_nom'];
+	$sugg_cible='ue_nom';
+}
 if ($t==1){
 	$sugg_valeur=$_POST['ec_nom'];
 	$sugg_cible='ec_nom';
