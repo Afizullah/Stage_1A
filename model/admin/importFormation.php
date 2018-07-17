@@ -29,9 +29,10 @@ class CopyProject extends Formation{
         if($formations = Formation::getFormations($idProjectToImport)){
             foreach ($formations as $formationKey => $formationFields) {
                 if(in_array($formationFields["formation_nom"],$selectedFormations)){
-                    Formation::deleteFormation($currentProjectId,$formationFields["formation_nom"]);
+                    $resp_id=Formation::deleteFormation($currentProjectId,$formationFields["formation_nom"]);
                     $dataFormated = getFormatedFieldsToRegisted($formationFields,["formation_code","formation_nom_complet","formation_nom","formation_semestre","formation_organisation","formation_evaluation","formation_autres_infos"]);
                     $dataFormated[]=["projet_id",intval($currentProjectId)];
+                    $dataFormated[]=["user_id",$resp_id];
                     if($newFormationId = registreFields("formation",$dataFormated)){
                         $formationId = intval($formationFields["formation_id"]);
                         if($classes = Formation::getClasses($formationId)){
