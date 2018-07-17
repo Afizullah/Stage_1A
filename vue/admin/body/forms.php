@@ -179,7 +179,9 @@ function getFormEditEc($classId,$class,$ue,$ue_id){
                                       <td>
                                           <table class="table">
                                               <tr>
-                                                  <td><label for="<?php _hashName("ec_coef","_".$ecId); ?>">Coefficient</label></td>
+                                                  <td><label for="<?php _hashName("ec_coef","_".$ecId); ?>">Coefficient
+                                                      <i title="Suggestions" style="cursor:pointer;color:blue" onclick="loadSuggest('ec','coef',<?php echo $ecId; ?>,'sug_ec_coef<?php echo $ecId; ?>');" class="fa fa-lightbulb-o" aria-hidden="true"></i>
+</label></td>
                                                   <td><label for="<?php _hashName("ec_nbre_heure_cm","_".$ecId); ?>">Nombre d'heures CM</label></td>
                                                   <td><label for="<?php _hashName("ec_nbre_heure_td","_".$ecId); ?>">Nombre d'heures TD</label></td>
                                                   <td><label for="<?php _hashName("ec_nbre_heure_tp","_".$ecId); ?>">Nombre d'heures TP</label></td>
@@ -191,6 +193,13 @@ function getFormEditEc($classId,$class,$ue,$ue_id){
                                                   <td><input  onchange="regChangeEc(this.id,this.value,'notifChangedEc<?php echo $ue_id; ?>');changeShowUeInfos(<?php echo  $classId.",".$ue_id; ?>,'showInfosCreditUe<?php echo $ue_id; ?>',true);"  id="<?php _hashName("ec_nbre_heure_td","_".$ecId); ?>"  onKeyUp="changeShowUeInfos(<?php echo  $classId.",".$ue_id; ?>,'showInfosCreditUe<?php echo $ue_id; ?>',true);" type="number"    min=0 max=600 class="form-control inUe<?php echo $ue_id; ?>" value="<?php echo $nbrHeurTD; ?>" placeholder="Nombre d'heures TD"></td>
                                                   <td><input  onchange="regChangeEc(this.id,this.value,'notifChangedEc<?php echo $ue_id; ?>');changeShowUeInfos(<?php echo  $classId.",".$ue_id; ?>,'showInfosCreditUe<?php echo $ue_id; ?>',true);"  id="<?php _hashName("ec_nbre_heure_tp","_".$ecId); ?>"  onKeyUp="changeShowUeInfos(<?php echo  $classId.",".$ue_id; ?>,'showInfosCreditUe<?php echo $ue_id; ?>',true);" type="number"    min=0 max=600 class="form-control inUe<?php echo $ue_id; ?>" value="<?php echo $nbrHeurTP; ?>" placeholder="Nombre d'heures TP"></td>
                                                   <td><input  onchange="regChangeEc(this.id,this.value,'notifChangedEc<?php echo $ue_id; ?>');changeShowUeInfos(<?php echo  $classId.",".$ue_id; ?>,'showInfosCreditUe<?php echo $ue_id; ?>',true);"  id="<?php _hashName("ec_nbre_heure_tpe","_".$ecId); ?>" onKeyUp="changeShowUeInfos(<?php echo  $classId.",".$ue_id; ?>,'showInfosCreditUe<?php echo $ue_id; ?>',true);" type="number"    min=0 max=600 class="form-control inUe<?php echo $ue_id; ?>" value="<?php echo $nbrHeurTPE; ?>" placeholder="Nombre d'heures TPE"></td>
+                                              </tr>
+                                              <tr>
+                                                  <td colspan="5">
+                                                      <div id="sug_ec_coef<?php echo $ecId; ?>" style="text-align: justify;" class="suggestion hide">
+
+                                                      </div>
+                                                  </td>
                                               </tr>
                                           </table>
 
