@@ -2,106 +2,120 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8e3a3732-f075-4e5d-b42b-c2b7b4a92ea3" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controleur/admin/genereLivret/tab_matieres.css" beforeDir="false" afterPath="$PROJECT_DIR$/controleur/admin/genereLivret/tab_matieres.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controleur/libs/TCPDF-master/examples/barcodes/example_1d_html.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/controleur/libs/TCPDF-master/examples/barcodes/example_1d_png.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/controleur/libs/TCPDF-master/examples/barcodes/example_1d_svg.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/controleur/libs/TCPDF-master/examples/barcodes/example_1d_svgi.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/controleur/libs/TCPDF-master/examples/barcodes/example_2d_datamatrix_html.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/controleur/libs/TCPDF-master/examples/barcodes/example_2d_datamatrix_png.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/controleur/libs/TCPDF-master/examples/barcodes/example_2d_datamatrix_svg.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/controleur/libs/TCPDF-master/examples/barcodes/example_2d_datamatrix_svgi.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/controleur/libs/TCPDF-master/examples/barcodes/example_2d_pdf417_html.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/controleur/libs/TCPDF-master/examples/barcodes/example_2d_pdf417_png.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/controleur/libs/TCPDF-master/examples/barcodes/example_2d_pdf417_svg.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/controleur/libs/TCPDF-master/examples/barcodes/example_2d_pdf417_svgi.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/controleur/libs/TCPDF-master/examples/barcodes/example_2d_qrcode_html.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/controleur/libs/TCPDF-master/examples/barcodes/example_2d_qrcode_png.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/controleur/libs/TCPDF-master/examples/barcodes/example_2d_qrcode_svg.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/controleur/libs/TCPDF-master/examples/barcodes/example_2d_qrcode_svgi.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/controleur/libs/TCPDF-master/examples/barcodes/tcpdf_barcodes_1d_include.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/controleur/libs/TCPDF-master/examples/barcodes/tcpdf_barcodes_2d_include.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/controleur/libs/TCPDF-master/examples/example_001.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/controleur/libs/TCPDF-master/examples/example_002.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/controleur/libs/TCPDF-master/examples/example_003.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/controleur/libs/TCPDF-master/examples/example_004.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/controleur/libs/TCPDF-master/examples/example_005.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/controleur/libs/TCPDF-master/examples/example_006.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/controleur/libs/TCPDF-master/examples/example_007.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/controleur/libs/TCPDF-master/examples/example_008.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/controleur/libs/TCPDF-master/examples/example_009.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/controleur/libs/TCPDF-master/examples/example_010.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/controleur/libs/TCPDF-master/examples/example_011.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/controleur/libs/TCPDF-master/examples/example_012.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/controleur/libs/TCPDF-master/examples/example_013.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/controleur/libs/TCPDF-master/examples/example_014.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/controleur/libs/TCPDF-master/examples/example_015.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/controleur/libs/TCPDF-master/examples/example_016.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/controleur/libs/TCPDF-master/examples/example_017.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/controleur/libs/TCPDF-master/examples/example_018.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/controleur/libs/TCPDF-master/examples/example_019.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/controleur/libs/TCPDF-master/examples/example_020.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/controleur/libs/TCPDF-master/examples/example_021.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/controleur/libs/TCPDF-master/examples/example_022.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/controleur/libs/TCPDF-master/examples/example_023.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/controleur/libs/TCPDF-master/examples/example_024.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/controleur/libs/TCPDF-master/examples/example_025.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/controleur/libs/TCPDF-master/examples/example_026.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/controleur/libs/TCPDF-master/examples/example_027.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/controleur/libs/TCPDF-master/examples/example_028.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/controleur/libs/TCPDF-master/examples/example_029.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/controleur/libs/TCPDF-master/examples/example_030.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/controleur/libs/TCPDF-master/examples/example_031.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/controleur/libs/TCPDF-master/examples/example_032.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/controleur/libs/TCPDF-master/examples/example_033.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/controleur/libs/TCPDF-master/examples/example_034.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/controleur/libs/TCPDF-master/examples/example_035.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/controleur/libs/TCPDF-master/examples/example_036.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/controleur/libs/TCPDF-master/examples/example_037.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/controleur/libs/TCPDF-master/examples/example_038.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/controleur/libs/TCPDF-master/examples/example_039.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/controleur/libs/TCPDF-master/examples/example_040.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/controleur/libs/TCPDF-master/examples/example_041.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/controleur/libs/TCPDF-master/examples/example_042.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/controleur/libs/TCPDF-master/examples/example_043.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/controleur/libs/TCPDF-master/examples/example_044.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/controleur/libs/TCPDF-master/examples/example_045.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/controleur/libs/TCPDF-master/examples/example_046.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/controleur/libs/TCPDF-master/examples/example_047.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/controleur/libs/TCPDF-master/examples/example_048.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/controleur/libs/TCPDF-master/examples/example_049.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/controleur/libs/TCPDF-master/examples/example_050.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/controleur/libs/TCPDF-master/examples/example_051.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/controleur/libs/TCPDF-master/examples/example_052.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/controleur/libs/TCPDF-master/examples/example_053.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/controleur/libs/TCPDF-master/examples/example_054.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/controleur/libs/TCPDF-master/examples/example_055.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/controleur/libs/TCPDF-master/examples/example_056.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/controleur/libs/TCPDF-master/examples/example_057.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/controleur/libs/TCPDF-master/examples/example_058.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/controleur/libs/TCPDF-master/examples/example_059.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/controleur/libs/TCPDF-master/examples/example_060.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/controleur/libs/TCPDF-master/examples/example_061.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/controleur/libs/TCPDF-master/examples/example_062.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/controleur/libs/TCPDF-master/examples/example_063.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/controleur/libs/TCPDF-master/examples/example_064.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/controleur/libs/TCPDF-master/examples/example_065.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/controleur/libs/TCPDF-master/examples/images/alpha.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/controleur/libs/TCPDF-master/examples/images/image_demo.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/controleur/libs/TCPDF-master/examples/images/image_with_alpha.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/controleur/libs/TCPDF-master/examples/images/img.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/controleur/libs/TCPDF-master/examples/images/logo_example.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/controleur/libs/TCPDF-master/examples/images/logo_example.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/controleur/libs/TCPDF-master/examples/images/logo_example.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/controleur/libs/TCPDF-master/examples/images/tcpdf_box.ai" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/controleur/libs/TCPDF-master/examples/images/tcpdf_box.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/controleur/libs/TCPDF-master/examples/images/tcpdf_cell.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/controleur/libs/TCPDF-master/examples/images/tcpdf_logo.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/controleur/libs/TCPDF-master/examples/images/tcpdf_signature.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/controleur/libs/TCPDF-master/examples/images/test.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/controleur/libs/TCPDF-master/examples/images/testsvg.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/controleur/libs/TCPDF-master/examples/images/tux.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/controleur/libs/TCPDF-master/examples/header_footer.php" beforeDir="false" afterPath="$PROJECT_DIR$/controleur/libs/TCPDF-master/examples/header_footer.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controleur/libs/TCPDF-master/fonts/ae_fonts_2.0/COPYING" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/controleur/libs/TCPDF-master/fonts/ae_fonts_2.0/ChangeLog" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/controleur/libs/TCPDF-master/fonts/ae_fonts_2.0/ChangeLog.9745.BAK" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/controleur/libs/TCPDF-master/fonts/ae_fonts_2.0/README" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/controleur/libs/TCPDF-master/fonts/aealarabiya.ctg.z" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/controleur/libs/TCPDF-master/fonts/aealarabiya.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/controleur/libs/TCPDF-master/fonts/aealarabiya.z" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/controleur/libs/TCPDF-master/fonts/aefurat.ctg.z" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/controleur/libs/TCPDF-master/fonts/aefurat.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/controleur/libs/TCPDF-master/fonts/aefurat.z" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/controleur/libs/TCPDF-master/fonts/cid0cs.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/controleur/libs/TCPDF-master/fonts/cid0ct.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/controleur/libs/TCPDF-master/fonts/cid0jp.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/controleur/libs/TCPDF-master/fonts/cid0kr.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/controleur/libs/TCPDF-master/fonts/dejavu-fonts-ttf-2.33/AUTHORS" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/controleur/libs/TCPDF-master/fonts/dejavu-fonts-ttf-2.33/BUGS" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/controleur/libs/TCPDF-master/fonts/dejavu-fonts-ttf-2.33/LICENSE" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/controleur/libs/TCPDF-master/fonts/dejavu-fonts-ttf-2.33/NEWS" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/controleur/libs/TCPDF-master/fonts/dejavu-fonts-ttf-2.33/README" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/controleur/libs/TCPDF-master/fonts/dejavu-fonts-ttf-2.33/langcover.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/controleur/libs/TCPDF-master/fonts/dejavu-fonts-ttf-2.33/status.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/controleur/libs/TCPDF-master/fonts/dejavu-fonts-ttf-2.33/unicover.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/controleur/libs/TCPDF-master/fonts/dejavu-fonts-ttf-2.34/AUTHORS" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/controleur/libs/TCPDF-master/fonts/dejavu-fonts-ttf-2.34/BUGS" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/controleur/libs/TCPDF-master/fonts/dejavu-fonts-ttf-2.34/LICENSE" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/controleur/libs/TCPDF-master/fonts/dejavu-fonts-ttf-2.34/NEWS" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/controleur/libs/TCPDF-master/fonts/dejavu-fonts-ttf-2.34/README" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/controleur/libs/TCPDF-master/fonts/dejavu-fonts-ttf-2.34/langcover.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/controleur/libs/TCPDF-master/fonts/dejavu-fonts-ttf-2.34/status.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/controleur/libs/TCPDF-master/fonts/dejavu-fonts-ttf-2.34/unicover.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/controleur/libs/TCPDF-master/fonts/freefont-20100919/AUTHORS" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/controleur/libs/TCPDF-master/fonts/freefont-20100919/COPYING" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/controleur/libs/TCPDF-master/fonts/freefont-20100919/CREDITS" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/controleur/libs/TCPDF-master/fonts/freefont-20100919/ChangeLog" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/controleur/libs/TCPDF-master/fonts/freefont-20100919/INSTALL" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/controleur/libs/TCPDF-master/fonts/freefont-20100919/README" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/controleur/libs/TCPDF-master/fonts/freefont-20120503/AUTHORS" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/controleur/libs/TCPDF-master/fonts/freefont-20120503/COPYING" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/controleur/libs/TCPDF-master/fonts/freefont-20120503/CREDITS" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/controleur/libs/TCPDF-master/fonts/freefont-20120503/ChangeLog" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/controleur/libs/TCPDF-master/fonts/freefont-20120503/ChangeLog.10070.BAK" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/controleur/libs/TCPDF-master/fonts/freefont-20120503/INSTALL" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/controleur/libs/TCPDF-master/fonts/freefont-20120503/README" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/controleur/libs/TCPDF-master/fonts/freefont-20120503/TROUBLESHOOTING" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/controleur/libs/TCPDF-master/fonts/freefont-20120503/USAGE" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/controleur/libs/TCPDF-master/fonts/freemono.ctg.z" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/controleur/libs/TCPDF-master/fonts/freemono.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/controleur/libs/TCPDF-master/fonts/freemono.z" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/controleur/libs/TCPDF-master/fonts/freemonob.ctg.z" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/controleur/libs/TCPDF-master/fonts/freemonob.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/controleur/libs/TCPDF-master/fonts/freemonob.z" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/controleur/libs/TCPDF-master/fonts/freemonobi.ctg.z" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/controleur/libs/TCPDF-master/fonts/freemonobi.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/controleur/libs/TCPDF-master/fonts/freemonobi.z" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/controleur/libs/TCPDF-master/fonts/freemonoi.ctg.z" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/controleur/libs/TCPDF-master/fonts/freemonoi.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/controleur/libs/TCPDF-master/fonts/freemonoi.z" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/controleur/libs/TCPDF-master/fonts/freesans.ctg.z" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/controleur/libs/TCPDF-master/fonts/freesans.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/controleur/libs/TCPDF-master/fonts/freesans.z" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/controleur/libs/TCPDF-master/fonts/freesansb.ctg.z" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/controleur/libs/TCPDF-master/fonts/freesansb.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/controleur/libs/TCPDF-master/fonts/freesansb.z" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/controleur/libs/TCPDF-master/fonts/freesansbi.ctg.z" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/controleur/libs/TCPDF-master/fonts/freesansbi.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/controleur/libs/TCPDF-master/fonts/freesansbi.z" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/controleur/libs/TCPDF-master/fonts/freesansi.ctg.z" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/controleur/libs/TCPDF-master/fonts/freesansi.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/controleur/libs/TCPDF-master/fonts/freesansi.z" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/controleur/libs/TCPDF-master/fonts/freeserif.ctg.z" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/controleur/libs/TCPDF-master/fonts/freeserif.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/controleur/libs/TCPDF-master/fonts/freeserif.z" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/controleur/libs/TCPDF-master/fonts/freeserifb.ctg.z" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/controleur/libs/TCPDF-master/fonts/freeserifb.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/controleur/libs/TCPDF-master/fonts/freeserifb.z" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/controleur/libs/TCPDF-master/fonts/freeserifbi.ctg.z" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/controleur/libs/TCPDF-master/fonts/freeserifbi.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/controleur/libs/TCPDF-master/fonts/freeserifbi.z" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/controleur/libs/TCPDF-master/fonts/freeserifi.ctg.z" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/controleur/libs/TCPDF-master/fonts/freeserifi.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/controleur/libs/TCPDF-master/fonts/freeserifi.z" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/controleur/libs/TCPDF-master/fonts/hysmyeongjostdmedium.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/controleur/libs/TCPDF-master/fonts/kozgopromedium.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/controleur/libs/TCPDF-master/fonts/kozminproregular.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/controleur/libs/TCPDF-master/fonts/msungstdlight.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/controleur/libs/TCPDF-master/fonts/pdfacourier.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/controleur/libs/TCPDF-master/fonts/pdfacourier.z" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/controleur/libs/TCPDF-master/fonts/pdfacourierb.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/controleur/libs/TCPDF-master/fonts/pdfacourierb.z" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/controleur/libs/TCPDF-master/fonts/pdfacourierbi.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/controleur/libs/TCPDF-master/fonts/pdfacourierbi.z" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/controleur/libs/TCPDF-master/fonts/pdfacourieri.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/controleur/libs/TCPDF-master/fonts/pdfacourieri.z" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/controleur/libs/TCPDF-master/fonts/pdfahelvetica.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/controleur/libs/TCPDF-master/fonts/pdfahelvetica.z" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/controleur/libs/TCPDF-master/fonts/pdfahelveticab.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/controleur/libs/TCPDF-master/fonts/pdfahelveticab.z" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/controleur/libs/TCPDF-master/fonts/pdfahelveticabi.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/controleur/libs/TCPDF-master/fonts/pdfahelveticabi.z" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/controleur/libs/TCPDF-master/fonts/pdfahelveticai.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/controleur/libs/TCPDF-master/fonts/pdfahelveticai.z" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/controleur/libs/TCPDF-master/fonts/pdfasymbol.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/controleur/libs/TCPDF-master/fonts/pdfasymbol.z" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/controleur/libs/TCPDF-master/fonts/pdfatimes.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/controleur/libs/TCPDF-master/fonts/pdfatimes.z" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/controleur/libs/TCPDF-master/fonts/pdfatimesb.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/controleur/libs/TCPDF-master/fonts/pdfatimesb.z" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/controleur/libs/TCPDF-master/fonts/pdfatimesbi.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/controleur/libs/TCPDF-master/fonts/pdfatimesbi.z" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/controleur/libs/TCPDF-master/fonts/pdfatimesi.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/controleur/libs/TCPDF-master/fonts/pdfatimesi.z" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/controleur/libs/TCPDF-master/fonts/pdfazapfdingbats.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/controleur/libs/TCPDF-master/fonts/pdfazapfdingbats.z" beforeDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -118,8 +132,8 @@
       <file leaf-file-name="suggestion.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/controleur/enseignant/suggestion.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="144">
-              <caret line="8" selection-start-line="8" selection-end-line="8" />
+            <state relative-caret-position="108">
+              <caret line="6" column="1" lean-forward="true" selection-start-line="6" selection-start-column="1" selection-end-line="6" selection-end-column="1" />
             </state>
           </provider>
         </entry>
@@ -127,8 +141,8 @@
       <file leaf-file-name="header_footer.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/controleur/libs/TCPDF-master/examples/header_footer.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="325">
-              <caret line="65" column="50" selection-start-line="65" selection-start-column="50" selection-end-line="65" selection-end-column="50" />
+            <state relative-caret-position="141">
+              <caret line="56" column="27" lean-forward="true" selection-start-line="56" selection-start-column="27" selection-end-line="56" selection-end-column="27" />
             </state>
           </provider>
         </entry>
@@ -173,7 +187,6 @@
         <option value="$PROJECT_DIR$/controleur/libs/TCPDF-master/examples/exemple_livret.php" />
         <option value="$PROJECT_DIR$/controleur/libs/TCPDF-master/examples/page_de_garde.php" />
         <option value="$PROJECT_DIR$/controleur/libs/TCPDF-master/examples/formation.php" />
-        <option value="$PROJECT_DIR$/controleur/libs/TCPDF-master/examples/header_footer.php" />
         <option value="$PROJECT_DIR$/vue/login/index.php" />
         <option value="$PROJECT_DIR$/vue/admin/accueil.php" />
         <option value="$PROJECT_DIR$/vue/admin/addGroupe.php" />
@@ -201,6 +214,8 @@
         <option value="$PROJECT_DIR$/controleur/admin/showUsers.php" />
         <option value="$PROJECT_DIR$/controleur/enseignant/aff_suggestion.php" />
         <option value="$PROJECT_DIR$/controleur/enseignant/assync_suggestion.php" />
+        <option value="$PROJECT_DIR$/controleur/libs/TCPDF-master/examples/header_footer.php" />
+        <option value="$PROJECT_DIR$/controleur/enseignant/suggestion.php" />
       </list>
     </option>
   </component>
@@ -308,12 +323,12 @@
       <workItem from="1530801765044" duration="5361000" />
       <workItem from="1531740932189" duration="9296000" />
       <workItem from="1531751822568" duration="1562000" />
-      <workItem from="1531835865102" duration="8598000" />
+      <workItem from="1531835865102" duration="9207000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="64946000" />
+    <option name="totallyTimeSpent" value="65555000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1295" height="695" extended-state="6" />
@@ -689,15 +704,15 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/controleur/enseignant/suggestion.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="144">
-          <caret line="8" selection-start-line="8" selection-end-line="8" />
+        <state relative-caret-position="108">
+          <caret line="6" column="1" lean-forward="true" selection-start-line="6" selection-start-column="1" selection-end-line="6" selection-end-column="1" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/controleur/libs/TCPDF-master/examples/header_footer.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="325">
-          <caret line="65" column="50" selection-start-line="65" selection-start-column="50" selection-end-line="65" selection-end-column="50" />
+        <state relative-caret-position="141">
+          <caret line="56" column="27" lean-forward="true" selection-start-line="56" selection-start-column="27" selection-end-line="56" selection-end-column="27" />
         </state>
       </provider>
     </entry>

@@ -8,15 +8,17 @@ class MYPDF extends TCPDF
     private $formation = false;
     private $text_header;
 
-    public function Set_Header($formation, $text_header = ''){
-        $this->formation=$formation;
-        $this->text_header=$text_header;
+    public function Set_Header($formation, $text_header = '')
+    {
+        $this->formation = $formation;
+        $this->text_header = $text_header;
     }
 
 
     //Page header
     public function Header()
-    {   $police = array();
+    {
+        $police = array();
         $police[1] = $this->getFontFamily();
         $police[2] = $this->getFontStyle();
         $police[3] = $this->getFontSizePt();
@@ -35,12 +37,12 @@ class MYPDF extends TCPDF
             // Set font
             $this->SetFont('dejavusansextralight', 'B', 12);
             $this->Image('images/header_2.jpg', 0, 10, 0, 7, 'JPEG', '', 'N', false, 300, 'R', false, false, 0, true, false, false, '');
-            $this->SetXY(80, $this->GetY()-3.5);
+            $this->SetXY(80, $this->GetY() - 3.5);
             //$this->Write(6, $this->text_header, $link = '', $fill = false, $align = 'R', $ln = true, $stretch = 0, $firstline = true, $firstblock = false, $maxh = 10, $wadj = 0);
             // Title
-            $this->SetTextColor(255,255,255);
+            $this->SetTextColor(255, 255, 255);
             $this->Cell(115, 15, $this->text_header, 0, false, 'R', 0, '', 0, false, 'M', 'M');
-            $this->SetTextColor(0,0,0);
+            $this->SetTextColor(0, 0, 0);
             $this->SetFont($police[1], $police[2], $police[3]);
         }
     }
@@ -59,12 +61,12 @@ class MYPDF extends TCPDF
         $this->SetFillColor(255, 255, 255);
         // Page number
         $this->Image('images/footer_bis.jpg', 174, $this->GetY(), 0, 12, 'JPEG', '', 'M', false, 300, '', false, false, 0, true, false, false, '');
-        $this->SetY($this->GetY()-5);
+        $this->SetY($this->GetY() - 5);
         $this->SetX(-17);
-        $this->SetTextColor(255,255,255);
+        $this->SetTextColor(255, 255, 255);
         //$this->Write(5, $this->getAliasNumPage(),false,false,'R');
-        $this->Cell(0,10,$this->getAliasNumPage(),0,0,'R','','','','','','');
-        $this->SetTextColor(0,0,0);
+        $this->Cell(0, 10, $this->getAliasNumPage(), 0, 0, 'R', '', '', '', '', '', '');
+        $this->SetTextColor(0, 0, 0);
         $this->SetFont($police[1], $police[2], $police[3]);
     }
 }
