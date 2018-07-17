@@ -78,12 +78,26 @@ function getFromCreateProjet($nomProjet="",$action=""){
 }
 
 function getFromCreateGroup($nomGroup="",$action=""){
+    global $PROJET;
     ?>
     <form style="width:500px;margin:auto;background-color:white;padding:30px;" action="<?php echo $action; ?>" method="POST">
+
         <div class="input-group">
               <span class="input-group-addon">Nom du groupe : </span>
               <input required type="text" class="form-control" name="groupe_nom" value="<?php echo $nomGroup; ?>" placeholder="Ex: Informatique">
         </div><br />
+      <select class="basicSelect2" name="participants[]" multiple="multiple">
+          <?php
+          if($usersWithoutGroupe = $PROJET->getUserWithoutGroupe()){
+              for ($i=0; $i <count($usersWithoutGroupe) ; $i++) {
+                  ?>
+                  <option value="<?php echo $usersWithoutGroupe[$i]["user_id"]; ?>"><?php echo  $usersWithoutGroupe[$i]["user_mail"]; ?></option>
+                  <?php
+              }
+
+          }
+          ?>
+      </select><br /><br />
         <center>
               <input type="submit" class="btn btn-success" class="form-control" name="addGroup" value="Créer un groupe">
         </center>
@@ -137,6 +151,9 @@ function getFormEditEc($classId,$class,$ue,$ue_id){
                                         Coef <span id="valInfoCoef<?php echo $ecId; ?>"><?php echo $coef; ?></span>
                                     </span>
                                 </a>
+                                <a style="float:right;margin-top:-20px" href="#deleteElement"  data-dismiss="modal" data-toggle="modal" onclick="openFormDropElement('ec','<?php echo $ecId; ?>','<?php echo $nomMatiere; ?>','<?php echo _hashName('ec'); ?>');" title="Supprimer l'ec">
+                                    <i style="padding:2px 3px;border-radius:20px 20px 20px 20px;" class="btn-danger fa fa-trash-o"></i>
+                                </a>
                               </h4>
                             </div>
                             <div id="collapseMatiere<?php echo $ecId; ?>" class="panel-collapse collapse">
@@ -182,15 +199,26 @@ function getFormEditEc($classId,$class,$ue,$ue_id){
                                   <tr>
                                       <td>
                                           <div title="<?php echo $nomMatiere; ?>"  class="input-group">
-                                            <span class="input-group-addon">Compétences</span>
-                                            <textarea  onchange="regChangeEc(this.id,this.value,'notifChangedEc<?php echo $ue_id; ?>');" id="<?php _hashName("ec_competence","_".$ecId); ?>" style="text-align:justified;width:100%" rows="8" ><?php echo $competence; ?></textarea>
+                                            <span class="input-group-addon">Compétences<br />
+                                                <i title="Suggestions" style="cursor:pointer;color:blue" onclick="loadSuggest('ec','competence',<?php echo $ecId; ?>,'sug_ec_competence<?php echo $ecId; ?>');" class="fa fa-2x fa-lightbulb-o" aria-hidden="true"></i>
+                                            </span>
+                                            <div id="sug_ec_competence<?php echo $ecId; ?>" style="text-align: justify;" class="suggestion hide">
+
+                                            </div>
+                                            <textarea  onchange="regChangeEc(this.id,this.value,'notifChangedEc<?php echo $ue_id; ?>');" id="<?php _hashName("ec_competence","_".$ecId); ?>" style="text-align:justified;width:100%;background-color:ghostwhite" rows="8" ><?php echo $competence; ?></textarea>
+
                                           </div>
                                       </td>
                                   </tr>
                                   <tr>
                                       <td>
                                           <div title="<?php echo $nomMatiere; ?>"  class="input-group">
-                                            <span  class="input-group-addon">Prérequis</span>
+                                            <span  class="input-group-addon">Prérequis<br />
+                                                <i title="Suggestions" style="cursor:pointer;color:blue" onclick="loadSuggest('ec','prerequis',<?php echo $ecId; ?>,'sug_ec_prerequis<?php echo $ecId; ?>');" class="fa fa-2x fa-lightbulb-o" aria-hidden="true"></i>
+                                            </span>
+                                            <div id="sug_ec_prerequis<?php echo $ecId; ?>" style="text-align: justify;" class="suggestion hide">
+
+                                            </div>
                                             <textarea  onchange="regChangeEc(this.id,this.value,'notifChangedEc<?php echo $ue_id; ?>');" id="<?php _hashName("ec_prerequis","_".$ecId); ?>" style="text-align:justified;width:100%" rows="5" ><?php echo $prerequis; ?></textarea>
                                           </div>
                                       </td>
@@ -198,7 +226,12 @@ function getFormEditEc($classId,$class,$ue,$ue_id){
                                   <tr>
                                       <td>
                                           <div title="<?php echo $nomMatiere; ?>"  class="input-group">
-                                            <span class="input-group-addon">Contenu</span>
+                                            <span class="input-group-addon">Contenu<br />
+                                                <i title="Suggestions" style="cursor:pointer;color:blue" onclick="loadSuggest('ec','contenu',<?php echo $ecId; ?>,'sug_ec_contenu<?php echo $ecId; ?>');" class="fa fa-2x fa-lightbulb-o" aria-hidden="true"></i>
+                                            </span>
+                                            <div id="sug_ec_contenu<?php echo $ecId; ?>" style="text-align: justify;" class="suggestion hide">
+
+                                            </div>
                                             <textarea  onchange="regChangeEc(this.id,this.value,'notifChangedEc<?php echo $ue_id; ?>');" id="<?php _hashName("ec_contenu","_".$ecId); ?>" style="text-align:justified;width:100%" rows="8" ><?php echo $contenu; ?></textarea>
                                           </div>
                                       </td>
@@ -361,7 +394,6 @@ function getFormInvariants(){
                 }
                 ?></ul><?php
             }else{
-                br(3);
                 echo center("Aucune formation pour ce projet<br /><a style='color:blue' href='index.php?page=importFormation'>Importer </a> une formation maintenant ?");
             }
             ?>
@@ -373,3 +405,24 @@ function getFormInvariants(){
     <?php
 }
 ?>
+<script type="text/javascript">
+    function getTitle(cible,attrib,id,idResult){
+        return "<div style='background-color:blanchedalmond;padding:5px;font-size: 17px;font-weight: bold;' class='text-center col-md-12'>Suggestion(s) liée(s) à <i>'"+cible+" >> "+attrib+"'</i> <i title='Réduire la suggestion' onclick='hideContentSugges(\""+idResult+"\");' style='cursor:pointer;float:right' class='fa fa-2x fa-angle-down'></i></div>";
+    }
+    function hideContentSugges(idResult){
+        document.getElementById(idResult).className = document.getElementById(idResult).className.replace(" active"," hide");
+    }
+    function loadSuggest(cible,attrib,id,idResult){
+        document.getElementById(idResult).className = document.getElementById(idResult).className.replace(" hide"," active");
+       $.ajax({
+         url: "index.php?page=assync.loadSuggest&cible="+cible+"&id="+id+"&attrib="+attrib,
+         type: "GET",
+
+         processData: false,
+         contentType: false
+     }).done(function( data ) {
+           document.getElementById(idResult).innerHTML=getTitle(cible,attrib,id,idResult)+data;
+       });
+       return false;
+    }
+</script>

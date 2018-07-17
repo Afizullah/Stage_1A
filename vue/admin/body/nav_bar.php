@@ -31,13 +31,11 @@
     <div class="mobile-only-nav pull-left">
         <div style="width:580px;position:fixed;top:20px;" class="nav-header">
             <form id="formProjetName" method="post">
-
                 <input type="hidden" name="projectId" value="<?php echo $PROJET->getId(); ?>">
-            <h6 style="overflow:hidden">
-                <input style="border:0px" onchange="changeProjectName(this)" type="text" name="newProjectName" value="<?php echo $PROJET->getName(); ?>">
-                <span style="" id="notifChangedProjectName"></span>
-
-            </h6>
+                <h6 style="overflow:hidden">
+                    <input required style="border:0px" onchange="changeProjectName(this)" type="text" name="newProjectName" value="<?php echo $PROJET->getName(); ?>">
+                    <span style="" id="notifChangedProjectName"></span>
+                </h6>
             </form>
             <span id="notifChanged"></span>
         </div>

@@ -15,7 +15,6 @@ class Projet extends DB{
             $this->name  = $_SESSION["loaderProjet"]["projet_nom"];
             $this->step  = $_SESSION["loaderProjet"]["projet_step"];
             $this->state = $_SESSION["loaderProjet"]["projet_etat"];
-
         }else{
             if($idProjetToLoad = parent::getLine("_paramettres","param_value",[["param_name","idLastProjetLoaded"]])["param_value"]){
                if($currentPojet = parent::getLine("projet","*",[["projet_id",$idProjetToLoad]])){
@@ -50,6 +49,14 @@ class Projet extends DB{
     }
     public function getName(){
         return $this->name;
+    }
+    public function setName($newName){
+        if(parent::update("projet",[["projet_nom",$newName]],[["projet_id",$this->getId()]])){
+            $_SESSION["loaderProjet"]["projet_nom"] = $newName;
+            $this->name = $newName;
+            return true;
+        }
+        return false;
     }
     public function getId(){
         return $this->id;
@@ -106,6 +113,37 @@ class Projet extends DB{
     }
     public function getAllOtherProjets($thisIdProject){
         return parent::getData("projet","*",[["projet_id",intval($thisIdProject)]],["!="]);
+    }
+    public function getUsersWithGroupe(){
+        $teacherWhithGroupe = array();
+        if($results = parent::getData("groupe NATURAL JOIN groupe_utilisateurs NATURAL JOIN utilisateurs NATURAL JOIN compte","user_id",[["projet_id",intval(self::getId())],["compte_typeCompte","enseignant"]])){
+            foreach ($results as $resultKey => $resultFields) {
+                $teacherWhithGroupe[]=intval($resultFields["user_id"]);
+            }
+            
+        }
+        return $teacherWhithGroupe;
+    }
+    private function getAllTeather(){
+        $teacherListe = array();
+        if($results = parent::getData("utilisateurs NATURAL JOIN compte","user_id,user_mail",[["compte_typeCompte","enseignant"]])){
+            foreach ($results as $resultKey => $resultFields) {
+                $teacherListe[]=$resultFields;
+            }
+        }
+        return $teacherListe;
+    }
+    public function getUserWithoutGroupe(){
+        $userWithoutGroupe = array();
+        if($teachersWithoutGroupe = self::getAllTeather()){
+            $usersWitheGroupe = self::getUsersWithGroupe();
+            foreach ($teachersWithoutGroupe as $teachersWithoutGroupekey => $teachersWithoutGroupeFields) {
+                if(!in_array($teachersWithoutGroupeFields["user_id"],$usersWitheGroupe)){
+                    $userWithoutGroupe[] = $teachersWithoutGroupeFields;
+                }
+            }
+        }
+        return $userWithoutGroupe;
     }
 }
     $PROJET = new Projet;

@@ -12,13 +12,19 @@
                 $errors[]="Un groupe du même nom existe déja !!!";
             }
         }
+        
         if(!isset($errors)){
-            if(!Group::createGroup($groupe_nom,$idProject)){
-                $errors[]="Echec de l'enregistrement du groupe";
+            if($newGroupeId = Group::createGroup($groupe_nom,$idProject)){
+                if(isset($_POST["participants"])){
+                    $listeParticipants = $_POST["participants"];
+                    for ($i=0; $i < count($listeParticipants); $i++) {
+                        $participantId = intval($listeParticipants[$i]);
+                        Group::addUser($newGroupeId,$participantId);
+                    }
+                }
+                $success = "Groupe créé avec succès";
             }else{
-
-                header("Location:index.php?page=".DEFAULT_PAGE);
-                die();
+                $errors[]="Echec de l'enregistrement du groupe";
             }
         }
     }

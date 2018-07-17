@@ -114,6 +114,38 @@
     .classNotifSucces{
         background-color:green;
     }
+    #deleteDialog .modal-dialog {
+  position:absolute;
+  top:50% !important;
+  transform: translate(0, -50%) !important;
+  -ms-transform: translate(0, -50%) !important;
+  -webkit-transform: translate(0, -50%) !important;
+  margin:auto 5%;
+  width:90%;
+  height:300px;
+}
+#deleteDialog .modal-content {
+  min-height:100%;
+  position:absolute;
+  top:0;
+  bottom:0;
+  left:0;
+  right:0;
+}
+#deleteDialog .modal-body {
+  position:absolute;
+  top:45px; /** height of header **/
+  bottom:45px;  /** height of footer **/
+  left:0;
+  right:0;
+  overflow-y:auto;
+}
+#deleteDialog .modal-footer {
+  position:absolute;
+  bottom:0;
+  left:0;
+  right:0;
+}
 </style>
 <script type="text/javascript">
     function regChange(elementId,value,notifIn) {
@@ -188,7 +220,40 @@
         document.getElementById("valInfoCoef"+ecId).innerHTML=parseInt(newValue);
     }
 </script>
+
 <div class="col-md-12">
+    <div id="deleteDialog">
+        <div style="width:500px;margin:auto" class="modal fade" id="deleteElement" tabindex="-1" role="dialog" aria-labelledby="" aria-hidden="true">
+          <div class="modal-dialog modal-sm">
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" onclick="document.getElementById('passwdToDelete').value='';" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h6 style="color:red" class="modal-title" id="deleteElementTitle"></h6>
+              </div>
+                  <div id="container" class="modal-body">
+                      <div style="text-align:center" id="deleteElementDialog">
+
+                      </div><br />
+                      <form class="" action="" method="post">
+                          <input type="hidden" id="tockenDeleteForm" name="tknDel" value="">
+                          <input type="hidden" id="tockenDeleteFormId" name="tkDelId" value="">
+                           <div id="deleteElementContent">
+                               <div class="col-lg-12 input-group">
+                                 <input type="password" required id="passwdToDelete" name="password" class="form-control" placeholder="Veuillez saisir votre mot de passe">
+
+                               </div>
+                           </div>
+                           <div class="text-center"><br />
+                               <input class="btn btn-danger" type="submit" name="supprimerElement" value="Supprimer" />
+                               <button class="btn btn-success" onclick="document.getElementById('passwdToDelete').value='';" data-dismiss="modal" type="button" name="button">Annuler</button>
+                           </div>
+                       </form>
+                  </div>
+
+            </div>
+          </div>
+        </div>
+    </div>
 	<div class="panel panel-default card-view pa-0">
 		<div class="panel-wrapper collapse in">
 			<div class="panel-body pa-0">
@@ -226,14 +291,17 @@
                                                         $active = "";
                                                     }
                                                 } ?>
-                                                <li class="tablinksFormations <?php echo $active; ?>" onclick="openFormation(event,'tabFormation<?php echo $value["formation_id"]; ?>')"  >
-                                                    <a href="#"><i class="fa fa-book"></i> <?php echo $value["formation_nom"]; ?></a>
+                                                <li  onclick="openFormation(event,'tabFormation<?php echo $value["formation_id"]; ?>')"  class="tablinksFormations <?php echo $active; ?>">
+                                                    <a   href="#"><i class="fa fa-book"></i> <?php echo $value["formation_nom"]; ?></a>
+                                                    <a href="#deleteElement" data-toggle="modal" onclick="openFormDropElement('formation','<?php echo $value["formation_id"]; ?>','<?php echo $value["formation_nom"]; ?>','<?php echo _hashName('formation'); ?>');" title="Supprimer la formation" style="float:right;margin-top:-30px;margin-right:10px;cursor:pointer;z-index:10000;color:white;padding:2px;border-radius:10px;width: 17px;text-align: center;">
+                                                        <i style="color:white;padding:2px;border-radius:10px;width: 17px;text-align: center;" class="btn-danger fa fa-remove"></i>
+                                                    </a>
                                                 </li><?php
                                                 $cmpt++;
                                             }
                                         } ?>
 										<li class="active">
-                                            <a href="index.php?page=addFormation" data-toggle="modal" ><center><i class="fa fa-plus-circle"></i> Ajouter</center></a>
+                                            <a href="index.php?page=importFormation" data-toggle="modal" ><center><i class="fa fa-plus-circle"></i> Ajouter</center></a>
                                         </li>
 									</ul>
 									<div class="clearfix"></div>
@@ -312,7 +380,7 @@
                                                                                                       <span class="ueClasse<?php echo $value["classe_id"]; ?> showInfosCreditUe<?php echo $ue_field["ue_id"]; ?> label label-success"></span>
                                                                                                   </td>
                                                                                                   <td>
-                                                                                                      <a href="#">
+                                                                                                      <a  href="#deleteElement" data-toggle="modal" onclick="openFormDropElement('ue','<?php echo $ue_field["ue_id"]; ?>','<?php echo $ue_field["ue_nom"]; ?>','<?php echo _hashName('ue'); ?>');" title="Supprimer l'ue">
                                                                                                           <i style="padding:2px 3px;border-radius:20px 20px 20px 20px;" class="btn-danger fa fa-trash-o"></i>
                                                                                                       </a>
                                                                                                   </td>
@@ -384,6 +452,12 @@
 	</div>
 </div>
 <script type="text/javascript">
+    function openFormDropElement(cible,id,name,tocken){
+        document.getElementById("deleteElementTitle").innerHTML="<i class='fa fa-trash'></i> Suppresion de "+name;
+        document.getElementById("deleteElementDialog").innerHTML="Vous êtes sur le point de supprimmer<br /> '"+cible+" ("+name+")'";
+        document.getElementById("tockenDeleteForm").value=tocken;
+        document.getElementById("tockenDeleteFormId").value=id;
+    }
     function openFormation(evt, formationId) {
         var i, tabcontent, tablinksFormations;
 

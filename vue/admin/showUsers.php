@@ -6,11 +6,12 @@
 
   <!-- Nav tabs -->
   <ul class="nav nav-tabs">
+
     <li class="nav-item active">
-      <a class="nav-link" href="#administrateur">Administrateur</a>
-    </li>
-    <li class="nav-item">
       <a class="nav-link" href="#enseignant">Enseignant</a>
+    </li>
+    <li class="nav-item ">
+      <a class="nav-link" href="#administrateur">Administrateur</a>
     </li>
     <li class="nav-item">
       <a class="nav-link" href="#respons">Responsable Pédagogique</a>
@@ -19,7 +20,114 @@
 
   <!-- Tab panes -->
   <div class="tab-content border mb-3">
-    <div id="administrateur" class="container tab-pane active"><br>
+      <div id="enseignant" class="container tab-pane active "><br>
+
+        <div>
+          <div class="col-sm-12">
+  						<div class="panel panel-default card-view">
+  							<div class="panel-heading">
+  								<div class="pull-left">
+  									<h6 class="panel-title txt-dark">Enseignant</h6>
+  								</div>
+  								<div class="clearfix"></div>
+  							</div>
+  							<div class="panel-wrapper collapse in">
+  								<div class="panel-body">
+  									<!-- <p class="text-muted">Add class <code>table</code> in table tag.</p> -->
+  									<div class="table-wrap mt-40">
+  										<div class="table-responsive">
+                                              <?php
+                                              $hasGroupe= $PROJET->getGroupes();
+                                              if($hasGroupe){
+
+                                                  ?>
+                                                  <center>
+                                                      <h5>Gestion des groupes <i>(<?php echo $PROJET->getName(); ?>)</i></h5>
+                                                  </center>
+                                                  <form class="" action="" method="post">
+                                                      <label for="notifEnseignant">Notifier les enseignants des changements </label>
+                                                      <input type="checkbox" id="notifEnseignant" name="notifEnseignant" value="ok">
+  																										<input type="hidden" name="project_id" value="<?php echo $PROJET->getId(); ?>">
+                                                  <?php
+                                              }
+                                               ?>
+  											<table class="table mb-0">
+  												<thead>
+  												  <tr>
+  													<th>User ID</th>
+  													<th>First Name</th>
+  													<th>Last Name</th>
+  													<th>Email</th>
+                                                      <?php
+                                                      if($hasGroupe){
+                                                          ?>
+                                                          <th>Groupe</th>
+                                                          <?php
+                                                      }
+                                                       ?>
+  													<!-- <th>Account Type</th> -->
+  												  </tr>
+  												</thead>
+  												<tbody>
+                          <?php
+                            $dataUser = ShowUsers::getEnseignant();
+                            for($i = 0; $i < count($dataUser); $i++) {
+
+                          ?>
+  												  <tr>
+  													<td><?php print_r($dataUser[$i]['user_id']); ?></td>
+  													<td><?php print_r($dataUser[$i]['user_prenom']); ?></td>
+  													<td><?php print_r($dataUser[$i]['user_nom']); ?></td>
+  													<td><?php print_r($dataUser[$i]['user_mail']); ?></td>
+                                                      <?php
+                                                      if($hasGroupe){
+                                                          ?>
+                                                          <td>
+
+                                                              <select name="link[]" class="form-control">
+                                                                  <option value="">---Sélectionner---</option>
+                                                              <?php
+
+                                                                  foreach ($hasGroupe as $onGroupe=>$value) {
+                                                                      ?>
+                                                                      <option <?php if($PROJET->getGroupeForUser($dataUser[$i]['user_id'],$value["groupe_id"])){ echo "selected"; } ?> value="<?php echo $dataUser[$i]['user_id'].";".$value["groupe_id"]; ?>"><?php echo $value["groupe_specialite"]; ?></option>
+                                                                      <?php
+                                                                  }
+
+                                                                  ?>
+                                                              </select>
+                                                      </td>
+
+                                                          <?php
+                                                      }
+                                                       ?>
+  													<!-- <td><span class="label label-danger">admin</span> </td> -->
+                            </tr>
+                            <?php } ?>
+  												</tbody>
+  											</table>
+                                              <?php
+                                              if($hasGroupe){
+
+                                                  ?>
+                                                  <center><br /><br />
+                                                      <input class="btn btn-success" type="submit" name="editGroupeListe" value="Enregistrer les modifications" />
+                                                  </center>
+                                              </form>
+                                                  <?php
+                                              }
+
+                                               ?>
+  										</div>
+  									</div>
+  								</div>
+  							</div>
+  						</div>
+  					</div>
+        </div>
+      </div>
+      
+    <div id="administrateur" class="container tab-pane fade"><br>
       <div>
         <div class="col-sm-12">
 						<div class="panel panel-default card-view">
@@ -60,112 +168,6 @@
                           <?php } ?>
 												</tbody>
 											</table>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-      </div>
-    </div>
-    <div id="enseignant" class="container tab-pane fade"><br>
-
-      <div>
-        <div class="col-sm-12">
-						<div class="panel panel-default card-view">
-							<div class="panel-heading">
-								<div class="pull-left">
-									<h6 class="panel-title txt-dark">Enseignant</h6>
-								</div>
-								<div class="clearfix"></div>
-							</div>
-							<div class="panel-wrapper collapse in">
-								<div class="panel-body">
-									<!-- <p class="text-muted">Add class <code>table</code> in table tag.</p> -->
-									<div class="table-wrap mt-40">
-										<div class="table-responsive">
-                                            <?php
-                                            $hasGroupe= $PROJET->getGroupes();
-                                            if($hasGroupe){
-
-                                                ?>
-                                                <center>
-                                                    <h5>Gestion des groupes <i>(<?php echo $PROJET->getName(); ?>)</i></h5>
-                                                </center>
-                                                <form class="" action="" method="post">
-                                                    <label for="notifEnseignant">Notifier les enseignants des changements </label>
-                                                    <input type="checkbox" id="notifEnseignant" name="notifEnseignant" value="ok">
-																										<input type="hidden" name="project_id" value="<?php echo $PROJET->getId(); ?>">
-                                                <?php
-                                            }
-                                             ?>
-											<table class="table mb-0">
-												<thead>
-												  <tr>
-													<th>User ID</th>
-													<th>First Name</th>
-													<th>Last Name</th>
-													<th>Email</th>
-                                                    <?php
-                                                    if($hasGroupe){
-                                                        ?>
-                                                        <th>Groupe</th>
-                                                        <?php
-                                                    }
-                                                     ?>
-													<!-- <th>Account Type</th> -->
-												  </tr>
-												</thead>
-												<tbody>
-                        <?php
-                          $dataUser = ShowUsers::getEnseignant();
-                          for($i = 0; $i < count($dataUser); $i++) {
-
-                        ?>
-												  <tr>
-													<td><?php print_r($dataUser[$i]['user_id']); ?></td>
-													<td><?php print_r($dataUser[$i]['user_prenom']); ?></td>
-													<td><?php print_r($dataUser[$i]['user_nom']); ?></td>
-													<td><?php print_r($dataUser[$i]['user_mail']); ?></td>
-                                                    <?php
-                                                    if($hasGroupe){
-                                                        ?>
-                                                        <td>
-
-                                                            <select name="link[]" class="form-control">
-                                                                <option value="">---Sélectionner---</option>
-                                                            <?php
-
-                                                                foreach ($hasGroupe as $onGroupe=>$value) {
-                                                                    ?>
-                                                                    <option <?php if($PROJET->getGroupeForUser($dataUser[$i]['user_id'],$value["groupe_id"])){ echo "selected"; } ?> value="<?php echo $dataUser[$i]['user_id'].";".$value["groupe_id"]; ?>"><?php echo $value["groupe_specialite"]; ?></option>
-                                                                    <?php
-                                                                }
-
-                                                                ?>
-                                                            </select>
-                                                    </td>
-
-                                                        <?php
-                                                    }
-                                                     ?>
-													<!-- <td><span class="label label-danger">admin</span> </td> -->
-                          </tr>
-                          <?php } ?>
-												</tbody>
-											</table>
-                                            <?php
-                                            if($hasGroupe){
-
-                                                ?>
-                                                <center><br /><br />
-                                                    <input class="btn btn-success" type="submit" name="editGroupeListe" value="Enregistrer les modifications" />
-                                                </center>
-                                            </form>
-                                                <?php
-                                            }
-
-                                             ?>
 										</div>
 									</div>
 								</div>
@@ -224,7 +226,7 @@
       </div>
     </div>
   </div>
- 
+
 </div>
 
 <script>
