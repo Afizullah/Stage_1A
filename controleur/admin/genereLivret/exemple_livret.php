@@ -19,14 +19,6 @@ $pdf->SetTitle('Livret généré');
 $pdf->SetSubject('Livret formation');
 $pdf->SetKeywords('PDF');
 
-// set default header data
-//$pdf->SetHeaderData('../images/logo_esp.jpg', 10, PDF_HEADER_TITLE.' 001', PDF_HEADER_STRING, array(0,64,255), array(0,64,128));
-//$pdf->setFooterData(array(0,64,0), array(0,64,128));
-
-// set header and footer fonts
-//$pdf->setHeaderFont(Array(PDF_FONT_NAME_MAIN, '', PDF_FONT_SIZE_MAIN));
-//$pdf->setFooterFont(Array(PDF_FONT_NAME_DATA, '', PDF_FONT_SIZE_DATA));
-
 // set default monospaced font
 $pdf->SetDefaultMonospacedFont(PDF_FONT_MONOSPACED);
 
@@ -67,7 +59,7 @@ $prenoms=["prenom1","prenom2","prenom3","prenom4","prenom5"];
 $noms=["nom1","nom2","nom3","nom4","nom5"];
 $specialites=["specialite1","specialite2","specialite3","specialite4","specialite5"];
 $fonctions=["fonction1","fonction2","fonction3","fonction4","fonction5"];
-$phrase_presentation="<p>L’équipe pégagogique du Département comprend le personnel permanant dont les membres
+$phrase_presentation="<p>L’équipe pégagogique du département comprend le personnel permanant dont les membres
 sont listés à l’aide du tableau ci-après. Elle comprend, en plus, un important personnel non
 permanant formé d’enseignants vacataires et d’un personnel administratif d’appui.</p>";
 
@@ -125,11 +117,5 @@ $pdf->addTOC(2, 'courier', '', 'Table des matières', 'B', array(94, 181, 77));
 // end of TOC page
 $pdf->endTOCPage();
 
-//sigle et abréviations
-//équipe pédagogique
-//mot du chef de département
-//réglement intérieur
-//présentation de la formation
-//information utile
 
-$pdf->Output('example.pdf', 'I');
+$pdf->Output('test.pdf', 'I');

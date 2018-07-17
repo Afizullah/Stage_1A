@@ -25,6 +25,7 @@ if (isset($_POST["selectFormations"],$_POST["formationsSelected"])) {
                     if($infosFormation = Formation::getInfosFormation($formationId)){
                         $formationNomComplet = $infosFormation["formation_nom_complet"];
                         $formationCode = $infosFormation["formation_code"];
+                        $pdf->setDocName($pdf->getDocName().'_'.$formationCode);
                         $formationReglement = $infosFormation["formation_organisation"];
                         $formationInfosUtiles = $infosFormation["formation_autres_infos"];
                         $formation = $infosFormation["formation_nom"];
