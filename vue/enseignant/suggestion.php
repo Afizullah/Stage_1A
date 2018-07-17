@@ -191,18 +191,18 @@ function genere_ue($i,$tab){
 	return $i;
 }
 
-function genere_entete_sem($semestre){
+function genere_entete_sem($semestre,$id_formation){
 ?>
 	<button class="w3-button w3-block w3-left-align">
 		<table>
 			<tr>
-				<td id =<?php echo "plus_sem".$semestre ?> style="width:20%; text-align:center; display:block" onclick="developper_reduire('<?php echo "contenu_sem".$semestre ?>');cache_plus('<?php echo "_sem".$semestre?>')"><i class="zmdi zmdi-plus"></i></td>
-				<td id =<?php echo "moins_sem".$semestre ?> style="width:20%; text-align:center; display:none;" onclick="developper_reduire('<?php echo "contenu_sem".$semestre?>');cache_moins('<?php echo "_sem".$semestre?>')"><i class="zmdi zmdi-minus"></i></td>
+				<td id =<?php echo "plus_sem".$semestre."x".$id_formation ;?> style="width:20%; text-align:center; display:block" onclick="developper_reduire('<?php echo "contenu_sem".$semestre."x".$id_formation ;?>');cache_plus('<?php echo "_sem".$semestre."x".$id_formation?>')"><i class="zmdi zmdi-plus"></i></td>
+				<td id =<?php echo "moins_sem".$semestre."x".$id_formation ;?> style="width:20%; text-align:center; display:none;" onclick="developper_reduire('<?php echo "contenu_sem".$semestre."x".$id_formation?>');cache_moins('<?php echo "_sem".$semestre."x".$id_formation?>')"><i class="zmdi zmdi-minus"></i></td>
 				<td style="width:80%; text-align: center;"><?php echo "Semestre ".$semestre?></td>
 			</tr>
 		</table>
 	</button>
-	<div id=<?php echo "contenu_sem".$semestre?> class="w3-container w3-hide">
+	<div id=<?php echo "contenu_sem".$semestre."x".$id_formation?> class="w3-container w3-hide">
 <?php 
 }
 
@@ -212,9 +212,9 @@ function genere_fin_sem(){
 <?php
 }
 
-function genere_sem($i,$tab){
+function genere_sem($i,$tab,$id_formation){
 	$semestre=$tab[$i]['ue_semestr'];
-	genere_entete_sem($semestre);
+	genere_entete_sem($semestre,$id_formation);
     while($semestre==$tab[$i]['ue_semestr']){
     	$i=genere_ue($i,$tab);
     	if ($i==-1){
@@ -229,7 +229,7 @@ function genere_form($i,$tab){
 	$formation=$tab[$i]['formation_id'];
 	genere_entete_form($tab[$i]['formation_id'],$tab[$i]['formation_nom']);
     while($formation==$tab[$i]['formation_id']){
-    	$i=genere_sem($i,$tab);
+    	$i=genere_sem($i,$tab,$formation);
     	if ($i==-1){
     		return -1;
     	}

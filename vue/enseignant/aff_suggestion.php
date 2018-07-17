@@ -38,7 +38,7 @@ for ($i=0;$i<count($resu);$i++){?>
 									<td><?php echo $resu[$i]['type']?></td>
 									<td><?php echo $resu[$i]['suggestion_valeur']?></td>
 									<td><?php echo $resu[$i]['suggestion_etat']?></td>
-									<td><a href=<?php echo 'index.php?page=aff_suggestion&id='.$resu[$i]['suggestion_id']; ?> class="btn btn-success  btn-sm" style="background-color: reds" >Supprimer</a></td>
+									<td><a href=<?php echo 'index.php?page=aff_suggestion&id='.$resu[$i]['suggestion_id']; ?> class="btn btn-success  btn-sm" style="background-color: red" >Supprimer</a></td>
 								</tr>
 <?php
 }?>
@@ -50,4 +50,3 @@ for ($i=0;$i<count($resu);$i++){?>
         </div>
     </div>
 </div>
-}

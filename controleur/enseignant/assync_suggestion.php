@@ -19,8 +19,8 @@ function est_suggestion($sugg_cible_id,$sugg_cible,$sugg_valeur){
 			$resu=suggestion::non_suggestion_ue($sugg_valeur,$sugg_cible_id);
 			return (count($resu)==0);
 		}
-		$resu=suggestion::non_suggestion($sugg_valeur,$sugg_cible_id,$sugg_cible);	
-		return (count($resu)==0);
+		$resu=suggestion::non_suggestion($sugg_valeur,$sugg_cible_id,$sugg_cible);
+		return(strcmp($resu[0][$sugg_cible],$sugg_valeur)!=0);
 	}	
 }
 

@@ -8,7 +8,7 @@ if(isset($_REQUEST["id"])){
     	$html='<div style="color:green;"> Suggestion supprimée </div>';
     }
     else {
-    	$html='<div style="color:red;"> Vous n êtes pas autorisé à supprimer cette suggestion</div>;';
+    	$html='<div style="color:red;"> Vous n êtes pas autorisé à supprimer cette suggestion</div>';
     }
 }
 

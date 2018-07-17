@@ -16,8 +16,8 @@ class aff_suggestion extends DB{
     	return DB::query("SELECT * FROM suggestions_projet_utilisateur WHERE $user_id=user_id AND $sugg_id=suggestion_id");
     }
     public function delete_suggestion($sugg_id){
-    	DB::execute("DELETE FROM suggestions WHERE suggestion_id=$sugg_id");
     	DB::execute("DELETE FROM suggestions_projet_utilisateur WHERE suggestion_id=$sugg_id");
+    	DB::execute("DELETE FROM suggestions WHERE suggestion_id=$sugg_id");
     }
 }	
 ?>
