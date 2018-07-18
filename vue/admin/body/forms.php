@@ -169,7 +169,10 @@ function getFormEditEc($classId,$class,$ue,$ue_id){
                                   <tr>
                                       <td>
                                           <div class="input-group">
-                                            <span class="input-group-addon">Matière</span>
+                                            <span class="input-group-addon">Matière
+                                                <i title="Suggestions" style="cursor:pointer;color:blue" onclick="loadSuggest('ec','nom',<?php echo $ecId; ?>,'sug_ec_nom<?php echo $ecId; ?>');" class="fa fa-lightbulb-o" aria-hidden="true"></i>
+                                            </span>
+                                            <div id="sug_ec_nom<?php echo $ecId; ?>" style="text-align: justify;" class="suggestion hide"></div>
                                             <input type="text"  onchange="regChangeEc(this.id,this.value,'notifChangedEc<?php echo $ue_id; ?>');"  id="<?php _hashName("ec_nom","_".$ecId);  ?>"  value="<?php echo $matiere; ?>" class="form-control" placeholder="Matière">
                                           </div>
                                       </td>
@@ -179,13 +182,31 @@ function getFormEditEc($classId,$class,$ue,$ue_id){
                                       <td>
                                           <table class="table">
                                               <tr>
-                                                  <td><label for="<?php _hashName("ec_coef","_".$ecId); ?>">Coefficient
-                                                      <i title="Suggestions" style="cursor:pointer;color:blue" onclick="loadSuggest('ec','coef',<?php echo $ecId; ?>,'sug_ec_coef<?php echo $ecId; ?>');" class="fa fa-lightbulb-o" aria-hidden="true"></i>
-</label></td>
-                                                  <td><label for="<?php _hashName("ec_nbre_heure_cm","_".$ecId); ?>">Nombre d'heures CM</label></td>
-                                                  <td><label for="<?php _hashName("ec_nbre_heure_td","_".$ecId); ?>">Nombre d'heures TD</label></td>
-                                                  <td><label for="<?php _hashName("ec_nbre_heure_tp","_".$ecId); ?>">Nombre d'heures TP</label></td>
-                                                  <td><label for="<?php _hashName("ec_nbre_heure_tpe","_".$ecId); ?>">Nombre d'heures TPE</label></td>
+                                                  <td>
+                                                      <label for="<?php _hashName("ec_coef","_".$ecId); ?>">Coefficient
+                                                          <i title="Suggestions" style="cursor:pointer;color:blue" onclick="loadSuggest('ec','coef',<?php echo $ecId; ?>,'sug_ec_coef<?php echo $ecId; ?>');" class="fa fa-lightbulb-o" aria-hidden="true"></i>
+                                                    </label>
+                                                  </td>
+                                                  <td>
+                                                      <label for="<?php _hashName("ec_nbre_heure_cm","_".$ecId); ?>">Nombre d'heures CM
+                                                          <i title="Suggestions" style="cursor:pointer;color:blue" onclick="loadSuggest('ec','nbre_heure_cm',<?php echo $ecId; ?>,'sug_ec_nbre_heure_cm<?php echo $ecId; ?>');" class="fa fa-lightbulb-o" aria-hidden="true"></i>
+                                                      </label>
+                                                  </td>
+                                                  <td>
+                                                      <label for="<?php _hashName("ec_nbre_heure_td","_".$ecId); ?>">Nombre d'heures TD
+                                                          <i title="Suggestions" style="cursor:pointer;color:blue" onclick="loadSuggest('ec','nbre_heure_td',<?php echo $ecId; ?>,'sug_ec_nbre_heure_td<?php echo $ecId; ?>');" class="fa fa-lightbulb-o" aria-hidden="true"></i>
+                                                      </label>
+                                                  </td>
+                                                  <td>
+                                                      <label for="<?php _hashName("ec_nbre_heure_tp","_".$ecId); ?>">Nombre d'heures TP
+                                                          <i title="Suggestions" style="cursor:pointer;color:blue" onclick="loadSuggest('ec','nbre_heure_tp',<?php echo $ecId; ?>,'sug_ec_nbre_heure_tp<?php echo $ecId; ?>');" class="fa fa-lightbulb-o" aria-hidden="true"></i>
+                                                      </label>
+                                                  </td>
+                                                  <td>
+                                                      <label for="<?php _hashName("ec_nbre_heure_tpe","_".$ecId); ?>">Nombre d'heures TPE
+                                                          <i title="Suggestions" style="cursor:pointer;color:blue" onclick="loadSuggest('ec','nbre_heure_tpe',<?php echo $ecId; ?>,'sug_ec_nbre_heure_tpe<?php echo $ecId; ?>');" class="fa fa-lightbulb-o" aria-hidden="true"></i>
+                                                      </label>
+                                                  </td>
                                               </tr>
                                               <tr>
                                                   <td><input onKeyUp="changeInfosCoefEc(<?php echo $ecId; ?>,this.value);"  onchange="regChangeEc(this.id,this.value,'notifChangedEc<?php echo $ue_id; ?>');"  id="<?php _hashName("ec_coef","_".$ecId);  ?>"           type="number" class="form-control" value="<?php echo $coef; ?>" min=1 placeholder="Coefficient"></td>
@@ -196,13 +217,14 @@ function getFormEditEc($classId,$class,$ue,$ue_id){
                                               </tr>
                                               <tr>
                                                   <td colspan="5">
-                                                      <div id="sug_ec_coef<?php echo $ecId; ?>" style="text-align: justify;" class="suggestion hide">
-
-                                                      </div>
+                                                      <div id="sug_ec_coef<?php echo $ecId; ?>" style="text-align: justify;" class="suggestion hide"></div>
+                                                      <div id="sug_ec_nbre_heure_cm<?php echo $ecId; ?>" style="text-align: justify;" class="suggestion hide"></div>
+                                                      <div id="sug_ec_nbre_heure_td<?php echo $ecId; ?>" style="text-align: justify;" class="suggestion hide"></div>
+                                                      <div id="sug_ec_nbre_heure_tp<?php echo $ecId; ?>" style="text-align: justify;" class="suggestion hide"></div>
+                                                      <div id="sug_ec_nbre_heure_tpe<?php echo $ecId; ?>" style="text-align: justify;" class="suggestion hide"></div>
                                                   </td>
                                               </tr>
                                           </table>
-
                                       </td>
                                   </tr>
                                   <tr>

@@ -91,8 +91,6 @@
                                         }
                                     }
                                 }
-
-
                                  ?>
                             </ul>
                         </div>
@@ -179,94 +177,53 @@
                 </ul>
             </li>
             <li class="dropdown alert-drp">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="zmdi zmdi-notifications top-nav-icon"></i><span class="top-nav-icon-badge">5</span></a>
+
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="zmdi zmdi-notifications top-nav-icon"></i>
+                    <?php
+                        if($notifications = $PROJET->getNotifications()){
+                            ?>
+                            <span class="top-nav-icon-badge"><?php echo count($notifications); ?></span>
+                            <?php
+                        } ?>
+                </a>
                 <ul  class="dropdown-menu alert-dropdown" data-dropdown-in="bounceIn" data-dropdown-out="bounceOut">
                     <li>
                         <div class="notification-box-head-wrap">
                             <span class="notification-box-head pull-left inline-block">notifications</span>
-                            <a class="txt-danger pull-right clear-notifications inline-block" href="javascript:void(0)"> clear all </a>
+                            <a class="txt-danger pull-right clear-notifications inline-block" href="javascript:void(0)"> Marquer tous comme lue </a>
                             <div class="clearfix"></div>
                             <hr class="light-grey-hr ma-0"/>
                         </div>
                     </li>
                     <li>
                         <div class="streamline message-nicescroll-bar">
-                            <div class="sl-item">
-                                <a href="javascript:void(0)">
-                                    <div class="icon bg-green">
-                                        <i class="zmdi zmdi-flag"></i>
-                                    </div>
-                                    <div class="sl-content">
-                                        <span class="inline-block capitalize-font  pull-left truncate head-notifications">
-                                        New subscription created</span>
-                                        <span class="inline-block font-11  pull-right notifications-time">2pm</span>
-                                        <div class="clearfix"></div>
-                                        <p class="truncate">Your customer subscribed for the basic plan. The customer will pay $25 per month.</p>
-                                    </div>
-                                </a>
-                            </div>
-                            <hr class="light-grey-hr ma-0"/>
-                            <div class="sl-item">
-                                <a href="javascript:void(0)">
-                                    <div class="icon bg-yellow">
-                                        <i class="zmdi zmdi-trending-down"></i>
-                                    </div>
-                                    <div class="sl-content">
-                                        <span class="inline-block capitalize-font  pull-left truncate head-notifications txt-warning">Server #2 not responding</span>
-                                        <span class="inline-block font-11 pull-right notifications-time">1pm</span>
-                                        <div class="clearfix"></div>
-                                        <p class="truncate">Some technical error occurred needs to be resolved.</p>
-                                    </div>
-                                </a>
-                            </div>
-                            <hr class="light-grey-hr ma-0"/>
-                            <div class="sl-item">
-                                <a href="javascript:void(0)">
-                                    <div class="icon bg-blue">
-                                        <i class="zmdi zmdi-email"></i>
-                                    </div>
-                                    <div class="sl-content">
-                                        <span class="inline-block capitalize-font  pull-left truncate head-notifications">2 new messages</span>
-                                        <span class="inline-block font-11  pull-right notifications-time">4pm</span>
-                                        <div class="clearfix"></div>
-                                        <p class="truncate"> The last payment for your G Suite Basic subscription failed.</p>
-                                    </div>
-                                </a>
-                            </div>
-                            <hr class="light-grey-hr ma-0"/>
-                            <div class="sl-item">
-                                <a href="javascript:void(0)">
-                                    <div class="sl-avatar">
-                                        <img class="img-responsive" src="https://hencework.com/theme/grandin-demo/img/avatar.jpg" alt="avatar"/>
-                                    </div>
-                                    <div class="sl-content">
-                                        <span class="inline-block capitalize-font  pull-left truncate head-notifications">Sandy Doe</span>
-                                        <span class="inline-block font-11  pull-right notifications-time">1pm</span>
-                                        <div class="clearfix"></div>
-                                        <p class="truncate">Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit</p>
-                                    </div>
-                                </a>
-                            </div>
-                            <hr class="light-grey-hr ma-0"/>
-                            <div class="sl-item">
-                                <a href="javascript:void(0)">
-                                    <div class="icon bg-red">
-                                        <i class="zmdi zmdi-storage"></i>
-                                    </div>
-                                    <div class="sl-content">
-                                        <span class="inline-block capitalize-font  pull-left truncate head-notifications txt-danger">99% server space occupied.</span>
-                                        <span class="inline-block font-11  pull-right notifications-time">1pm</span>
-                                        <div class="clearfix"></div>
-                                        <p class="truncate">consectetur, adipisci velit.</p>
-                                    </div>
-                                </a>
-                            </div>
+                            <?php
+                                if($notifications = $PROJET->getNotifications()){
+                                    foreach ($notifications as $notifKey => $notifValue){ ?>
+                                        <div class="sl-item">
+                                            <a href="index.php?page=showSuggestion&suggesId=<?php echo $notifValue['suggestion_id']; ?>">
+                                                <div title="<?php echo $notifValue['user_prenom'].' '.$notifValue['user_nom'].' - '.$notifValue['user_mail']; ?>" class="img-circle icon bg-green">
+                                                    <i class="fa fa-user"></i>
+                                                </div>
+                                                <div class="sl-content">
+                                                    <span class="inline-block capitalize-font  pull-left truncate head-notifications">
+                                                    <?php echo str_replace("_"," >> ",$notifValue["suggestion_cible"]); ?></span>
+                                                    <div class="clearfix"></div>
+                                                    <p class="truncate"><?php echo $notifValue["suggestion_valeur"]; ?></p>
+                                                </div>
+                                            </a>
+                                        </div>
+                                        <hr class="light-grey-hr ma-0"/><?php
+                                    }
+                                }else{
+                                    echo center("Aucune notification");
+                                } ?>
                         </div>
                     </li>
                     <li>
                         <div class="notification-box-bottom-wrap">
                             <hr class="light-grey-hr ma-0"/>
-                            <a class="block text-center read-all" href="javascript:void(0)"> read all </a>
+                            <a class="block text-center read-all" href="index.php?page=showSuggestion&suggesId=all"> Voire tous </a>
                             <div class="clearfix"></div>
                         </div>
                     </li>

@@ -62,16 +62,10 @@
       <div class="modal-body">
       <?php $PROJET=new Projet; ?>
         <form action="" method="POST">
-            <?php for ($i=0; $i<count($suggestions); $i++) {
-                if($suggestions[$i]['suggestion_cible']!='ec_nom') continue;    
-            ?>
-                <input type="radio" id="suggestionNom" name="suggestionNom" value="<?php echo($suggestions[$i]['suggestion_valeur']); ?>"><label for="subject"><?php print_r($suggestions[$i]['suggestion_valeur']); ?></label> </br></br>
-                <input type="hidden" name="ecId" value="">
-            <?php } ?>
-            <input type="hidden" name="groupId" value="<?php echo($groupId); ?>">
+        <input type="hidden" name="ecIdSug" id="ecIdSug" value="">
+            <div id="contentOptionsSuggesName"></div>
             <div>
-                <textarea name="" id="" cols="60" rows="10">
-                    <?php for ($i=0; $i<count($ecInGroup); $i++) { print_r($ecInGroup[$i]['ec_nom']); } ?>
+                <textarea name="contentSuggesName" id="contentSuggesName" cols="60" rows="10">
                 </textarea>
             </div>
             <center>
@@ -103,9 +97,8 @@
                 <?php } ?>
                 <input type="hidden" name="groupId" value="<?php echo($groupId); ?>">
                 <div>
-                    <textarea name="" id="" cols="60" rows="10">
-                        <?php for ($i=0; $i<count($ecInGroup); $i++) { print_r($ecInGroup[$i]['ec_competence']); } ?>
-                    </textarea>
+                <textarea name="contentSuggesCompetence" id="contentSuggesCompetence" cols="60" rows="10">
+                </textarea>
                 </div>
             <center>
                 <input class="btn btn-success" type="submit" value="Appliquer" name="appliquerCompet">
@@ -131,14 +124,12 @@
                 <?php for ($i=0; $i<count($suggestions); $i++) {
                     if($suggestions[$i]['suggestion_cible']!='ec_prerequis') continue;
                 ?>
-                
                     <input type="radio" id="suggestionPrerequis" name="suggestionPrerequis" value="<?php echo($suggestions[$i]['suggestion_valeur']); ?>"><label for="subject"><?php print_r($suggestions[$i]['suggestion_valeur']); ?></label> </br></br>
                     <input type="hidden" name="userId[]" value="">
                 <?php } ?>
                 <input type="hidden" name="groupId" value="<?php echo($groupId); ?>">
                 <div>
-                    <textarea name="" id="" cols="60" rows="10">
-                        <?php for ($i=0; $i<count($ecInGroup); $i++) { print_r($ecInGroup[$i]['ec_prerequis']); } ?>
+                    <textarea name="contentSuggesPrerequis" id="contentSuggesPrerequis" cols="60" rows="10">
                     </textarea>
                 </div>
             <center>
@@ -206,17 +197,17 @@
                                     <tr>
                                         <td><?php print_r($ecInGroup[$i]['ec_code']); ?></td>
                                         <td>
-                                            <a class="" data-toggle="modal" href="#suggestionNom">
+                                            <a onclick="suggestionNom(this);" alt="<?php echo($ecInGroup[$i]['ec_id']); ?>" class="" data-toggle="modal" href="#suggestionNom">
                                             <?php print_r($ecInGroup[$i]['ec_nom']); ?>
                                             </a>
                                         </td>
                                         <td>
-                                            <a class="" data-toggle="modal" href="#suggestionCompetence">
+                                            <a onclick="suggestionCompetence(this);" alt="<?php echo($ecInGroup[$i]['ec_id']); ?>" class="" data-toggle="modal" href="#suggestionCompetence">
                                             <?php print_r($ecInGroup[$i]['ec_competence']); ?>
                                             </a>
                                         </td>
                                         <td>
-                                            <a class="" data-toggle="modal" href="#suggestionPrerequis">
+                                            <a onclick="suggestionPrerequis(this);" alt="<?php echo($ecInGroup[$i]['ec_id']); ?>" class="" data-toggle="modal" href="#suggestionPrerequis">
                                             <?php print_r($ecInGroup[$i]['ec_prerequis']); ?>
                                             </a>
                                         </td>
@@ -237,3 +228,36 @@
 </div>
 <script src="<?php echo PATH_TEMPLATE; ?>dist/js/jquery.dataTables.min.js"></script>
 <script src="<?php echo PATH_TEMPLATE; ?>dist/js/dataTables-data.js"></script>
+<script>
+
+    function loadOptions(ecId,attrib,notifIn){
+        var xmlhttp = new XMLHttpRequest();
+
+        xmlhttp.onreadystatechange = function() {
+            if (this.readyState == 4 && this.status == 200) {
+                document.getElementById(notifIn).innerHTML = this.responseText;
+            }
+        };
+        xmlhttp.open("GET", "index.php?page=assync.loadOptions&ecId=" + ecId +"&attrib="+attrib, true);
+        xmlhttp.send();
+
+    }
+    
+    function suggestionNom(element) {
+        document.getElementById("ecIdSug").value = element.getAttribute("alt");
+        document.getElementById("contentSuggesName").value = element.innerHTML;
+        var ecId = document.getElementById("ecIdSug").value;
+        loadOptions(ecId,"ec_nom","contentOptionsSuggesName");
+    }
+
+    function suggestionCompetence(element) {
+        document.getElementById("ecIdSug").value = element.getAttribute("alt");
+        document.getElementById("contentSuggesCompetence").value = element.innerHTML;
+    }
+
+    function suggestionPrerequis(element) {
+        document.getElementById("ecIdSug").value = element.getAttribute("alt");
+        document.getElementById("contentSuggesPrerequis").value = element.innerHTML;
+    }
+
+</script>

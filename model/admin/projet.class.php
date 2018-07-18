@@ -1,5 +1,6 @@
 <?php
 require_once(DB_OPT_FILE);
+require_once(PATH_MODEL."admin/assync.loadSuggest.php");
 class Projet extends DB{
     private $name="";
     private $id=0;
@@ -82,6 +83,9 @@ class Projet extends DB{
         }
         return parent::getData("formation","*",[["projet_id",self::getId()]]);
     }
+    public function getNotifications(){
+        return Sugges::getNotRead(self::getId());
+    }
     public function getFormationsNames(){
         $formsNames = array();
         if($formations=self::getFormations()){
@@ -120,7 +124,7 @@ class Projet extends DB{
             foreach ($results as $resultKey => $resultFields) {
                 $teacherWhithGroupe[]=intval($resultFields["user_id"]);
             }
-            
+
         }
         return $teacherWhithGroupe;
     }
