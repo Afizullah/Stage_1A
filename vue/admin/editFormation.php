@@ -301,7 +301,8 @@
                                             }
                                         } ?>
 										<li class="active">
-                                            <a href="index.php?page=importFormation" data-toggle="modal" ><center><i class="fa fa-plus-circle"></i> Ajouter</center></a>
+                                            <a href="index.php?page=importFormation" data-toggle="modal"
+                                               style="text-align: center;"><i class="fa fa-plus-circle"></i> Ajouter</a>
                                         </li>
 									</ul>
 									<div class="clearfix"></div>
@@ -350,9 +351,9 @@
                                                         foreach ($classes as $classe => $value) { ?>
                                                             <div id="classe<?php echo $value["classe_id"]; ?>" class="tab-pane fade in <?php if($c_cmpt==0){ echo 'active'; } ?>">
                                                               <div>
-                                                                  <center>
+                                                                  <div style="text-align: center;">
                                                                       <h4 class="titre">Informations relatives à la <?php echo $value["classe_nom"]; ?></h4>
-                                                                  </center>
+                                                                  </div>
                                                                   <table class="table">
                                                                       <tr>
                                                                           <td>
@@ -417,9 +418,9 @@
                                                                                               </tr>
                                                                                           </table>
                                                                                       </div>
-                                                                                      <center>
+                                                                                      <div style="text-align: center;">
                                                                                           <button class="btn btn-primary" data-toggle="modal" data-target="#modalEcUe<?php echo $ue_field["ue_id"]; ?>">Détails EC</button>
-                                                                                      </center>
+                                                                                      </div>
                                                                                   </div><br /><?php
                                                                                   getFormEditEc($value["classe_id"],$value["classe_nom"],$ue_field["ue_nom"],$ue_field["ue_id"]);
                                                                               } ?>

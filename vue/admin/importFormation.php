@@ -61,9 +61,9 @@
     if(isset($from)){
 
     }else{ ?>
-        <center>
+        <div style="text-align: center;">
             <h3 style="color:blue">Veuillez choisir la source des données</h3>
-        </center>
+        </div>
         <div style="width:700px;margin:auto;border:1px solid grey;padding:20px;min-height:300px;">
             <form id="formContentExcelFile" method="post" class="" >
                 <input type="hidden" id="importMethod" name="importMethod" value="excelFile"><?php
@@ -90,16 +90,16 @@
                     <input type="hidden" id="idProjectToImport" name="idProjectToImport" value="0">
                     <div id="contentLoadedFromDb"></div>
                 </div>
-                <center>
+                <div style="text-align: center;">
                     <input type="submit" name="importData" class="btn btn-success" value="IMPORTER">
-                </center>
+                </div>
             </form>
         </div> <?php
     } ?>
 </div>
 <script type="text/javascript">
     function testFile(val){
-        document.getElementById("contentExcelFileAnalyse").innerHTML='<center><div class="loader"></div></center>';
+        document.getElementById("contentExcelFileAnalyse").innerHTML='<div style="text-align: center;"><div class="loader"></div></div>';
         var fd = new FormData(document.getElementById("formContentExcelFile"));
            fd.append("label", "WEBUPLOAD");
            $.ajax({
@@ -115,7 +115,7 @@
            return false;
     }
     function loadSelectedProject(){
-        document.getElementById("contentLoadedFromDb").innerHTML='<center><div class="loader"></div></center>';
+        document.getElementById("contentLoadedFromDb").innerHTML='<div style="text-align: center;"><div class="loader"></div></div>';
 
         var fd = new FormData(document.getElementById("formContentExcelFile"));
            fd.append("label", "WEBUPLOAD");

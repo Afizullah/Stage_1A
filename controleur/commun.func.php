@@ -108,7 +108,7 @@ function _getHashName($name)
 
 function center($content)
 {
-    return "<center>$content</center>";
+    return "<div style=\"text-align: center;\">$content</div>";
 }
 
 function isOperator($op)

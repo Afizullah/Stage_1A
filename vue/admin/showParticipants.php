@@ -17,9 +17,9 @@
                 <div>
                     
                 </div>
-            <center>
+            <div style="text-align: center;">
                 <input class="btn btn-success" type="submit" value="Affecter" name="affecter">
-            </center>
+            </div>
         </form>
       </div>
       <div class="modal-footer">
@@ -55,9 +55,9 @@
                 <div>
                     
                 </div>
-            <center>
+            <div style="text-align: center;">
                 <input class="btn btn-danger" type="submit" value="Supprimer" name="affecter">
-            </center>
+            </div>
         </form>
       </div>
       <div class="modal-footer">

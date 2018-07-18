@@ -37,9 +37,9 @@
                                                 if(isset($errors)){
                                                     foreach ($errors as $error) {
                                                         ?>
-                                                        <center>
+                                                        <div style="text-align: center;">
                                                             <span class="error"><?php echo $error; ?></span>
-                                                        </center><br/>
+                                                        </div><br/>
                                                         <?php
                                                     }
                                                 }

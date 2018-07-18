@@ -15,10 +15,10 @@ function getFormLogin(){
         <div class="form-group text-center">
             <input type="submit" name="login" class="btn btn-primary  btn-rounded" value="Se connecter" />
         </div>
-        <center>
+        <div style="text-align: center;">
 
             <a class="capitalize-font txt-primary block mb-10 font-12" href="index.php?page=forgot-password">Mot de passe oublié ?</a>
-        </center>
+        </div>
     </form>
     <?php
 }

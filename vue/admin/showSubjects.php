@@ -12,9 +12,9 @@
                 <input type="checkbox" name="ecId[]" value="<?php echo ($ecWithoutGroup[$i]["ec_id"]); ?>" id="subject<?php echo ($ecWithoutGroup[$i]["ec_id"]); ?>" ><label for="subject<?php echo ($ecWithoutGroup[$i]["ec_id"]); ?>"> <?php print_r($ecWithoutGroup[$i]['ec_nom']); ?></label> </br></br>
             <?php } ?>
             <input type="hidden" name="groupId" value="<?php echo($groupId); ?>">
-            <center>
+            <div style="text-align: center;">
                 <input class="btn btn-success" type="submit" value="Affecter" name="affecter">
-            </center>
+            </div>
         </form>
       </div>
       <div class="modal-footer">
@@ -41,9 +41,9 @@
                 <div>
                     
                 </div>
-            <center>
+            <div style="text-align: center;">
                 <input class="btn btn-danger" type="submit" value="Supprimer" name="affecter">
-            </center>
+            </div>
         </form>
       </div>
       <div class="modal-footer">
@@ -68,9 +68,9 @@
                 <textarea name="contentSuggesName" id="contentSuggesName" cols="60" rows="10">
                 </textarea>
             </div>
-            <center>
+            <div style="text-align: center;">
                 <input class="btn btn-success" type="submit" value="Appliquer" name="appliquerNom">
-            </center>
+            </div>
         </form>
       </div>
       <div class="modal-footer">
@@ -100,9 +100,9 @@
                 <textarea name="contentSuggesCompetence" id="contentSuggesCompetence" cols="60" rows="10">
                 </textarea>
                 </div>
-            <center>
+            <div style="text-align: center;">
                 <input class="btn btn-success" type="submit" value="Appliquer" name="appliquerCompet">
-            </center>
+            </div>
         </form>
       </div>
       <div class="modal-footer">
@@ -132,9 +132,9 @@
                     <textarea name="contentSuggesPrerequis" id="contentSuggesPrerequis" cols="60" rows="10">
                     </textarea>
                 </div>
-            <center>
+            <div style="text-align: center;">
                 <input class="btn btn-success" type="submit" value="Appliquer" name="appliquerPrerequis">
-            </center>
+            </div>
         </form>
       </div>
       <div class="modal-footer">
