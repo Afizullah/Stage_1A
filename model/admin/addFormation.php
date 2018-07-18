@@ -9,8 +9,8 @@
                 if($semestres = $data->getSemestresForm($formation)){
                     $codeFormat = $data->getCodeFormation($formation);
                     $formation_nbr_semestre = count($semestres);
-                    self::deleteFormation($projetId,$formation);
-                    $thisInfosFormation = self::addFormation($projetId,$codeFormat,$formation,$formation_nbr_semestre);
+                    $resp_id=self::deleteFormation($projetId,$formation);
+                    $thisInfosFormation = self::addFormation($projetId,$codeFormat,$formation,$formation_nbr_semestre,$resp_id);
                     $currentClass = NULL;
                     if($_formationId = $thisInfosFormation["formationId"]){
                         for ($i=0; $i < count($semestres) ; $i++) {
@@ -74,15 +74,16 @@
             );
         }
         public static function deleteFormation($projetId,$formationName){
-            if($formationId = DB::getLine("formation","formation_id",[["projet_id",intval($projetId)],["formation_nom",$formationName]])){
-                DB::execute("DELETE FROM formation WHERE formation_id=".intval($formationId["formation_id"]));
+            if($resu = DB::getLine("formation","formation_id,user_id",[["projet_id",intval($projetId)],["formation_nom",$formationName]])){
+                DB::execute("DELETE FROM formation WHERE formation_id=".intval($resu["formation_id"]));
+                return $resu['user_id'];
             }
         }
-        public static function addFormation($projectId,$formationCode,$formationNom,$formationSemestre){
+        public static function addFormation($projectId,$formationCode,$formationNom,$formationSemestre,$resp_id=NULL){
             $msg=null;
             $registed=false;
             if(!$formationId = DB::getLine("formation","formation_id",[["projet_id",$projectId],["formation_code",$formationCode]])["formation_id"]){
-                if($formationId = DB::registre("formation",[["projet_id",$projectId],["formation_code",$formationCode],["formation_nom",$formationNom],["formation_semestre",$formationSemestre]])){
+                if($formationId = DB::registre("formation",[["projet_id",$projectId],["formation_code",$formationCode],["formation_nom",$formationNom],["formation_semestre",$formationSemestre],["user_id",$resp_id]])){
                     $registed=true;
                 }else{
                     $msg = "Echec de l'enregistrement de la formation ".secure($formationCode);

@@ -2,11 +2,13 @@
     require_once(PATH_MODEL."admin/addFormation.php");
     class EditFormation extends DB{
         public static function formationExiste($formationId){
-            return DB::getLine("formation","formation_id",[["formation_id",intval($formationId)]]);
+            return DB::getLine("formation","user_id,formation_id",[["formation_id",intval($formationId)]]);
         }
         public static function deleteFormation($formationId){
-            if(self::formationExiste($formationId)){
-                return DB::execute("DELETE FROM formation WHERE formation_id=".intval($formationId));
+            if($resu=self::formationExiste($formationId)){
+                DB::execute("DELETE FROM formation WHERE formation_id=".intval($formationId));
+                die(var_dump($resu['user_id']));
+                return $resu['user_id'];
             }
             return true;
         }

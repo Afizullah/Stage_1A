@@ -30,4 +30,4 @@ $pdf->addHTMLTOC(2, 'Table des matières', $bookmark_templates, true, 'B', array
 $pdf->endTOCPage();
 
 ob_end_clean();
-$pdf->Output('example.pdf', 'I');
+$pdf->Output('Formation' . $pdf->getDocName() .'.pdf', 'I');

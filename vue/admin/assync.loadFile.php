@@ -1,5 +1,6 @@
 
 <?php
+require_once(PATH_MODEL.'admin/projet.class.php');
 function modalInfos($goodHeader){
     ?>
     <div class="modal fade" id="headerFile" tabindex="-1" role="dialog" aria-labelledby="" aria-hidden="true">
@@ -85,6 +86,7 @@ if (isset($_FILES["excelFileSource"])) {
                 </td>
                 <td></td>
                 </tr>";
+
                 for ($i=0; $i < count($formationsNames); $i++) {
                     $signal = "";
                     if(formationIsInCurrentProject($formationsNames[$i],$currentFormations)){
