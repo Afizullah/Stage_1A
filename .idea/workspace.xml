@@ -2,26 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8e3a3732-f075-4e5d-b42b-c2b7b4a92ea3" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/controleur/commun.func.php" beforeDir="false" afterPath="$PROJECT_DIR$/controleur/commun.func.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vue/admin/accueil.php" beforeDir="false" afterPath="$PROJECT_DIR$/vue/admin/accueil.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vue/admin/addGroupe.php" beforeDir="false" afterPath="$PROJECT_DIR$/vue/admin/addGroupe.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vue/admin/addUser.php" beforeDir="false" afterPath="$PROJECT_DIR$/vue/admin/addUser.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vue/admin/assync.loadDb.php" beforeDir="false" afterPath="$PROJECT_DIR$/vue/admin/assync.loadDb.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vue/admin/assync.loadFile.php" beforeDir="false" afterPath="$PROJECT_DIR$/vue/admin/assync.loadFile.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vue/admin/assync.loadSuggest.php" beforeDir="false" afterPath="$PROJECT_DIR$/vue/admin/assync.loadSuggest.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vue/admin/createProjet.php" beforeDir="false" afterPath="$PROJECT_DIR$/vue/admin/createProjet.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vue/admin/editFormation.php" beforeDir="false" afterPath="$PROJECT_DIR$/vue/admin/editFormation.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vue/admin/genererLivret.php" beforeDir="false" afterPath="$PROJECT_DIR$/vue/admin/genererLivret.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vue/admin/importFormation.php" beforeDir="false" afterPath="$PROJECT_DIR$/vue/admin/importFormation.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vue/admin/showParticipants.php" beforeDir="false" afterPath="$PROJECT_DIR$/vue/admin/showParticipants.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vue/admin/showSubjects.php" beforeDir="false" afterPath="$PROJECT_DIR$/vue/admin/showSubjects.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vue/admin/showUsers.php" beforeDir="false" afterPath="$PROJECT_DIR$/vue/admin/showUsers.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vue/enseignant/body/forms.php" beforeDir="false" afterPath="$PROJECT_DIR$/vue/enseignant/body/forms.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vue/login/forms.php" beforeDir="false" afterPath="$PROJECT_DIR$/vue/login/forms.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vue/login/login.php" beforeDir="false" afterPath="$PROJECT_DIR$/vue/login/login.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vue/responsable_pedagogique/assync.loadDb.php" beforeDir="false" afterPath="$PROJECT_DIR$/vue/responsable_pedagogique/assync.loadDb.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vue/responsable_pedagogique/assync.loadFile.php" beforeDir="false" afterPath="$PROJECT_DIR$/vue/responsable_pedagogique/assync.loadFile.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vue/responsable_pedagogique/body/forms.php" beforeDir="false" afterPath="$PROJECT_DIR$/vue/responsable_pedagogique/body/forms.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -35,93 +16,31 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="assync.loadDb.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/vue/responsable_pedagogique/assync.loadDb.php">
+      <file leaf-file-name="livret (4).sql" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/livret (4).sql">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="420">
-              <caret line="73" column="14" selection-start-line="73" selection-start-column="11" selection-end-line="73" selection-end-column="14" />
-              <folding>
-                <element signature="n#style#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#i#0;n#a#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#i#0;n#center#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#tr#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#td#0;n#tr#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#input#0;n#td#0;n#tr#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#label#0;n#td#1;n#tr#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#span#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#span#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
-              </folding>
-            </state>
+            <state relative-caret-position="-1728" />
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="assync.loadFile.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/vue/responsable_pedagogique/assync.loadFile.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="330">
-              <caret line="104" column="9" lean-forward="true" selection-start-line="104" selection-start-column="9" selection-end-line="104" selection-end-column="9" />
-              <folding>
-                <element signature="n#style#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#1;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#i#0;n#a#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#i#0;n#center#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#tr#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#td#0;n#tr#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#input#0;n#td#0;n#tr#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#label#0;n#td#1;n#tr#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="assync_suggestion.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/vue/responsable_pedagogique/assync_suggestion.php">
+      <file leaf-file-name="livret (5).sql" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/livret (5).sql">
           <provider selected="true" editor-type-id="text-editor" />
         </entry>
       </file>
-      <file leaf-file-name="groupes.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/vue/responsable_pedagogique/groupes.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="294">
-              <caret line="18" column="9" selection-start-line="18" selection-start-column="9" selection-end-line="18" selection-end-column="9" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="importFormation.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/vue/responsable_pedagogique/importFormation.php">
+      <file leaf-file-name="livret (6).sql" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/livret (6).sql">
           <provider selected="true" editor-type-id="text-editor" />
         </entry>
       </file>
-      <file leaf-file-name="index.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/vue/responsable_pedagogique/index.php">
-          <provider selected="true" editor-type-id="text-editor" />
-        </entry>
-      </file>
-      <file leaf-file-name="showFormations.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/vue/responsable_pedagogique/showFormations.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="169">
-              <caret line="57" column="26" selection-start-line="57" selection-start-column="20" selection-end-line="57" selection-end-column="26" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="showProjets.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/vue/responsable_pedagogique/showProjets.php">
-          <provider selected="true" editor-type-id="text-editor" />
-        </entry>
-      </file>
-      <file leaf-file-name="suggestion.php" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/vue/responsable_pedagogique/suggestion.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="331">
-              <caret line="30" column="49" selection-start-line="30" selection-start-column="49" selection-end-line="30" selection-end-column="49" />
+      <file leaf-file-name="README.md" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/README.md">
+          <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+            <state split_layout="SPLIT">
+              <first_editor relative-caret-position="216">
+                <caret line="12" column="66" lean-forward="true" selection-start-line="12" selection-start-column="66" selection-end-line="12" selection-end-column="66" />
+              </first_editor>
+              <second_editor />
             </state>
           </provider>
         </entry>
@@ -151,7 +70,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/controleur/libs/TCPDF-master/examples/page_de_garde.php" />
         <option value="$PROJECT_DIR$/controleur/libs/TCPDF-master/examples/formation.php" />
         <option value="$PROJECT_DIR$/vue/login/index.php" />
         <option value="$PROJECT_DIR$/vue/page_to_load.php" />
@@ -202,6 +120,7 @@
         <option value="$PROJECT_DIR$/vue/responsable_pedagogique/body/forms.php" />
         <option value="$PROJECT_DIR$/vue/responsable_pedagogique/assync.loadDb.php" />
         <option value="$PROJECT_DIR$/vue/responsable_pedagogique/assync.loadFile.php" />
+        <option value="$PROJECT_DIR$/README.md" />
       </list>
     </option>
   </component>
@@ -214,7 +133,7 @@
   <component name="NodePackageJsonFileManager">
     <packageJsonPaths />
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
+  <component name="ProjectFrameBounds" extendedState="7">
     <option name="x" value="-18" />
     <option name="width" value="1890" />
     <option name="height" value="930" />
@@ -338,7 +257,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="70947000" />
+    <option name="totallyTimeSpent" value="71076000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1295" height="695" extended-state="6" />
@@ -389,61 +308,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/vue/admin/showGroup.php">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/vue/admin/showGroups.php">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/vue/admin/showParticipants.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="169">
-          <caret line="57" column="42" selection-start-line="57" selection-start-column="36" selection-end-line="57" selection-end-column="42" />
-          <folding>
-            <element signature="n#style#0;n#div#1;n#form#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/vue/admin/showProjets.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-30" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/vue/admin/showSubjects.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="169">
-          <caret line="14" column="42" selection-start-line="14" selection-start-column="36" selection-end-line="14" selection-end-column="42" />
-          <folding>
-            <element signature="n#style#0;n#div#1;n#form#0;n#div#1;n#div#0;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#2;n#form#0;n#div#1;n#div#0;n#div#0;n#div#2;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#1;n#form#0;n#div#1;n#div#0;n#div#0;n#div#3;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#1;n#form#0;n#div#1;n#div#0;n#div#0;n#div#4;n#div#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/vue/admin/showSuggestion.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <folding>
-            <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/vue/admin/showUsers.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="295">
-          <caret line="119" column="25" selection-start-line="119" selection-start-column="25" selection-end-line="119" selection-end-column="25" />
-          <folding>
-            <element signature="n#style#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#form#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/vue/enseignant/body/_body.php">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -713,6 +577,36 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="331">
           <caret line="30" column="49" selection-start-line="30" selection-start-column="49" selection-end-line="30" selection-end-column="49" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/compte.php">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/datetime.php">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/index.php">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/livret (4).sql">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1728" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/livret (5).sql">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/livret (6).sql">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/README.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="216">
+            <caret line="12" column="66" lean-forward="true" selection-start-line="12" selection-start-column="66" selection-end-line="12" selection-end-column="66" />
+          </first_editor>
+          <second_editor />
         </state>
       </provider>
     </entry>
