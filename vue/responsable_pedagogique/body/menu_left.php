@@ -126,10 +126,13 @@ function linkCreatProjet(){
             <i class="zmdi zmdi-more"></i>
         </li>
         <li>
-            <a href="javascript:void(0);" data-toggle="collapse" data-target="#dashboard_dr3"><div class="pull-left"><i class="zmdi zmdi-landscape mr-20"></i><span class="right-nav-text">Gérer les livrets</span></div><div class="pull-right"><i class="zmdi zmdi-caret-down"></i></div><div class="clearfix"></div></a>
+            <a href="javascript:void(0);" data-toggle="collapse" data-target="#dashboard_dr3"><div class="pull-left"><i class="zmdi zmdi-landscape mr-20"></i><span class="right-nav-text">Suggestions</span></div><div class="pull-right"><i class="zmdi zmdi-caret-down"></i></div><div class="clearfix"></div></a>
             <ul id="dashboard_dr3" class="collapse collapse-level-1">
                 <li>
-                    <a href="index.php?page=proposition">Faire une proposition</a>
+                    <a href="index.php?page=groupes">Faire une suggestion</a>
+                </li>
+                 <li>
+                    <a href="index.php?page=aff_suggestion">Vos suggestions</a>
                 </li>
             </ul>
         </li>
