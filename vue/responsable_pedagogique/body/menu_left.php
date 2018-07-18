@@ -59,6 +59,9 @@ function linkCreatProjet(){
                         <li>
                             <a href="index.php?page=showFormations&projetId=<?php echo $PROJET->getId(); ?>">Liste des formations</a>
                         </li>
+                        <li>
+                            <a href="index.php?page=importFormation">Importer des formations</a>
+                        </li>
                         <?php
                     }
             }else{
