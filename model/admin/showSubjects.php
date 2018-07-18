@@ -1,9 +1,9 @@
 <?php
-
+    require_once(PATH_MODEL."admin/assync.loadSuggest.php");
     Class Subjects extends DB {
 
         function getSubjectsInGroup($groupId) {
-            return DB::query('SELECT ec_code, ec_nom, ec_competence, ec_prerequis FROM ec WHERE groupe_id ='.$groupId);
+            return DB::query('SELECT ec_code, ec_id, ec_nom, ec_competence, ec_prerequis FROM ec WHERE groupe_id ='.$groupId);
         }
 
         function getSubjectsWithoutGroup($idProjet) {

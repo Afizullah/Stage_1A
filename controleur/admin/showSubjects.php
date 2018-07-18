@@ -17,12 +17,11 @@
         }
     }
 
-    // $ecId =
-    // $ecNom =
-    // var_dump($_POST['appliquerNom']);
-    // die();
     if (isset($_POST['appliquerNom'])) {
-        // Subjects::recordSuggestion($ecId,$ecNom);
+        // var_dump($_POST['suggestId']);
+        // die();
+        Sugges::apply(intval($_POST['suggestId']));
+        header("Location: index.php?page=showSubjects&groupId=".$groupId);
     }
 
     $suggestions = Subjects::getSuggestion();
