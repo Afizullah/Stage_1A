@@ -1,7 +1,9 @@
 <?php
-require_once PATH_CONTROLEUR.'commun.user.php';
-$formations=importForm::getFormations(CurrentUser::getId());
-require_once PATH_CONTROLEUR.'admin/assync.loadFile.php';
+require_once(PATH_CONTROLEUR.'commun.user.php');
+$user_id=CurrentUser::getId();
+$projet_id=$PROJET->getId();
+$formations=importForm::getFormations($user_id,$projet_id);
+require_once(PATH_CONTROLEUR.'admin/assync.loadFile.php');
 
 function inter_formation($formationsNames,$formations){
     $resu=[];
@@ -14,5 +16,4 @@ function inter_formation($formationsNames,$formations){
     }
     return $resu;
 }
-
 ?>

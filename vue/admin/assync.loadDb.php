@@ -71,6 +71,6 @@ if (isset($_POST["idProjectToImport"])) {
         echo center("<span style='color:red'>Aucune donnée trouvé dans ce projet</span>");
     }
 }else{
-    echo "<center style='color:red'>Projet non défini</center>";
+    echo "<div style=\"color:red; text-align: center;\">Projet non défini</div>";
 }
 ?>

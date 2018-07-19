@@ -28,6 +28,7 @@ define("MAP_PAGES",array(
                         "showProjets"=>["pageName"=>"Liste des projets"],
                         "importFormation"=>["pageName"=>"Importer formation(s)"],
                         "editFormation"=>["pageName"=>"Modifier une formation"],
+                        "addGroupe"=>["pageName"=>"Créer un nouveau groupe"],
                         "editUser"=>["pageName"=>"Modifier compte"]
                     ));
 ?>

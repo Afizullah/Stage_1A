@@ -46,9 +46,9 @@
                 }
                  ?>
             </table>
-            <center>
+            <div style="text-align: center;">
                 <input type="submit" class="btn btn-info" name="selectFormations" value="Valider">
-            </center>
+            </div>
         </form><?php
     }else{
         br(3);

@@ -9,4 +9,6 @@
 
 - Déplacer le contenu du fichier "livret" dans /var/www/html/ (Linux)
 										ou  C:\wamp64\www	(Windows Apache MySQL PHP)
-- Déplacer le contenu de "compte.php" directement à l'extérieur du dossier "livret"
+- Copier le contenu de "compte.php" directement à l'extérieur du dossier "livret"
+- Ajouter la base de donnée appropriée "livret (#)" via PHPMyAdmin
+- Se procurer la librairie PHPExcel et la mettre dans livret/controleur/libs/ 

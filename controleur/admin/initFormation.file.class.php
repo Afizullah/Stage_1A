@@ -4,7 +4,7 @@
         private $document_excel=null;
         private $feuilles = null;
         private $semestre_str = "Semestre";
-        private $leafColsRequired = ["Code_Parcours","CodeUE","CodeEC","Semestre","TypeCompetence","Classe","Matiere","Compétences","Preréquis","Contenu",
+        private $leafColsRequired = ["Code_Parcours","CodeUE","CodeEC","Semestre","Classe","Matiere","Compétences","Preréquis","Contenu",
                                     "Nb Heures CM","Nb Heures TD","Nb Heures TP","Nb Heures TPE","Coefficient"];
         private $semestres = null;
         private $ue = null;
@@ -94,7 +94,6 @@
 
                         if(!empty($currentEcCode) && $thisUeSemestre){
                             if(!in_array($currentEcCode,$ec_fetch)){
-                                $currentEcTypeCompetence = trim($feuille[$i]["TypeCompetence"]);
                                 $currentEcMatiere = $feuille[$i]["Matiere"];
                                 $currentEcCompetences = trim($feuille[$i]["Compétences"]);
                                 $currentEcPrerequis = trim($feuille[$i]["Preréquis"]);
@@ -104,9 +103,7 @@
                                 $currentEcHeuresTD = intval($feuille[$i]["Nb Heures TD"]);
                                 $currentEcHeuresTP = intval($feuille[$i]["Nb Heures TP"]);
                                 $currentEcHeuresTPE = intval($feuille[$i]["Nb Heures TPE"]);
-
                                 $ec[$thisUeSemestre][$currentUe]["CodeEC"][]=$currentEcCode;
-                                $ec[$thisUeSemestre][$currentUe]["TypeCompetence"][]=$currentEcTypeCompetence;
                                 $ec[$thisUeSemestre][$currentUe]["competence"][]=$currentEcCompetences;
                                 $ec[$thisUeSemestre][$currentUe]["matiere"][]=$currentEcMatiere;
                                 $ec[$thisUeSemestre][$currentUe]["prerequis"][]=$currentEcPrerequis;
