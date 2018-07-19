@@ -223,39 +223,37 @@ function generateNewString($lenght, $toString = array(), $notInTab = array())
 }
 
 
-function alertErrors($errors)
-{
-    for ($i = 0; $i < count($errors); $i++) {
+function alertErrors($errors){
+    for($i= 0;$i <count($errors);$i++){
         ?>
-        <center><span class="error">
-                  <?php echo $errors[$i]; ?>
-              </span>
-        </center>
+            <script>
+                $(function(){
+                    $.notify("<?php echo $errors[$i]; ?>","error");
+                });
+            </script>
+        <?php
+        }
+}
+
+
+function alertWarning($errors){
+    for($i= 0;$i <count($errors);$i++){
+        ?>
+            <script>
+                $(function(){
+                    $.notify("<?php echo $errors[$i]; ?>","warn");
+                });
+            </script>
         <?php
     }
 }
-
-function alertWarning($errors)
-{
-    for ($i = 0; $i < count($errors); $i++) {
-        ?>
-        <center><span class="warning">
-                  <?php echo $errors[$i]; ?>
-              </span>
-        </center>
-        <?php
-    }
-}
-
-function alertSucces($msgScces)
-{
+function alertSucces($msgScces){
     ?>
-    <center><span class="succes">
-        <?php echo $msgScces; ?></center>
-    </span>
-
+        <script>
+        $(function(){
+            $.notify("<?php echo $msgScces; ?>","success");
+        });
+        </script>
     <?php
-
 }
-
 ?>

@@ -20,5 +20,7 @@
 		<script src="<?php echo PATH_TEMPLATE; ?>/dist/js/jasny-bootstrap.min.js"></script>
 		<script src="<?php echo PATH_TEMPLATE; ?>/dist/js/select2.min.js"></script>
 		<script src="<?php echo PATH_TEMPLATE; ?>/dist/js/ckeditor/ckeditor.js"></script>
+		<script src="<?php echo PATH_TEMPLATE; ?>/dist/js/notify.min.js"></script>
+		
 	</head>
 	<body>

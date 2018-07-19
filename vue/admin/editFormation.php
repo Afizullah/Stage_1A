@@ -475,5 +475,34 @@
         document.getElementById(formationId).style.display = "block";
         evt.currentTarget.className += " active";
     }
-
+    
+    function asyncSugges(opt,suggesId){
+        var xmlhttp = new XMLHttpRequest();
+        xmlhttp.onreadystatechange = function() {
+            if (this.readyState == 4 && this.status == 200){
+                try {
+                    var result = JSON.parse(this.responseText);
+                    if(result.status==200){
+                        var dataSugges = result.data;
+                        var dataSource = document.getElementById("sug_cont_"+dataSugges.sugId);
+                        document.getElementById(dataSugges.destId).value=dataSugges.sugValue;
+                        dataSource.style.display="none";
+                        $.notify("Suggestion appliquée","info");
+                    }
+                } catch (error) {
+                    console.log("Vérifiez la syntax json file");
+                    console.log(error);
+                }
+               
+            }
+        };
+        xmlhttp.open("GET", "index.php?page=assync.changeSuggesStatus&opt="+opt+"&suggestId="+suggesId, true);
+        xmlhttp.send();
+    }
+    function applySuggestion(suggesId){
+        asyncSugges("apply",suggesId);
+    }
+    function ignoreSuggestion(suggesId){
+        alert("ignore",suggesId);
+    }
 </script>
