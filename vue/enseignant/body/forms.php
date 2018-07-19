@@ -30,9 +30,9 @@ function getFormAddUsser($action="",$type_compte="",$date_expiration="",$email="
               <span class="input-group-addon">Nom : </span>
               <input required type="text" value="<?php echo $nom; ?>" class="form-control" name="nom" placeholder="">
         </div><br />
-        <center>
+        <div style="text-align: center;">
               <input type="submit" class="btn btn-success" class="form-control" name="addUser" value="Créer un compte">
-        </center>
+        </div>
     </form>
     <?php
 }
@@ -44,9 +44,9 @@ function getFromCreateProjet($nomProjet="",$action=""){
               <span class="input-group-addon">Nom du projet : </span>
               <input required type="text" class="form-control" name="projet_nom" value="<?php echo $nomProjet; ?>" placeholder="Ex: Projet Livrets 2000">
         </div> <br/>
-        <center>
+        <div style="text-align: center;">
               <input type="submit" class="btn btn-success" class="form-control" name="addPojet" value="Créer un projet">
-        </center>
+        </div>
     </form>
 
     <?php
@@ -59,9 +59,9 @@ function getFromCreateGroup($nomGroup="",$action=""){
               <span class="input-group-addon">Nom du groupe : </span>
               <input required type="text" class="form-control" name="groupe_nom" value="<?php echo $nomGroup; ?>" placeholder="Ex: Informatique">
         </div><br />
-        <center>
+        <div style="text-align: center;">
               <input type="submit" class="btn btn-success" class="form-control" name="addGroup" value="Créer un groupe">
-        </center>
+        </div>
     </form>
 
     <?php
@@ -340,9 +340,9 @@ function getFormInvariants(){
             }
             ?>
         </div>
-        <center>
+        <div style="text-align: center;">
             <input type="submit" name="modifInvariant" class="btn btn-success" value="Enregistrer">
-        </center>
+        </div>
     </form>
     <?php
 }

@@ -12,9 +12,9 @@ fieldset {
 </style>
 <div style="max-width:600px;margin:auto;padding:30px;background-color:white;" class="">
 
-    <center>
+    <div style="text-align: center;">
         <h5>Créer un nouveau groupe</h5>
-    </center>
+    </div>
     <?php
         $hasError = false;
         if(isset($errors)){

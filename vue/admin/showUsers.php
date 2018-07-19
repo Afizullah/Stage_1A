@@ -1,7 +1,7 @@
 <div style="background-color:white;padding:20px" class="container mt-3">
-  <center>
+  <div style="text-align: center;">
       <h3>Liste des utilisateurs de la plateforme</h3>
-  </center>
+  </div>
   <!-- <p>Click on the Tabs to display the active and previous tab.</p> -->
 
   <!-- Nav tabs -->
@@ -41,9 +41,9 @@
                                               if($hasGroupe){
 
                                                   ?>
-                                                  <center>
+                                                  <div style="text-align: center;">
                                                       <h5>Gestion des groupes <i>(<?php echo $PROJET->getName(); ?>)</i></h5>
-                                                  </center>
+                                                  </div>
                                                   <form class="" action="" method="post">
                                                       <label for="notifEnseignant">Notifier les enseignants des changements </label>
                                                       <input type="checkbox" id="notifEnseignant" name="notifEnseignant" value="ok">
@@ -110,9 +110,9 @@
                                               if($hasGroupe){
 
                                                   ?>
-                                                  <center><br /><br />
+                                                  <div style="text-align: center;"><br /><br />
                                                       <input class="btn btn-success" type="submit" name="editGroupeListe" value="Enregistrer les modifications" />
-                                                  </center>
+                                                  </div>
                                               </form>
                                                   <?php
                                               }

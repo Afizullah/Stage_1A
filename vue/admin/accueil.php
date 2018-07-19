@@ -16,11 +16,11 @@
 <?php
     if(!$projet = $PROJET->getId()){
         ?>
-        <center>
+        <div style="text-align: center;">
             <a href="#createProjet" data-toggle="modal" >
                 <button class="btn btn-primary" type="button" name="button">CREER UN NOUVEAU PROJET</button>
             </a>
-        </center>
+        </div>
         <?php
     }
  ?>

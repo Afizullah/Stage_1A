@@ -11,9 +11,9 @@ function modalInfos($goodHeader){
             <h4 class="modal-title" id="">Feuille excel correct</h4>
           </div>
           <div class="modal-body">
-                  <center class="lead">
+                  <div class="lead" style="text-align: center;">
                       Une feuille excel est correct lorsque sont entête contient les attributs suivants:<br />
-                  </center>
+                  </div>
                   <?php
                   for ($i=0; $i < count($goodHeader) ; $i++) {
                       ?>
@@ -39,10 +39,10 @@ function modalWarning($formationName,$n){
             <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
           </div>
           <div class="modal-body">
-                  <center class="lead">
+                  <div class="lead" style="text-align: center;">
                       La formation <?php echo $formationName; ?> est déja intégrée dans ce projet.<br />
                       vous pouvez le selectionner si vous souhaitez la réinitialiser
-                  </center>
+                  </div>
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-default" data-dismiss="modal">OK</button>
@@ -97,15 +97,15 @@ if (isset($_FILES["excelFileSource"])) {
                 }
                 echo $options."</table>";
             }else{
-                echo "<center style='color:red'>Aucune formation detectée dans ce fichier ".getBtnHelp()."</center>";
+                echo "<div style=\"color:red; text-align: center;\">Aucune formation detectée dans ce fichier " .getBtnHelp(). "</div>";
             }
         }else{
-            echo "<center style='color:red'>Echec de la lecture du fichier </center>";
+            echo "<div style=\"color:red; text-align: center;\">Echec de la lecture du fichier </div>";
         }
     }else{
         echo center("Veuillez selectionnez un fichier excel");
     }
 }else{
-    echo "<center style='color:red'>Fichier non défini</center>";
+    echo "<div style=\"color:red; text-align: center;\">Fichier non défini</div>";
 }
 ?>
