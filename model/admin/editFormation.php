@@ -7,12 +7,10 @@
         public static function deleteFormation($formationId){
             if($resu=self::formationExiste($formationId)){
                 DB::execute("DELETE FROM formation WHERE formation_id=".intval($formationId));
-                die(var_dump($resu['user_id']));
                 return $resu['user_id'];
             }
             return true;
         }
-
 
         public static function ueExiste($ueId){
             return DB::getLine("ue","ue_id",[["ue_id",intval($ueId)]]);

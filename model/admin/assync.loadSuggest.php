@@ -2,7 +2,7 @@
 
     class Sugges extends DB{
         public static function getAll($projetId,$realCible,$idCible){
-            if($result = DB::getData("suggestions_projet_utilisateur NATURAL JOIN suggestions NATURAL JOIN utilisateurs NATURAL JOIN projet","suggestion_id,user_nom,user_prenom,user_mail,suggestion_valeur",[["projet_id",intval($projetId)],["suggestion_etat","en cours"],["suggestion_cible",$realCible],["suggestion_cible_id",$idCible]])){
+            if($result = DB::getData("suggestions_projet_utilisateur NATURAL JOIN suggestions NATURAL JOIN utilisateurs NATURAL JOIN projet","suggestion_id,suggestion_cible,suggestion_cible_id,user_nom,user_prenom,user_mail,suggestion_valeur",[["projet_id",intval($projetId)],["suggestion_etat","en cours"],["suggestion_cible",$realCible],["suggestion_cible_id",$idCible]])){
                 foreach ($result as $resultKey => $value) {
                     self::checkReadNotif($value["suggestion_id"]);
                 }
@@ -19,7 +19,13 @@
             return DB::update("suggestions",[["suggestion_etat",$newStatus]],[["suggestion_id",intval($suggestionId)]]);
         }
         public static function getSugges($suggestId){
-            return DB::getLine("suggestions_projet_utilisateur NATURAL JOIN suggestions NATURAL JOIN utilisateurs NATURAL JOIN projet","suggestion_id,suggestion_cible,user_nom,user_prenom,user_mail,suggestion_valeur",[["suggestion_id",intval($suggestId)]]);
+            if($result =  DB::getData("suggestions_projet_utilisateur NATURAL JOIN suggestions NATURAL JOIN utilisateurs NATURAL JOIN projet","suggestion_id,suggestion_cible,suggestion_cible_id,user_nom,user_prenom,user_mail,suggestion_valeur",[["suggestion_id",intval($suggestId)]])){
+                self::checkReadNotif($suggestId);
+            }
+            return $result;
+        }
+        public static function ignore($suggesId){
+            return self::changeStatusSuggestion($suggesId,"ignore");
         }
         public static function apply($suggestionId){
             if($suggestion = DB::getLine("suggestions","*",[["suggestion_id",intval($suggestionId)]])){
@@ -33,11 +39,12 @@
                         $newValue = $suggestion["suggestion_valeur"];
                         if(DB::update($table,[[$attrib,$newValue]],[[$idName,$elementId]])){
                             self::changeStatusSuggestion($suggestionId,"applique");
-                            return true;
+                            return self::getSugges($suggestionId)[0];
                         }
                     }
                 }
             }
+            return false;
         }
            
     }

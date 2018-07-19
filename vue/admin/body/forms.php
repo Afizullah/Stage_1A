@@ -119,169 +119,168 @@ function getFormEditEc($classId,$class,$ue,$ue_id){
     <div class="modal fade" id="modalEcUe<?php echo $ue_id; ?>" tabindex="-1" role="dialog" aria-labelledby="" aria-hidden="true">
       <div class="modal-dialog modal-lg">
         <div class="modal-content">
-          <div class="modal-header">
-              <h5 style="float:left" class="modal-title" id=""><span style="color:red"><?php echo $class."</span> <i class='fa fa-angle-double-right'></i><span style='color:blue'> ".$ue; ?></span><span class="label label-success showInfosCreditUe<?php echo $ue_id; ?>"></span></h5>
-                  <div id="notifChangedEc<?php echo $ue_id; ?>"></div>
-            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-          </div>
-          <div style="max-height:500px;overflow-y:auto" class="modal-body">
+            <div class="modal-header">
+                <h5 style="float:left" class="modal-title" id=""><span style="color:red"><?php echo $class."</span> <i class='fa fa-angle-double-right'></i><span style='color:blue'> ".$ue; ?></span><span class="label label-success showInfosCreditUe<?php echo $ue_id; ?>"></span></h5>
+                <div id="notifChangedEc<?php echo $ue_id; ?>"></div>
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+            </div>
+            <div style="max-height:500px;overflow-y:auto" class="modal-body"><?php
+            
+                if($ecs = Formation::getEcs($ue_id)){
+                    foreach ($ecs as $ec => $ec_field) {
+                        $ecId=$ec_field["ec_id"];
+                        $codeEc = $ec_field["ec_code"];
+                        $competence = $ec_field["ec_competence"];
+                        $matiere = $ec_field["ec_nom"];
+                        $prerequis = $ec_field["ec_prerequis"];
+                        $contenu = $ec_field["ec_contenu"];
+                        $coef = $ec_field["ec_coef"];
+                        $nbrHeurCM = $ec_field["ec_nbre_heure_cm"];
+                        $nbrHeurTD = $ec_field["ec_nbre_heure_td"];
+                        $nbrHeurTP = $ec_field["ec_nbre_heure_tp"];
+                        $nbrHeurTPE = $ec_field["ec_nbre_heure_tpe"];
+                        ?>
+                        <div class="panel-group">
+                            <div class="panel panel-default">
+                                <div class="panel-heading">
+                                <h4 class="panel-title">
+                                    <a style="display:block" data-toggle="collapse" href="#collapseMatiere<?php echo $ecId; ?>">
+                                        <?php $nomMatiere = ($matiere)?$matiere:"Matière non définie"; echo $nomMatiere; ?>
+                                        <span id="infosCoef<?php echo $ecId;  ?>" class="label label-<?php echo ($coef==0)?"danger":"success"; ?>">
+                                            Coef <span id="valInfoCoef<?php echo $ecId; ?>"><?php echo $coef; ?></span>
+                                        </span>
+                                    </a>
+                                    <a style="float:right;margin-top:-20px" href="#deleteElement"  data-dismiss="modal" data-toggle="modal" onclick="openFormDropElement('ec','<?php echo $ecId; ?>','<?php echo $nomMatiere; ?>','<?php echo _hashName('ec'); ?>');" title="Supprimer l'ec">
+                                        <i style="padding:2px 3px;border-radius:20px 20px 20px 20px;" class="btn-danger fa fa-trash-o"></i>
+                                    </a>
+                                </h4>
+                                </div>
+                                <div id="collapseMatiere<?php echo $ecId; ?>" class="panel-collapse collapse">
+                                    <table class="table">
+                                        <tr>
+                                            <td>
+                                                <div class="input-group">
+                                                    <span class="input-group-addon">Code EC</span>
+                                                    <input type="text" onchange="regChangeEc(this.id,this.value,'notifChangedEc<?php echo $ue_id; ?>');"  id="<?php _hashName("ec_code","_".$ecId);  ?>" value="<?php echo $codeEc; ?>" class="form-control" placeholder="Code EC">
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <div class="input-group">
+                                                    <span class="input-group-addon">Matière
+                                                        <i title="Suggestions" style="cursor:pointer;color:blue" onclick="loadSuggest('ec','nom',<?php echo $ecId; ?>,'sug_ec_nom<?php echo $ecId; ?>');" class="fa fa-lightbulb-o" aria-hidden="true"></i>
+                                                    </span>
+                                                    <div id="sug_ec_nom<?php echo $ecId; ?>" style="text-align: justify;" class="suggestion hide"></div>
+                                                    <input type="text"  onchange="regChangeEc(this.id,this.value,'notifChangedEc<?php echo $ue_id; ?>');"  id="<?php _hashName("ec_nom","_".$ecId);  ?>"  value="<?php echo $matiere; ?>" class="form-control" placeholder="Matière">
+                                                </div>
+                                            </td>
+                                        </tr>
 
-              <?php
-              if($ecs = Formation::getEcs($ue_id)){
-                  foreach ($ecs as $ec => $ec_field) {
-                      $ecId=$ec_field["ec_id"];
-                      $codeEc = $ec_field["ec_code"];
-                      $competence = $ec_field["ec_competence"];
-                      $matiere = $ec_field["ec_nom"];
-                      $prerequis = $ec_field["ec_prerequis"];
-                      $contenu = $ec_field["ec_contenu"];
-                      $coef = $ec_field["ec_coef"];
-                      $nbrHeurCM = $ec_field["ec_nbre_heure_cm"];
-                      $nbrHeurTD = $ec_field["ec_nbre_heure_td"];
-                      $nbrHeurTP = $ec_field["ec_nbre_heure_tp"];
-                      $nbrHeurTPE = $ec_field["ec_nbre_heure_tpe"];
-                      ?>
-                      <div class="panel-group">
-                          <div class="panel panel-default">
-                            <div class="panel-heading">
-                              <h4 class="panel-title">
-                                <a style="display:block" data-toggle="collapse" href="#collapseMatiere<?php echo $ecId; ?>">
-                                    <?php $nomMatiere = ($matiere)?$matiere:"Matière non définie"; echo $nomMatiere; ?>
-                                    <span id="infosCoef<?php echo $ecId;  ?>" class="label label-<?php echo ($coef==0)?"danger":"success"; ?>">
-                                        Coef <span id="valInfoCoef<?php echo $ecId; ?>"><?php echo $coef; ?></span>
-                                    </span>
-                                </a>
-                                <a style="float:right;margin-top:-20px" href="#deleteElement"  data-dismiss="modal" data-toggle="modal" onclick="openFormDropElement('ec','<?php echo $ecId; ?>','<?php echo $nomMatiere; ?>','<?php echo _hashName('ec'); ?>');" title="Supprimer l'ec">
-                                    <i style="padding:2px 3px;border-radius:20px 20px 20px 20px;" class="btn-danger fa fa-trash-o"></i>
-                                </a>
-                              </h4>
+                                        <tr>
+                                            <td>
+                                                <table class="table">
+                                                    <tr>
+                                                        <td>
+                                                            <label for="<?php _hashName("ec_coef","_".$ecId); ?>">Coefficient
+                                                                <i title="Suggestions" style="cursor:pointer;color:blue" onclick="loadSuggest('ec','coef',<?php echo $ecId; ?>,'sug_ec_coef<?php echo $ecId; ?>');" class="fa fa-lightbulb-o" aria-hidden="true"></i>
+                                                            </label>
+                                                        </td>
+                                                        <td>
+                                                            <label for="<?php _hashName("ec_nbre_heure_cm","_".$ecId); ?>">Nombre d'heures CM
+                                                                <i title="Suggestions" style="cursor:pointer;color:blue" onclick="loadSuggest('ec','nbre_heure_cm',<?php echo $ecId; ?>,'sug_ec_nbre_heure_cm<?php echo $ecId; ?>');" class="fa fa-lightbulb-o" aria-hidden="true"></i>
+                                                            </label>
+                                                        </td>
+                                                        <td>
+                                                            <label for="<?php _hashName("ec_nbre_heure_td","_".$ecId); ?>">Nombre d'heures TD
+                                                                <i title="Suggestions" style="cursor:pointer;color:blue" onclick="loadSuggest('ec','nbre_heure_td',<?php echo $ecId; ?>,'sug_ec_nbre_heure_td<?php echo $ecId; ?>');" class="fa fa-lightbulb-o" aria-hidden="true"></i>
+                                                            </label>
+                                                        </td>
+                                                        <td>
+                                                            <label for="<?php _hashName("ec_nbre_heure_tp","_".$ecId); ?>">Nombre d'heures TP
+                                                                <i title="Suggestions" style="cursor:pointer;color:blue" onclick="loadSuggest('ec','nbre_heure_tp',<?php echo $ecId; ?>,'sug_ec_nbre_heure_tp<?php echo $ecId; ?>');" class="fa fa-lightbulb-o" aria-hidden="true"></i>
+                                                            </label>
+                                                        </td>
+                                                        <td>
+                                                            <label for="<?php _hashName("ec_nbre_heure_tpe","_".$ecId); ?>">Nombre d'heures TPE
+                                                                <i title="Suggestions" style="cursor:pointer;color:blue" onclick="loadSuggest('ec','nbre_heure_tpe',<?php echo $ecId; ?>,'sug_ec_nbre_heure_tpe<?php echo $ecId; ?>');" class="fa fa-lightbulb-o" aria-hidden="true"></i>
+                                                            </label>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td><input onKeyUp="changeInfosCoefEc(<?php echo $ecId; ?>,this.value);"  onchange="regChangeEc(this.id,this.value,'notifChangedEc<?php echo $ue_id; ?>');"  id="<?php _hashName("ec_coef","_".$ecId);  ?>"           type="number" class="form-control" value="<?php echo $coef; ?>" min=1 placeholder="Coefficient"></td>
+                                                        <td><input  onchange="regChangeEc(this.id,this.value,'notifChangedEc<?php echo $ue_id; ?>');changeShowUeInfos(<?php echo $classId.",".$ue_id; ?>,'showInfosCreditUe<?php echo $ue_id; ?>',true);"  id="<?php _hashName("ec_nbre_heure_cm","_".$ecId);  ?>" onKeyUp="changeShowUeInfos(<?php echo  $classId.",".$ue_id; ?>,'showInfosCreditUe<?php echo $ue_id; ?>',true);" type="number"    min=0 max=600 class="form-control inUe<?php echo $ue_id; ?>" value="<?php echo $nbrHeurCM; ?>" placeholder="Nombre d'heures CM"></td>
+                                                        <td><input  onchange="regChangeEc(this.id,this.value,'notifChangedEc<?php echo $ue_id; ?>');changeShowUeInfos(<?php echo  $classId.",".$ue_id; ?>,'showInfosCreditUe<?php echo $ue_id; ?>',true);"  id="<?php _hashName("ec_nbre_heure_td","_".$ecId); ?>"  onKeyUp="changeShowUeInfos(<?php echo  $classId.",".$ue_id; ?>,'showInfosCreditUe<?php echo $ue_id; ?>',true);" type="number"    min=0 max=600 class="form-control inUe<?php echo $ue_id; ?>" value="<?php echo $nbrHeurTD; ?>" placeholder="Nombre d'heures TD"></td>
+                                                        <td><input  onchange="regChangeEc(this.id,this.value,'notifChangedEc<?php echo $ue_id; ?>');changeShowUeInfos(<?php echo  $classId.",".$ue_id; ?>,'showInfosCreditUe<?php echo $ue_id; ?>',true);"  id="<?php _hashName("ec_nbre_heure_tp","_".$ecId); ?>"  onKeyUp="changeShowUeInfos(<?php echo  $classId.",".$ue_id; ?>,'showInfosCreditUe<?php echo $ue_id; ?>',true);" type="number"    min=0 max=600 class="form-control inUe<?php echo $ue_id; ?>" value="<?php echo $nbrHeurTP; ?>" placeholder="Nombre d'heures TP"></td>
+                                                        <td><input  onchange="regChangeEc(this.id,this.value,'notifChangedEc<?php echo $ue_id; ?>');changeShowUeInfos(<?php echo  $classId.",".$ue_id; ?>,'showInfosCreditUe<?php echo $ue_id; ?>',true);"  id="<?php _hashName("ec_nbre_heure_tpe","_".$ecId); ?>" onKeyUp="changeShowUeInfos(<?php echo  $classId.",".$ue_id; ?>,'showInfosCreditUe<?php echo $ue_id; ?>',true);" type="number"    min=0 max=600 class="form-control inUe<?php echo $ue_id; ?>" value="<?php echo $nbrHeurTPE; ?>" placeholder="Nombre d'heures TPE"></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td colspan="5">
+                                                            <div id="sug_ec_coef<?php echo $ecId; ?>" style="text-align: justify;" class="suggestion hide"></div>
+                                                            <div id="sug_ec_nbre_heure_cm<?php echo $ecId; ?>" style="text-align: justify;" class="suggestion hide"></div>
+                                                            <div id="sug_ec_nbre_heure_td<?php echo $ecId; ?>" style="text-align: justify;" class="suggestion hide"></div>
+                                                            <div id="sug_ec_nbre_heure_tp<?php echo $ecId; ?>" style="text-align: justify;" class="suggestion hide"></div>
+                                                            <div id="sug_ec_nbre_heure_tpe<?php echo $ecId; ?>" style="text-align: justify;" class="suggestion hide"></div>
+                                                        </td>
+                                                    </tr>
+                                                </table>
+                                            </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                <div title="<?php echo $nomMatiere; ?>"  class="input-group">
+                                                    <span class="input-group-addon">Compétences<br />
+                                                        <i title="Suggestions" style="cursor:pointer;color:blue" onclick="loadSuggest('ec','competence',<?php echo $ecId; ?>,'sug_ec_competence<?php echo $ecId; ?>');" class="fa fa-2x fa-lightbulb-o" aria-hidden="true"></i>
+                                                    </span>
+                                                    <div id="sug_ec_competence<?php echo $ecId; ?>" style="text-align: justify;" class="suggestion hide">
+
+                                                    </div>
+                                                    <textarea onchange="regChangeEc(this.id,this.value,'notifChangedEc<?php echo $ue_id; ?>');" id="<?php _hashName("ec_competence","_".$ecId); ?>" style="text-align:justified;width:100%;background-color:ghostwhite" rows="8" ><?php echo $competence; ?></textarea>
+
+                                                </div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                            <td>
+                                                <div title="<?php echo $nomMatiere; ?>"  class="input-group">
+                                                    <span  class="input-group-addon">Prérequis<br />
+                                                        <i title="Suggestions" style="cursor:pointer;color:blue" onclick="loadSuggest('ec','prerequis',<?php echo $ecId; ?>,'sug_ec_prerequis<?php echo $ecId; ?>');" class="fa fa-2x fa-lightbulb-o" aria-hidden="true"></i>
+                                                    </span>
+                                                    <div id="sug_ec_prerequis<?php echo $ecId; ?>" style="text-align: justify;" class="suggestion hide">
+
+                                                    </div>
+                                                    <textarea  onchange="regChangeEc(this.id,this.value,'notifChangedEc<?php echo $ue_id; ?>');" id="<?php _hashName("ec_prerequis","_".$ecId); ?>" style="text-align:justified;width:100%" rows="5" ><?php echo $prerequis; ?></textarea>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <div title="<?php echo $nomMatiere; ?>"  class="input-group">
+                                                    <span class="input-group-addon">Contenu<br />
+                                                        <i title="Suggestions" style="cursor:pointer;color:blue" onclick="loadSuggest('ec','contenu',<?php echo $ecId; ?>,'sug_ec_contenu<?php echo $ecId; ?>');" class="fa fa-2x fa-lightbulb-o" aria-hidden="true"></i>
+                                                    </span>
+                                                    <div id="sug_ec_contenu<?php echo $ecId; ?>" style="text-align: justify;" class="suggestion hide">
+
+                                                    </div>
+                                                    <textarea  onchange="regChangeEc(this.id,this.value,'notifChangedEc<?php echo $ue_id; ?>');" id="<?php _hashName("ec_contenu","_".$ecId); ?>" style="text-align:justified;width:100%" rows="8" ><?php echo $contenu; ?></textarea>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                </table>
+                                </div>
                             </div>
-                            <div id="collapseMatiere<?php echo $ecId; ?>" class="panel-collapse collapse">
-                              <table class="table">
-                                  <tr>
-                                      <td>
-                                          <div class="input-group">
-                                            <span class="input-group-addon">Code EC</span>
-                                            <input type="text" onchange="regChangeEc(this.id,this.value,'notifChangedEc<?php echo $ue_id; ?>');"  id="<?php _hashName("ec_code","_".$ecId);  ?>" value="<?php echo $codeEc; ?>" class="form-control" placeholder="Code EC">
-                                          </div>
-                                      </td>
-                                  </tr>
-                                  <tr>
-                                      <td>
-                                          <div class="input-group">
-                                            <span class="input-group-addon">Matière
-                                                <i title="Suggestions" style="cursor:pointer;color:blue" onclick="loadSuggest('ec','nom',<?php echo $ecId; ?>,'sug_ec_nom<?php echo $ecId; ?>');" class="fa fa-lightbulb-o" aria-hidden="true"></i>
-                                            </span>
-                                            <div id="sug_ec_nom<?php echo $ecId; ?>" style="text-align: justify;" class="suggestion hide"></div>
-                                            <input type="text"  onchange="regChangeEc(this.id,this.value,'notifChangedEc<?php echo $ue_id; ?>');"  id="<?php _hashName("ec_nom","_".$ecId);  ?>"  value="<?php echo $matiere; ?>" class="form-control" placeholder="Matière">
-                                          </div>
-                                      </td>
-                                  </tr>
-
-                                  <tr>
-                                      <td>
-                                          <table class="table">
-                                              <tr>
-                                                  <td>
-                                                      <label for="<?php _hashName("ec_coef","_".$ecId); ?>">Coefficient
-                                                          <i title="Suggestions" style="cursor:pointer;color:blue" onclick="loadSuggest('ec','coef',<?php echo $ecId; ?>,'sug_ec_coef<?php echo $ecId; ?>');" class="fa fa-lightbulb-o" aria-hidden="true"></i>
-                                                    </label>
-                                                  </td>
-                                                  <td>
-                                                      <label for="<?php _hashName("ec_nbre_heure_cm","_".$ecId); ?>">Nombre d'heures CM
-                                                          <i title="Suggestions" style="cursor:pointer;color:blue" onclick="loadSuggest('ec','nbre_heure_cm',<?php echo $ecId; ?>,'sug_ec_nbre_heure_cm<?php echo $ecId; ?>');" class="fa fa-lightbulb-o" aria-hidden="true"></i>
-                                                      </label>
-                                                  </td>
-                                                  <td>
-                                                      <label for="<?php _hashName("ec_nbre_heure_td","_".$ecId); ?>">Nombre d'heures TD
-                                                          <i title="Suggestions" style="cursor:pointer;color:blue" onclick="loadSuggest('ec','nbre_heure_td',<?php echo $ecId; ?>,'sug_ec_nbre_heure_td<?php echo $ecId; ?>');" class="fa fa-lightbulb-o" aria-hidden="true"></i>
-                                                      </label>
-                                                  </td>
-                                                  <td>
-                                                      <label for="<?php _hashName("ec_nbre_heure_tp","_".$ecId); ?>">Nombre d'heures TP
-                                                          <i title="Suggestions" style="cursor:pointer;color:blue" onclick="loadSuggest('ec','nbre_heure_tp',<?php echo $ecId; ?>,'sug_ec_nbre_heure_tp<?php echo $ecId; ?>');" class="fa fa-lightbulb-o" aria-hidden="true"></i>
-                                                      </label>
-                                                  </td>
-                                                  <td>
-                                                      <label for="<?php _hashName("ec_nbre_heure_tpe","_".$ecId); ?>">Nombre d'heures TPE
-                                                          <i title="Suggestions" style="cursor:pointer;color:blue" onclick="loadSuggest('ec','nbre_heure_tpe',<?php echo $ecId; ?>,'sug_ec_nbre_heure_tpe<?php echo $ecId; ?>');" class="fa fa-lightbulb-o" aria-hidden="true"></i>
-                                                      </label>
-                                                  </td>
-                                              </tr>
-                                              <tr>
-                                                  <td><input onKeyUp="changeInfosCoefEc(<?php echo $ecId; ?>,this.value);"  onchange="regChangeEc(this.id,this.value,'notifChangedEc<?php echo $ue_id; ?>');"  id="<?php _hashName("ec_coef","_".$ecId);  ?>"           type="number" class="form-control" value="<?php echo $coef; ?>" min=1 placeholder="Coefficient"></td>
-                                                  <td><input  onchange="regChangeEc(this.id,this.value,'notifChangedEc<?php echo $ue_id; ?>');changeShowUeInfos(<?php echo $classId.",".$ue_id; ?>,'showInfosCreditUe<?php echo $ue_id; ?>',true);"  id="<?php _hashName("ec_nbre_heure_cm","_".$ecId);  ?>" onKeyUp="changeShowUeInfos(<?php echo  $classId.",".$ue_id; ?>,'showInfosCreditUe<?php echo $ue_id; ?>',true);" type="number"    min=0 max=600 class="form-control inUe<?php echo $ue_id; ?>" value="<?php echo $nbrHeurCM; ?>" placeholder="Nombre d'heures CM"></td>
-                                                  <td><input  onchange="regChangeEc(this.id,this.value,'notifChangedEc<?php echo $ue_id; ?>');changeShowUeInfos(<?php echo  $classId.",".$ue_id; ?>,'showInfosCreditUe<?php echo $ue_id; ?>',true);"  id="<?php _hashName("ec_nbre_heure_td","_".$ecId); ?>"  onKeyUp="changeShowUeInfos(<?php echo  $classId.",".$ue_id; ?>,'showInfosCreditUe<?php echo $ue_id; ?>',true);" type="number"    min=0 max=600 class="form-control inUe<?php echo $ue_id; ?>" value="<?php echo $nbrHeurTD; ?>" placeholder="Nombre d'heures TD"></td>
-                                                  <td><input  onchange="regChangeEc(this.id,this.value,'notifChangedEc<?php echo $ue_id; ?>');changeShowUeInfos(<?php echo  $classId.",".$ue_id; ?>,'showInfosCreditUe<?php echo $ue_id; ?>',true);"  id="<?php _hashName("ec_nbre_heure_tp","_".$ecId); ?>"  onKeyUp="changeShowUeInfos(<?php echo  $classId.",".$ue_id; ?>,'showInfosCreditUe<?php echo $ue_id; ?>',true);" type="number"    min=0 max=600 class="form-control inUe<?php echo $ue_id; ?>" value="<?php echo $nbrHeurTP; ?>" placeholder="Nombre d'heures TP"></td>
-                                                  <td><input  onchange="regChangeEc(this.id,this.value,'notifChangedEc<?php echo $ue_id; ?>');changeShowUeInfos(<?php echo  $classId.",".$ue_id; ?>,'showInfosCreditUe<?php echo $ue_id; ?>',true);"  id="<?php _hashName("ec_nbre_heure_tpe","_".$ecId); ?>" onKeyUp="changeShowUeInfos(<?php echo  $classId.",".$ue_id; ?>,'showInfosCreditUe<?php echo $ue_id; ?>',true);" type="number"    min=0 max=600 class="form-control inUe<?php echo $ue_id; ?>" value="<?php echo $nbrHeurTPE; ?>" placeholder="Nombre d'heures TPE"></td>
-                                              </tr>
-                                              <tr>
-                                                  <td colspan="5">
-                                                      <div id="sug_ec_coef<?php echo $ecId; ?>" style="text-align: justify;" class="suggestion hide"></div>
-                                                      <div id="sug_ec_nbre_heure_cm<?php echo $ecId; ?>" style="text-align: justify;" class="suggestion hide"></div>
-                                                      <div id="sug_ec_nbre_heure_td<?php echo $ecId; ?>" style="text-align: justify;" class="suggestion hide"></div>
-                                                      <div id="sug_ec_nbre_heure_tp<?php echo $ecId; ?>" style="text-align: justify;" class="suggestion hide"></div>
-                                                      <div id="sug_ec_nbre_heure_tpe<?php echo $ecId; ?>" style="text-align: justify;" class="suggestion hide"></div>
-                                                  </td>
-                                              </tr>
-                                          </table>
-                                      </td>
-                                  </tr>
-                                  <tr>
-                                      <td>
-                                          <div title="<?php echo $nomMatiere; ?>"  class="input-group">
-                                            <span class="input-group-addon">Compétences<br />
-                                                <i title="Suggestions" style="cursor:pointer;color:blue" onclick="loadSuggest('ec','competence',<?php echo $ecId; ?>,'sug_ec_competence<?php echo $ecId; ?>');" class="fa fa-2x fa-lightbulb-o" aria-hidden="true"></i>
-                                            </span>
-                                            <div id="sug_ec_competence<?php echo $ecId; ?>" style="text-align: justify;" class="suggestion hide">
-
-                                            </div>
-                                            <textarea  onchange="regChangeEc(this.id,this.value,'notifChangedEc<?php echo $ue_id; ?>');" id="<?php _hashName("ec_competence","_".$ecId); ?>" style="text-align:justified;width:100%;background-color:ghostwhite" rows="8" ><?php echo $competence; ?></textarea>
-
-                                          </div>
-                                      </td>
-                                  </tr>
-                                  <tr>
-                                      <td>
-                                          <div title="<?php echo $nomMatiere; ?>"  class="input-group">
-                                            <span  class="input-group-addon">Prérequis<br />
-                                                <i title="Suggestions" style="cursor:pointer;color:blue" onclick="loadSuggest('ec','prerequis',<?php echo $ecId; ?>,'sug_ec_prerequis<?php echo $ecId; ?>');" class="fa fa-2x fa-lightbulb-o" aria-hidden="true"></i>
-                                            </span>
-                                            <div id="sug_ec_prerequis<?php echo $ecId; ?>" style="text-align: justify;" class="suggestion hide">
-
-                                            </div>
-                                            <textarea  onchange="regChangeEc(this.id,this.value,'notifChangedEc<?php echo $ue_id; ?>');" id="<?php _hashName("ec_prerequis","_".$ecId); ?>" style="text-align:justified;width:100%" rows="5" ><?php echo $prerequis; ?></textarea>
-                                          </div>
-                                      </td>
-                                  </tr>
-                                  <tr>
-                                      <td>
-                                          <div title="<?php echo $nomMatiere; ?>"  class="input-group">
-                                            <span class="input-group-addon">Contenu<br />
-                                                <i title="Suggestions" style="cursor:pointer;color:blue" onclick="loadSuggest('ec','contenu',<?php echo $ecId; ?>,'sug_ec_contenu<?php echo $ecId; ?>');" class="fa fa-2x fa-lightbulb-o" aria-hidden="true"></i>
-                                            </span>
-                                            <div id="sug_ec_contenu<?php echo $ecId; ?>" style="text-align: justify;" class="suggestion hide">
-
-                                            </div>
-                                            <textarea  onchange="regChangeEc(this.id,this.value,'notifChangedEc<?php echo $ue_id; ?>');" id="<?php _hashName("ec_contenu","_".$ecId); ?>" style="text-align:justified;width:100%" rows="8" ><?php echo $contenu; ?></textarea>
-                                          </div>
-                                      </td>
-                                  </tr>
-                              </table>
-                            </div>
-                          </div>
-                    </div>
-                      <?php
-                  }
-                  ?>
-                  <script type="text/javascript">
-                      changeShowUeInfos(<?php echo  $classId.",".$ue_id; ?>,'showInfosCreditUe<?php echo $ue_id; ?>',false);
-                  </script>
-                  <?php
-              }
-              ?>
-          </div>
-          <div class="modal-footer">
+                        </div>
+                        <?php
+                    }
+                    ?>
+                    <script type="text/javascript">
+                        changeShowUeInfos(<?php echo  $classId.",".$ue_id; ?>,'showInfosCreditUe<?php echo $ue_id; ?>',false);
+                    </script>
+                    <?php
+                }
+            ?>
+        </div>
+         <div class="modal-footer">
             <button type="button" class="btn btn-default" data-dismiss="modal">FERMER</button>
           </div>
         </div>
