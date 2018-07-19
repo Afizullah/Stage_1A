@@ -7,6 +7,8 @@ class MYPDF extends TCPDF
     private $formation = false;
     private $text_header;
     private $docname;
+    public $nb_page = 0;
+    public $toc = false;
 
     public function Set_Header($formation, $text_header = '')
     {
@@ -14,13 +16,16 @@ class MYPDF extends TCPDF
         $this->text_header = $text_header;
     }
 
-    public function getDocName(){
+    public function getDocName()
+    {
         return $this->docname;
     }
 
-    public function setDocName($str){
+    public function setDocName($str)
+    {
         $this->docname = $str;
     }
+
     //Page header
     public function Header()
     {
@@ -57,12 +62,23 @@ class MYPDF extends TCPDF
         $this->SetFont('helvetica', 'I', 10);
         $this->SetFillColor(255, 255, 255);
         // Page number
-        $this->Image(PATH_IMG . '/footer_bis.jpg', 182, $this->GetY(), 0, 12, 'JPEG', '', 'M', false, 300, '', false, false, 0, true, false, false, '');
+        $this->Image(PATH_IMG . '/footer_bis.jpg', 186, $this->GetY(), 0, 12, 'JPEG', '', 'M', false, 300, '', false, false, 0, true, false, false, '');
         $this->SetY($this->GetY() - 5);
-        $this->SetX(-17);
+        $this->SetX(-5);
         $this->SetTextColor(255, 255, 255);
-        //$this->Write(5, $this->getAliasNumPage(),false,false,'R');
-        $this->Cell(0, 10, $this->getAliasNumPage(), 0, 0, 'R', '', '', '', '', '', '');
+        $this->nb_page++;
+
+        //
+        if ($this->toc) {
+            $this->Cell(0, 10, '2', 0, 0, 'R', '', '', '', '', '', '');
+        } else {
+            if ($this->nb_page == 2) {
+                $this->Cell(0, 10, 1, 0, 0, 'R', '', '', '', '', '', '');
+            } else {
+                $this->Cell(0, 10, $this->nb_page, 0, 0, 'R', '', '', '', '', '', '');
+            }
+        }
+
         $this->SetTextColor(0, 0, 0);
 
     }

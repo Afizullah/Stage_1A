@@ -13,7 +13,7 @@ fieldset {
 <div style="max-width:600px;margin:auto;padding:30px;background-color:white;" class="">
 
     <div style="text-align: center;">
-        <h5>Créer un nouveau groupe</h5>
+        <h5>Nouveau Groupe</h5>
     </div>
     <?php
         $hasError = false;

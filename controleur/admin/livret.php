@@ -3,9 +3,10 @@ require_once(PATH_CONTROLEUR.'admin/genereLivret/header.php');
 if (isset($_POST["selectFormations"],$_POST["formationsSelected"])) {
     $formationsSelected = $_POST["formationsSelected"];
     //page de garde
-    page_de_garde($pdf, "2017-2018", 'GENIE INFORMATIQUE',"(+221) 33 825 75 28)", "secretariat-dgi@esp.sn");
+    page_de_garde($pdf, "2017-2018", 'GÉNIE INFORMATIQUE',"(+221) 33 825 75 28)", "secretariat-dgi@esp.sn");
     $pdf->SetPrintHeader(true);
     $pdf->SetPrintFooter(true);
+    $pdf->nb_page++; // table des matières qui vient ensuite mais n'est printé qu'à la fin
     //set font
     $pdf->SetFont('times', 'B', 20);
     $pdf->SetFont('times', 'BI', 14);
