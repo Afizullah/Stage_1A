@@ -31,7 +31,6 @@
                                             if($ecUe = $data->getEc($formation,$semestres[$i],$ues["CodeUe"][$k])){
                                                 for ($i_ec=0; $i_ec < count($ecUe["CodeEC"]); $i_ec++) {
                                                     $codeEc = $ecUe["CodeEC"][$i_ec];
-                                                    $TypeCompetence = $ecUe["TypeCompetence"][$i_ec];
                                                     $competence = $ecUe["competence"][$i_ec];
                                                     $matiere = $ecUe["matiere"][$i_ec];
                                                     $prerequis = $ecUe["prerequis"][$i_ec];
