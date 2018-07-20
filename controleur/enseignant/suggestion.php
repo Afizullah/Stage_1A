@@ -1,8 +1,7 @@
 <?php
-if(isset($_REQUEST["id"])){
+if (isset($_REQUEST["id"])) {
     $projet_id = secure($_REQUEST["id"]);
+} else {
+    die("ID du projet invalide");
 }
-else {
-	die("id du projet non valide");
-}
-$tab=EC_suggestion::getEC($projet_id);
+$tab = EC_suggestion::getEC($projet_id);

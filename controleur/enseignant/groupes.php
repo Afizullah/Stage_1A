@@ -1,6 +1,6 @@
 <?php
-require_once PATH_CONTROLEUR.'commun.user.php';
-$groupes=Groupe::getGroupes(CurrentUser::getId());
+require_once PATH_CONTROLEUR . 'commun.user.php';
+$groupes = Groupe::getGroupes(CurrentUser::getId());
 
 /*function tab_groupes($gpes){
 	if (count($gpes)==0){
