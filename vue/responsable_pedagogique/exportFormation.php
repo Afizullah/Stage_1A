@@ -90,6 +90,7 @@ function genere_formation($tab){
 }
 
 ?>
+<div style="overflow-x:auto;">
 <table id="example" class="table table-striped table-bordered" style="width:100%">
     <thead>
         <tr>
@@ -100,7 +101,7 @@ function genere_formation($tab){
         <?php genere_formation(getTab());?>
     </tbody>
 </table>
-
+</div>
 
 
 
@@ -117,21 +118,6 @@ function genere_formation($tab){
 <script type="text/javascript">
 
 
-function dump(obj) {
-    var out = '';
-    for (var i in obj) {
-        out += i + ": " + obj[i] + "\n";
-    }
-
-    alert(out);
-
-    // or, if you wanted to avoid alerts...
-
-    var pre = document.createElement('pre');
-    pre.innerHTML = out;
-    document.body.appendChild(pre)
-}
-
 $(document).ready(function() {
     var table = $('#example').DataTable( {
         dom: 'Bfrtip',
@@ -139,12 +125,6 @@ $(document).ready(function() {
             extend: 'excelHtml5',
             title: null,
             filename: 'test',
-            customize: function( xlsx ) {
-                xlsx.xl.worksheets['sheet1.xml']['title']="voila"
-                dump(xlsx.xl.worksheets['sheet1.xml']);
- 
-                // jQuery selector to add a border
-            }
         }]
     });
  
