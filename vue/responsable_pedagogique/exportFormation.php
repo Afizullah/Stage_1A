@@ -110,16 +110,45 @@ function genere_formation($tab){
 <script type="text/javascript" src="https://cdn.datatables.net/buttons/1.5.2/js/dataTables.buttons.min.js"></script>
 <script type="text/javascript" src="https://cdn.datatables.net/buttons/1.5.2/js/buttons.bootstrap.min.js"></script>
 <script type="text/javascript" src="https://cdn.datatables.net/buttons/1.5.2/js/buttons.flash.min.js"></script>
-
+<script type="text/javascript" src="https://cdn.datatables.net/buttons/1.5.2/js/buttons.html5.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/pdfmake.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/vfs_fonts.js"></script>
 <script type="text/javascript">
-$('#btn-export').on('click', function () {
-    $('<table>')
-      .append($(table.table().header()).clone())
-      .append(table.$('tr').clone())
-      .table2excel({
-         exclude: "",
-         name: "EmailTracking",
-         filename: "EmailTracking" //do not include extension
-      });
-});
+
+
+function dump(obj) {
+    var out = '';
+    for (var i in obj) {
+        out += i + ": " + obj[i] + "\n";
+    }
+
+    alert(out);
+
+    // or, if you wanted to avoid alerts...
+
+    var pre = document.createElement('pre');
+    pre.innerHTML = out;
+    document.body.appendChild(pre)
+}
+
+$(document).ready(function() {
+    var table = $('#example').DataTable( {
+        dom: 'Bfrtip',
+        buttons: [{
+            extend: 'excelHtml5',
+            title: null,
+            filename: 'test',
+            customize: function( xlsx ) {
+                xlsx.xl.worksheets['sheet1.xml']['title']="voila"
+                dump(xlsx.xl.worksheets['sheet1.xml']);
+ 
+                // jQuery selector to add a border
+            }
+        }]
+    });
+ 
+    table.buttons().container()
+        .appendTo( '#example_wrapper .col-sm-6:eq(0)' );
+} );
 </script>

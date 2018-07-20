@@ -1,5 +1,6 @@
 <?php
 require_once(PHPExcel_CLASS_FILE);
+require_once(PATH_MODEL."responsable_pedagogique/assync.loadFile.php");
 class LoadFile extends PHPExcel_IOFactory{
     private $document_excel=null;
     private $feuilles = null;
@@ -15,6 +16,11 @@ class LoadFile extends PHPExcel_IOFactory{
         $this->document_excel = PHPExcel_IOFactory::load($file);
         $allLeaf = $this->document_excel->getAllSheets();
         foreach ($allLeaf as $leaf) {
+            $code_parcours=$leaf->getCell('A2')->getValue();
+            $nom=importForm::getNomFromCode($code_parcours);
+            if (count($nom)!=0){
+                $leaf->setTitle($nom[0]['formation_nom']);
+            }
             $formationName = self::getFormationName($leaf);
             $headLeaf = self::getHeadLeaf($leaf);
             if($selectedFormations){
