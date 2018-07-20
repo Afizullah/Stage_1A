@@ -1,14 +1,16 @@
 <?php
 
-function getFormationsNames($dataFormation){
+function getFormationsNames($dataFormation)
+{
     $formsNames = array();
-    if($dataFormation){
+    if ($dataFormation) {
         foreach ($dataFormation as $keyFormation => $valsForm) {
-                $formsNames[]=$valsForm["formation_nom"];
+            $formsNames[] = $valsForm["formation_nom"];
         }
         return $formsNames;
-    }else{
+    } else {
         return false;
     }
 }
+
 ?>

@@ -54,4 +54,5 @@ function page_de_garde(TCPDF $pdf, $year, $departement,$tel,$mail,$formations=""
     $pdf->Cell(0, 0,"Mail : ".$mail, 0, 1, 'R', 0, '', 0);
     // set font
     $pdf->SetFont('times', 'BI', 14);
+
 }

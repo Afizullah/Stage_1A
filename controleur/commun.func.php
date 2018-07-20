@@ -1,36 +1,31 @@
 <?php
 
 //fonction contre les injection sql
-function getPageName($page)
-{
+function getPageName($page) {
     if (isset(MAP_PAGES[$page]["pageName"])) {
         return MAP_PAGES[$page]["pageName"];
     }
     return $page;
 }
 
-function getPageIcon($page)
-{
+function getPageIcon($page) {
     if (isset(MAP_PAGES[$page]["pageIcone"])) {
         return MAP_PAGES[$page]["pageIcone"];
     }
     return null;
 }
 
-function secure($val)
-{
+function secure($val) {
     return htmlspecialchars(trim($val));
 }
 
-function br($nbr = 1)
-{
+function br($nbr = 1) {
     for ($i = 0; $i < $nbr; $i++) {
         echo "<br />";
     }
 }
 
-function moveExcelInFolder($inputFileName, $directoryToUpload)
-{
+function moveExcelInFolder($inputFileName, $directoryToUpload) {
     if (isset($_FILES[$inputFileName]) AND $_FILES[$inputFileName]['error'] == 0) {
         $fileName = $_FILES[$inputFileName]['name'];
         if (move_uploaded_file($_FILES[$inputFileName]['tmp_name'], $directoryToUpload . $fileName)) {
@@ -41,8 +36,7 @@ function moveExcelInFolder($inputFileName, $directoryToUpload)
 }
 
 //
-function moveImgInFolder($inputFileName, $directoryToUpload)
-{
+function moveImgInFolder($inputFileName, $directoryToUpload) {
     $status = false;
     $outputData = array();
     $imgName = "";
@@ -64,13 +58,13 @@ function moveImgInFolder($inputFileName, $directoryToUpload)
                     $outputData = $imgName;
                 }
             } else {
-                $errors[] = "Type de fichier non prise en compte";
+                $errors[] = "Format de fichier non prise en compte";
             }
         } else {
             $errors[] = "Image trop grande";
         }
     } else {
-        $errors[] = "Photo de profil non défini ou incorrect";
+        $errors[] = "Photo de profil indéfinie ou incorrect";
     }
     if (isset($errors)) {
         $outputData = $errors;
@@ -82,8 +76,7 @@ function moveImgInFolder($inputFileName, $directoryToUpload)
     );
 }
 
-function isEmail($val)
-{
+function isEmail($val) {
     if (preg_match("#^[a-z0-9._-]{2,50}[@][a-z0-9._-]{2,30}[.][a-z]{2,6}$#", $val)) {
         return $val;
     } else {
@@ -91,28 +84,23 @@ function isEmail($val)
     }
 }
 
-function _hash($string)
-{
+function _hash($string) {
     return hash("sha256", $string);
 }
 
-function _hashName($name, $id = "")
-{
+function _hashName($name, $id = "") {
     echo _getHashName($name) . $id;
 }
 
-function _getHashName($name)
-{
+function _getHashName($name) {
     return _hash("liv" . $name . "ret");
 }
 
-function center($content)
-{
+function center($content) {
     return "<div style=\"text-align: center;\">$content</div>";
 }
 
-function isOperator($op)
-{
+function isOperator($op) {
     $tabOperator = ["<", "<=", "=", ">", ">=", "!="];
     if (in_array($op, $tabOperator)) {
         return true;
@@ -121,23 +109,20 @@ function isOperator($op)
     }
 }
 
-function today($format = "fr")
-{
+function today($format = "fr") {
     switch ($format) {
         case 'fr':
             return date("Y-m-d");
     }
 }
 
-function NOW($sepDate = "-", $sepTime = ":")
-{
+function NOW($sepDate = "-", $sepTime = ":") {
     $y_m_d = date("Y" . $sepDate . 'm' . $sepDate . "d " . "H" . $sepTime . "i" . $sepTime . "s");
     return $y_m_d;
 
 }
 
-function getMenuUser($userId)
-{
+function getMenuUser($userId) {
     ?>
     <ul class="dropdown-menu user-auth-dropdown" data-dropdown-in="flipInX" data-dropdown-out="flipOutX">
         <li>
@@ -152,13 +137,11 @@ function getMenuUser($userId)
     <?php
 }
 
-function getNewToken($defaultSize = 50)
-{
+function getNewToken($defaultSize = 50) {
     return generateNewString($defaultSize);
 }
 
-function sendMail($mail, $email, $prenom, $nom, $token)
-{
+function sendMail($mail, $email, $prenom, $nom, $token) {
     try {
         $mail->SMTPDebug = 0;                                 // Enable verbose debug output
         $mail->isSMTP();                                      // Set mailer to use SMTP
@@ -198,14 +181,12 @@ function sendMail($mail, $email, $prenom, $nom, $token)
 
 }
 
-function getDateExpirationAccount($nbrHeures)
-{
+function getDateExpirationAccount($nbrHeures) {
     $dateExpire = new DateTime("NOW +" . $nbrHeures . " hours");
     return $dateExpire->format("Y-m-d H:i:s");
 }
 
-function generateNewString($lenght, $toString = array(), $notInTab = array())
-{
+function generateNewString($lenght, $toString = array(), $notInTab = array()) {
     if (empty($toString)) {
         $toString = "aazertyuiopqsdfghjklmwxcvbnAZERTYUIOPQSDFGHJKLMWXCVBN1234567890";
     }
@@ -223,37 +204,39 @@ function generateNewString($lenght, $toString = array(), $notInTab = array())
 }
 
 
-function alertErrors($errors){
-    for($i= 0;$i <count($errors);$i++){
+function alertErrors($errors) {
+    for ($i = 0; $i < count($errors); $i++) {
         ?>
-            <script>
-                $(function(){
-                    $.notify("<?php echo $errors[$i]; ?>","error");
-                });
-            </script>
-        <?php
-        }
-}
-
-
-function alertWarning($errors){
-    for($i= 0;$i <count($errors);$i++){
-        ?>
-            <script>
-                $(function(){
-                    $.notify("<?php echo $errors[$i]; ?>","warn");
-                });
-            </script>
+        <script>
+            $(function () {
+                $.notify("<?php echo $errors[$i]; ?>", "error");
+            });
+        </script>
         <?php
     }
 }
-function alertSucces($msgScces){
-    ?>
+
+
+function alertWarning($errors) {
+    for ($i = 0; $i < count($errors); $i++) {
+        ?>
         <script>
-        $(function(){
-            $.notify("<?php echo $msgScces; ?>","success");
-        });
+            $(function () {
+                $.notify("<?php echo $errors[$i]; ?>", "warn");
+            });
         </script>
+        <?php
+    }
+}
+
+function alertSucces($msgScces) {
+    ?>
+    <script>
+        $(function () {
+            $.notify("<?php echo $msgScces; ?>", "success");
+        });
+    </script>
     <?php
 }
+
 ?>

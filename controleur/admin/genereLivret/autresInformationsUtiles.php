@@ -1,6 +1,6 @@
 <?php
-function printOtherInfos($pdf, $infosUtiles)
-{
+
+function printOtherInfos($pdf, $infosUtiles) {
     //Affichages des informations utiles
     $pdf->setPrintFooter(true);
     $pdf->setPrintHeader(true);
