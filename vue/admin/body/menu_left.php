@@ -83,6 +83,9 @@ function linkCreatProjet(){
                         <li>
                             <a href="index.php?page=editFormation"><i class="fa fa-edit"></i> Modifier</a>
                         </li>
+                        <li>
+                            <a href="index.php?page=exportFormation"><i class="fa fa-upload"></i> Exporter</a>
+                        </li>
                         <?php
                     }
             }else{

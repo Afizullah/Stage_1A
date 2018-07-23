@@ -9,7 +9,7 @@
             <!-- Title -->
             <div class="row heading-bg">
                 <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
-                    <h5 class="txt-dark"><?php echo $page; ?></h5>
+                    <h5 class="txt-dark"><?php echo getPageName($page); ?></h5>
                 </div>
                 <div style="position: absolute; right: 0;" class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
                     <h5 class="txt-dark">Responsable Pédagogique</h5>
