@@ -38,7 +38,7 @@ if (isset($_POST["addGroup"], $_POST["groupe_nom"])) {
             }
             $success = "Groupe créé avec succès";
         } else {
-            $errors[] = "Echec de l'enregistrement du groupe";
+            $errors[] = "Échec de l'enregistrement du groupe";
         }
     }
 }
