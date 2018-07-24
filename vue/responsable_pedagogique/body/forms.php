@@ -37,12 +37,16 @@ function getFormAddUsser($action="",$type_compte="",$date_expiration="",$email="
     <?php
 }
 
-function getFromCreateProjet($nomProjet="",$action=""){
+function getFromCreateProjet($nomProjet="",$action="",$anneeAcademique=""){
     ?>
     <form style="width:500px;margin:auto;background-color:white;padding:30px;" action="<?php echo $action; ?>" method="POST">
         <div class="input-group">
               <span class="input-group-addon">Nom du projet : </span>
               <input required type="text" class="form-control" name="projet_nom" value="<?php echo $nomProjet; ?>" placeholder="Ex: Projet Livrets 2000">
+        </div> <br/>
+        <div class="input-group">
+              <span class="input-group-addon">Année Académique : </span>
+              <input required type="text" class="form-control" name="projet_annee_Academique" value="<?php echo $anneeAcademique; ?>" placeholder="Ex: 2017-2018">
         </div> <br/>
         <div style="text-align: center;">
               <input type="submit" class="btn btn-success" class="form-control" name="addPojet" value="Créer un projet">

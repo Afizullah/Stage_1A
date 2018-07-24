@@ -1,7 +1,7 @@
 <?php
 function page_de_garde(TCPDF $pdf, $year, $departement,$tel,$mail,$formations="")
 {
-// set font
+// set font 
     $pdf->SetFont('helvetica', '', 35);
     $pdf->setPrintFooter(false);
     $pdf->setPrintHeader(false);
@@ -9,7 +9,7 @@ function page_de_garde(TCPDF $pdf, $year, $departement,$tel,$mail,$formations=""
     $pdf->AddPage();
 // fond
     $image_file = K_PATH_IMAGES.'fondf.jpg';
-    $pdf->Image($image_file, 0, 15, '','', '', false, 'B', false, 300, 'C', false, false, 0, false, false, false);
+    $pdf->Image($image_file, 20, 15, '','', '', false, 'B', false, 300, 'C', false, false, 0, false, false, false);
 // logo
     $image_file = K_PATH_IMAGES.'logo_ucad.jpg';
     $pdf->Image($image_file, 161, 17, 14,'', '', false, 'B', false, 300, 'M', false, false, 0, false, false, false);

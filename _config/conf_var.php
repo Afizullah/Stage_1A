@@ -37,4 +37,5 @@ define("MAP_PAGES", array(
     "genererLivret" => ["pageName" => "Générer un livret"],
     "editUser" => ["pageName" => "Modifier compte"]
 ));
+define("SESS_ADMIN_CONTROLER",PATH_CONTROLEUR."admin/_controlSess.php");
 ?>

@@ -159,60 +159,15 @@ function tab_matieres($semestre, $ue, $nom, $coeff, $cm, $td, $tp, $tpe, $credit
     return $resu . tab_fin($Tcm, $Ttd, $Ttp, $Ttpe, $Tcm + $Ttd + $Ttp + $Ttpe, $Tcred);
 }
 
-//===========================================
-//	Fontion tableaux de l'quipe ensaignante
-//===========================================
-
-/*Génération du tableau de l'équipe pédagogique comme il est présent page 4 du livret
-
-@param $prenoms: listes des prénoms des menbres de l'équipe pédagogique
-@param $noms: listes des noms des menbres de l'équipe pédagogique
-@param $specialites: listes des specialités des menbres de l'équipe pédagogique
-@param $fonctions: listes des fonctions des menbres de l'équipe pédagogique
-
-@return un code html correspondant à ce tableau
-*/
-
-function tab_enseignants($prenoms, $noms, $specialites, $fonctions)
-{
-    $contenu = '<link rel="stylesheet" href="tab_matieres.css" type="text/css">';
-    $contenu .= '<table class="tab_enseignants">';
-    $contenu .= <<<tab
-	<tr>
-		<th width="5%"> </th>
-		<th width="15%"> Nom </th>
-		<th width="15%"> Prénom </th>
-		<th width="25%"> Spécialité </th>
-		<th width="40%"> Fonction/Responsabilité </th>
-	</tr>
-tab;
-    for ($i = 0; $i < count($prenoms); $i++) {
-        $j = $i + 1;
-        $contenu .= <<<tab
-		<tr>
-			<td> $j</td>
-			<td> $prenoms[$i]</td>
-			<td> $noms[$i]</td>
-			<td> $specialites[$i]</td>
-			<td> $fonctions[$i]</td>
-		</tr>
-tab;
-    }
-    $contenu .= "</table>";
-    return $contenu;
-}
-
-
-function displayElements($val)
-{
-    $chaine = explode("•", $val);
-    $html = "";
-    for ($i = 0; $i < count($chaine); $i++) {
-        if (!empty($chaine[$i])) {
-            $html .= "&nbsp;&nbsp;•" . $chaine[$i] . "<br />";
-        }
-    }
-    return $html;
+function displayElements($val){
+	$chaine= explode("•",$val);
+	$html = "";
+	for ($i=0; $i < count($chaine); $i++) {
+		if(!empty($chaine[$i])){
+			$html.="&nbsp;&nbsp;•".$chaine[$i]."<br />";
+		}
+	}
+	return $html;
 }
 
 //================================

@@ -1,3 +1,17 @@
+<?php
+    //Control sur le droit d'accès à cette & sur l'accès à travers un lien direct
+    if(defined("SESS_ADMIN_CONTROLER")){
+        if(file_exists(SESS_ADMIN_CONTROLER)){
+            require_once(SESS_ADMIN_CONTROLER);
+        }else{
+            header("Location:../");
+            die("<center><b>ERROR</b>::Accès non autorisé</center>");
+        }
+    }else{
+        header("Location:../");
+        die("<center><b>ERROR</b>::Accès non autorisé</center>");
+    }
+?>
 <style media="screen">
 fieldset {
     display: block;
@@ -27,8 +41,8 @@ fieldset {
     ?>
     <fieldset >
         <?php
-            if($hasError && isset($_POST["projet_nom"])){
-                getFromCreateProjet($_POST["projet_nom"]);
+            if($hasError && isset($_POST["projet_nom"],$_POST["projet_annee_Academique"])){
+                getFromCreateProjet($_POST["projet_nom"],"",$_POST["projet_annee_Academique"]);
             }else{
                 getFromCreateProjet();
             }
