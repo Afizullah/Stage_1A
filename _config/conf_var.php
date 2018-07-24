@@ -27,6 +27,8 @@ define("MAP_PAGES", array(
     "createProjet" => ["pageName" => "Créer un projet"],
     "showProjets" => ["pageName" => "Liste des projets"],
     "showFormations" => ["pageName" => "Liste des formations"],
+    "exportFormation" => ["pageName" => "Exporter la formation"],
+    "choixexportFormation" => ["pageName" =>  "Choix de la formation"],
     "aff_suggestion" => ["pageName" => "Liste des suggestions"],
     "groupes" => ["pageName" => "Liste des groupes"],
     "importFormation" => ["pageName" => "Importer une ou plusieurs formations"],

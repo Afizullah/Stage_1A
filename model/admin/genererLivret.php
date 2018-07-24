@@ -138,7 +138,7 @@ class LMD extends DB
         if (isset($this->formationsName[$formationId])) {
             return $this->formationsName[$formationId];
         }
-        return "Indefined Name" . $formationsName;
+        return "Indefined Name" . $this>formationsName;
     }
 
     private function getDataFormations() {

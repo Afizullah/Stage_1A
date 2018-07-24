@@ -5,11 +5,18 @@
  * Date: 23/07/2018
  * Time: 11:58
  */
+die($_POST["formationsSelected"]);
 ?>
 <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
 <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.19/css/dataTables.bootstrap.min.css"/>
 <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/buttons/1.5.2/css/buttons.bootstrap.min.css"/>
 <?php
+/*if (isset($_POST["selectFormations"], $_POST["formationsSelected"]) == false) {
+    header("Location:index.php?page=choixexportFormation");
+    echo "WTFF";
+    die("");
+}*/
+//gettab from $formationID
 function genere_entete()
 {
     $nom_colonne = getleafColsRequired();
@@ -111,7 +118,11 @@ function genere_formation($tab)
         </tr>
         </thead>
         <tbody>
-        <?php genere_formation(getTab()); ?>
+        <?php
+        if (!isset($_POST["formationsSelected"])){
+            die("Ok");
+        }
+        genere_formation(exportForm::getFormation_form($_POST("formationsSelected"))); ?>
         </tbody>
     </table>
 </div>
