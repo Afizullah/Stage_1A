@@ -27,30 +27,34 @@ class Projet extends DB{
                    $this->stat = $_SESSION["loaderProjet"]["projet_etat"] = $currentPojet["projet_etat"];
                    $this->anneeAcademique = $_SESSION["loaderProjet"]["projet_annee_academique"] =  $currentPojet["projet_annee_academique"];
                 }
-
             }
-
         }
-        $this->projets = parent::getData("projet","*",[[1,1]],array()," ORDER BY projet_date_creation DESC ");
-        $this->formations = parent::getData("formation","*",[["projet_id",self::getId()]]);
-        $this->groupes = parent::getData("groupe","*",[["projet_id",self::getId()]]);
+        $this->projets = parent::getData("projet", "*", [[1, 1]], array(), " ORDER BY projet_date_creation DESC ");
+        $this->formations = parent::getData("formation", "*", [["projet_id", self::getId()]]);
+        $this->groupes = parent::getData("groupe", "*", [["projet_id", self::getId()]]);
+    }
+
+    public function getId() {
+        return $this->id;
     }
     public static function createProject($nom,$anneeAcademique){
         if($projetId = parent::registre("projet",[["projet_nom",$nom],["projet_annee_Academique",$anneeAcademique]])){
             self::setLoadedProjet($projetId);
-            $invariants = ["SIGLES ET ABRÉVIATIONS","EQUIPE PEDAGOGIQUE","MOT DU CHEF DE DEPARTEMENT","EXTRAIT DU REGLEMENT INTERIEUR DE L’ESP","LA PRESENTATION DES FORMATIONS"];
-            for ($i=0; $i < count($invariants); $i++) {
-                if($invariantId = parent::registre("invariant",[["invariant_nom",$invariants[$i]]])){
-                    parent::registre("projet_invariant",[["projet_id",$projetId],["invariant_id",$invariantId]]);
+            $invariants = ["SIGLES ET ABRÉVIATIONS", "EQUIPE PEDAGOGIQUE", "MOT DU CHEF DE DEPARTEMENT", "EXTRAIT DU REGLEMENT INTERIEUR DE L’ESP", "LA PRESENTATION DES FORMATIONS"];
+            for ($i = 0; $i < count($invariants); $i++) {
+                if ($invariantId = parent::registre("invariant", [["invariant_nom", $invariants[$i]]])) {
+                    parent::registre("projet_invariant", [["projet_id", $projetId], ["invariant_id", $invariantId]]);
                 }
             }
         }
         return $projetId;
     }
-    public static function setLoadedProjet($idLoadedProjet){
-        parent::update("_paramettres",[["param_value",$idLoadedProjet]],[["param_name","idLastProjetLoaded"]]);
+
+    public static function setLoadedProjet($idLoadedProjet) {
+        parent::update("_paramettres", [["param_value", $idLoadedProjet]], [["param_name", "idLastProjetLoaded"]]);
     }
-    public function getName(){
+
+    public function getName() {
         return $this->name;
     }
     public function getAnneeAcademique(){
@@ -64,96 +68,106 @@ class Projet extends DB{
         }
         return false;
     }
-    public function getId(){
+
+    public function projetLoaded() {
         return $this->id;
     }
-    public function projetLoaded(){
-        return $this->id;
-    }
-    public function getStep(){
+
+    public function getStep() {
         return $this->step;
     }
-    public function getStat(){
+
+    public function getStat() {
         return $this->stat;
     }
-    public function getAll(){
-        if($this->projets){
+
+    public function getAll() {
+        if ($this->projets) {
             return $this->projets;
         }
-        return parent::getData("projet","*",[[1,1]],array()," ORDER BY projet_date_creation DESC ");
+        return parent::getData("projet", "*", [[1, 1]], array(), " ORDER BY projet_date_creation DESC ");
     }
-    public function getFormations(){
-        if($this->formations){
-            return $this->formations;
-        }
-        return parent::getData("formation","*",[["projet_id",self::getId()]]);
-    }
-    public function getNotifications(){
+
+    public function getNotifications() {
         return Sugges::getNotRead(self::getId());
     }
-    public function getFormationsNames(){
+
+    public function getFormationsNames() {
         $formsNames = array();
-        if($formations=self::getFormations()){
+        if ($formations = self::getFormations()) {
             foreach ($formations as $keyFormation => $valsForm) {
-                    $formsNames[]=$valsForm["formation_nom"];
+                $formsNames[] = $valsForm["formation_nom"];
             }
             return $formsNames;
-        }else{
+        } else {
             return false;
         }
-
     }
-    public function getTabFormationsId(){
+
+    public function getFormations() {
+        if ($this->formations) {
+            return $this->formations;
+        }
+        return parent::getData("formation", "*", [["projet_id", self::getId()]]);
+    }
+
+    public function getTabFormationsId() {
         $formations = self::getFormations();
         $tabIdFormation = array();
-        for ($i=0; $i < count($formations); $i++) {
-            $tabIdFormation[]=$formations[$i]["formation_id"];
+        for ($i = 0; $i < count($formations); $i++) {
+            $tabIdFormation[] = $formations[$i]["formation_id"];
         }
         return $tabIdFormation;
     }
-    public function getGroupes(){
-        if($this->groupes){
+
+    public function getGroupes() {
+        if ($this->groupes) {
             return $this->groupes;
         }
-        return parent::getData("groupe","*",[["projet_id",self::getId()]]);
+        return parent::getData("groupe", "*", [["projet_id", self::getId()]]);
     }
-    public function getGroupeForUser($userId,$groupeId){
-        return parent::getLine("groupe_utilisateurs","*",[["user_id",$userId],["groupe_id",$groupeId]]);
-    }
-    public function getAllOtherProjets($thisIdProject){
-        return parent::getData("projet","*",[["projet_id",intval($thisIdProject)]],["!="]);
-    }
-    public function getUsersWithGroupe(){
-        $teacherWhithGroupe = array();
-        if($results = parent::getData("groupe NATURAL JOIN groupe_utilisateurs NATURAL JOIN utilisateurs NATURAL JOIN compte","user_id",[["projet_id",intval(self::getId())],["compte_typeCompte","enseignant"]])){
-            foreach ($results as $resultKey => $resultFields) {
-                $teacherWhithGroupe[]=intval($resultFields["user_id"]);
-            }
 
-        }
-        return $teacherWhithGroupe;
+    public function getGroupeForUser($userId, $groupeId) {
+        return parent::getLine("groupe_utilisateurs", "*", [["user_id", $userId], ["groupe_id", $groupeId]]);
     }
-    private function getAllTeather(){
-        $teacherListe = array();
-        if($results = parent::getData("utilisateurs NATURAL JOIN compte","user_id,user_mail",[["compte_typeCompte","enseignant"]])){
-            foreach ($results as $resultKey => $resultFields) {
-                $teacherListe[]=$resultFields;
-            }
-        }
-        return $teacherListe;
+
+    public function getAllOtherProjets($thisIdProject) {
+        return parent::getData("projet", "*", [["projet_id", intval($thisIdProject)]], ["!="]);
     }
-    public function getUserWithoutGroupe(){
+
+    public function getUserWithoutGroupe() {
         $userWithoutGroupe = array();
-        if($teachersWithoutGroupe = self::getAllTeather()){
+        if ($teachersWithoutGroupe = self::getAllTeather()) {
             $usersWitheGroupe = self::getUsersWithGroupe();
             foreach ($teachersWithoutGroupe as $teachersWithoutGroupekey => $teachersWithoutGroupeFields) {
-                if(!in_array($teachersWithoutGroupeFields["user_id"],$usersWitheGroupe)){
+                if (!in_array($teachersWithoutGroupeFields["user_id"], $usersWitheGroupe)) {
                     $userWithoutGroupe[] = $teachersWithoutGroupeFields;
                 }
             }
         }
         return $userWithoutGroupe;
     }
+
+    private function getAllTeather() {
+        $teacherListe = array();
+        if ($results = parent::getData("utilisateurs NATURAL JOIN compte", "user_id,user_mail", [["compte_typeCompte", "enseignant"]])) {
+            foreach ($results as $resultKey => $resultFields) {
+                $teacherListe[] = $resultFields;
+            }
+        }
+        return $teacherListe;
+    }
+
+    public function getUsersWithGroupe() {
+        $teacherWhithGroupe = array();
+        if ($results = parent::getData("groupe NATURAL JOIN groupe_utilisateurs NATURAL JOIN utilisateurs NATURAL JOIN compte", "user_id", [["projet_id", intval(self::getId())], ["compte_typeCompte", "enseignant"]])) {
+            foreach ($results as $resultKey => $resultFields) {
+                $teacherWhithGroupe[] = intval($resultFields["user_id"]);
+            }
+        }
+        return $teacherWhithGroupe;
+    }
 }
-    $PROJET = new Projet;
+
+$PROJET = new Projet;
 ?>

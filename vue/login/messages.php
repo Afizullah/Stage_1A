@@ -1,7 +1,7 @@
 <?php
 function getMsgActiveAccountFailled(){
     ?>
-    Lien invalide ou innexistant
+    Lien invalide ou inexistant
     <?php
 }
 

@@ -24,6 +24,7 @@ $bookmark_templates[1] = '<table border="0" cellpadding="0" cellspacing="0" styl
 $bookmark_templates[2] = '<table border="0" cellpadding="0" cellspacing="0"><tr>
 <td width="10mm" height="6mm">&nbsp;</td><td width="145mm"><span style="font-family:dejavusansextralight;font-size:10pt;color:#666666;"><i>#TOC_DESCRIPTION#</i></span></td><td width="25mm"><span style="font-family:dejavusansextralight;font-weight:bold;font-size:12pt;color:#666666;" align="right">#TOC_PAGE_NUMBER#</span></td></tr></table>';
 // add a simple Table Of Content at first page
+$pdf->toc = true;
 $pdf->addHTMLTOC(2, 'Table des matières', $bookmark_templates, true, 'B', array(128,0,0));
 
 // end of TOC page

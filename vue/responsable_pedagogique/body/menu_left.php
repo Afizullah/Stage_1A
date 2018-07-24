@@ -62,6 +62,9 @@ function linkCreatProjet(){
                         <li>
                             <a href="index.php?page=importFormation">Importer des formations</a>
                         </li>
+                        <li>
+                            <a href="index.php?page=exportFormation">Exporter des formations</a>
+                        </li>
                         <?php
                     }
             }else{

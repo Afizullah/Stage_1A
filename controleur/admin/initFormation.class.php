@@ -1,7 +1,11 @@
 <?php
-class InitFormation{
-    public $data =null;
-    public function __construct(){
+
+class InitFormation
+{
+    public $data = null;
+
+    public function __construct()
+    {
         //if(isset($_REQUEST["initWhite"])){
         //	$initWhith = secure($_REQUEST["initWhite"]);
         $this->data = new InitFormationWithFile();
@@ -19,7 +23,9 @@ class InitFormation{
             }
     //	} */
     }
-    public function getData(){
+
+    public function getData()
+    {
         return $this->data;
     }
 }

@@ -28,6 +28,5 @@
 
         var_dump(count($PROJET->getGroupes()));
 
-
     }
  ?>

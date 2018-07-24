@@ -3,10 +3,11 @@
 //	Fonctions tableau des matières
 //==================================
 
-function tab_entete(){
-	$contenu='<link rel="stylesheet" href="'.PATH_TEMPLATE.'/dist/css/tab_matieres.css" type="text/css">';
-	$contenu.='<table class="tab_matieres">';
-	$contenu.=<<<Tab
+function tab_entete()
+{
+    $contenu = '<link rel="stylesheet" href="' . PATH_TEMPLATE . '/dist/css/tab_matieres.css" type="text/css">';
+    $contenu .= '<table class="tab_matieres">';
+    $contenu .= <<<Tab
 	<tr>
 		<th width="30%">Matieres</th>
 		<th width="10%">Nb d'heures CM</th>
@@ -18,13 +19,14 @@ function tab_entete(){
 		<th width="10%">Credit UE</th>
 	</tr>
 Tab;
-	return $contenu;
+    return $contenu;
 }
 
-function tab_module($module,$nbr_heures_cm,$nbr_heures_td,$nbr_heures_tp,$nbr_heures_tpe,$coef){
-	$HT=$nbr_heures_cm+$nbr_heures_td+$nbr_heures_tp+$nbr_heures_tpe;
-	$contenu='<tr class="modules">';
-	$contenu.=<<<Tab
+function tab_module($module, $nbr_heures_cm, $nbr_heures_td, $nbr_heures_tp, $nbr_heures_tpe, $coef)
+{
+    $HT = $nbr_heures_cm + $nbr_heures_td + $nbr_heures_tp + $nbr_heures_tpe;
+    $contenu = '<tr class="modules">';
+    $contenu .= <<<Tab
 		<td>$module</td>
 		<td>$nbr_heures_cm</td>
 		<td>$nbr_heures_td</td>
@@ -35,12 +37,13 @@ function tab_module($module,$nbr_heures_cm,$nbr_heures_td,$nbr_heures_tp,$nbr_he
 		<td> </td>
 	</tr>
 Tab;
-	return $contenu;
+    return $contenu;
 }
 
-function tab_ue($ue,$SumHCM,$SumHTD,$SumHTP,$SumHTPE,$SumtotH,$Cred){
-	$contenu='<tr class="ue">';
-	$contenu.=<<<Tab
+function tab_ue($ue, $SumHCM, $SumHTD, $SumHTP, $SumHTPE, $SumtotH, $Cred)
+{
+    $contenu = '<tr class="ue">';
+    $contenu .= <<<Tab
 		<td>$ue</td>
 		<td>$SumHCM</td>
 		<td>$SumHTD</td>
@@ -51,12 +54,13 @@ function tab_ue($ue,$SumHCM,$SumHTD,$SumHTP,$SumHTPE,$SumtotH,$Cred){
 		<td>$Cred</td>
 	</tr>
 Tab;
-	return $contenu;
+    return $contenu;
 }
 
-function tab_semestre($n_semestre,$SumHCM,$SumHTD,$SumHTP,$SumHTPE,$SumtotH){
-	$contenu='<tr class="semestre">';
-	$contenu.=<<<Tab
+function tab_semestre($n_semestre, $SumHCM, $SumHTD, $SumHTP, $SumHTPE, $SumtotH)
+{
+    $contenu = '<tr class="semestre">';
+    $contenu .= <<<Tab
 		<td>SEMESTRE $n_semestre</td>
 		<td>$SumHCM</td>
 		<td>$SumHTD</td>
@@ -67,11 +71,12 @@ function tab_semestre($n_semestre,$SumHCM,$SumHTD,$SumHTP,$SumHTPE,$SumtotH){
 		<td>30</td>
 	</tr>
 Tab;
-	return $contenu;
+    return $contenu;
 }
 
-function tab_fin($Tcm,$Ttd,$Ttp,$Ttpe,$TT,$Tcred){
-$resu=<<<Tab
+function tab_fin($Tcm, $Ttd, $Ttp, $Ttpe, $TT, $Tcred)
+{
+    $resu = <<<Tab
 	<tr>
 		<td> </td>
 		<td>$Tcm</td>
@@ -84,7 +89,7 @@ $resu=<<<Tab
 	</tr>
 	</table>
 Tab;
-	return $resu;
+    return $resu;
 }
 
 /*Génération de tableaux de details des modules, comme à partir de la page 16 jusqu'à la page 32.
@@ -99,58 +104,59 @@ Tab;
 	@return le code html correspondant à ce tableau
 */
 
-function tab_matieres($semestre,$ue,$nom,$coeff,$cm,$td,$tp,$tpe,$credits){
-	$Tcm=0;
-	$Ttd=0;
-	$Ttp=0;
-	$Ttpe=0;
-	$Tcred=0;
-	$i=0;
-	$resu=tab_entete();
-	while ($i<count($semestre)){
-		$Scm=0;
-		$Std=0;
-		$Stp=0;
-		$Stpe=0;
-		$u=$ue[0];
-		$sem=$semestre[$i];
-		$corps_sem="";
-		while ($i<count($semestre) && $sem==$semestre[$i]){
-			$Ucm=0;
-			$Utd=0;
-			$Utp=0;
-			$Utpe=0;
-			$u=$ue[$i];
-			$tab_modules="";
-			while($i<count($semestre) && strcmp($u,$ue[$i])==0){
-				$tab_modules.=tab_module($nom[$i],$cm[$i],$td[$i],$tp[$i],$tpe[$i],$coeff[$i]);
-				$Ucm+=$cm[$i];
-				$Utd+=$td[$i];
-				$Utp+=$tp[$i];
-				$Utpe+=$tpe[$i];
-				$i++;
-			}
-			$cred=($Ucm+$Utd+$Utp+$Utpe)/20;
-			$entete_ue=tab_ue($ue[$i-1],$Ucm,$Utd,$Utp,$Utpe,$Ucm+$Utd+$Utp+$Utpe,$cred);
-			$corps_ue=$tab_modules;
-			$contenu_ue=$entete_ue.$corps_ue;
-			$corps_sem.=$contenu_ue;
-			$Scm+=$Ucm;
-			$Std+=$Utd;
-			$Stp+=$Utp;
-			$Stpe+=$Utpe;
-		}
-		$entete_sem=tab_semestre($semestre[$i-1],$Scm,$Std,$Stp,$Stpe,$Scm+$Std+$Stp+$Stpe);
-		$contenu_sem=$entete_sem.$corps_sem;
-		$resu.=$contenu_sem;
-		$Tcm+=$Scm;
-		$Ttd+=$Std;
-		$Ttp+=$Stp;
-		$Ttpe+=$Stpe;
-		$Tcred+=30;
+function tab_matieres($semestre, $ue, $nom, $coeff, $cm, $td, $tp, $tpe, $credits)
+{
+    $Tcm = 0;
+    $Ttd = 0;
+    $Ttp = 0;
+    $Ttpe = 0;
+    $Tcred = 0;
+    $i = 0;
+    $resu = tab_entete();
+    while ($i < count($semestre)) {
+        $Scm = 0;
+        $Std = 0;
+        $Stp = 0;
+        $Stpe = 0;
+        $u = $ue[0];
+        $sem = $semestre[$i];
+        $corps_sem = "";
+        while ($i < count($semestre) && $sem == $semestre[$i]) {
+            $Ucm = 0;
+            $Utd = 0;
+            $Utp = 0;
+            $Utpe = 0;
+            $u = $ue[$i];
+            $tab_modules = "";
+            while ($i < count($semestre) && strcmp($u, $ue[$i]) == 0) {
+                $tab_modules .= tab_module($nom[$i], $cm[$i], $td[$i], $tp[$i], $tpe[$i], $coeff[$i]);
+                $Ucm += $cm[$i];
+                $Utd += $td[$i];
+                $Utp += $tp[$i];
+                $Utpe += $tpe[$i];
+                $i++;
+            }
+            $cred = ($Ucm + $Utd + $Utp + $Utpe) / 20;
+            $entete_ue = tab_ue($ue[$i - 1], $Ucm, $Utd, $Utp, $Utpe, $Ucm + $Utd + $Utp + $Utpe, $cred);
+            $corps_ue = $tab_modules;
+            $contenu_ue = $entete_ue . $corps_ue;
+            $corps_sem .= $contenu_ue;
+            $Scm += $Ucm;
+            $Std += $Utd;
+            $Stp += $Utp;
+            $Stpe += $Utpe;
+        }
+        $entete_sem = tab_semestre($semestre[$i - 1], $Scm, $Std, $Stp, $Stpe, $Scm + $Std + $Stp + $Stpe);
+        $contenu_sem = $entete_sem . $corps_sem;
+        $resu .= $contenu_sem;
+        $Tcm += $Scm;
+        $Ttd += $Std;
+        $Ttp += $Stp;
+        $Ttpe += $Stpe;
+        $Tcred += 30;
 
-	}
-	return $resu.tab_fin($Tcm,$Ttd,$Ttp,$Ttpe,$Tcm+$Ttd+$Ttp+$Ttpe,$Tcred);
+    }
+    return $resu . tab_fin($Tcm, $Ttd, $Ttp, $Ttpe, $Tcm + $Ttd + $Ttp + $Ttpe, $Tcred);
 }
 
 function displayElements($val){
@@ -168,11 +174,12 @@ function displayElements($val){
 //	Tableau détails des matières
 //================================
 
-function tab_details_module($nom,$code,$formation,$coeff,$cm,$td,$tp,$tpe,$obj,$prerequis,$contenu,$eval){
-	$resu='<p><font size="+3" color="green" face="Times">';
-	$resu.="$code: $nom</font></p>";
-	$resu.='<br/><br/><table border="1">';
-	$resu.=<<<Tab
+function tab_details_module($nom, $code, $formation, $coeff, $cm, $td, $tp, $tpe, $obj, $prerequis, $contenu, $eval)
+{
+    $resu = '<p><font size="+3" color="green" face="Times">';
+    $resu .= "$code: $nom</font></p>";
+    $resu .= '<br/><br/><table border="1">';
+    $resu .= <<<Tab
 	<tr>
 		<td><b> Coefficient:</b> $coeff</td>
 		<td><b> CM:</b> $cm H</td>
@@ -181,45 +188,26 @@ function tab_details_module($nom,$code,$formation,$coeff,$cm,$td,$tp,$tpe,$obj,$
 		<td><b> TPE:</b> $tpe H</td>
 	</tr>
 Tab;
-	$resu.='<tr><td colspan="5">&nbsp;&nbsp;<b>Objectifs/Compétences:</b><br />';
-	$resu.=displayElements($obj)."</td></tr>";
-	$resu.='<tr><td colspan="5">&nbsp;&nbsp;<b>Prérequis:</b><br />';
-	$resu.=displayElements($prerequis)."</td></tr>";
-	$resu.='<tr><td colspan="5">&nbsp;&nbsp;<b>Contenu:</b><br />';
-	$resu.=displayElements($contenu)."</td></tr>";
-	$resu.='<tr><td COLSPAN="5">';
-	$resu.=$eval."</td></tr>";
-	$resu.="</table>";
-	return $resu;
-	}
-
-function tab_details_ue($ue,$code,$formation,$cm,$td,$tp,$tpe,$credit){
-	$vht=$cm+$tp+$td+$tpe;
-	$cred = $vht/20;
-	$resu='<br/><br/><table border="1">
-	<tr>
-		<td colspan="6" style="background-color: #5EB54D;"><font size="+4" face="Times">';
-	$resu.="$formation $code: $ue</font></td>
-	</tr>
-	<tr>
-		<td><b>CM:</b> $cm</td>
-		<td><b>TD:</b> $td</td>
-		<td><b>TP:</b> $tp</td>
-		<td><b>TPE:</b> $tpe</td>
-		<td><b>VHT:</b> $vht</td>
-		<td><b>Crédits:</b> $cred</td>
-	</tr>
-	</table>";
-	return $resu;
+    $resu .= '<tr><td colspan="5">&nbsp;&nbsp;<b>Objectifs/Compétences:</b><br />';
+    $resu .= displayElements($obj) . "</td></tr>";
+    $resu .= '<tr><td colspan="5">&nbsp;&nbsp;<b>Prérequis:</b><br />';
+    $resu .= displayElements($prerequis) . "</td></tr>";
+    $resu .= '<tr><td colspan="5">&nbsp;&nbsp;<b>Contenu:</b><br />';
+    $resu .= displayElements($contenu) . "</td></tr>";
+    $resu .= '<tr><td COLSPAN="5">';
+    $resu .= $eval . "</td></tr>";
+    $resu .= "</table>";
+    return $resu;
 }
 
-function tab_details_semestre($num,$cm,$td,$tp,$tpe){
-	$vht=$cm+$tp+$td+$tpe;
-	$cred = $vht/20;
-	$resu='<br/><br/><table border="1">
+function tab_details_ue($ue, $code, $formation, $cm, $td, $tp, $tpe, $credit)
+{
+    $vht = $cm + $tp + $td + $tpe;
+    $cred = $vht / 20;
+    $resu = '<br/><br/><table border="1">
 	<tr>
-		<td colspan="6" style="background-color: #109DEC;"><font size="+4" face="Times">';
-	$resu.="SEMESTRE $num</font></td>
+		<td colspan="6" style="background-color: #5EB54D;"><font size="+4" face="Times">';
+    $resu .= "$formation $code: $ue</font></td>
 	</tr>
 	<tr>
 		<td><b>CM:</b> $cm</td>
@@ -230,7 +218,28 @@ function tab_details_semestre($num,$cm,$td,$tp,$tpe){
 		<td><b>Crédits:</b> $cred</td>
 	</tr>
 	</table>";
-	return $resu;
+    return $resu;
+}
+
+function tab_details_semestre($num, $cm, $td, $tp, $tpe)
+{
+    $vht = $cm + $tp + $td + $tpe;
+    $cred = $vht / 20;
+    $resu = '<br/><br/><table border="1">
+	<tr>
+		<td colspan="6" style="background-color: #109DEC;"><font size="+4" face="Times">';
+    $resu .= "SEMESTRE $num</font></td>
+	</tr>
+	<tr>
+		<td><b>CM:</b> $cm</td>
+		<td><b>TD:</b> $td</td>
+		<td><b>TP:</b> $tp</td>
+		<td><b>TPE:</b> $tpe</td>
+		<td><b>VHT:</b> $vht</td>
+		<td><b>Crédits:</b> $cred</td>
+	</tr>
+	</table>";
+    return $resu;
 }
 
 /*Génération de tableaux de details des modules, comme à partir de la page 16 jusqu'à la page 32.
@@ -251,52 +260,54 @@ function tab_details_semestre($num,$cm,$td,$tp,$tpe){
 @return le code html correspondant aux tableaux
 */
 
-function tab_details_matiere($semestre,$ue,$nom,$code,$formation,$coeff,$cm,$td,$tp,$tpe,$obj,$prerequis,$contenu,$eval,$credits){
-	$i=0;
-	$resu="";
-	while ($i<count($semestre)){
-		$Scm=0;
-		$Std=0;
-		$Stp=0;
-		$Stpe=0;
-		$u=$ue[0];
-		$sem=$semestre[$i];
-		$corps_sem="";
-		while ($i<count($semestre) && $sem==$semestre[$i]){
-			$Ucm=0;
-			$Utd=0;
-			$Utp=0;
-			$Utpe=0;
-			$u=$ue[$i];
-			$tab_modules="";
-			while($i<count($semestre) && strcmp($u,$ue[$i])==0){
-				$tab_modules.=tab_details_module($nom[$i],$code[$i],$formation,$coeff[$i],$cm[$i],$td[$i],$tp[$i],$tpe[$i],$obj[$i],$prerequis[$i],$contenu[$i],$eval[$i]);
-				$Ucm+=$cm[$i];
-				$Utd+=$td[$i];
-				$Utp+=$tp[$i];
-				$Utpe+=$tpe[$i];
-				$i++;
-			}
-			$cred = ($Ucm+$Utd+$Utp+$Utpe)/20;
-			$codeUe = explode(" ",trim($code[$i-1]));
-			if(count($codeUe)==2){
-				$codeUe = floor(floatval($codeUe[1])/10);
-			}else{
-				$codeUe = "";
-			}
-			$entete_ue=tab_details_ue($ue[$i-1],$codeUe,$formation,$Ucm,$Utd,$Utp,$Utpe,$cred);
-			$corps_ue=$tab_modules;
-			$contenu_ue=$entete_ue.$corps_ue;
-			$corps_sem.=$contenu_ue;
-			$Scm+=$Ucm;
-			$Std+=$Utd;
-			$Stp+=$Utp;
-			$Stpe+=$Utpe;
-		}
-		$entete_sem=tab_details_semestre($semestre[$i-1],$Scm,$Std,$Stp,$Stpe);
-		$contenu_sem=$entete_sem.$corps_sem;
-		$resu.=$contenu_sem;
-	}
-	return $resu;
+function tab_details_matiere($semestre, $ue, $nom, $code, $formation, $coeff, $cm, $td, $tp, $tpe, $obj, $prerequis, $contenu, $eval, $credits)
+{
+    $i = 0;
+    $resu = "";
+    while ($i < count($semestre)) {
+        $Scm = 0;
+        $Std = 0;
+        $Stp = 0;
+        $Stpe = 0;
+        $u = $ue[0];
+        $sem = $semestre[$i];
+        $corps_sem = "";
+        while ($i < count($semestre) && $sem == $semestre[$i]) {
+            $Ucm = 0;
+            $Utd = 0;
+            $Utp = 0;
+            $Utpe = 0;
+            $u = $ue[$i];
+            $tab_modules = "";
+            while ($i < count($semestre) && strcmp($u, $ue[$i]) == 0) {
+                $tab_modules .= tab_details_module($nom[$i], $code[$i], $formation, $coeff[$i], $cm[$i], $td[$i], $tp[$i], $tpe[$i], $obj[$i], $prerequis[$i], $contenu[$i], $eval[$i]);
+                $Ucm += $cm[$i];
+                $Utd += $td[$i];
+                $Utp += $tp[$i];
+                $Utpe += $tpe[$i];
+                $i++;
+            }
+            $cred = ($Ucm + $Utd + $Utp + $Utpe) / 20;
+            $codeUe = explode(" ", trim($code[$i - 1]));
+            if (count($codeUe) == 2) {
+                $codeUe = floor(floatval($codeUe[1]) / 10);
+            } else {
+                $codeUe = "";
+            }
+            $entete_ue = tab_details_ue($ue[$i - 1], $codeUe, $formation, $Ucm, $Utd, $Utp, $Utpe, $cred);
+            $corps_ue = $tab_modules;
+            $contenu_ue = $entete_ue . $corps_ue;
+            $corps_sem .= $contenu_ue;
+            $Scm += $Ucm;
+            $Std += $Utd;
+            $Stp += $Utp;
+            $Stpe += $Utpe;
+        }
+        $entete_sem = tab_details_semestre($semestre[$i - 1], $Scm, $Std, $Stp, $Stpe);
+        $contenu_sem = $entete_sem . $corps_sem;
+        $resu .= $contenu_sem;
+    }
+    return $resu;
 }
+
 ?>

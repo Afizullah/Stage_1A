@@ -17,3 +17,4 @@ function inter_formation($formationsNames,$formations){
     return $resu;
 }
 ?>
+

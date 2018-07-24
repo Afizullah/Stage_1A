@@ -17,7 +17,7 @@
 									<div class="col-sm-12 col-xs-12">
 										<div class="sp-logo-wrap text-center pa-0 mb-30">
 											<a href="index.php?page=login">
-												<img class="brand-img mr-10" src="https://hencework.com/theme/grandin-demo/img/logo.png" alt="brand"/>
+												<img class="brand-img mr-10" src="<?php echo PATH_TEMPLATE; ?>dist/img/logo.png" alt="brand"/>
 												<span class="brand-text"><?php echo APP_NAME; ?></span>
 												<hr>
 											</a>
