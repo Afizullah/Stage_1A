@@ -21,7 +21,6 @@
   <!-- Tab panes -->
   <div class="tab-content border mb-3">
       <div id="enseignant" class="container tab-pane active "><br>
-
         <div>
           <div class="col-sm-12">
   						<div class="panel panel-default card-view">
@@ -42,8 +41,9 @@
 
                                                   ?>
                                                   <div style="text-align: center;">
-                                                      <h5>Gestion des groupes <i>(<?php echo $PROJET->getName(); ?>)</i></h5>
+                                                      <h5>Gestion des comptes <i>(<?php echo $PROJET->getName(); ?>)</i></h5>
                                                   </div>
+                                                  <?php echo $html ?>
                                                   <form class="" action="" method="post">
                                                       <label for="notifEnseignant">Notifier les enseignants des changements </label>
                                                       <input type="checkbox" id="notifEnseignant" name="notifEnseignant" value="ok">
@@ -66,6 +66,7 @@
                                                       }
                                                        ?>
   													<!-- <th>Account Type</th> -->
+                             <th>Responsable pédagogique</th>
   												  </tr>
   												</thead>
   												<tbody>
@@ -101,6 +102,24 @@
                                                           <?php
                                                       }
                                                        ?>
+                            <td>
+                              <select name="link2[]" class="form-control">
+                                  <option value="">---Sélectionner---</option>
+                              <?php
+                                  $RP=ShowUsers::getFormationRP($dataUser[$i]['user_id']);
+                                  $formations=showUsers::getFormations($projet_id);
+                                  foreach ($formations as $currentForm) {
+                                      //echo var_dump($formations);
+                                      ?>
+
+                                      <option <?php if(isset($RP[0]) && ($currentForm['formation_id']==$RP[0]['formation_id'])){ echo "selected"; } ?> value="<?php echo $dataUser[$i]['user_id'].";".$currentForm['formation_id']; ?>"><?php echo $currentForm['formation_nom']; ?></option>
+                                      <?php
+                                  }
+
+                                  ?>
+                              </select>
+                            </td>
+
   													<!-- <td><span class="label label-danger">admin</span> </td> -->
                             </tr>
                             <?php } ?>
@@ -241,4 +260,4 @@ $(document).ready(function(){
         $(".prev span").text(y);
     });
 });
-</script>
+
