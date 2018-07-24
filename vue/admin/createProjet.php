@@ -27,8 +27,8 @@ fieldset {
     ?>
     <fieldset >
         <?php
-            if($hasError && isset($_POST["projet_nom"])){
-                getFromCreateProjet($_POST["projet_nom"]);
+            if($hasError && isset($_POST["projet_nom"],$_POST["projet_annee_Academique"])){
+                getFromCreateProjet($_POST["projet_nom"],"",$_POST["projet_annee_Academique"]);
             }else{
                 getFromCreateProjet();
             }

@@ -21,14 +21,14 @@ define("DEFAULT_PAGE","accueil");
 define("NBR_HOURS_LINK_EXP","48");
 define("ASSYNC_FILES",["regChange","livret","assync.SelectableFormations","assync.loadFile","assync.loadDb","assync_suggestion","assync.editProject","assync.loadSuggest","assync.loadOptions","assync.changeSuggesStatus"]);
 define("MAP_PAGES",array(
-                        "accueil"=>["pageName"=>"Accueil"],
-                        "addUser"=>["pageName"=>"Créer un compte"],
-                        "showUsers"=>["pageName"=>"Liste des utilisateurs"],
-                        "createProjet"=>["pageName"=>"Créer un projet"],
-                        "showProjets"=>["pageName"=>"Liste des projets"],
-                        "importFormation"=>["pageName"=>"Importer formation(s)"],
-                        "editFormation"=>["pageName"=>"Modifier une formation"],
-                        "addGroupe"=>["pageName"=>"Créer un nouveau groupe"],
-                        "editUser"=>["pageName"=>"Modifier compte"]
-                    ));
+    "accueil"=>["pageName"=>"Accueil"],
+    "addUser"=>["pageName"=>"Créer un compte"],
+    "showUsers"=>["pageName"=>"Liste des utilisateurs"],
+    "createProjet"=>["pageName"=>"Créer un projet"],
+    "showProjets"=>["pageName"=>"Liste des projets"],
+    "importFormation"=>["pageName"=>"Importer formation(s)"],
+    "editFormation"=>["pageName"=>"Modifier une formation"],
+    "addGroupe"=>["pageName"=>"Créer un nouveau groupe"],
+    "editUser"=>["pageName"=>"Modifier compte"]
+));
 ?>

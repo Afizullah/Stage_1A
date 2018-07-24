@@ -90,7 +90,13 @@ function isEmail($val)
         return false;
     }
 }
-
+function isAcademic($val){
+    if (preg_match("#^[2][0-9]{3}[-][2][0-9]{3}$#", $val)) {
+        return $val;
+    } else {
+        return false;
+    }
+}
 function _hash($string)
 {
     return hash("sha256", $string);

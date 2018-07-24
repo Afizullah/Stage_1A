@@ -32,6 +32,26 @@ class Livret extends DB{
             INNER JOIN classe ON ue.classe_id=classe.classe_id
             INNER JOIN formation ON classe.formation_id=formation.formation_id
             WHERE classe.formation_id=".$formationId." ORDER BY ue.ue_semestr ASC");
-    }
+	}
+	public static function getDimunitifSelectedFormation($idsSelected){
+		$dimunitifs = array();
+		for ($i=0; $i <count($idsSelected) ; $i++) { 
+			$thisFormationId = intval($idsSelected[$i]);
+			if($thisLine = DB::getLine("formation","formation_nom",[["formation_id",$thisFormationId]])){
+				$currentDimunitif = explode("-",trim($thisLine["formation_nom"]));
+				$currentDimunitif = explode(" ",trim($currentDimunitif[0]));
+				$currentDimunitif = strtoupper($currentDimunitif[0]);
+				if(!in_array($currentDimunitif,$dimunitifs)){
+					$dimunitifs[] = $currentDimunitif;
+				}
+
+			}
+		}
+		if($dimunitifs){
+			return implode("-",$dimunitifs);
+		}
+		return null;
+
+	}
 }
 ?>

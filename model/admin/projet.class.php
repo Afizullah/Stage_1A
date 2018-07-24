@@ -9,6 +9,7 @@ class Projet extends DB{
     private $projets=null;
     private $formations=null;
     private $groupes=null;
+    private $anneeAcademique = null;
     public function __construct(){
         if(isset($_SESSION["loaderProjet"]) &&
             $_SESSION["loaderProjet"]["projet_id"]==parent::getLine("_paramettres","param_value",[["param_name","idLastProjetLoaded"]])["param_value"]){
@@ -16,6 +17,7 @@ class Projet extends DB{
             $this->name  = $_SESSION["loaderProjet"]["projet_nom"];
             $this->step  = $_SESSION["loaderProjet"]["projet_step"];
             $this->state = $_SESSION["loaderProjet"]["projet_etat"];
+            $this->anneeAcademique = $_SESSION["loaderProjet"]["projet_annee_academique"];
         }else{
             if($idProjetToLoad = parent::getLine("_paramettres","param_value",[["param_name","idLastProjetLoaded"]])["param_value"]){
                if($currentPojet = parent::getLine("projet","*",[["projet_id",$idProjetToLoad]])){
@@ -23,7 +25,7 @@ class Projet extends DB{
                    $this->name = $_SESSION["loaderProjet"]["projet_nom"]  = $currentPojet["projet_nom"];
                    $this->step = $_SESSION["loaderProjet"]["projet_step"] = $currentPojet["projet_step"];
                    $this->stat = $_SESSION["loaderProjet"]["projet_etat"] = $currentPojet["projet_etat"];
-
+                   $this->anneeAcademique = $_SESSION["loaderProjet"]["projet_annee_academique"] =  $currentPojet["projet_annee_academique"];
                 }
 
             }
@@ -33,8 +35,8 @@ class Projet extends DB{
         $this->formations = parent::getData("formation","*",[["projet_id",self::getId()]]);
         $this->groupes = parent::getData("groupe","*",[["projet_id",self::getId()]]);
     }
-    public static function createProject($nom){
-        if($projetId = parent::registre("projet",[["projet_nom",$nom]])){
+    public static function createProject($nom,$anneeAcademique){
+        if($projetId = parent::registre("projet",[["projet_nom",$nom],["projet_annee_Academique",$anneeAcademique]])){
             self::setLoadedProjet($projetId);
             $invariants = ["SIGLES ET ABRÉVIATIONS","EQUIPE PEDAGOGIQUE","MOT DU CHEF DE DEPARTEMENT","EXTRAIT DU REGLEMENT INTERIEUR DE L’ESP","LA PRESENTATION DES FORMATIONS"];
             for ($i=0; $i < count($invariants); $i++) {
@@ -50,6 +52,9 @@ class Projet extends DB{
     }
     public function getName(){
         return $this->name;
+    }
+    public function getAnneeAcademique(){
+        return $this->anneeAcademique;
     }
     public function setName($newName){
         if(parent::update("projet",[["projet_nom",$newName]],[["projet_id",$this->getId()]])){

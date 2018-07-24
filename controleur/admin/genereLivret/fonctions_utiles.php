@@ -7,6 +7,6 @@ function preHTML($pdf, $type = 'true')
     } else {
         $pdf->SetFont('helvetica', '', 12);
     }
-    $pdf->SetTextColor(0, 0, 0);
+    $pdf->SetTextColor(0, 0, 0); 
 }
 

@@ -489,7 +489,7 @@
                         dataSource.style.display="none";
                         $.notify("Suggestion appliquée","info");
                     }
-                } catch (error) {
+                }catch (error) {
                     console.log("Vérifiez la syntax json file");
                     console.log(error);
                 }

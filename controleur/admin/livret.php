@@ -2,14 +2,16 @@
 require_once(PATH_CONTROLEUR.'admin/genereLivret/header.php');
 if (isset($_POST["selectFormations"],$_POST["formationsSelected"])) {
     $formationsSelected = $_POST["formationsSelected"];
-    //page de garde
-    page_de_garde($pdf, "2017-2018", 'GENIE INFORMATIQUE',"(+221) 33 825 75 28)", "secretariat-dgi@esp.sn");
-    $pdf->SetPrintHeader(true);
-    $pdf->SetPrintFooter(true);
-    //set font
-    $pdf->SetFont('times', 'B', 20);
-    $pdf->SetFont('times', 'BI', 14);
     if($formationsSelected){
+        //page de garde
+        $anneeAcademique = $PROJET->getAnneeAcademique();
+        $dimunitifs = Livret::getDimunitifSelectedFormation($formationsSelected);
+        page_de_garde($pdf, $anneeAcademique, 'GENIE INFORMATIQUE',"(+221) 33 825 75 28)", "secretariat-dgi@esp.sn",$dimunitifs);
+        $pdf->SetPrintHeader(true);
+        $pdf->SetPrintFooter(true);
+        //set font
+        $pdf->SetFont('times', 'B', 20);
+        $pdf->SetFont('times', 'BI', 14);
         $projetId = $PROJET->getId();
         $invariants = Invariant::getInvariant($projetId);
         $formationsId = $PROJET->getTabFormationsId();
@@ -55,9 +57,11 @@ if (isset($_POST["selectFormations"],$_POST["formationsSelected"])) {
                                 $credits[]=0;
                                 $canPrintSemestres=true;
                             }
+                            
+                            
                             if($canPrintSemestres){
                                 //Affichage des infos des semestres de la formation
-                                formation($pdf,$semestre,$ue,$nom,$code,$formation,$coef,$cm,$td,$tp,$tpe,$obj,$prerequis,$contenu,$eval,$credits,$phrase_presentation);
+                                formation($pdf,$semestre,$ue,$nom,$code,$formation,$coef,$cm,$td,$tp,$tpe,$obj,$prerequis,$contenu,$eval,$credits,$phrase_presentation,$formationCode);
                             }
                         }
                         //Affichage des informations utiles

@@ -22,5 +22,12 @@
             </a>
         </div>
         <?php
+    }else{
+        
+        var_dump(count($PROJET->getFormations()));
+
+        var_dump(count($PROJET->getGroupes()));
+
+
     }
  ?>
