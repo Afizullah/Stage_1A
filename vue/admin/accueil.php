@@ -5,7 +5,7 @@ if(defined("SESS_ADMIN_CONTROLER")){
         require_once(SESS_ADMIN_CONTROLER);
     }else{
         header("Location:../");
-        die("<center><b>ERROR</b>::Accès non autorisé</center>");
+        die("<div style=\"text-align: center;\"><b>ERROR</b>::Accès non autorisé</div>");
     }
 }else{
     header("Location:../");

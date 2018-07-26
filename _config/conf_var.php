@@ -30,6 +30,7 @@ define("MAP_PAGES", array(
     "exportFormation" => ["pageName" => "Exporter la formation"],
     "choixexportFormation" => ["pageName" =>  "Choix de la formation"],
     "aff_suggestion" => ["pageName" => "Liste des suggestions"],
+    "modifInvariant" => ["pageName" => "Gestion des invariants"],
     "groupes" => ["pageName" => "Liste des groupes"],
     "importFormation" => ["pageName" => "Importer une ou plusieurs formations"],
     "editFormation" => ["pageName" => "Modifier une formation"],

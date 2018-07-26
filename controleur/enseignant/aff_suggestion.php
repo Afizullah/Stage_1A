@@ -12,6 +12,7 @@ if (isset($_REQUEST["id"])) {
 }
 
 $tab = aff_suggestion::getSuggestion($user_id);
+$resu=array();
 for ($i = 0; $i < count($tab); $i++) {
     $resu[$i]['projet_nom'] = $tab[$i]['projet_nom'];
     $resu[$i]['suggestion_valeur'] = $tab[$i]['suggestion_valeur'];

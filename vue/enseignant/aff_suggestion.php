@@ -6,6 +6,11 @@
             </div>
             <div class="clearfix"></div>
         </div>
+        <?php
+        if (count($resu)==0){
+            echo "<p>Vous n'avez fait aucune suggestion</p>";
+        }
+        else{?>
         <div class="panel-wrapper collapse in">
             <div class="panel-body">
                 <div class="table-wrap mt-40">
@@ -26,6 +31,7 @@
 if (isset($html)){
 	echo $html;
 }
+
 for ($i=0;$i<count($resu);$i++){?>
 								<tr>
 									<td> 
@@ -50,3 +56,4 @@ for ($i=0;$i<count($resu);$i++){?>
         </div>
     </div>
 </div>
+<?php }
