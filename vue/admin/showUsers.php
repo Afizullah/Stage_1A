@@ -118,7 +118,7 @@
                                                        ?>
                             <td>
                               <select name="link2[]" class="form-control">
-                                  <option value="">---Sélectionner---</option>
+                                  <option value=<?php echo $dataUser[$i]['user_id'];?> >---Sélectionner---</option>
                               <?php
                                   $RP=ShowUsers::getFormationRP($dataUser[$i]['user_id']);
                                   $formations=showUsers::getFormations($projet_id);
