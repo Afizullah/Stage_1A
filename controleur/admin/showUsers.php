@@ -45,6 +45,7 @@ if (isset($_POST["editGroupeListe"])) {
             }
         }
     }
+}
     if (isset($_POST['link2'])){
         if (testdoublons($_POST['link2'])){
             $html="<p style='color:red'>Vos modifications n'ont pas été prises en compte (un seul responsable pédagogique par formation)</p>";
@@ -57,11 +58,15 @@ if (isset($_POST["editGroupeListe"])) {
                     $formation_id=(int)$id[1];
                     add_respo($formation_id,$user_id);
                 }
+                else {
+                    if($tab=ShowUsers::est_respo($id[0],$projet_id)){
+                        ShowUsers::delete_respo($tab[0]['formation_id'],$id[0]);
+                    }
+                }
             }
             $html="<p style='color:green'>Vos modifications ont bien été prises en compte</p>";
-        }
+        }   
         
     }
-}
 
 ?>
