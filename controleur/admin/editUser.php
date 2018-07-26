@@ -11,4 +11,8 @@
         header("Location:../");
         die("<center><b>ERROR</b>::Accès non autorisé</center>");
     }
+    
+    require_once(PATH_CONTROLEUR."commun.user.php");
+    $user_id=CurrentUser::getId();
+    $email=editUser::getEmail($user_id);
 ?>
