@@ -44,5 +44,69 @@ $pdf->addHTMLTOC(2, 'Table des matières', $bookmark_templates, true, 'B', array
 // end of TOC page
 $pdf->endTOCPage();
 
-ob_end_clean();
-$pdf->Output('Formation' . $pdf->getDocName() .'.pdf', 'I');
+//ob_end_clean();
+//Création du fichier et de sa vignette
+$filelocation = "/var/www/html/livret/model/livret-pdf/";
+$filename='Formation' . $pdf->getDocName();
+$pdf->Output($filelocation.$filename.".pdf", 'F');
+
+$im = new imagick(PATH_MODEL."livret-pdf/".$filename.".pdf[0]");
+$im->writeImage(PATH_MODEL."livret-pdf/".$filename.'.png');
+?>
+
+
+<style>
+    img:hover {
+    border: 3px;
+    border-style: solid;    
+    border-color: #878787;
+}
+
+
+</style>
+
+<h3> Livret généré </h3>
+</br>
+<p id="resu"></p>
+</br>
+<p>
+    Voici le livret que vous avez généré, vous pouvez maintenant choisir de le publier:
+</p>
+
+<table style="width:50%; text-align: center; ">
+    <tr>
+        <td><a href=<?php echo PATH_MODEL."livret-pdf/".$filename.".pdf"?> onclick="window.open(this.href); return false;" >
+                <div class="lien">
+                    <img src=<?php echo PATH_MODEL."livret-pdf/".$filename.".png"?> width="160" height="240" alt="livret"/>
+                </div>
+            </a>
+        </td>
+        <td>
+            <form method="post" id="f1">
+                <input type="text" name="filename" value="<?php echo $filename?>" style="display:none;" >
+                <input type="button" onclick="testfile('f1')" class="btn btn-info" value="Publier le livret"/>
+            </form>
+        </td>
+    </tr>
+    <tr>
+        <td><?php echo $filename.'.pdf';?></td>
+    </tr>
+
+<script type="text/javascript">
+    function testfile(val){
+        //document.getElementById("contentExcelFileAnalyse").innerHTML='<center><div class="loader"></div></center>';
+        var fd = new FormData(document.getElementById(val));
+       fd.append("label", val);
+       $.ajax({
+         url: "index.php?page=assync_livret",
+         type: "POST",
+         data: fd,
+         //mimeTypes:"multipart/form-data",
+         processData: false,  // tell jQuery not to process the data
+         contentType: false   // tell jQuery not to set contentType
+       }).done(function( data ) {
+            document.getElementById("resu").innerHTML=data;
+       });
+       return false;
+    }
+</script>

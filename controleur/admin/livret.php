@@ -1,5 +1,9 @@
 <?php
 require_once(PATH_CONTROLEUR . 'admin/genereLivret/header.php');
+
+//nettoie le répertoire dans le lequel sont générés les livrets
+clean_rep();
+
 if (isset($_POST["selectFormations"], $_POST["formationsSelected"])) {
     $formationsSelected = $_POST["formationsSelected"];
     if($formationsSelected){

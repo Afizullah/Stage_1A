@@ -23,6 +23,17 @@ function recuperation($formation) {
     return [$semestre, $ue, $nom, $code, $formation, $coeff, $cm, $td, $tp, $tpe, $obj, $prerequis, $contenu, $eval, $credits];
 }
 
+function clean_rep(){
+    $filelocation = "/var/www/html/livret/model/livret-pdf/";
+    $iterator = new DirectoryIterator($filelocation);
+
+    foreach($iterator as $fichier){
+        if (!($fichier->isDir())){
+            unlink($fichier->getPathname());
+        }
+    }
+}
+
 class Livret extends DB
 {
     public function getAllInfosModules($formationId) {
