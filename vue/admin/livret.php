@@ -85,12 +85,14 @@ $im->writeImage(PATH_MODEL."livret-pdf/".$filename.'.png');
             <form method="post" id="f1">
                 <input type="text" name="filename" value="<?php echo $filename?>" style="display:none;" >
                 <input type="button" onclick="testfile('f1')" class="btn btn-info" value="Publier le livret"/>
+                <input type="text" name=formations value=<?php  if (isset($formationsSelected)){echo implode('|',$formationsSelected);}?> style="display:none" />
             </form>
         </td>
     </tr>
     <tr>
         <td><?php echo $filename.'.pdf';?></td>
     </tr>
+</table>
 
 <script type="text/javascript">
     function testfile(val){

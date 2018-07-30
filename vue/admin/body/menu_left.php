@@ -150,6 +150,9 @@ function linkCreatProjet(){
         <li>
             <a href="index.php?page=genererLivret">Générer un livret</a>
         </li>
+        <li>
+            <a href="index.php?page=showLivrets">Afficher les livrets</a>
+        </li>
         <li>&nbsp</li>
         <li>&nbsp</li>
         <li>&nbsp</li>

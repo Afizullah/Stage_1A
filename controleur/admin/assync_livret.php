@@ -1,6 +1,8 @@
 <?php
+$formations=explode("|",($_POST['formations']));
+$projet_id=$PROJET->getId();
 if (isset($_POST["filename"])){
-	if(publier_livret($_POST["filename"])){
+	if(publ_livret::publier_livret($_POST["filename"],$projet_id,$formations)){
 		$html='<p style="color:green">Le livret a été publié</p>';
 	}
 	else{
