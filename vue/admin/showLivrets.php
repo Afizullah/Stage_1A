@@ -11,58 +11,62 @@
 function genere_case($filename,$projet_id){
 	global $filelocation;
 	$filelocation_locale=$filelocation.$projet_id."/";
-?>
-<td style="width: 20%;">
-	<center>
-	<table style="text-align: center;">
-	    <tr>
-	        <td>
-	        	<a href=<?php echo $filelocation_locale.$filename.".pdf"?> onclick="window.open(this.href); return false;" >
-	            	<img src=<?php echo $filelocation_locale.$filename.".png"?> width="160" height="240" alt="livret"/>
-	            </a>
-	        </td>
-	    </tr>
-	    <tr>
-	        <td><?php echo $filename.'.pdf';?></td>
-	    </tr>
-	</table>
-</center>
-</td>
-<?php
+	?>
+	<td style="width: 20%;">
+		<center>
+		<table style="text-align: center;">
+			<tr>
+				<td>
+					<a href=<?php echo $filelocation_locale.$filename.".pdf"?> onclick="window.open(this.href); return false;" >
+						<img src=<?php echo $filelocation_locale.$filename.".png"?> width="160" height="240" alt="livret"/>
+					</a>
+				</td>
+			</tr>
+			<tr>
+				<td><?php echo $filename.'.pdf';?></td>
+			</tr>
+		</table>
+	</center>
+	</td>
+	<?php
 }
 
 
 function genere_livrets_projet($projet_id){
-	$livrets=showLivrets::getLivrets($projet_id);
-	$projet_name=showLivrets::getName($projet_id)[0]['projet_nom'];
-	?>
-	<button class="w3-button w3-block w3-left-align">
-		<table style="width:100%">
-			<tr><td style="width:2%"></td>
-				<td id =<?php echo "plus".$projet_id ?> style="width:3%; text-align:center; display:block" onclick="developper_reduire('<?php echo "formation".$projet_id ?>');cache_plus('<?php echo $projet_id ?>')"><i class="zmdi zmdi-plus"></i></td>
-				<td id =<?php echo "moins".$projet_id;?> style="width:3%; text-align:center; display:none;" onclick="developper_reduire('<?php echo "formation".$projet_id ?>');cache_moins('<?php echo $projet_id ?>')"><i class="zmdi zmdi-minus"></i></td>
-				<td style="width:95%; text-align: left;"><?php echo $projet_name ?></td>
-			</tr>
-		</table>
-	</button>
-	<div id=<?php echo "formation".$projet_id ?> class="w3-container w3-hide">
-		<table style="width:100%; text-align: center;">
-			<tr>
-			<?php
-			for ($i=0;$i<count($livrets);$i++){
-				if ($i%5==0 && $i!=0){
-					?></tr><tr><?php
+
+	if($livrets=showLivrets::getLivrets($projet_id) && $projet_name=showLivrets::getName($projet_id)[0]['projet_nom']){
+		?>
+		<button class="w3-button w3-block w3-left-align">
+			<table style="width:100%">
+				<tr><td style="width:2%"></td>
+					<td id =<?php echo "plus".$projet_id ?> style="width:3%; text-align:center; display:block" onclick="developper_reduire('<?php echo "formation".$projet_id ?>');cache_plus('<?php echo $projet_id ?>')"><i class="zmdi zmdi-plus"></i></td>
+					<td id =<?php echo "moins".$projet_id;?> style="width:3%; text-align:center; display:none;" onclick="developper_reduire('<?php echo "formation".$projet_id ?>');cache_moins('<?php echo $projet_id ?>')"><i class="zmdi zmdi-minus"></i></td>
+					<td style="width:95%; text-align: left;"><?php echo $projet_name ?></td>
+				</tr>
+			</table>
+		</button>
+		<div id=<?php echo "formation".$projet_id ?> class="w3-container w3-hide">
+			<table style="width:100%; text-align: center;">
+				<tr>
+				<?php
+				for ($i=0;$i<count($livrets);$i++){
+					if ($i%5==0 && $i!=0){
+						?></tr><tr><?php
+					}
+					genere_case($livrets[$i]['livret_nom'],$projet_id);
 				}
-				genere_case($livrets[$i]['livret_nom'],$projet_id);
-			}
-			for($j=1;$j<=5-$i%5;$j++){
-				?><td style="width:20%"></td><?php
-			} 
-			?>
-			</tr>
-		</table>
-	</div>
-<?php
+				for($j=1;$j<=5-$i%5;$j++){
+					?><td style="width:20%"></td><?php
+				} 
+				?>
+				</tr>
+			</table>
+		</div>
+		<?php
+	}else{
+		alertWarning(["Aucun livret n'est encore généré"]);
+		echo center("Aucun livret n'est encore généré.<br/><a style='color:blue' href='index.php?page=genererLivret'>Générer un livret maintenant?</a><br/><br/><br/><br/>");
+	}
 }
 ?>
 

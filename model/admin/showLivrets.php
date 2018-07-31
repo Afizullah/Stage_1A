@@ -2,10 +2,10 @@
 
 class showLivrets extends DB{
 	public static function getLivrets($projet_id){
-		return DB::query("SELECT livret_nom FROM livret WHERE projet_id=$projet_id");
+		return DB::query("SELECT livret_nom FROM livret WHERE projet_id=".intval($projet_id));
 	}
 	public static function getName($projet_id){
-		return DB::query("SELECT projet_nom FROM projet WHERE projet_id=$projet_id");
+		return DB::query("SELECT projet_nom FROM projet WHERE projet_id=".intval($projet_id));
 	}
 }
 
