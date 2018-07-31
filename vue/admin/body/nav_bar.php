@@ -168,9 +168,21 @@
                                     <div class="clearfix"></div></a>
                                 <hr class="light-grey-hr ma-0"/>
                                 <ul>
-                                    <li>
-                                        <a href="index.html">Analytical</a>
-                                    </li>
+                                    <?php
+                                    require_once(PATH_MODEL."admin/showLivrets.php");
+                                    $projet_id=$PROJET->getId();
+                                    $livrets=showLivrets::getLivrets($projet_id);
+                                    $filelocation=PATH_MODEL."livret-pdf/".$projet_id."/";
+                                    for ($i=0;$i<count($livrets);$i++){
+                                        ?>
+                                        <li>
+                                            <a href=<?php echo $filelocation.$livrets[$i]['livret_nom'].".pdf"?> onclick="window.open(this.href); return false;">
+                                                <?php echo $livrets[$i]['livret_nom'].".pdf";?>
+                                            </a>
+                                        <li>
+                                        <?php
+                                    }
+                                    ?>
                                 </ul>
                         </ul>
                     </li>

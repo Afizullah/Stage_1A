@@ -50,4 +50,14 @@ if (isset($_POST["supprimerElement"], $_POST["tknDel"], $_POST["tkDelId"], $_POS
         $errors[] = "Echec de la suppression : Compte non identifié";
     }
 }
+
+function formations_publies($formations){
+    for($i=0;$i<count($formations);$i++){
+        if (strcmp($formations[$i]['formation_etat'],"publie")==0){
+            unset($formations[$i]);
+        }
+    }
+    return $formations;
+}
+
 ?>

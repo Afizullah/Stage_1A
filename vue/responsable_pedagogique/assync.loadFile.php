@@ -81,6 +81,9 @@ if (isset($_FILES["excelFileSource"])) {
             modalInfos($LoadedFile->getRequiredHeadLeaft());
             if($formationsNames = $LoadedFile->getFormationsNames()){
                 $formationsNames=inter_formation($formationsNames,$formations);
+                if (!$formationsNames){
+                  die("<b style='color:red;'>Le livret de la formation dont vous êtes responsable est déjà publié </b>");
+                }
                 $options = "<br /><div style=\"text-align: center;\"><i style='color:green' class='fa fa-2x fa-file-excel-o' aria-hidden='true'></i> Veuillez selection les formations à importer " .getBtnHelp(). "</div><br /><table class='table' celspacing='2'><tr>
                 <td style='width:100px'>
                  <input type='checkbox' onchange='setAllExcelFormation(this);' id='checkAllExcelFormation'  /> <label style='cursor:pointer;font-weight:bold' for='checkAllExcelFormation'>Tous</label>
