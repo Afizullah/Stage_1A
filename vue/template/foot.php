@@ -4,9 +4,25 @@
 
     <!-- Slimscroll JavaScript -->
     <script type="text/javascript">
-    function initSelect2(element,params){
-        $(element).select2(params);
-    }
+        function alertError(error){
+            $(function () {
+                $.notify(error, "error");
+            });
+        }
+        function alertSuccess(error){
+            $(function () {
+                $.notify(error, "success");
+            });
+        }
+        function alertWarnin(error){
+            $(function () {
+                $.notify(error, "warn");
+            });
+        }
+        
+        function initSelect2(element,params){
+            $(element).select2(params);
+        }
         $(document).ready(function() {
             initSelect2(".basicSelect2",{
                 placeholder: "Séléctionnez les membres",

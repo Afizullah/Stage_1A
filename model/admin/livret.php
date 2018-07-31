@@ -24,11 +24,12 @@ function recuperation($formation) {
 }
 
 function clean_rep(){
-    $filelocation = "/var/www/html/livret/model/livret-pdf/";
+    $filelocation = PATH_MODEL."livret-pdf/";
     $iterator = new DirectoryIterator($filelocation);
 
     foreach($iterator as $fichier){
         if (!($fichier->isDir())){
+            //var_dump($fichier->getPathname());
             unlink($fichier->getPathname());
         }
     }

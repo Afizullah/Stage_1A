@@ -4,7 +4,7 @@ class publ_livret extends DB{
 
 	public static function publier_livret($filename,$projet_id,$formations){
 		//ajout dans le dossier des livrets publiés
-		$filelocation = "/var/www/html/livret/model/livret-pdf/";
+		$filelocation = getAbsolutePathOutputLivret();
 		$filecible=$filelocation."livret-pub/";
 		$resu=copy($filelocation.$filename.".pdf",$filecible.$filename.".pdf");
 		$resu=$resu && copy($filelocation.$filename.".png",$filecible.$filename.".png");

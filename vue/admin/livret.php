@@ -11,8 +11,9 @@
         header("Location:../");
         die("<center><b>ERROR</b>::Accès non autorisé</center>");
     }
-?>
+    ?>
 <?php
+    
 
 //parce que la table des matières est au début du document
 $pdf->Set_Header(false,'');
@@ -43,57 +44,71 @@ $pdf->addHTMLTOC(2, 'Table des matières', $bookmark_templates, true, 'B', array
 
 // end of TOC page
 $pdf->endTOCPage();
-
 //ob_end_clean();
 //Création du fichier et de sa vignette
-$filelocation = "/var/www/html/livret/model/livret-pdf/";
-$filename='Formation' . $pdf->getDocName();
-$pdf->Output($filelocation.$filename.".pdf", 'F');
+if($filelocation = getAbsolutePathOutputLivret()){
+    $filename='Formation' . $pdf->getDocName();
+    $pdf->Output($filelocation.$filename.".pdf", 'F');
 
-$im = new imagick(PATH_MODEL."livret-pdf/".$filename.".pdf[0]");
-$im->writeImage(PATH_MODEL."livret-pdf/".$filename.'.png');
-?>
+    $im = new imagick(PATH_MODEL."livret-pdf/".$filename.".pdf[0]");
+    $im->writeImage(PATH_MODEL."livret-pdf/".$filename.'.png');
+    ?>
 
 
-<style>
-    img:hover {
-    border: 3px;
-    border-style: solid;    
-    border-color: #878787;
+    <style>
+        img:hover {
+            border: 3px;
+            border-style: solid;    
+            border-color: #878787;
+        }
+
+
+    </style>
+    <?php 
+    alertSucces("Livret généré");
+    ?>
+    <p id="resu"></p>
+    <p style="text-align:center">
+        Voici le livret que vous avez généré, vous pouvez maintenant choisir de le publier!
+    </p>
+        <center>
+        <table style="width:50%; text-align: center; ">
+            <tr>
+                <td><a href=<?php echo PATH_MODEL."livret-pdf/".$filename.".pdf"?> onclick="window.open(this.href); return false;" >
+                        <div class="lien">
+                            <img src=<?php echo PATH_MODEL."livret-pdf/".$filename.".png"?> width="260" height="340" alt="livret"/>
+                        </div>
+                    </a>
+                </td>
+            </tr>
+            <tr>
+                <td><?php echo $filename.'.pdf';?></td>
+            </tr>
+            <tr>
+                <td>
+                    <table style="width:80%;margin:auto">
+                        <tr>
+                            <td>
+                                <form method="post" id="f1">
+                                    <input type="text" name="filename" value="<?php echo $filename?>" style="display:none;" >
+                                    <input type="button" onclick="testfile('f1')" class="btn btn-success" value="Publier le livret"/>
+                                    <input type="text" name=formations value=<?php  if (isset($formationsSelected)){echo implode('|',$formationsSelected);}?> style="display:none" />
+                                </form>
+                            </td>
+                            <td>
+                                <button class="btn btn-danger">Supprimer</button>
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+        </table>
+    </center>
+    <?php
+}else{
+    echo center("Le repertoire d'enregistrement des livrets n'est pas correctement définie!<br/>fichier: commun.func.php");
 }
-
-
-</style>
-
-<h3> Livret généré </h3>
-</br>
-<p id="resu"></p>
-</br>
-<p>
-    Voici le livret que vous avez généré, vous pouvez maintenant choisir de le publier:
-</p>
-
-<table style="width:50%; text-align: center; ">
-    <tr>
-        <td><a href=<?php echo PATH_MODEL."livret-pdf/".$filename.".pdf"?> onclick="window.open(this.href); return false;" >
-                <div class="lien">
-                    <img src=<?php echo PATH_MODEL."livret-pdf/".$filename.".png"?> width="160" height="240" alt="livret"/>
-                </div>
-            </a>
-        </td>
-        <td>
-            <form method="post" id="f1">
-                <input type="text" name="filename" value="<?php echo $filename?>" style="display:none;" >
-                <input type="button" onclick="testfile('f1')" class="btn btn-info" value="Publier le livret"/>
-                <input type="text" name=formations value=<?php  if (isset($formationsSelected)){echo implode('|',$formationsSelected);}?> style="display:none" />
-            </form>
-        </td>
-    </tr>
-    <tr>
-        <td><?php echo $filename.'.pdf';?></td>
-    </tr>
-</table>
-
+?>
 <script type="text/javascript">
     function testfile(val){
         //document.getElementById("contentExcelFileAnalyse").innerHTML='<center><div class="loader"></div></center>';

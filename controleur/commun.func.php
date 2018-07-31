@@ -14,6 +14,14 @@ function getPageIcon($page) {
     }
     return null;
 }
+function getAbsolutePathOutputLivret(){
+    $currentDir = substr(__DIR__,0,-strlen("controleur"));
+    if(is_dir($currentDir."model/livret-pdf/")){
+        return $currentDir."model/livret-pdf/";
+    }
+    alertErrors(["Chemin introuvable"]);
+    return false;
+}
 
 function secure($val) {
     return htmlspecialchars(trim($val));
