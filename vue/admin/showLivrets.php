@@ -1,4 +1,25 @@
 
+<script type="text/javascript">
+
+function developper_reduire(id) {
+    var x = document.getElementById(id);
+    if (x.className.indexOf("w3-show") == -1) {
+        x.className += " w3-show";
+    } else { 
+        x.className = x.className.replace(" w3-show", "");
+    }
+}
+function cache_plus(val){
+	document.getElementById("plus"+val).style.display="none";
+	document.getElementById("moins"+val).style.display="block";
+}
+function cache_moins(val){
+	document.getElementById("plus"+val).style.display="block";
+	document.getElementById("moins"+val).style.display="none";
+}
+
+</script>
+
 <style>
     img:hover {
     border: 3px;
@@ -86,26 +107,20 @@ for ($i=0;$i<count($projets);$i++){
 ?>
 	</div>
 </div>
-<!--/main-->
 
-
-<script type="text/javascript">
-
-function developper_reduire(id) {
-    var x = document.getElementById(id);
-    if (x.className.indexOf("w3-show") == -1) {
-        x.className += " w3-show";
-    } else { 
-        x.className = x.className.replace(" w3-show", "");
-    }
+<?php 
+if (isset($_GET["projet"])){
+	$projetId=$_GET["projet"];
+	?>
+	<script type="text/javascript">
+		if (document.getElementById('<?php echo "formation".$projetId ?>')!=null){
+			developper_reduire('<?php echo "formation".$projetId ?>');
+			cache_plus('<?php echo $projetId ?>');
+		}
+	</script>
+<?php 
 }
-function cache_plus(val){
-	document.getElementById("plus"+val).style.display="none";
-	document.getElementById("moins"+val).style.display="block";
-}
-function cache_moins(val){
-	document.getElementById("plus"+val).style.display="block";
-	document.getElementById("moins"+val).style.display="none";
-}
+?>
 
-</script>
+<!-- /main-->
+

@@ -148,6 +148,10 @@ class LMD extends DB
     private function getFormations() {
         return $this->formations;
     }
+
+    public static function getPublieesFormations($projet_id){
+        return DB::query("SELECT formation_nom FROM formation WHERE projet_id=$projet_id AND formation_etat='publie'");
+    }
 }
 
 ?>

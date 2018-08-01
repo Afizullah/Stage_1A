@@ -259,60 +259,85 @@ require_once(PATH_MODEL."admin/showUsers.php");
                     <div  id="todo_tab" class="tab-pane fade" role="tabpanel">
                         <div class="todo-box-wrap">
                             <div class="add-todo">
-                                <a href="javascript:void(0)" class="inline-block txt-grey">
-                                    <i class="zmdi zmdi-more"></i>
-                                </a>
                                 <span class="inline-block txt-dark">todo list</span>
-                                <a href="javascript:void(0)" class="inline-block text-right txt-grey"><i class="zmdi zmdi-plus"></i></a>
                                 <div class="clearfix"></div>
                             </div>
                             <div class="set-height-wrap">
                                 <!-- Todo-List -->
                                 <ul class="todo-list nicescroll-bar">
-                                    <li class="todo-item">
-                                        <div class="checkbox checkbox-default">
-                                            <input type="checkbox" id="checkbox01"/>
-                                            <label for="checkbox01">Record The First Episode</label>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <hr class="light-grey-hr"/>
-                                    </li>
-                                    <li class="todo-item">
-                                        <div class="checkbox checkbox-pink">
-                                            <input type="checkbox" id="checkbox02"/>
-                                            <label for="checkbox02">Prepare The Conference Schedule</label>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <hr class="light-grey-hr"/>
-                                    </li>
-                                    <li class="todo-item">
-                                        <div class="checkbox checkbox-warning">
-                                            <input type="checkbox" id="checkbox03" checked/>
-                                            <label for="checkbox03">Decide The Live Discussion Time</label>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <hr class="light-grey-hr"/>
-                                    </li>
-                                    <li class="todo-item">
-                                        <div class="checkbox checkbox-success">
-                                            <input type="checkbox" id="checkbox04" checked/>
-                                            <label for="checkbox04">Prepare For The Next Project</label>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <hr class="light-grey-hr"/>
-                                    </li>
-                                    <li class="todo-item">
-                                        <div class="checkbox checkbox-danger">
-                                            <input type="checkbox" id="checkbox05" checked/>
-                                            <label for="checkbox05">Finish Up AngularJs Tutorial</label>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <hr class="light-grey-hr"/>
+                                    <?php
+                                    require_once(PATH_MODEL."admin/genererLivret.php");
+                                    $projet_id=$PROJET->getId();
+                                    $CONTROL = new LMD($projet_id);
+                                    $notEligiblesFormations=$CONTROL->getNotEligibleFormations();
+                                    $EligiblesFormations=$CONTROL->getEligibleFormations();
+                                    $PublieesFormations=LMD::getPublieesFormations($projet_id);
+                                    for($i=0;$i<count($notEligiblesFormations);$i++){?>
+                                        <li class="todo-item">
+                                            <table>
+                                                <tr>
+                                                    <td>
+                                                        <div class="checkbox checkbox-purple">
+                                                            <input type="checkbox" id="checkbox06" disabled />
+                                                            <label></label>
+                                                        </div>
+                                                    </td>
+                                                    <td>
+<?php
+$formationName = $notEligiblesFormations[$i]["formationName"];
+$formationId=$notEligiblesFormations[$i]["formationId"];
+echo "<a href='index.php?page=editFormation&formation=".$formationId."'>corriger $formationName</a>";
+?>
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                        </li>
+                                    <?php
+                                    }
+                                    for($i=0;$i<count($EligiblesFormations);$i++){?>
+                                        <li class="todo-item">
+                                            <table>
+                                                <tr>
+                                                    <td>
+                                                        <div class="checkbox checkbox-purple">
+                                                            <input type="checkbox" id="checkbox06" disabled />
+                                                            <label></label>
+                                                        </div>
+                                                    </td>
+                                                    <td>
+<?php
+$formationName = $EligiblesFormations[$i]["formationName"];
+echo "<a href='index.php?page=genererLivret'>publier $formationName</a>";
+?>
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                        </li>
+                                    <?php
+                                    }
+                                    for($i=0;$i<count($PublieesFormations);$i++){?>
+                                        <li class="todo-item">
+                                            <table>
+                                                <tr>
+                                                    <td>
+                                                        <div class="checkbox checkbox-purple">
+                                                            <input type="checkbox" id="checkbox06" checked disabled />
+                                                            <label></label>
+                                                        </div>
+                                                    </td>
+                                                    <td>
+<?php
+$formationName = $PublieesFormations[$i]["formation_nom"];
+echo "<a href='index.php?page=showLivrets&projet=".$projet_id."'>publier $formationName</a>";
+?>
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                        </li>
+                                    <?php
+                                    }
+                                    ?>
+                                    <!--
                                     </li>
                                     <li class="todo-item">
                                         <div class="checkbox checkbox-purple">
@@ -324,7 +349,7 @@ require_once(PATH_MODEL."admin/showUsers.php");
                                         <hr class="light-grey-hr"/>
                                     </li>
                                 </ul>
-                                <!-- /Todo-List -->
+                                /Todo-List -->
                             </div>
                         </div>
                     </div>
