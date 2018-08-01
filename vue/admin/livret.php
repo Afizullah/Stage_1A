@@ -5,11 +5,11 @@
             require_once(SESS_ADMIN_CONTROLER);
         }else{
             header("Location:../");
-            die("<center><b>ERROR</b>::Accès non autorisé</center>");
+            die("<div style=\"text-align: center;\"><b>ERROR</b>::Accès non autorisé</div>");
         }
     }else{
         header("Location:../");
-        die("<center><b>ERROR</b>::Accès non autorisé</center>");
+        die("<div style=\"text-align: center;\"><b>ERROR</b>::Accès non autorisé</div>");
     }
     ?>
 <?php
@@ -71,7 +71,7 @@ if($filelocation = getAbsolutePathOutputLivret()){
     <p style="text-align:center">
         Voici le livret que vous avez généré, vous pouvez maintenant choisir de le publier!
     </p>
-        <center>
+        <div style="text-align: center;">
         <table style="width:50%; text-align: center; ">
             <tr>
                 <td><a href=<?php echo PATH_MODEL."livret-pdf/".$filename.".pdf"?> onclick="window.open(this.href); return false;" >
@@ -103,7 +103,7 @@ if($filelocation = getAbsolutePathOutputLivret()){
                 </td>
             </tr>
         </table>
-    </center>
+    </div>
     <?php
 }else{
     echo center("Le repertoire d'enregistrement des livrets n'est pas correctement définie!<br/>fichier: commun.func.php");
