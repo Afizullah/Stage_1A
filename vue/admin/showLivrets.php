@@ -10,15 +10,15 @@
 <?php
 function genere_case($filename,$projet_id){
 	global $filelocation_gen;
-	$filelocation_locale=$filelocation.$projet_id."/";
+	$filelocation=$filelocation_gen.$projet_id."/";
 	?>
 	<td style="width: 20%;">
 		<center>
 		<table style="text-align: center;">
 			<tr>
 				<td>
-					<a href=<?php echo $filelocation_locale.$filename.".pdf"?> onclick="window.open(this.href); return false;" >
-						<img src=<?php echo $filelocation_locale.$filename.".png"?> width="160" height="240" alt="livret"/>
+					<a href=<?php echo $filelocation.$filename.".pdf"?> onclick="window.open(this.href); return false;" >
+						<img src=<?php echo $filelocation.$filename.".png"?> width="160" height="240" alt="livret"/>
 					</a>
 				</td>
 			</tr>
@@ -35,7 +35,7 @@ function genere_case($filename,$projet_id){
 
 function genere_livrets_projet($projet_id){
 
-	if($livrets=showLivrets::getLivrets($projet_id) && $projet_name=showLivrets::getName($projet_id)[0]['projet_nom']){
+	if(($livrets=showLivrets::getLivrets($projet_id)) && ($projet_name=showLivrets::getName($projet_id)[0]['projet_nom'])){
 		?>
 		<button class="w3-button w3-block w3-left-align">
 			<table style="width:100%">
