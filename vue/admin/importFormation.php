@@ -1,102 +1,113 @@
 <?php
-    //Control sur le droit d'accès à cette & sur l'accès à travers un lien direct
-    if(defined("SESS_ADMIN_CONTROLER")){
-        if(file_exists(SESS_ADMIN_CONTROLER)){
-            require_once(SESS_ADMIN_CONTROLER);
-        }else{
-            header("Location:../");
-            die("<center><b>ERROR</b>::Accès non autorisé</center>");
-        }
-    }else{
+//Control sur le droit d'accès à cette & sur l'accès à travers un lien direct
+if (defined("SESS_ADMIN_CONTROLER")) {
+    if (file_exists(SESS_ADMIN_CONTROLER)) {
+        require_once(SESS_ADMIN_CONTROLER);
+    } else {
         header("Location:../");
-        die("<center><b>ERROR</b>::Accès non autorisé</center>");
+        die("<div style=\"text-align: center;\"><b>ERROR</b>::Accès non autorisé</div>");
     }
+} else {
+    header("Location:../");
+    die("<div style=\"text-align: center;\"><b>ERROR</b>::Accès non autorisé</div>");
+}
 ?>
 <style>
     .loader {
-      border: 7px solid #f3f3f3;
-      border-radius: 50%;
-      border-top: 7px solid #3498db;
-      width: 50px;
-      height: 50px;
-      -webkit-animation: spin 2s linear infinite; 
-      animation: spin 2s linear infinite;
+        border: 7px solid #f3f3f3;
+        border-radius: 50%;
+        border-top: 7px solid #3498db;
+        width: 50px;
+        height: 50px;
+        -webkit-animation: spin 2s linear infinite;
+        animation: spin 2s linear infinite;
     }
 
     @-webkit-keyframes spin {
-      0% { -webkit-transform: rotate(0deg); }
-      100% { -webkit-transform: rotate(360deg); }
+        0% {
+            -webkit-transform: rotate(0deg);
+        }
+        100% {
+            -webkit-transform: rotate(360deg);
+        }
     }
 
     @keyframes spin {
-      0% { transform: rotate(0deg); }
-      100% { transform: rotate(360deg); }
+        0% {
+            transform: rotate(0deg);
+        }
+        100% {
+            transform: rotate(360deg);
+        }
     }
 </style>
 <script type="text/javascript">
 
-        function setAllExcelFormation(element){
-            tabListChedFile = document.getElementsByClassName("checkedExcelFormations");
-            console.log(tabListChedFile);
-            if(element.checked){
-                for (var i = 0; i < tabListChedFile.length; i++) {
-                    tabListChedFile[i].checked=true;
-                }
-            }else{
-                for (var i = 0; i < tabListChedFile.length; i++) {
-                    tabListChedFile[i].checked=false;
-                }
+    function setAllExcelFormation(element) {
+        tabListChedFile = document.getElementsByClassName("checkedExcelFormations");
+        console.log(tabListChedFile);
+        if (element.checked) {
+            for (var i = 0; i < tabListChedFile.length; i++) {
+                tabListChedFile[i].checked = true;
+            }
+        } else {
+            for (var i = 0; i < tabListChedFile.length; i++) {
+                tabListChedFile[i].checked = false;
             }
         }
-        function setAllDbFormation(element){
-            tabListChedFile = document.getElementsByClassName("checkedDbFormations");
-            console.log(tabListChedFile);
-            if(element.checked){
-                for (var i = 0; i < tabListChedFile.length; i++) {
-                    tabListChedFile[i].checked=true;
-                }
-            }else{
-                for (var i = 0; i < tabListChedFile.length; i++) {
-                    tabListChedFile[i].checked=false;
-                }
+    }
+
+    function setAllDbFormation(element) {
+        tabListChedFile = document.getElementsByClassName("checkedDbFormations");
+        console.log(tabListChedFile);
+        if (element.checked) {
+            for (var i = 0; i < tabListChedFile.length; i++) {
+                tabListChedFile[i].checked = true;
+            }
+        } else {
+            for (var i = 0; i < tabListChedFile.length; i++) {
+                tabListChedFile[i].checked = false;
             }
         }
+    }
 </script>
 <div style="background-color:white;padding:30px;min-height:400px;" class="col-lg">
     <?php
     $hasError = false;
-    if(isset($errors)){
+    if (isset($errors)) {
         alertErrors($errors);
-        $hasError=true;
+        $hasError = true;
     }
-    if(isset($success)){
+    if (isset($success)) {
         alertSucces($success);
     }
-    if(isset($from)){
+    if (isset($from)) {
 
-    }else{ ?>
+    } else { ?>
         <div style="text-align: center;">
             <h3 style="color:blue">Veuillez choisir la source des données</h3>
         </div>
         <div style="width:700px;margin:auto;border:1px solid grey;padding:20px;min-height:300px;">
-            <form id="formContentExcelFile" method="post" class="" >
+            <form id="formContentExcelFile" method="post" class="">
                 <input type="hidden" id="importMethod" name="importMethod" value="excelFile"><?php
-                if($othersProjets = $PROJET->getAllOtherProjets($PROJET->getId())){ ?>
-                    <select style="cursor:pointer" class="form-control" onchange="changeImportMethod(this.value)" name="">
-                        <option value="excelFile">Fichier excel</option><?php
-                        for ($i=0; $i < count($othersProjets) ; $i++) {
-                            $thisOtherProjectId = $othersProjets[$i]['projet_id'];
-                            if(hasFormations($thisOtherProjectId)){ ?>
-                                <option value="<?php echo $thisOtherProjectId; ?>">
-                                    <?php echo $othersProjets[$i]['projet_nom']; ?>
-                                </option> <?php
-                            }
-                        } ?>
+                if ($othersProjets = $PROJET->getAllOtherProjets($PROJET->getId())) { ?>
+                    <select style="cursor:pointer" class="form-control" onchange="changeImportMethod(this.value)"
+                            name="">
+                    <option value="excelFile">Fichier excel</option><?php
+                    for ($i = 0; $i < count($othersProjets); $i++) {
+                        $thisOtherProjectId = $othersProjets[$i]['projet_id'];
+                        if (hasFormations($thisOtherProjectId)) { ?>
+                            <option value="<?php echo $thisOtherProjectId; ?>">
+                                <?php echo $othersProjets[$i]['projet_nom']; ?>
+                            </option> <?php
+                        }
+                    } ?>
                     </select><?php
                 } ?>
                 <br>
                 <div id="contentExcelFile" style="" class="">
-                    <input type="file" accept=".xlsx,.xls" onchange="testFile(this.value)" class="form-control" name="excelFileSource" value="">
+                    <input type="file" accept=".xlsx,.xls" onchange="testFile(this.value)" class="form-control"
+                           name="excelFileSource" value="">
                     <div id="contentExcelFileAnalyse"></div>
                 </div>
 
@@ -112,54 +123,58 @@
     } ?>
 </div>
 <script type="text/javascript">
-    function testFile(val){
-        document.getElementById("contentExcelFileAnalyse").innerHTML='<div style="text-align: center;"><div class="loader"></div></div>';
+    function testFile(val) {
+        document.getElementById("contentExcelFileAnalyse").innerHTML = '<div style="text-align: center;"><div class="loader"></div></div>';
         var fd = new FormData(document.getElementById("formContentExcelFile"));
-           fd.append("label", "WEBUPLOAD");
-           $.ajax({
-             url: "index.php?page=assync.loadFile",
-             type: "POST",
-             data: fd,
-             mimeTypes:"multipart/form-data",
-             processData: false,
-             contentType: false
-           }).done(function( data ) {
-               document.getElementById("contentExcelFileAnalyse").innerHTML=data;
-           });
-           return false;
+        fd.append("label", "WEBUPLOAD");
+        $.ajax({
+            url: "index.php?page=assync.loadFile",
+            type: "POST",
+            data: fd,
+            mimeTypes: "multipart/form-data",
+            processData: false,
+            contentType: false
+        }).done(function (data) {
+            document.getElementById("contentExcelFileAnalyse").innerHTML = data;
+        });
+        return false;
     }
-    function loadSelectedProject(){
-        document.getElementById("contentLoadedFromDb").innerHTML='<div style="text-align: center;"><div class="loader"></div></div>';
+
+    function loadSelectedProject() {
+        document.getElementById("contentLoadedFromDb").innerHTML = '<div style="text-align: center;"><div class="loader"></div></div>';
 
         var fd = new FormData(document.getElementById("formContentExcelFile"));
-           fd.append("label", "WEBUPLOAD");
-           $.ajax({
-             url: "index.php?page=assync.loadDb",
-             type: "POST",
-             data: fd,
-             processData: false,
-             contentType: false
-           }).done(function( data ) {
-               document.getElementById("contentLoadedFromDb").innerHTML=data;
-           });
-           return false;
+        fd.append("label", "WEBUPLOAD");
+        $.ajax({
+            url: "index.php?page=assync.loadDb",
+            type: "POST",
+            data: fd,
+            processData: false,
+            contentType: false
+        }).done(function (data) {
+            document.getElementById("contentLoadedFromDb").innerHTML = data;
+        });
+        return false;
     }
-    function hiddElement(elementId){
-        document.getElementById(elementId).style="display:none";
+
+    function hiddElement(elementId) {
+        document.getElementById(elementId).style = "display:none";
     }
-    function showElement(elementId){
-        document.getElementById(elementId).style="display:block";
+
+    function showElement(elementId) {
+        document.getElementById(elementId).style = "display:block";
     }
-    function changeImportMethod(val){
+
+    function changeImportMethod(val) {
         var importMethodInput = document.getElementById("importMethod");
-        if(val=="excelFile"){
-            importMethodInput.value="excelFile";
+        if (val == "excelFile") {
+            importMethodInput.value = "excelFile";
             showElement("contentExcelFile");
             hiddElement("contentDbFile");
-        }else{
-            importMethodInput.value="dbFile";
+        } else {
+            importMethodInput.value = "dbFile";
             var idProjectToImport = document.getElementById("idProjectToImport");
-            idProjectToImport.value=val;
+            idProjectToImport.value = val;
             showElement("contentDbFile");
             hiddElement("contentExcelFile");
             loadSelectedProject();

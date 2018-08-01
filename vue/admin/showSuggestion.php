@@ -5,11 +5,11 @@
             require_once(SESS_ADMIN_CONTROLER);
         }else{
             header("Location:../");
-            die("<center><b>ERROR</b>::Accès non autorisé</center>");
+            die("<div style=\"text-align: center;\"><b>ERROR</b>::Accès non autorisé</div>");
         }
     }else{
         header("Location:../");
-        die("<center><b>ERROR</b>::Accès non autorisé</center>");
+        die("<div style=\"text-align: center;\"><b>ERROR</b>::Accès non autorisé</div>");
     }
 ?>
 <div style="background-color:white;min-height:450px" class="col-lg-12"> <?php
@@ -20,9 +20,9 @@
                 <a href="index.php?page=showSuggestion&suggesId=<?php echo $suggestions_fields['suggestion_id']; ?>">
                     <div style="background-color:#e0ebec9c;margin-bottom:3px" class="col-md-12">
                         <div title="<?php echo $suggestions_fields['user_prenom']." ".$suggestions_fields['user_nom'].' - '.$notifValue['user_mail']; ?>" class="col-md-2">
-                            <center>
+                            <div style="text-align: center;">
                                 <i style="padding:10px;background-color:white" class="img-circle icon fa fa-2x fa-user"></i>
-                            </center>
+                            </div>
                         </div>
                         <div class="col-md-10 sl-content">
                             <span class="inline-block capitalize-font  pull-left truncate head-notifications">

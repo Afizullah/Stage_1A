@@ -29,6 +29,8 @@ define("MAP_PAGES", array(
     "showFormations" => ["pageName" => "Liste des formations"],
     "exportFormation" => ["pageName" => "Exporter la formation"],
     "choixexportFormation" => ["pageName" =>  "Choix de la formation"],
+    "login" => ["pageName" =>  "Authentification"],
+    "askAccountToConnect" => ["pageName" =>  "Comptes"],
     "aff_suggestion" => ["pageName" => "Liste des suggestions"],
     "modifInvariant" => ["pageName" => "Gestion des invariants"],
     "groupes" => ["pageName" => "Liste des groupes"],

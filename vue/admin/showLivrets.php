@@ -34,7 +34,7 @@ function genere_case($filename,$projet_id){
 	$filelocation=$filelocation_gen.$projet_id."/";
 	?>
 	<td style="width: 20%;">
-		<center>
+		<div style="text-align: center;">
 		<table style="text-align: center;">
 			<tr>
 				<td>
@@ -47,7 +47,7 @@ function genere_case($filename,$projet_id){
 				<td><?php echo $filename.'.pdf';?></td>
 			</tr>
 		</table>
-	</center>
+	</div>
 	</td>
 	<?php
 }
