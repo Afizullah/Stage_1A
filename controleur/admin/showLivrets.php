@@ -1,3 +1,3 @@
 <?php
-$filelocation = PATH_MODEL."livret-pdf/";
+$filelocation_gen = PATH_MODEL."livret-pdf/";
 ?>

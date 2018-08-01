@@ -16,7 +16,7 @@ class LMD extends DB
     private $formationsNonEligibles = array();
 
     function __construct($projetId) {
-        if ($data = DB::getData("ec NATURAL JOIN ue NATURAL JOIN classe NATURAL JOIN formation", "*", [["projet_id", intval($projetId)]])) {
+        if ($data = DB::getData("ec NATURAL JOIN ue NATURAL JOIN classe NATURAL JOIN formation", "*", [["projet_id", intval($projetId)],["formation_etat","non_publie"]])) {
             $cmp_form = 0;
             $cmp_cls = 0;
             $cmp_sem = 0;

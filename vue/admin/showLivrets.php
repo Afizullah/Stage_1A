@@ -9,7 +9,7 @@
 </style>
 <?php
 function genere_case($filename,$projet_id){
-	global $filelocation;
+	global $filelocation_gen;
 	$filelocation_locale=$filelocation.$projet_id."/";
 	?>
 	<td style="width: 20%;">
@@ -30,6 +30,7 @@ function genere_case($filename,$projet_id){
 	</td>
 	<?php
 }
+
 
 
 function genere_livrets_projet($projet_id){
@@ -78,8 +79,7 @@ function genere_livrets_projet($projet_id){
             <div class="clearfix"></div>
         </div>
 <?php 
-
-$projets=get_projet_id($filelocation);
+$projets=get_projet_id($filelocation_gen);
 for ($i=0;$i<count($projets);$i++){
 	genere_livrets_projet($projets[$i]);
 }

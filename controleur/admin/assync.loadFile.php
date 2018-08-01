@@ -15,6 +15,7 @@
 <?php
 require_once(PHPExcel_CLASS_FILE);
 require_once(PATH_MODEL."responsable_pedagogique/assync.loadFile.php");
+require_once(PATH_CONTROLEUR."responsable_pedagogique/assync.loadFile.php");
 class LoadFile extends PHPExcel_IOFactory{
     private $document_excel=null;
     private $feuilles = null;

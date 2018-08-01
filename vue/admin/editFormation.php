@@ -291,6 +291,7 @@
 									<ul class="folder-list mb-30"><?php
                                         $cmpt = 0;
                                         if($formations = Formation::getFormations($PROJET->getId())){
+                                            $formations=formations_publies($formations);
                                             foreach ($formations as $formation => $value) {
                                                 if(isset($_GET["formation"])){
                                                     if(intval($_GET["formation"])==$value["formation_id"]){
@@ -347,7 +348,6 @@
                                                         $active = "";
                                                     }
                                                 }
-
                                                 ?>
                                                 <div class="tabcontentFormation" <?php if(!$active){echo "style='display:none'"; } ?> id="tabFormation<?php echo $value["formation_id"]; ?>">
                                                     <ul class="nav nav-tabs"><?php
