@@ -274,4 +274,5 @@ $(document).ready(function(){
         $(".prev span").text(y);
     });
 });
+</script>
 
