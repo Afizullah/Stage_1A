@@ -12,38 +12,10 @@ function developper_reduire(id) {
 function cache_plus(val){
 	document.getElementById("plus"+val).style.display="none";
 	document.getElementById("moins"+val).style.display="block";
-	return false;
 }
 function cache_moins(val){
 	document.getElementById("plus"+val).style.display="block";
 	document.getElementById("moins"+val).style.display="none";
-	return false;
-}
-
-function deleteTOshow(val){
-	document.getElementById(val+"annuler").style.display="none";
-	document.getElementById(val+"valider").style.display="none";
-	var checkboxs=document.getElementsByTagName("input");
-	for (var i = 0; i < checkboxs.length; i ++){
-		if (checkboxs[i].id==val+"checkbox"){
-			checkboxs[i].style.display="none";
-		}
-	}
-	document.getElementById(val+"checkbox").style.display="none";
-	document.getElementById(val+"delete").style.display="block";
-	return false;
-}
-function showTOdelete(val){
-	document.getElementById(val+"annuler").style.display="block";
-	document.getElementById(val+"valider").style.display="block";
-	var checkboxs=document.getElementsByTagName("input");
-	for (var i = 0; i < checkboxs.length; i ++){
-		if (checkboxs[i].id==val+"checkbox"){
-			checkboxs[i].style.display="block";
-		}
-	}
-	document.getElementById(val+"delete").style.display="none";
-	return false;
 }
 
 </script>
@@ -63,30 +35,19 @@ function genere_case($filename,$projet_id){
 	?>
 	<td style="width: 20%;">
 		<div style="text-align: center;">
-			<table style="text-align: center;">
-				<tr>
-					<td>
-						<a href=<?php echo $filelocation.$filename.".pdf"?> onclick="window.open(this.href); return false;" >
-							<img src=<?php echo $filelocation.$filename.".png"?> width="160" height="240" alt="livret"/>
-						</a>
-					</td>
-				</tr>
-				<tr>
-					<td>
-						<table>
-							<tr>
-								<td>
-									<input type="checkbox" id=<?php echo $projet_id."checkbox" ?> name=<?php echo $filename.'X'.$projet_id ?> style="display:none" />
-								</td>
-								<td>
-									<?php echo $filename.'.pdf';?>
-								</td>
-							</tr>
-						</table>
-					</td>
-				</tr>
-			</table>
-		</div>
+		<table style="text-align: center;">
+			<tr>
+				<td>
+					<a href=<?php echo $filelocation.$filename.".pdf"?> onclick="window.open(this.href); return false;" >
+						<img src=<?php echo $filelocation.$filename.".png"?> width="160" height="240" alt="livret"/>
+					</a>
+				</td>
+			</tr>
+			<tr>
+				<td><?php echo $filename.'.pdf';?></td>
+			</tr>
+		</table>
+	</div>
 	</td>
 	<?php
 }
@@ -106,7 +67,6 @@ function genere_livrets_projet($projet_id){
 				</tr>
 			</table>
 		</button>
-		<form name=<?php echo "form".$projet_id ?> action="#" method="post" >
 		<div id=<?php echo "formation".$projet_id ?> class="w3-container w3-hide">
 			<table style="width:100%; text-align: center;">
 				<tr>
@@ -123,26 +83,6 @@ function genere_livrets_projet($projet_id){
 				?>
 				</tr>
 			</table>
-			<center>
-				<button type="button" class="btn btn-danger" id=<?php echo $projet_id."delete"?>  onclick="showTOdelete('<?php echo $projet_id?>')" style="display:block">
-					Supprimer des livrets
-				</button>
-				<table style="width:30%">
-					<tr>
-
-						<td><center>
-					<input class="btn btn-success" type="submit" id=<?php echo $projet_id."valider"?> name=<?php echo $projet_id?> style="display:none">
-						</center></td>
-						<td><center>
-					<button type="reset" class="btn btn-danger" id=<?php echo $projet_id."annuler"?>  onclick="deleteTOshow
-	('<?php echo $projet_id?>')" style="display:none">
-					Annuler
-					</button>
-						</center></td>
-					</tr>
-				</table>
-			</center>
-			</form>	
 		</div>
 		<?php
 	}else{
@@ -159,12 +99,8 @@ function genere_livrets_projet($projet_id){
         <div class="panel-heading">
             <div class="clearfix"></div>
         </div>
-<?php
-echo $html;
+<?php 
 $projets=get_projet_id($filelocation_gen);
-if(!$projets){
-	echo "<p style='text-align:center'> aucun livret n'a été généré </p>";
-}
 for ($i=0;$i<count($projets);$i++){
 	genere_livrets_projet($projets[$i]);
 }

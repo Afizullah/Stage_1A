@@ -5,11 +5,11 @@
             require_once(SESS_ADMIN_CONTROLER);
         }else{
             header("Location:../");
-            die("<center><b>ERROR</b>::Accès non autorisé</center>");
+            die("<div style=\"text-align: center;\"><b>ERROR</b>::Accès non autorisé</div>");
         }
     }else{
         header("Location:../");
-        die("<center><b>ERROR</b>::Accès non autorisé</center>");
+        die("<div style=\"text-align: center;\"><b>ERROR</b>::Accès non autorisé</div>");
     }
 ?>
 <?php
@@ -22,10 +22,10 @@ function modalWarning($formationName,$n){
             <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
           </div>
           <div class="modal-body">
-                  <center class="lead">
+                  <div class="lead" style="text-align: center;">
                       La formation <?php echo $formationName; ?> est déja intégrée dans ce projet.<br />
                       vous pouvez le selectionner si vous souhaitez la réinitialiser
-                  </center>
+                  </div>
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-default" data-dismiss="modal">OK</button>
@@ -60,7 +60,7 @@ if (isset($_POST["idProjectToImport"])) {
             if(!$currentFormations = $PROJET->getFormationsNames()){
                 $currentFormations = array();
             }
-            $options = "<br /><center><i style='color:red' class='fa fa-2x fa-database' aria-hidden='true'></i> Veuillez selection les formations à importer</center><br /><table class='table' celspacing='2'><tr>
+            $options = "<br /><div style=\"text-align: center;\"><i style='color:red' class='fa fa-2x fa-database' aria-hidden='true'></i> Veuillez selection les formations à importer</div><br /><table class='table' celspacing='2'><tr>
             <td style='width:100px'>
              <input type='checkbox' onchange='setAllDbFormation(this);' id='checkAllDbFormation'  /> <label style='cursor:pointer;font-weight:bold' for='checkAllDbFormation'>Tous</label>
             </td>

@@ -5,11 +5,11 @@
             require_once(SESS_ADMIN_CONTROLER);
         }else{
             header("Location:../");
-            die("<center><b>ERROR</b>::Accès non autorisé</center>");
+            die("<div style=\"text-align: center;\"><b>ERROR</b>::Accès non autorisé</div>");
         }
     }else{
         header("Location:../");
-        die("<center><b>ERROR</b>::Accès non autorisé</center>");
+        die("<div style=\"text-align: center;\"><b>ERROR</b>::Accès non autorisé</div>");
     }
 ?>
 <?php
@@ -97,7 +97,7 @@ if (isset($_FILES["excelFileSource"])) {
                 if (!$formationsNames){
                   die("<b style='color:red;'>Fichier invalide ou Le(s) livret(s) des formations que vous avez tenté d'importer est/sont déjà publié(s) </b>");
                 }
-                $options = "<br /><center><i style='color:green' class='fa fa-2x fa-file-excel-o' aria-hidden='true'></i> Veuillez selection les formations à importer ".getBtnHelp()."</center><br /><table class='table' celspacing='2'><tr>
+                $options = "<br /><div style=\"text-align: center;\"><i style='color:green' class='fa fa-2x fa-file-excel-o' aria-hidden='true'></i> Veuillez selection les formations à importer " .getBtnHelp(). "</div><br /><table class='table' celspacing='2'><tr>
                 <td style='width:100px'>
                  <input type='checkbox' onchange='setAllExcelFormation(this);' id='checkAllExcelFormation'  /> <label style='cursor:pointer;font-weight:bold' for='checkAllExcelFormation'>Tous</label>
                 </td>

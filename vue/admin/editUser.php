@@ -5,11 +5,11 @@
             require_once(SESS_ADMIN_CONTROLER);
         }else{
             header("Location:../");
-            die("<center><b>ERROR</b>::Accès non autorisé</center>");
+            die("<div style=\"text-align: center;\"><b>ERROR</b>::Accès non autorisé</div>");
         }
     }else{
         header("Location:../");
-        die("<center><b>ERROR</b>::Accès non autorisé</center>");
+        die("<div style=\"text-align: center;\"><b>ERROR</b>::Accès non autorisé</div>");
     }
 ?>
 <!--
@@ -60,9 +60,9 @@
         		<div class="input-group">
             		<input required style="width:190%;" type="password" class="form-control" name="mdp3" placeholder="Confirmer votre mot de passe">
         		</div><br/>
-		        <center>
+		        <div style="text-align: center;">
 		              <input type="button" onclick="testfile(1)"class="btn btn-success" class="form-control" name="addUser" value="Valider">
-		        </center>
+		        </div>
 		    </form>
         </div>
         <div class="modal-footer">
@@ -94,9 +94,9 @@
 	        		<div class="input-group">
 	            		<input required style="width:190%" type="email" class="form-control" name="mail2" placeholder="Confirmer votre adresse email">
 	        		</div><br/>
-			        <center>
+			        <div style="text-align: center;">
 			              <input type="button" onclick="testfile(2)" class="btn btn-success" class="form-control" name="addUser" value="Valider">
-			        </center>
+			        </div>
 			    </form>
 			</div>
 			<div id="m2" style="display: none;">
@@ -104,9 +104,9 @@
 	        		<div class="input-group">
 	            		<input required style="width:190%;" type="text" class="form-control" name="token" placeholder="Code de confirmation">
 	        		</div><br/>
-			        <center>
+			        <div style="text-align: center;">
 			              <input type="button" onclick="testfile(3)" class="btn btn-success" class="form-control" name="addUser" value="Valider">
-			        </center>
+			        </div>
 			    </form>
 			</div>
         </div>
