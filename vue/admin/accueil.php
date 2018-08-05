@@ -13,15 +13,14 @@ if (defined("SESS_ADMIN_CONTROLER")) {
 }
 ?>
 
-<h3 style="color: #5e9ca0;"><span style="color: #000000;">Bienvenue sur la plateforme d'accr&eacute;ditation de formation de l'ESP !</span>
+<h3 style="color: #5e9ca0;text-align:center;font-size:24px"><span style="color: #000000;">Bienvenue sur la plateforme de gestion du livret de l'étudiant !</span>
 </h3>
-<p>&nbsp;</p>
-<p><span style="color: #000000;">Celle-ci a pour but de faciliter la collaboration entre les responsables p&eacute;dagogiques et les enseignants dans l'&eacute;laboration d'un livret de formation fid&egrave;le au contenu des enseignements.</span>
+<p class="lead" style="text-align:center"><span style="color: #000000;">Celle-ci a pour but de faciliter la collaboration entre les responsables p&eacute;dagogiques et les enseignants dans l'&eacute;laboration d'un livret de formation fid&egrave;le au contenu des enseignements.</span>
 </p>
-<p>&nbsp;</p>
-<h3 style="color: #2e6c80;"><span style="color: #000000;">Ce que vous pouvez faire en tant qu'<span
+<h3 style="font-size:20px;text-align:center"><span style="color: blue;">Ce que vous pouvez faire en tant qu'<span
                 style=""><span style="color: #ff0000;">administrateur </span>:</span></span>
 </h3>
+<div></div>
 <p>&nbsp;</p>
 <p>Dans le menu d&eacute;filant &agrave; gauche, l'onglet :</p>
 <p>&nbsp;</p>
