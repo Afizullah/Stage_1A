@@ -8,7 +8,7 @@ function getFormAddUsser($action="",$type_compte="",$date_expiration="",$email="
         <div class="input-group">
             <span class="input-group-addon">Type de compte : </span>
             <select required class="form-control" name="accountType">
-                <option value="">----Séléctionner----</option>
+                <option value="">----Sélectionner----</option>
                 <option <?php echo ($type_compte=="administrateur")?"selected":""; ?> value="administrateur">Administrateur</option>
                 <option <?php echo ($type_compte=="responsable_pedagogique")?"selected":""; ?>  value="responsable_pedagogique">Responsable Pédagogique</option>
                 <option <?php echo ($type_compte=="enseignant")?"selected":""; ?>  value="enseignant">Enseignant</option>

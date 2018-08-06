@@ -3,13 +3,16 @@
   <component name="ChangeListManager">
     <list default="true" id="8e3a3732-f075-4e5d-b42b-c2b7b4a92ea3" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vue/admin/accueil.php" beforeDir="false" afterPath="$PROJECT_DIR$/vue/admin/accueil.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vue/enseignant/accueil.php" beforeDir="false" afterPath="$PROJECT_DIR$/vue/enseignant/accueil.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vue/enseignant/aff_suggestion.php" beforeDir="false" afterPath="$PROJECT_DIR$/vue/enseignant/aff_suggestion.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vue/responsable_pedagogique/accueil.php" beforeDir="false" afterPath="$PROJECT_DIR$/vue/responsable_pedagogique/accueil.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/livret-pdf/12/Formation_DUTINFO.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/livret-pdf/12/Formation_DUTINFO.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/livret-pdf/Formation_DUTINFO.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/livret-pdf/Formation_DUTINFO.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vue/admin/body/menu_left.php" beforeDir="false" afterPath="$PROJECT_DIR$/vue/admin/body/menu_left.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vue/admin/body/nav_bar.php" beforeDir="false" afterPath="$PROJECT_DIR$/vue/admin/body/nav_bar.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vue/enseignant/body/forms.php" beforeDir="false" afterPath="$PROJECT_DIR$/vue/enseignant/body/forms.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vue/template/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/vue/template/index.html" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
-    <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -18,45 +21,110 @@
   <component name="ComposerSettings" doNotAsk="true" synchronizationState="SYNCHRONIZE">
     <pharConfigPath>$PROJECT_DIR$/spreadsheet-reader-master/composer.json</pharConfigPath>
   </component>
+  <component name="FUSProjectUsageTrigger">
+    <session id="2084086214">
+      <usages-collector id="statistics.lifecycle.project">
+        <counts>
+          <entry key="project.closed" value="2" />
+          <entry key="project.open.time.26" value="1" />
+          <entry key="project.open.time.70" value="1" />
+          <entry key="project.opened" value="2" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.extensions.open">
+        <counts>
+          <entry key="css" value="4" />
+          <entry key="html" value="2" />
+          <entry key="php" value="132" />
+          <entry key="rnc" value="2" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.types.open">
+        <counts>
+          <entry key="CSS" value="4" />
+          <entry key="HTML" value="2" />
+          <entry key="PHP" value="132" />
+          <entry key="RNG Compact" value="2" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.extensions.edit">
+        <counts>
+          <entry key="css" value="12" />
+          <entry key="html" value="1" />
+          <entry key="php" value="101" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.types.edit">
+        <counts>
+          <entry key="CSS" value="12" />
+          <entry key="HTML" value="1" />
+          <entry key="PHP" value="101" />
+        </counts>
+      </usages-collector>
+    </session>
+  </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="nav_bar.php" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/vue/admin/body/nav_bar.php">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/vue/admin/body/menu_left.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="18">
-              <caret line="1" column="26" lean-forward="true" selection-start-line="1" selection-start-column="26" selection-end-line="1" selection-end-column="26" />
+            <state relative-caret-position="288">
+              <caret line="152" column="21" selection-start-line="152" selection-start-column="21" selection-end-line="152" selection-end-column="21" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="setting.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/vue/admin/body/setting.php">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/vue/enseignant/body/menu_left.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1836">
+              <caret line="122" column="31" selection-start-line="122" selection-start-column="31" selection-end-line="122" selection-end-column="31" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/vue/template/dist/css/style.css">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="260">
+              <caret line="526" lean-forward="true" selection-start-line="526" selection-end-line="526" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/vue/enseignant/body/titre.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="180">
+              <caret line="10" column="30" lean-forward="true" selection-start-line="10" selection-start-column="30" selection-end-line="10" selection-end-column="30" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/vue/index.php">
           <provider selected="true" editor-type-id="text-editor" />
         </entry>
       </file>
-      <file leaf-file-name="titre.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/vue/admin/body/titre.php">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/vue/enseignant/body/_body.php">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/vue/enseignant/body/forms.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="270">
-              <caret line="15" column="29" lean-forward="true" selection-start-line="15" selection-start-column="29" selection-end-line="15" selection-end-column="29" />
+            <state relative-caret-position="-5616">
+              <caret line="12" column="45" selection-start-line="12" selection-start-column="45" selection-end-line="12" selection-end-column="45" />
               <folding>
-                <element signature="n#style#0;n#div#1;n#div#0;n#div#0;n#div#1;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#span#0;n#!!top" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="style.css" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/vue/template/dist/css/style.css">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="179">
-              <caret line="677" column="1" selection-start-line="677" selection-start-column="1" selection-end-line="677" selection-end-column="1" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="menu_right.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/vue/admin/body/menu_right.php">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/vue/enseignant/body/loadProjet.php">
           <provider selected="true" editor-type-id="text-editor" />
         </entry>
       </file>
@@ -76,7 +144,6 @@
       <find>Acc</find>
       <find>&lt;h5 class=&quot;txt-dark&quot;&gt;Accueil&lt;/h5&gt;</find>
       <find>title</find>
-      <find>center</find>
       <find>SIGLE</find>
       <find>REGLE</find>
       <find>ABR</find>
@@ -86,6 +153,10 @@
       <find>select</find>
       <find>Structure de la table</find>
       <find>$resu</find>
+      <find>text-tran</find>
+      <find>right</find>
+      <find>h5</find>
+      <find>center</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -94,57 +165,57 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/model/admin/showSubjects.php" />
-        <option value="$PROJECT_DIR$/model/admin/showUsers.php" />
-        <option value="$PROJECT_DIR$/_config/conf_db.php" />
-        <option value="$PROJECT_DIR$/_config/config.php" />
-        <option value="$PROJECT_DIR$/controleur/admin/genereLivret/autresInformationsUtiles.php" />
-        <option value="$PROJECT_DIR$/controleur/admin/genereLivret/exemple_livret.php" />
-        <option value="$PROJECT_DIR$/controleur/admin/genereLivret/header_footer.php" />
-        <option value="$PROJECT_DIR$/controleur/admin/genereLivret/page_de_garde.php" />
-        <option value="$PROJECT_DIR$/controleur/admin/genereLivret/tableau_livret.php" />
-        <option value="$PROJECT_DIR$/controleur/commun.func.php" />
-        <option value="$PROJECT_DIR$/model/admin/addFormation.php" />
-        <option value="$PROJECT_DIR$/model/admin/addUser.php" />
-        <option value="$PROJECT_DIR$/model/commun/DataObject.class.php" />
-        <option value="$PROJECT_DIR$/model/enseignant/aff_suggestion.php" />
-        <option value="$PROJECT_DIR$/model/enseignant/assync_suggestion.php" />
-        <option value="$PROJECT_DIR$/model/enseignant/groupes.php" />
-        <option value="$PROJECT_DIR$/model/enseignant/suggestion.php" />
-        <option value="$PROJECT_DIR$/model/login/activeAccount.php" />
-        <option value="$PROJECT_DIR$/model/login/login.php" />
-        <option value="$PROJECT_DIR$/model/responsable_pedagogique/aff_suggestion.php" />
-        <option value="$PROJECT_DIR$/model/responsable_pedagogique/assync.loadFile.php" />
-        <option value="$PROJECT_DIR$/model/responsable_pedagogique/assync_suggestion.php" />
-        <option value="$PROJECT_DIR$/model/responsable_pedagogique/exportFormation.php" />
-        <option value="$PROJECT_DIR$/model/responsable_pedagogique/groupes.php" />
-        <option value="$PROJECT_DIR$/model/responsable_pedagogique/suggestion.php" />
-        <option value="$PROJECT_DIR$/vue/admin/body/forms.php" />
-        <option value="$PROJECT_DIR$/vue/responsable_pedagogique/exportFormation.php" />
-        <option value="$PROJECT_DIR$/vue/enseignant/body/titre.php" />
-        <option value="$PROJECT_DIR$/vue/responsable_pedagogique/body/titre.php" />
-        <option value="$PROJECT_DIR$/vue/admin/editFormation.php" />
-        <option value="$PROJECT_DIR$/model/admin/genererLivret.php" />
-        <option value="$PROJECT_DIR$/vue/admin/body/menu_left.php" />
-        <option value="$PROJECT_DIR$/controleur/admin/choix_export_formation.php" />
-        <option value="$PROJECT_DIR$/vue/admin/genererLivret.php" />
-        <option value="$PROJECT_DIR$/vue/admin/showSubjects.php" />
-        <option value="$PROJECT_DIR$/controleur/admin/choixexportFormation.php" />
-        <option value="$PROJECT_DIR$/model/admin/choixexportFormation.php" />
         <option value="$PROJECT_DIR$/model/admin/exportFormation.php" />
         <option value="$PROJECT_DIR$/controleur/admin/addGroupe.php" />
-        <option value="$PROJECT_DIR$/vue/admin/exportFormation.php" />
         <option value="$PROJECT_DIR$/controleur/admin/exportFormation.php" />
         <option value="$PROJECT_DIR$/controleur/admin/editFormation.php" />
-        <option value="$PROJECT_DIR$/vue/admin/choixexportFormation.php" />
         <option value="$PROJECT_DIR$/controleur/enseignant/assync_suggestion.php" />
-        <option value="$PROJECT_DIR$/_config/conf_var.php" />
         <option value="$PROJECT_DIR$/controleur/enseignant/aff_suggestion.php" />
         <option value="$PROJECT_DIR$/livret (9).sql" />
         <option value="$PROJECT_DIR$/vue/enseignant/aff_suggestion.php" />
         <option value="$PROJECT_DIR$/vue/responsable_pedagogique/accueil.php" />
         <option value="$PROJECT_DIR$/vue/admin/accueil.php" />
         <option value="$PROJECT_DIR$/vue/enseignant/accueil.php" />
+        <option value="$PROJECT_DIR$/_config/conf_var.php" />
+        <option value="$PROJECT_DIR$/vue/template/dist/css/style.css" />
+        <option value="$PROJECT_DIR$/vue/admin/body/setting.php" />
+        <option value="$PROJECT_DIR$/vue/admin/body/menu_right.php" />
+        <option value="$PROJECT_DIR$/vue/admin/body/_body.php" />
+        <option value="$PROJECT_DIR$/vue/admin/addUser.php" />
+        <option value="$PROJECT_DIR$/vue/admin/showFormations.php" />
+        <option value="$PROJECT_DIR$/vue/template/foot.php" />
+        <option value="$PROJECT_DIR$/vue/admin/createProjet.php" />
+        <option value="$PROJECT_DIR$/vue/admin/editGroupe.php" />
+        <option value="$PROJECT_DIR$/vue/admin/editUser.php" />
+        <option value="$PROJECT_DIR$/vue/admin/showGroup.php" />
+        <option value="$PROJECT_DIR$/vue/admin/assync.changeSuggesStatus.php" />
+        <option value="$PROJECT_DIR$/vue/admin/assync.editProject.php" />
+        <option value="$PROJECT_DIR$/vue/admin/assync.loadDb.php" />
+        <option value="$PROJECT_DIR$/vue/admin/assync.loadOptions.php" />
+        <option value="$PROJECT_DIR$/vue/admin/assync.loadSuggest.php" />
+        <option value="$PROJECT_DIR$/vue/admin/assync.loadFile.php" />
+        <option value="$PROJECT_DIR$/vue/admin/assync.SelectableFormations.php" />
+        <option value="$PROJECT_DIR$/vue/admin/choixexportFormation.php" />
+        <option value="$PROJECT_DIR$/vue/admin/editFormation.php" />
+        <option value="$PROJECT_DIR$/vue/admin/exportFormation.php" />
+        <option value="$PROJECT_DIR$/vue/admin/genererLivret.php" />
+        <option value="$PROJECT_DIR$/vue/admin/importFormation.php" />
+        <option value="$PROJECT_DIR$/vue/admin/livret.php" />
+        <option value="$PROJECT_DIR$/vue/admin/loadProjet.php" />
+        <option value="$PROJECT_DIR$/vue/admin/modifInvariant.php" />
+        <option value="$PROJECT_DIR$/vue/admin/regChange.php" />
+        <option value="$PROJECT_DIR$/vue/admin/showGroups.php" />
+        <option value="$PROJECT_DIR$/vue/admin/showLivrets.php" />
+        <option value="$PROJECT_DIR$/vue/admin/showParticipants.php" />
+        <option value="$PROJECT_DIR$/vue/admin/showProjets.php" />
+        <option value="$PROJECT_DIR$/vue/admin/showSubjects.php" />
+        <option value="$PROJECT_DIR$/vue/admin/showSuggestion.php" />
+        <option value="$PROJECT_DIR$/vue/admin/showUsers.php" />
+        <option value="$PROJECT_DIR$/vue/admin/body/nav_bar.php" />
+        <option value="$PROJECT_DIR$/model/admin/showLivrets.php" />
+        <option value="$PROJECT_DIR$/vue/admin/body/menu_left.php" />
+        <option value="$PROJECT_DIR$/vue/template/index.html" />
+        <option value="$PROJECT_DIR$/vue/enseignant/body/forms.php" />
       </list>
     </option>
   </component>
@@ -154,12 +225,8 @@
     <detection-done>true</detection-done>
     <sorting>DEFINITION_ORDER</sorting>
   </component>
-  <component name="NodePackageJsonFileManager">
-    <packageJsonPaths />
-  </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="40" />
-    <option name="y" value="1" />
+    <option name="x" value="39" />
     <option name="width" value="1890" />
     <option name="height" value="930" />
   </component>
@@ -179,25 +246,7 @@
             <path>
               <item name="livret" type="b2602c69:ProjectViewProjectNode" />
               <item name="livret" type="462c0819:PsiDirectoryNode" />
-              <item name="controleur" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="livret" type="b2602c69:ProjectViewProjectNode" />
-              <item name="livret" type="462c0819:PsiDirectoryNode" />
               <item name="vue" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="livret" type="b2602c69:ProjectViewProjectNode" />
-              <item name="livret" type="462c0819:PsiDirectoryNode" />
-              <item name="vue" type="462c0819:PsiDirectoryNode" />
-              <item name="admin" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="livret" type="b2602c69:ProjectViewProjectNode" />
-              <item name="livret" type="462c0819:PsiDirectoryNode" />
-              <item name="vue" type="462c0819:PsiDirectoryNode" />
-              <item name="admin" type="462c0819:PsiDirectoryNode" />
-              <item name="body" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="livret" type="b2602c69:ProjectViewProjectNode" />
@@ -209,28 +258,14 @@
               <item name="livret" type="b2602c69:ProjectViewProjectNode" />
               <item name="livret" type="462c0819:PsiDirectoryNode" />
               <item name="vue" type="462c0819:PsiDirectoryNode" />
-              <item name="responsable_pedagogique" type="462c0819:PsiDirectoryNode" />
+              <item name="enseignant" type="462c0819:PsiDirectoryNode" />
+              <item name="body" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="livret" type="b2602c69:ProjectViewProjectNode" />
               <item name="livret" type="462c0819:PsiDirectoryNode" />
               <item name="vue" type="462c0819:PsiDirectoryNode" />
               <item name="template" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="livret" type="b2602c69:ProjectViewProjectNode" />
-              <item name="livret" type="462c0819:PsiDirectoryNode" />
-              <item name="vue" type="462c0819:PsiDirectoryNode" />
-              <item name="template" type="462c0819:PsiDirectoryNode" />
-              <item name="dist" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="livret" type="b2602c69:ProjectViewProjectNode" />
-              <item name="livret" type="462c0819:PsiDirectoryNode" />
-              <item name="vue" type="462c0819:PsiDirectoryNode" />
-              <item name="template" type="462c0819:PsiDirectoryNode" />
-              <item name="dist" type="462c0819:PsiDirectoryNode" />
-              <item name="css" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -239,7 +274,7 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="SearchEverywhereHistoryKey" value="livret&#9;FILE&#9;file://C:/wamp64/www/livret/model/admin/genererLivret.php&#10;gen&#9;FILE&#9;file://C:/wamp64/www/livret/vue/admin/genererLivret.php&#10;load&#9;FILE&#9;file://C:/wamp64/www/livret/vue/page_to_load.php&#10;sty&#9;FILE&#9;file://C:/wamp64/www/livret/vue/template/dist/css/style.css" />
+    <property name="SearchEverywhereHistoryKey" value="style&#9;FILE&#9;file://C:/wamp64/www/livret/vue/template/dist/css/style.css&#10;sty&#9;FILE&#9;file://C:/wamp64/www/livret/vue/template/dist/css/style.css&#10;livret&#9;FILE&#9;file://C:/wamp64/www/livret/model/admin/genererLivret.php&#10;gen&#9;FILE&#9;file://C:/wamp64/www/livret/vue/admin/genererLivret.php&#10;load&#9;FILE&#9;file://C:/wamp64/www/livret/vue/page_to_load.php" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
@@ -296,34 +331,37 @@
       <workItem from="1532592435520" duration="7461000" />
       <workItem from="1532621398595" duration="5342000" />
       <workItem from="1532687269562" duration="2178000" />
+      <workItem from="1532949611079" duration="161000" />
+      <workItem from="1532950714694" duration="3727000" />
+      <workItem from="1533120313311" duration="6848000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="135287000" />
+    <option name="totallyTimeSpent" value="146023000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1295" height="695" extended-state="6" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.21311475" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.22024292" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info id="Favorites" order="2" side_tool="true" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.32993197" />
+      <window_info anchor="bottom" id="Run" order="2" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Event Log" order="11" side_tool="true" />
-      <window_info anchor="right" id="Database" order="3" />
       <window_info anchor="bottom" id="Database Changes" order="8" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Version Control" order="10" />
-      <window_info anchor="bottom" id="Run" order="2" />
-      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Terminal" order="9" />
-      <window_info id="Favorites" order="2" side_tool="true" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
-      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="Version Control" order="10" />
+      <window_info anchor="bottom" id="Event Log" order="11" side_tool="true" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
-      <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.32993197" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="right" id="Database" order="3" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -332,331 +370,311 @@
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
   </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <option name="time" value="2" />
-    </breakpoint-manager>
-  </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/model/admin/genererLivret.php">
+    <entry file="file://$PROJECT_DIR$/vue/admin/loadProjet.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1837">
-          <caret line="140" column="55" lean-forward="true" selection-start-line="140" selection-start-column="55" selection-end-line="140" selection-end-column="55" />
+        <state relative-caret-position="198">
+          <caret line="11" column="17" selection-start-line="11" selection-start-column="14" selection-end-line="11" selection-end-column="47" />
+          <folding>
+            <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/vue/admin/livret.php">
+    <entry file="file://$PROJECT_DIR$/vue/admin/modifInvariant.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-197" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/controleur/admin/genereLivret/header.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-629" />
-      </provider>
-    </entry>
-    <entry file="jar://$APPLICATION_HOME_DIR$/plugins/php/lib/php.jar!/stubs/standard/standard_5.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="330">
-          <caret line="39" column="9" selection-start-line="39" selection-start-column="9" selection-end-line="39" selection-end-column="9" />
+        <state relative-caret-position="198">
+          <caret line="11" column="17" selection-start-line="11" selection-start-column="14" selection-end-line="11" selection-end-column="47" />
+          <folding>
+            <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/controleur/admin/livret.php">
+    <entry file="file://$PROJECT_DIR$/vue/admin/regChange.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="342">
-          <caret line="23" column="34" lean-forward="true" selection-start-line="23" selection-start-column="34" selection-end-line="23" selection-end-column="34" />
+        <state relative-caret-position="198">
+          <caret line="11" column="17" selection-start-line="11" selection-start-column="14" selection-end-line="11" selection-end-column="47" />
+          <folding>
+            <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/vue/admin/genererLivret.php">
+    <entry file="file://$PROJECT_DIR$/vue/admin/showFormations.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="249">
-          <caret line="49" column="75" selection-start-line="49" selection-start-column="75" selection-end-line="49" selection-end-column="75" />
+        <state relative-caret-position="162">
+          <caret line="82" column="26" selection-start-line="82" selection-start-column="20" selection-end-line="82" selection-end-column="26" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/model/admin/projet.class.php">
+    <entry file="file://$PROJECT_DIR$/vue/admin/showGroup.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1908">
-          <caret line="106" column="20" selection-start-line="106" selection-start-column="20" selection-end-line="106" selection-end-column="20" />
+        <state relative-caret-position="198">
+          <caret line="11" column="17" selection-start-line="11" selection-start-column="14" selection-end-line="11" selection-end-column="47" />
+          <folding>
+            <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vue/admin/showGroups.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="198">
+          <caret line="11" column="17" selection-start-line="11" selection-start-column="14" selection-end-line="11" selection-end-column="47" />
+          <folding>
+            <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vue/admin/showLivrets.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="162">
+          <caret line="15" column="38" selection-start-line="15" selection-start-column="32" selection-end-line="15" selection-end-column="38" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vue/admin/showParticipants.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="5" column="14" lean-forward="true" selection-start-line="5" selection-start-column="14" selection-end-line="5" selection-end-column="14" />
+          <folding>
+            <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vue/admin/showProjets.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-816">
+          <caret line="11" column="17" selection-start-line="11" selection-start-column="14" selection-end-line="11" selection-end-column="47" />
+          <folding>
+            <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/vue/admin/showSubjects.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="35" column="35" selection-start-line="35" selection-start-column="35" selection-end-line="35" selection-end-column="35" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/model/admin/choixexportFormation.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="126">
-          <caret line="12" column="5" lean-forward="true" selection-start-line="12" selection-start-column="5" selection-end-line="12" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/vue/responsable_pedagogique/exportFormation.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="288">
-          <caret line="100" column="33" lean-forward="true" selection-start-line="100" selection-start-column="33" selection-end-line="100" selection-end-column="33" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/model/responsable_pedagogique/exportFormation.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="36">
-          <caret line="2" column="6" selection-start-line="2" selection-start-column="6" selection-end-line="2" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/controleur/admin/choixexportFormation.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="162">
-          <caret line="9" column="2" lean-forward="true" selection-start-line="9" selection-start-column="2" selection-end-line="9" selection-end-column="2" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/controleur/responsable_pedagogique/exportFormation.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="72">
-          <caret line="4" column="45" lean-forward="true" selection-start-line="4" selection-start-column="45" selection-end-line="4" selection-end-column="45" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/model/admin/exportFormation.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="144">
-          <caret line="8" column="27" selection-start-line="8" selection-start-column="27" selection-end-line="8" selection-end-column="27" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/vue/page_to_load.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-453" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/controleur/admin/addGroupe.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="307">
-          <caret line="26" column="33" selection-start-line="26" selection-start-column="33" selection-end-line="26" selection-end-column="33" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/controleur/admin/addEc.php">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/controleur/admin/addFormation.php">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/controleur/responsable_pedagogique/aff_suggestion.php">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/vue/admin/exportFormation.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="17" column="9" selection-start-line="17" selection-start-column="9" selection-end-line="17" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/vue/admin/assync.editProject.php">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/controleur/admin/exportFormation.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="36">
-          <caret line="2" selection-start-line="2" selection-end-line="2" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/controleur/admin/editFormation.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="216">
-          <caret line="26" column="65" selection-start-line="26" selection-start-column="64" selection-end-line="26" selection-end-column="65" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/controleur/admin/index.php">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/controleur/admin/accueil.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="18">
-          <caret line="1" column="9" selection-start-line="1" selection-start-column="3" selection-end-line="1" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/livret (8).sql">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="18">
-          <caret line="21" selection-start-line="21" selection-end-line="22" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/jsLanguageServicesImpl/external/lib.dom.d.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="179">
-          <caret line="4195" column="4" selection-start-line="4195" selection-start-column="4" selection-end-line="4195" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/jsLanguageServicesImpl/external/lib.es5.d.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="186">
-          <caret line="120" column="4" selection-start-line="120" selection-start-column="4" selection-end-line="120" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/vue/admin/choixexportFormation.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-359">
-          <caret line="30" column="33" selection-start-line="30" selection-start-column="33" selection-end-line="30" selection-end-column="33" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/vue/responsable_pedagogique/aff_suggestion.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-521" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/controleur/enseignant/assync_suggestion.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="429">
-          <caret line="98" selection-start-line="98" selection-end-line="98" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/controleur/enseignant/aff_suggestion.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="252">
-          <caret line="14" column="14" lean-forward="true" selection-start-line="14" selection-start-column="14" selection-end-line="14" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/vue/enseignant/aff_suggestion.php">
-      <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="198">
-          <caret line="11" column="9" lean-forward="true" selection-start-line="11" selection-start-column="9" selection-end-line="11" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/livret (9).sql">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="216">
-          <caret line="2509" column="33" selection-start-line="2509" selection-start-column="33" selection-end-line="2509" selection-end-column="33" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/controleur/commun.user.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="162">
-          <caret line="9" column="64" lean-forward="true" selection-start-line="9" selection-start-column="64" selection-end-line="9" selection-end-column="64" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/vue/responsable_pedagogique/accueil.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="126">
-          <caret line="7" column="23" lean-forward="true" selection-start-line="7" selection-start-column="23" selection-end-line="7" selection-end-column="23" />
+          <caret line="11" column="17" selection-start-line="11" selection-start-column="14" selection-end-line="11" selection-end-column="47" />
           <folding>
-            <element signature="e#149#155#1#HTML" expanded="true" />
-            <element signature="e#415#421#1#HTML" expanded="true" />
-            <element signature="n#style#0;n#span#0;n#span#0;n#span#0;n#h3#1;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/vue/admin/accueil.php">
+    <entry file="file://$PROJECT_DIR$/vue/admin/showSuggestion.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="22" column="23" selection-start-line="22" selection-start-column="23" selection-end-line="22" selection-end-column="23" />
+        <state relative-caret-position="95">
+          <caret line="40" column="32" lean-forward="true" selection-start-line="40" selection-start-column="32" selection-end-line="40" selection-end-column="32" />
+          <folding>
+            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#a#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vue/admin/showUsers.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-4398">
+          <caret line="11" column="17" selection-start-line="11" selection-start-column="14" selection-end-line="11" selection-end-column="47" />
           <folding>
             <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="e#631#637#1#HTML" expanded="true" />
-            <element signature="e#896#902#1#HTML" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/vue/enseignant/accueil.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="126">
-          <caret line="7" column="23" selection-start-line="7" selection-start-column="23" selection-end-line="7" selection-end-column="23" />
+        <state>
           <folding>
-            <element signature="e#413#419#1#HTML" expanded="true" />
+            <element signature="n#style#0;n#h3#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#0;n#h3#0;n#!!top" expanded="true" />
+            <element signature="e#92#100#0#HTML" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/vue/admin/body/_body.php">
+    <entry file="file://$PROJECT_DIR$/vue/enseignant/assync_suggestion.php">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/vue/admin/body/_footer.php">
+    <entry file="file://$PROJECT_DIR$/vue/enseignant/aff_suggestion.php">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/vue/admin/body/forms.php">
+    <entry file="file://$PROJECT_DIR$/vue/enseignant/groupes.php">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/vue/template/dist/css/animate.css">
+    <entry file="file://$PROJECT_DIR$/vue/enseignant/showProjets.php">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vue/enseignant/suggestion.php">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vue/enseignant/showFormations.php">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vue/login/activeAccount.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="36">
-          <caret line="2" column="14" lean-forward="true" selection-start-line="2" selection-start-column="14" selection-end-line="2" selection-end-column="39" />
+        <state relative-caret-position="162">
+          <caret line="30" column="66" selection-start-line="30" selection-start-column="60" selection-end-line="30" selection-end-column="66" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/_config/conf_var.php">
+    <entry file="file://$PROJECT_DIR$/vue/login/askAccountToConnect.php">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vue/login/forgot-password.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-323">
-          <caret line="1" column="8" selection-start-line="1" selection-start-column="8" selection-end-line="1" selection-end-column="8" />
-        </state>
+        <state relative-caret-position="-528" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/vue/template/head.php">
+    <entry file="file://$PROJECT_DIR$/vue/login/forms.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-456" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vue/login/index.php">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vue/login/test.php">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vue/login/messages.php">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vue/login/login.php">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vue/responsable_pedagogique/suggestion.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="180">
-          <caret line="10" column="36" lean-forward="true" selection-start-line="10" selection-start-column="36" selection-end-line="10" selection-end-column="36" />
+          <caret line="30" column="19" selection-start-line="30" selection-start-column="19" selection-end-line="30" selection-end-column="19" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/vue/admin/body/loadProjet.php">
+    <entry file="file://$PROJECT_DIR$/vue/responsable_pedagogique/showFormations.php">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/vue/admin/body/menu_left.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="118" column="82" selection-start-line="118" selection-start-column="82" selection-end-line="118" selection-end-column="82" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/vue/admin/body/menu_right.php">
+    <entry file="file://$PROJECT_DIR$/vue/responsable_pedagogique/importFormation.php">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/vue/template/dist/css/style.css">
+    <entry file="file://$PROJECT_DIR$/vue/responsable_pedagogique/groupes.php">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vue/responsable_pedagogique/exportFormation.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="179">
-          <caret line="677" column="1" selection-start-line="677" selection-start-column="1" selection-end-line="677" selection-end-column="1" />
+        <state relative-caret-position="72">
+          <caret line="4" column="91" selection-start-line="4" selection-start-column="91" selection-end-line="4" selection-end-column="91" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/vue/admin/body/titre.php">
+    <entry file="file://$PROJECT_DIR$/vue/responsable_pedagogique/assync_suggestion.php">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vue/responsable_pedagogique/assync.loadFile.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="15" column="29" lean-forward="true" selection-start-line="15" selection-start-column="29" selection-end-line="15" selection-end-column="29" />
+        <state relative-caret-position="187">
+          <caret line="13" column="61" selection-start-line="13" selection-start-column="55" selection-end-line="13" selection-end-column="61" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vue/responsable_pedagogique/accueil.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
           <folding>
-            <element signature="n#style#0;n#div#1;n#div#0;n#div#0;n#div#1;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#h3#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#0;n#h3#0;n#!!top" expanded="true" />
+            <element signature="e#92#100#0#HTML" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/vue/admin/body/setting.php">
+    <entry file="file://$PROJECT_DIR$/vue/responsable_pedagogique/aff_suggestion.php">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/model/admin/projet.class.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="354">
+          <caret line="171" selection-start-line="171" selection-end-line="171" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/model/admin/showLivrets.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="72">
+          <caret line="4" column="94" lean-forward="true" selection-start-line="4" selection-start-column="94" selection-end-line="4" selection-end-column="94" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vue/responsable_pedagogique/assync.loadDb.php">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/vue/admin/body/nav_bar.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="18">
-          <caret line="1" column="26" lean-forward="true" selection-start-line="1" selection-start-column="26" selection-end-line="1" selection-end-column="26" />
+        <state relative-caret-position="1422">
+          <caret line="171" column="72" lean-forward="true" selection-start-line="171" selection-start-column="72" selection-end-line="171" selection-end-column="72" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vue/admin/body/menu_left.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="288">
+          <caret line="152" column="21" selection-start-line="152" selection-start-column="21" selection-end-line="152" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vue/template/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-7200">
+          <caret column="4" selection-start-column="4" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vue/template/head.php">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vue/enseignant/index.php">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vue/index.php">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vue/enseignant/body/_body.php">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vue/enseignant/body/forms.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-5616">
+          <caret line="12" column="45" selection-start-line="12" selection-start-column="45" selection-end-line="12" selection-end-column="45" />
+          <folding>
+            <element signature="n#style#0;n#span#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vue/enseignant/body/loadProjet.php">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vue/enseignant/body/menu_left.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1836">
+          <caret line="122" column="31" selection-start-line="122" selection-start-column="31" selection-end-line="122" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vue/enseignant/body/titre.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="10" column="30" lean-forward="true" selection-start-line="10" selection-start-column="30" selection-end-line="10" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vue/template/dist/css/style.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="260">
+          <caret line="526" lean-forward="true" selection-start-line="526" selection-end-line="526" />
         </state>
       </provider>
     </entry>

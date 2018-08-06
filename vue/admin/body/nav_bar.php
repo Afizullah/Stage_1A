@@ -179,7 +179,7 @@
                                             <a href=<?php echo $filelocation.$livrets[$i]['livret_nom'].".pdf"?> onclick="window.open(this.href); return false;">
                                                 <?php echo $livrets[$i]['livret_nom'].".pdf";?>
                                             </a>
-                                        <li>
+                                        </li>
                                         <?php
                                     }
                                     ?>
