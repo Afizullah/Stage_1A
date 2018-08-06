@@ -23,7 +23,8 @@
 											</a>
 										</div>
 										<div class="mb-30">
-											<h3 class="text-center txt-dark mb-10">Mot de passe oublié?</h3>
+											<h3 class="text-center txt-dark mb-10">Mot de passe oublié ?</br></h3>
+                                            <h6 class="text-center txt-grey mb-10">Saisissez l'adresse électronique utilisée lors de l'inscription.</h6>
 										</div>
 										<div class="form-wrap">
 											<form action="#">

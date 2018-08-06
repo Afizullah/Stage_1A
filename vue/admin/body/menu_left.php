@@ -33,7 +33,7 @@ function linkCreatProjet(){
                 <i class="zmdi zmdi-more"></i>
             </li>
             <li>
-                <a href="javascript:void(0);" data-toggle="collapse" data-target="#dashboard_dr1"><div class="pull-left"><i class="fa fa-user"></i><span class="right-nav-text">Gérer les comptes</span></div><div class="pull-right"><i class="zmdi zmdi-caret-down"></i></div><div class="clearfix"></div></a>
+                <a href="javascript:void(0);" data-toggle="collapse" data-target="#dashboard_dr1"><div class="pull-left"><i class="fa fa-user"></i><span class="right-nav-text">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Comptes</span></div><div class="pull-right"><i class="zmdi zmdi-caret-down"></i></div><div class="clearfix"></div></a>
                 <ul id="dashboard_dr1" class="collapse collapse-level-1">
                     <li>
                         <a href="index.php?page=addUser"><i class="fa fa-plus-circle"></i> Nouveau</a>

@@ -1,9 +1,8 @@
 <?php
-function getMsgActiveAccountFailled(){
+function getMsgActiveAccountFailled()
+{
     ?>
     Lien invalide ou inexistant
     <?php
 }
-
-
- ?>
+?>

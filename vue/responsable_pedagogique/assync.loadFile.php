@@ -12,7 +12,7 @@ function modalInfos($goodHeader){
           </div>
           <div class="modal-body">
                   <div class="lead" style="text-align: center;">
-                      Une feuille excel est correct lorsque sont entête contient les attributs suivants:<br />
+                      Une feuille excel est correcte lorsque son entête contient les attributs suivants:<br />
                   </div>
                   <?php
                   for ($i=0; $i < count($goodHeader) ; $i++) {
@@ -41,7 +41,7 @@ function modalWarning($formationName,$n){
           <div class="modal-body">
                   <div class="lead" style="text-align: center;">
                       La formation <?php echo $formationName; ?> est déja intégrée dans ce projet.<br />
-                      vous pouvez le selectionner si vous souhaitez la réinitialiser
+                      vous pouvez la sélectionner si vous souhaitez la réinitialiser
                   </div>
           </div>
           <div class="modal-footer">
@@ -104,10 +104,10 @@ if (isset($_FILES["excelFileSource"])) {
                 echo "<div style=\"color:red; text-align: center;\">Aucune formation detectée dans ce fichier " .getBtnHelp(). "</div>";
             }
         }else{
-            echo "<div style=\"color:red; text-align: center;\">Echec de la lecture du fichier </div>";
+            echo "<div style=\"color:red; text-align: center;\">Échec de la lecture du fichier </div>";
         }
     }else{
-        echo center("Veuillez selectionnez un fichier excel");
+        echo center("Veuillez sélectionnez un fichier excel");
     }
 }else{
     echo "<div style=\"color:red; text-align: center;\">Fichier non défini</div>";

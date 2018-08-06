@@ -8,7 +8,7 @@
 		<div class="wrapper pa-0">
 			<header class="sp-header">
 				<div class="sp-logo-wrap pull-left">
-					<a href="index.html">
+					<a href="index.php">
 						<img class="brand-img mr-10" src="<?php echo PATH_TEMPLATE; ?>dist/img/logo.png" alt="logo"/>
 						<span class="brand-text"><?php echo APP_NAME; ?></span>
 					</a>

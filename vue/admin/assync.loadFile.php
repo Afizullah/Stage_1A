@@ -95,7 +95,7 @@ if (isset($_FILES["excelFileSource"])) {
             if($formationsNames = $LoadedFile->getFormationsNames()){
                 $formationsNames=inter_formation($formationsNames,importForm::getNomNonPublie($projet_id));
                 if (!$formationsNames){
-                  die("<b style='color:red;'>Fichier invalide ou Le(s) livret(s) des formations que vous avez tenté d'importer est/sont déjà publié(s) </b>");
+                  die("<b style='color:red;'>Fichier invalide ou le(s) livret(s) des formations que vous avez tenté d'importer est/sont déjà publié(s) </b>");
                 }
                 $options = "<br /><div style=\"text-align: center;\"><i style='color:green' class='fa fa-2x fa-file-excel-o' aria-hidden='true'></i> Veuillez selection les formations à importer " .getBtnHelp(). "</div><br /><table class='table' celspacing='2'><tr>
                 <td style='width:100px'>
@@ -117,10 +117,10 @@ if (isset($_FILES["excelFileSource"])) {
                 echo "<div style=\"color:red; text-align: center;\">Aucune formation detectée dans ce fichier " .getBtnHelp(). "</div>";
             }
         }else{
-            echo "<div style=\"color:red; text-align: center;\">Echec de la lecture du fichier </div>";
+            echo "<div style=\"color:red; text-align: center;\">Échec de la lecture du fichier </div>";
         }
     }else{
-        echo center("Veuillez selectionnez un fichier excel");
+        echo center("Veuillez sélectionnez un fichier excel");
     }
 }else{
     echo "<div style=\"color:red; text-align: center;\">Fichier non défini</div>";

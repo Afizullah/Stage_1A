@@ -57,7 +57,7 @@ class MYPDF extends TCPDF
         $this->SetFont('helvetica', 'I', 10);
         $this->SetFillColor(255, 255, 255);
         // Page number
-        $this->Image(PATH_IMG . '/footer_bis.jpg', 178, $this->GetY(), 0, 12, 'JPEG', '', 'M', false, 300, '', false, false, 0, true, false, false, '');
+        $this->Image(PATH_IMG . '/footer_bis.jpg', 175, $this->GetY(), 0, 12, 'JPEG', '', 'M', false, 300, '', false, false, 0, true, false, false, '');
         $this->SetY($this->GetY() - 5);
         $this->SetX(-10);
         $this->SetTextColor(255, 255, 255);

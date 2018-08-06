@@ -9,8 +9,8 @@ function modalWarning($formationName,$n){
           </div>
           <div class="modal-body">
                   <div class="lead" style="text-align: center;">
-                      La formation <?php echo $formationName; ?> est déja intégrée dans ce projet.<br />
-                      vous pouvez le selectionner si vous souhaitez la réinitialiser
+                      La formation <?php echo $formationName; ?> est déjà intégrée dans ce projet.<br />
+                      vous pouvez la sélectionner si vous souhaitez la réinitialiser.
                   </div>
           </div>
           <div class="modal-footer">
@@ -65,10 +65,10 @@ if (isset($_POST["idProjectToImport"])) {
             }
             echo $options."</table>";
         }else{
-            echo center("<span style='color:red'>Aucune donnée trouvé dans ce projet</span>");
+            echo center("<span style='color:red'>Aucune donnée trouvée dans ce projet</span>");
         }
     }else{
-        echo center("<span style='color:red'>Aucune donnée trouvé dans ce projet</span>");
+        echo center("<span style='color:red'>Aucune donnée trouvée dans ce projet</span>");
     }
 }else{
     echo "<div style=\"color:red; text-align: center;\">Projet non défini</div>";

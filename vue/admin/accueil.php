@@ -43,8 +43,8 @@ if (defined("SESS_ADMIN_CONTROLER")) {
 </p>
 <p>&nbsp;</p>
 <p>
-    <span style="background-color: #2b2301; color: #fff; display: inline-block; padding: 3px 10px; font-weight: bold; border-radius: 5px;">Livret</span>&nbsp;
-    donne acc&egrave;s aux diff&eacute;rents invariants d'une formation.</p>
+    <span style="background-color: #2b2301; color: #fff; display: inline-block; padding: 3px 10px; font-weight: bold; border-radius: 5px;">Gérer les Livret</span>&nbsp;
+    donne acc&egrave;s aux diff&eacute;rents invariants d'une formation ainsi que la liste des livrets générés.</p>
 <p>&nbsp;</p>
 <p>Enfin, une fois les formations et le contenu des invariants arr&ecirc;t&eacute;s&nbsp; <span
             style="background-color: #2b2301; color: #fff; display: inline-block; padding: 3px 10px; font-weight: bold; border-radius: 5px;">G&eacute;n&eacute;rer un Livret<br/></span>&nbsp;
