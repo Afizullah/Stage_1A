@@ -32,6 +32,7 @@ define("MAP_PAGES", array(
     "exportFormation" => ["pageName" => "Exporter la formation"],
     "forgot-password" => ["pageName" => "Récupération du mot de passe"],
     "choixexportFormation" => ["pageName" =>  "Choix de la formation"],
+    "livret" => ["pageName" =>  "Livret généré"],
     "login" => ["pageName" =>  "Authentification"],
     "askAccountToConnect" => ["pageName" =>  "Comptes"],
     "aff_suggestion" => ["pageName" => "Liste des suggestions"],
